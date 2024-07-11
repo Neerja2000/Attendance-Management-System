@@ -1,52 +1,69 @@
-/*
-Template Name: Admin Template
-Author: Wrappixel
+document.addEventListener('DOMContentLoaded', function () {
+  "use strict";
 
-File: js
-*/
-// ==============================================================
-// Auto select left navbar
-// ==============================================================
-$(function () {
-    "use strict";
-    var url = window.location + "";
-    var path = url.replace(
-      window.location.protocol + "//" + window.location.host + "/",
-      ""
-    );
-    var element = $("ul#sidebarnav a").filter(function () {
-      return this.href === url || this.href === path; // || url.href.indexOf(this.href) === 0;
-    });
-    element.parentsUntil(".sidebar-nav").each(function (index) {
-      if ($(this).is("li") && $(this).children("a").length !== 0) {
-        $(this).children("a").addClass("active");
-        $(this).parent("ul#sidebarnav").length === 0
-          ? $(this).addClass("active")
-          : $(this).addClass("selected");
-      } else if (!$(this).is("ul") && $(this).children("a").length === 0) {
-        $(this).addClass("selected");
-      } else if ($(this).is("ul")) {
-        $(this).addClass("in");
+  // Function to handle active class for routerLink
+  function setActiveClass(url) {
+    var path = url.replace(window.location.protocol + "//" + window.location.host + "/", "");
+    document.querySelectorAll("ul#sidebarnav a").forEach(function (el) {
+      if (el.getAttribute("href") === url || el.getAttribute("href") === path) {
+        el.classList.add("active");
+        el.closest("li").classList.add("selected");
+        var parent = el.closest("ul#sidebarnav > li > a");
+        if (parent) {
+          parent.classList.add("active");
+          var nextUl = parent.nextElementSibling;
+          if (nextUl && nextUl.tagName === "UL") {
+            nextUl.classList.add("in");
+          }
+        }
       }
     });
-  
-    element.addClass("active");
-    $("#sidebarnav a").on("click", function (e) {
-      if (!$(this).hasClass("active")) {
-        // hide any open menus and remove all other classes
-        $("ul", $(this).parents("ul:first")).removeClass("in");
-        $("a", $(this).parents("ul:first")).removeClass("active");
-  
-        // open our new menu and add the open class
-        $(this).next("ul").addClass("in");
-        $(this).addClass("active");
-      } else if ($(this).hasClass("active")) {
-        $(this).removeClass("active");
-        $(this).parents("ul:first").removeClass("active");
-        $(this).next("ul").removeClass("in");
-      }
-    });
-    $("#sidebarnav >li >a.has-arrow").on("click", function (e) {
+  }
+
+  // Set initial active class
+  setActiveClass(window.location.href);
+
+  // Handle click events for routerLink
+  document.querySelectorAll("#sidebarnav a").forEach(function (el) {
+    el.addEventListener('click', function (e) {
       e.preventDefault();
+      var target = e.currentTarget;
+
+      // Remove active and in classes from all elements
+      document.querySelectorAll("ul#sidebarnav .in").forEach(function (ul) {
+        ul.classList.remove("in");
+      });
+      document.querySelectorAll("ul#sidebarnav .active, ul#sidebarnav .selected").forEach(function (a) {
+        a.classList.remove("active", "selected");
+      });
+
+      // Toggle the active class for the clicked element and its parent elements
+      if (!target.classList.contains("active")) {
+        target.classList.add("active");
+        target.closest("li").classList.add("selected");
+        var parent = target.closest("ul#sidebarnav > li > a");
+        if (parent) {
+          parent.classList.add("active");
+          var nextUl = parent.nextElementSibling;
+          if (nextUl && nextUl.tagName === "UL") {
+            nextUl.classList.add("in");
+          }
+        }
+      } else {
+        target.classList.remove("active");
+        target.closest("li").classList.remove("selected");
+        var parent = target.closest("ul#sidebarnav > li > a");
+        if (parent) {
+          parent.classList.remove("active");
+          var nextUl = parent.nextElementSibling;
+          if (nextUl && nextUl.tagName === "UL") {
+            nextUl.classList.remove("in");
+          }
+        }
+      }
+
+      // Navigate to the href location using routerLink
+      window.location.href = target.getAttribute("href");
     });
   });
+});
