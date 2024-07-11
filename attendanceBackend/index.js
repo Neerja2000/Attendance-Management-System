@@ -1,4 +1,5 @@
 const express=require('express')
+const db=require('./server/config/db')
 const app=express()
 app.listen(3000,(err)=>{
     if(err){
