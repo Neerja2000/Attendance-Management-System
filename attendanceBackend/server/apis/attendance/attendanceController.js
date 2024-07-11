@@ -6,7 +6,9 @@ const addAttendance=async(req,res)=>{
         check_in:req.body.check_in,
         break:req.body.break,
         check_out:req.body.check_out,
+        work_done:req.body.work_done,
         employeeId:req.body.employeeId
+        
     })
     newAttendance.save()
     .then((result)=>{
@@ -44,7 +46,7 @@ const getAll=(req,res)=>{
 }
 
 const getSingle=(req,res)=>{
-    attendance.findOne()
+    attendance.findOne({_id:req.body.id}).populate('employeeId')
     .then((result)=>{
         res.json({
             success:true,
@@ -61,4 +63,4 @@ const getSingle=(req,res)=>{
     })
 }
 
-module.exports={addAttendance,getAll}
+module.exports={addAttendance,getAll,getSingle}
