@@ -29,6 +29,26 @@ const addEmployee=async(req,res)=>{
         })
     })
 }
+
+const getAll=(req,res)=>{
+    Employee.find(req.body)
+    .then((result)=>{
+        res.json({
+            success:true,
+            status:200,
+            message:"Get All Employees",
+            data:result
+        })
+    })
+    .catch((err)=>{
+        res.json({
+            success:false,
+            status:400,
+            message:err
+        })
+    })
+}
+
 module.exports={
-    addEmployee
+    addEmployee,getAll
 }
