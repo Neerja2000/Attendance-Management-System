@@ -5,6 +5,6 @@ const addEmployeeController=require("../apis/employee/employeeController")
 router.post('/employee/add',addEmployeeController.addEmployee)
 router.get('/employee/getAll',addEmployeeController.getAll)
 router.get('/employee/getSingle',addEmployeeController.getSingle)
-
+router.put('/employee/update',addEmployeeController.update)
 
 module.exports=router

@@ -68,8 +68,63 @@ Employee.findOne({_id:req.body.id})
 })
 }
 
+const update=(req,res)=>{
+    let validation=""
+    if(!req.body.id)
+    validation="_id is required"
+    if(!!validation)
+    res.send({success:false,status:400,message:validation})
+else
+    Employee.findOne({_id:req.body._id})
+    .then((async result=>{
+    if(result==null)
+    res.json({
 
+        success:false,
+        status:400,
+        message:"no employee found"
+})
+else
+if(!!req.body.name)
+result.name=req.body.name
+if(!!req.body.email)
+    result.email=req.body.email
+if(!!req.body.phone)
+    result.phone=req.body.phone
+if(!!req.body.address)
+    result.address=req.body.address
+if(!!req.body.joining_date)
+    result.joining_date=req.body.joining_date
+if(!!req.body.salary)
+    result.salary=req.body.salary
+
+result.save()
+.then(updateRes=>{
+    res.json({
+        success:true,
+        status:200,
+        message:"Employee Updated Successfully",
+        data:updateRes
+    })
+})
+.catch(error=>{
+    res.json({
+        success:false,
+        status:400,
+        message:error.message
+    })
+})
+    }))
+
+    .catch(error=>{
+        res.json({
+            success:false,
+            status:400,
+            message:error.message
+        })
+    })
+}
 
 module.exports={
-    addEmployee,getAll,getSingle
+    addEmployee,getAll,getSingle,update
 }
