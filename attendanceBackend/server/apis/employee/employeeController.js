@@ -76,7 +76,7 @@ const update=(req,res)=>{
     res.send({success:false,status:400,message:validation})
 else
     Employee.findOne({_id:req.body.id})
-    .then((async result=>{
+    .then((result=>{
     if(result==null)
     res.json({
 
@@ -125,31 +125,44 @@ result.save()
     })
 }
 
-const remove=(req,res)=>{
-    let validation=""
-    if(!req.body.id)
-    validation="_id is required"
-    if(!!validation)
-    res.send({success:false,status:400,message:validation})
-else
-Employee.findOneAndDelete({id:req.body.id})
-result.save()
-.then((result)=>{
-    res.json({
-        success:true,
-        status:200,
-        message:"Employee Deleted Successfully",
-        data:result
-    })
-})
-.catch((error)=>{
-    res.json({
-        success:false,
-        status:400,
-        message:error.message
-    })
-})
-}
+const remove = (req, res) => {
+    let validation = "";
+    if (!req.body.id) {
+        validation = "_id is required";
+    }
+
+    if (validation) {
+        res.send({ success: false, status: 400, message: validation });
+    } else {
+        Employee.findOneAndDelete({ _id: req.body.id })
+            .then((result) => {
+                if (result == null) {
+                    res.json({
+                        success: false,
+                        status: 400,
+                        message: "No employee found"
+                    });
+                } else {
+                    res.json({
+                        success: true,
+                        status: 200,
+                        message: "Employee Deleted Successfully",
+                        data: result
+                    });
+                }
+            })
+            .catch((error) => {
+                res.json({
+                    success: false,
+                    status: 400,
+                    message: error.message
+                });
+            });
+    }
+};
+
+
+
 module.exports={
     addEmployee,getAll,getSingle,update,remove
 }
