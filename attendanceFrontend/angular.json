@@ -29,12 +29,14 @@
          
             ],
             "scripts": [
-               "src/assets/static/js/initTheme.js",
-              "src/assets/static/js/components/dark.js",
-              "src/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js",
-              "src/assets/compiled/js/app.js",
-              "src/assets/extensions/apexcharts/apexcharts.min.js",
-              "src/assets/static/js/pages/dashboard.js"
+             
+              "src/assets/libs/jquery/dist/jquery.min.js",
+              "src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/assets/js/sidebarmenu.js",
+              "src/assets/js/app.min.js",
+              "src/assets/libs/apexcharts/dist/apexcharts.min.js",
+              "src/assets/libs/simplebar/dist/simplebar.js",
+              "src/assets/js/dashboard.js"
             ]
           },
           "configurations": {
