@@ -10,7 +10,7 @@ router.put('/employee/update',employeeController.update)
 router.delete('/employee/delete',employeeController.remove)
 
 // attendance
-router.get("/attendance/getAll",employeeController.getAll)
+router.get("/attendance/getAll",attendanceController.getAll)
 
 
 module.exports=router
