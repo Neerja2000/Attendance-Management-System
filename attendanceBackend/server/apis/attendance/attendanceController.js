@@ -20,9 +20,27 @@ const addAttendance=async(req,res)=>{
         res.json({
             success:false,
             status:400,
-            message:err
+            message:err.message
         })
     })
 }
 
-module.exports={addAttendance}
+const getAll=(req,res)=>{
+    attendance.findOne()
+    .then((result)=>{
+        res.json({
+            success:true,
+            status:200,
+            message:"Attendance Loaded Successfully",
+            data:result
+        })
+    }).catch(err=>{
+        res.json({
+            success:false,
+            status:400,
+            message:err.message
+        })
+    })
+}
+
+module.exports={addAttendance,getAll}
