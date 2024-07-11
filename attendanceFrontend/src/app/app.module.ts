@@ -8,6 +8,10 @@ import { HeaderComponent } from './admin/layout/header/header.component';
 import { SidebarComponent } from './admin/layout/sidebar/sidebar.component';
 import { FooterComponent } from './admin/layout/footer/footer.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { ViewEmployeesComponent } from './admin/view-employees/view-employees.component';
+import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './admin/update-employee/update-employee.component';
+import { ViewAttendanceComponent } from './admin/view-attendance/view-attendance.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    ViewEmployeesComponent,
+    AddEmployeeComponent,
+    UpdateEmployeeComponent,
+    ViewAttendanceComponent
   ],
   imports: [
     BrowserModule,
