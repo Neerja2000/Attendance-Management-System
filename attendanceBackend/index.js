@@ -3,6 +3,8 @@ const db=require('./server/config/db')
 const app=express()
 const adminRoute=require("./server/routes/adminRoutes")
 
+app.use(express.urlencoded({extended:false}))
+app.use(express.json())
 
 app.use("/admin",adminRoute)
 
