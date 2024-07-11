@@ -75,7 +75,7 @@ const update=(req,res)=>{
     if(!!validation)
     res.send({success:false,status:400,message:validation})
 else
-    Employee.findOne({_id:req.body._id})
+    Employee.findOne({_id:req.body.id})
     .then((async result=>{
     if(result==null)
     res.json({
