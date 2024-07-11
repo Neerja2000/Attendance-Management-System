@@ -26,6 +26,24 @@ const addAttendance=async(req,res)=>{
 }
 
 const getAll=(req,res)=>{
+    attendance.find().populate('employeeId')
+    .then((result)=>{
+        res.json({
+            success:true,
+            status:200,
+            message:"Attendance Loaded Successfully",
+            data:result
+        })
+    }).catch(err=>{
+        res.json({
+            success:false,
+            status:400,
+            message:err.message
+        })
+    })
+}
+
+const getSingle=(req,res)=>{
     attendance.findOne()
     .then((result)=>{
         res.json({
