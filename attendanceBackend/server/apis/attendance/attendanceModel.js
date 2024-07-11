@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 
 const attendanceSchema = new mongoose.Schema({
-
+  AttendanceId:{
+    type:Number,
+    required:true
+  },
   employeeId: {
-    type: Number,
-    required: true
+   type:mongoose.Schema.Types.ObjectId,
+   Default:null,
+   ref:'employee'
   },
   check_in: {
     type: String,
