@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const attendanceSchema = new mongoose.Schema({
-  AttendanceId:{
-    type:Number,
-    required:true
+  AttendanceId: {
+    type: Number,
+    required: true
   },
   employeeId: {
-   type:mongoose.Schema.Types.ObjectId,
-   Default:null,
-   ref:'employee'
+    type: mongoose.Schema.Types.ObjectId,
+    default: null,
+    ref: 'employee'
   },
   check_in: {
     type: String,
@@ -22,21 +22,19 @@ const attendanceSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  work_done:{
-    type:String,
-    required:true
+  work_done: {
+    type: String,
+    required: true
   },
- 
-  createdAt:{
-    type:Date,
-    default:Date.now
-   
+  createdAt: {
+    type: Date,
+    default: Date.now
   },
-  status:{
-    type:Boolean,
-    default:true
+  status: {
+    type: String,
+    enum: ['absent', 'present', 'leave'],
+    default: 'present'
   }
- 
 });
 
 const Attendance = mongoose.model('attendance', attendanceSchema);
