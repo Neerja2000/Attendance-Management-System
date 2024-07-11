@@ -26,8 +26,16 @@
             ],
             "styles": [
               "src/styles.css"
+         
             ],
-            "scripts": []
+            "scripts": [
+               "src/assets/static/js/initTheme.js",
+              "src/assets/static/js/components/dark.js",
+              "src/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js",
+              "src/assets/compiled/js/app.js",
+              "src/assets/extensions/apexcharts/apexcharts.min.js",
+              "src/assets/static/js/pages/dashboard.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
