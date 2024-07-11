@@ -125,6 +125,31 @@ result.save()
     })
 }
 
+const remove=(req,res)=>{
+    let validation=""
+    if(!req.body.id)
+    validation="_id is required"
+    if(!!validation)
+    res.send({success:false,status:400,message:validation})
+else
+Employee.findOneAndDelete({id:req.body.id})
+result.save()
+.then((result)=>{
+    res.json({
+        success:true,
+        status:200,
+        message:"Employee Deleted Successfully",
+        data:result
+    })
+})
+.catch((error)=>{
+    res.json({
+        success:false,
+        status:400,
+        message:error.message
+    })
+})
+}
 module.exports={
-    addEmployee,getAll,getSingle,update
+    addEmployee,getAll,getSingle,update,remove
 }
