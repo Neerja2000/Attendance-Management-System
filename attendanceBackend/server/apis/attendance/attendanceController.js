@@ -63,4 +63,35 @@ const getSingle=(req,res)=>{
     })
 }
 
-module.exports={addAttendance,getAll,getSingle}
+const  changeStatus=(req,res)=>{
+    attendance.findByIdAndUpdate({_id:req.body.id})
+    .then((result)=>{
+        if(result==null)
+            res.json({
+                success:false,
+                status:400,
+                message:"Attendance Not Found"
+        })
+        else{
+            if(!!req.body.status)
+                result.status=req.body.status
+            result.save()
+            .then((result)=>{
+                res.json({
+                    success:true,
+                    status:200,
+                    message:"Status Changed",
+                    data:result
+                })
+            }).catch(err=>{
+                res.json({
+                    success:false,
+                    status:410,
+                    message:err.message
+                })
+            })
+        }
+    })
+}
+
+module.exports={addAttendance,getAll,getSingle,changeStatus}
