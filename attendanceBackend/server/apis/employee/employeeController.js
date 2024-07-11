@@ -31,7 +31,7 @@ const addEmployee=async(req,res)=>{
 }
 
 const getAll=(req,res)=>{
-    Employee.find(req.body)
+    Employee.find()
     .then((result)=>{
         res.json({
             success:true,
@@ -48,7 +48,28 @@ const getAll=(req,res)=>{
         })
     })
 }
+const getSingle=(req,res)=>{
+  
+Employee.findOne({_id:req.body.id})
+.then((result)=>{
+    res.json({
+        success:true,
+        status:200,
+        message:" Single Employee Loaded",
+        data:result
+    })
+})
+.catch((err)=>{
+    res.json({
+        success:false,
+        status:400,
+        message:err
+    })
+})
+}
+
+
 
 module.exports={
-    addEmployee,getAll
+    addEmployee,getAll,getSingle
 }
