@@ -11,10 +11,12 @@ import { EmployeeService } from 'src/app/shared/employee/employee.service';
 export class AddEmployeeComponent implements OnInit{
   addEmployee=new FormGroup({
     "name":new FormControl(''),
+    "gender":new FormControl(''),
     "email":new FormControl(''),
     "phone":new FormControl(''),
     'address':new FormControl(''),
     "joining_date":new FormControl(''),
+    "experience":new FormControl(''),
     "salary":new FormControl('')
   })
   ngOnInit(): void {

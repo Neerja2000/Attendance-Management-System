@@ -23,6 +23,19 @@
                                     </div>
                                     <div class="col-12 mt-4">
                                       <div class="form-group">
+                                        <label for="gender-icon">Gender</label>
+                                        <div class="input-group has-validation">
+                                          <span class="input-group-text"><i class="bi bi-gender-ambiguous"></i></span>
+                                          <select formControlName="gender" id="gender-icon" class="form-control">
+                                            <option value="" disabled selected>Select Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                      <div class="form-group">
                                         <label for="email-id-icon">Email</label>
                                         <div class="input-group has-validation">
                                           <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
@@ -54,6 +67,15 @@
                                         <div class="input-group has-validation">
                                           <span class="input-group-text"><i class="bi bi-calendar-event-fill"></i></span>
                                           <input type="date" class="form-control" formControlName="joining_date" id="date-id-icon">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                      <div class="form-group">
+                                        <label for="experience">Experience</label>
+                                        <div class="input-group has-validation">
+                                          <span class="input-group-text"><i class="bi bi-info-circle-fill"></i></span>
+                                          <input type="text" class="form-control" placeholder="Experience" formControlName="experience" id="experience">
                                         </div>
                                       </div>
                                     </div>

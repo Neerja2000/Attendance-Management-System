@@ -12,11 +12,14 @@ export class UpdateEmployeeComponent implements OnInit {
   updateEmployee = new FormGroup({
     id: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
+    gender:new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required]),
     joining_date: new FormControl('', [Validators.required]),
+    experience: new FormControl('', [Validators.required]),
     salary: new FormControl('', [Validators.required]),
+
   });
 
   errorMessage: string | null = null;
@@ -47,11 +50,13 @@ export class UpdateEmployeeComponent implements OnInit {
           const result = res.data;
           this.updateEmployee.patchValue({
             name: result.name || '',
+            gender:result.gender||'',
             email: result.email || '',
             phone: result.phone || '',
             address: result.address || '',
             joining_date: result.joining_date || '',
-            salary: result.salary || ''
+            experience:result.experience||'',
+            salary: result.salary || '',
           });
         } else {
           console.error('Invalid response data:', res);

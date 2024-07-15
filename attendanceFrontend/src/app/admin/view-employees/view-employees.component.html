@@ -12,9 +12,11 @@
               <tr>
                 <th>SrNo.</th>
                 <th>Name</th>
+                <th>Gender</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Address</th>
+                <th>Experience</th>
                 <th>Salary</th>
                 <th>Action</th>
               </tr>
@@ -23,9 +25,11 @@
               <tr *ngFor="let detail of employees; let i = index">
                 <td>{{i+1}}</td>
                 <td>{{ detail.name }}</td>
+                <td>{{detail.gender}}</td>
                 <td>{{ detail.email }}</td>
                 <td>{{ detail.phone }}</td>
                 <td>{{ detail.address }}</td>
+                <td>{{detail.experience}}</td>
                 <td>{{ detail.salary }}</td>
               
                 <td>

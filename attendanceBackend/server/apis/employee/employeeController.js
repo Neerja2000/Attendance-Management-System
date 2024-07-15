@@ -9,7 +9,9 @@ const addEmployee=async(req,res)=>{
         phone:req.body.phone,
         address:req.body.address,
         joining_date:req.body.joining_date,
-        salary:req.body.salary
+        salary:req.body.salary,
+        experience:req.body.experience,
+        gender:req.body.gender
     })
     newEmployee.save()
     .then((result)=>{
@@ -104,6 +106,11 @@ if(!!req.body.joining_date)
     result.joining_date=req.body.joining_date
 if(!!req.body.salary)
     result.salary=req.body.salary
+if(!!req.body.experience)
+    result.experience=req.body.experience
+if(!!req.body.gender)
+    result.gender=req.body.gender
+
 
 result.save()
 .then(updateRes=>{

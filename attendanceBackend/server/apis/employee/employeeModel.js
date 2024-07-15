@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const employeeSchema = new mongoose.Schema({
-    employeeId:{
-        type:Number,
-        required:true
-    },
+  employeeId: {
+    type: Number,
+    required: true
+  },
   name: {
     type: String,
     required: true
@@ -29,16 +29,24 @@ const employeeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  createdAt:{
-    type:Date,
-    default:Date.now
-   
+  experience: {
+    type: String,
+    required: true
   },
-  status:{
-    type:Boolean,
-    default:true
+  gender: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+
+  },
+  status: {
+    type: Boolean,
+    default: true
   }
- 
+
 });
 
 const Employee = mongoose.model('employee', employeeSchema);
