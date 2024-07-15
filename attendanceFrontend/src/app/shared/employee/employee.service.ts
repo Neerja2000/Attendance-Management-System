@@ -29,4 +29,8 @@ getSingleEmployee(params: { id: string }): Observable<any> {
 updateEmployeeapi( data: any): Observable<any> {
   return this.http.put<any>(`${this.globalbaseurl}/employee/update`, data);
 }
+deleteEmployeeapi(id: string): Observable<any> {
+  return this.http.delete(`${this.globalbaseurl}/employee/delete?id=${id}`);
+}
+
 }

@@ -26,5 +26,19 @@ export class ViewEmployeesComponent implements OnInit {
       }
     );
   }
+   
+  delete(_id: string) {
+    if (confirm('Are you sure you want to delete this employee?')) {
+      this.employeeService.deleteEmployeeapi(_id).subscribe(
+        (res: any) => {
+          // Remove the deleted employee from the employees array
+          this.employees = this.employees.filter(employee => employee._id !== _id);
+        },
+        (error: any) => {
+          console.error('Error:', error);
+        }
+      );
+    }
+  }
 
 }
