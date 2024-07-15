@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AttendanceService } from 'src/app/shared/attendance/attendance.service';
 
 @Component({
@@ -7,29 +8,37 @@ import { AttendanceService } from 'src/app/shared/attendance/attendance.service'
   styleUrls: ['./view-attendance-details.component.css']
 })
 export class ViewAttendanceDetailsComponent {
-  attendance: any[] = [];
-  paginatedAttendance: any[] = [];
+  attendance: any[] = []; // This will hold all attendance records
+  paginatedAttendance: any[] = []; // This will hold the currently displayed page of attendance records
   currentPage: number = 1;
   itemsPerPage: number = 15;
   totalPages: number = 0;
 
-  constructor(private attService: AttendanceService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private attService: AttendanceService
+  ) {}
 
   ngOnInit(): void {
-    this.getAllAttendance();
-  }
-
-  getAllAttendance() {
-    this.attService.getAttendance().subscribe({
-      next: (res: any) => {
-        this.attendance = res.data;
-        this.totalPages = Math.ceil(this.attendance.length / this.itemsPerPage);
-        this.updatePagination();
-      },
-      error: (error: any) => {
-        console.error('Error fetching attendance data', error);
+    this.route.paramMap.subscribe(params => {
+      const attendanceId = params.get('id');
+      if (attendanceId) {
+        this.getAttendanceDetail(attendanceId);
       }
     });
+  }
+
+  getAttendanceDetail(id: string) {
+    this.attService.getEmployeeAttendance(id).subscribe(
+      (res: any) => {
+        this.attendance = res.data; // Assign all attendance data
+        this.totalPages = Math.ceil(this.attendance.length / this.itemsPerPage); // Calculate total pages
+        this.updatePagination(); // Update paginatedAttendance based on currentPage
+      },
+      (error: any) => {
+        console.error('Error fetching attendance details:', error);
+      }
+    );
   }
 
   updatePagination() {
@@ -53,10 +62,8 @@ export class ViewAttendanceDetailsComponent {
   }
 
   filterByMonth(month: string) {
-    // Implement filtering logic based on selected month
+    // Implement filtering logic based on selected month if needed
     console.log('Filter by month:', month);
-    // Example logic: Filter attendance data based on selected month
-    // Replace with actual filtering logic based on your data structure
-    // this.paginatedAttendance = this.attendance.filter(item => item.date.getMonth() === selectedMonthIndex);
   }
 }
+

@@ -31,7 +31,7 @@ const routes: Routes = [
       path:'view-attendance',component:ViewAttendanceComponent
     },
     {
-      path:'view-attendance-details',component:ViewAttendanceDetailsComponent
+      path:'view-attendance-details/:id',component:ViewAttendanceDetailsComponent
     }
   ]
   }

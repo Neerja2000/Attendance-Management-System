@@ -24,32 +24,32 @@
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
-                        <tr>
-                            <th>Sr No.</th>
-                            <th>Date</th>
-                            <th>Check-In</th>
-                            <th>Break</th>
-                            <th>Check-Out</th>
-                            <th>Work Done</th>
-                            <th>Status</th>
-                        </tr>
+                      <tr>
+                        <th>Sr No.</th>
+                        <th>Date and time</th>
+                        <th>Check-In</th>
+                        <th>Break</th>
+                        <th>Check-Out</th>
+                        <th>Work Done</th>
+                        <th>Attendance</th>
+                      </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let detail of paginatedAttendance; let i = index">
-                            <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
-                            <td>{{ detail.date }}</td>
-                            <td>{{ detail.check_in }}</td>
-                            <td>{{ detail.break }}</td>
-                            <td>{{ detail.check_out }}</td>
-                            <td>{{ detail.work_done }}</td>
-                            <td>
-                                <span class="badge" [ngClass]="{'bg-success': detail.status === 'Present', 'bg-danger': detail.status !== 'Present'}">
-                                  {{ detail.status }}
-                                </span>
-                            </td>
-                        </tr>
+                      <tr *ngFor="let detail of paginatedAttendance; let i = index">
+                        <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+                        <td>{{ detail.createdAt | date:'short' }}</td> <!-- Adjust date format as per your data -->
+                        <td>{{ detail.check_in }}</td>
+                        <td>{{ detail.break }}</td>
+                        <td>{{ detail.check_out }}</td>
+                        <td>{{ detail.work_done }}</td>
+                        <td>
+                          <span class="badge" [ngClass]="{'bg-success': detail.status === 'present', 'bg-danger': detail.status !== 'present'}">
+                            {{ detail.status }}
+                          </span>
+                        </td>
+                      </tr>
                     </tbody>
-                </table>
+                  </table>
                 <div class="d-flex justify-content-between mt-3">
                     <button class="btn btn-primary" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
                     <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>

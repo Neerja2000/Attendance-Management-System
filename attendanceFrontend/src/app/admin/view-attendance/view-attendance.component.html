@@ -15,7 +15,7 @@
                             <th>Check-In</th>
                             <th>Break</th>
                             <th>Check-Out</th>
-                            
+
                             <th>Work-Done</th>
                             <th>Status</th>
                             <th>View More Details</th>
@@ -35,7 +35,8 @@
                               <span class="badge bg-danger" *ngIf="detail.status !== 'present'">{{ detail.status }}</span>
                             </td>
                             <td>
-                                <button class="btn btn-success" routerLink="/admin/layout/view-attendance-details">View Details</button>
+                            <button class="btn btn-success" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeId._id]">View Details</button>
+
 
                             </td>
                           </tr>
