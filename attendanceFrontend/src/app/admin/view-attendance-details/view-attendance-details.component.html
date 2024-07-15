@@ -6,7 +6,7 @@
                   View Attendance
                 </h5>
             </div>
-            <div class="card-body" >
+            <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
@@ -17,29 +17,30 @@
                             <th>Check-Out</th>
                             <th>Work Done</th>
                             <th>Status</th>
-                           
                         </tr>
                     </thead>
                     <tbody>
-                        <tr >
-                            <td>1</td>
-                            <td>98</td>
-                            <td>6</td>
-                            <td>4</td>
-                            <td>ghgh</td>
-                            <td>2</td>
-                           
+                        <tr *ngFor="let detail of paginatedAttendance; let i = index">
+                            <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+                            <td>{{ detail.date }}</td>
+                            <td>{{ detail.check_in }}</td>
+                            <td>{{ detail.break }}</td>
+                            <td>{{ detail.check_out }}</td>
+                            <td>{{ detail.work_done }}</td>
                             <td>
-                              
-                              <span class="badge bg-danger">jj</span>
+                                <span class="badge" [ngClass]="{'bg-success': detail.status === 'Present', 'bg-danger': detail.status !== 'Present'}">
+                                  {{ detail.status }}
+                                </span>
                             </td>
-                           
-                          </tr>
-
+                        </tr>
+                        
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-between mt-3">
+                    <button class="btn btn-primary" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+                    <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+                </div>
             </div>
         </div>
-
     </section>
 </div>
