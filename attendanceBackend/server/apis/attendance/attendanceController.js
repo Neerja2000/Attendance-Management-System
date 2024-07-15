@@ -154,7 +154,7 @@ const changeStatus = (req, res) => {
                         date: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } },
                         employeeId: "$employeeId"
                     },
-                    totalCheckIns: { $sum: 1 },
+                  
                     attendances: { $push: "$$ROOT" }
                 }
             },

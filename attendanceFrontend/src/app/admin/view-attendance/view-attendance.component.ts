@@ -13,12 +13,13 @@ attendance:any[]=[]
 
   }
   ngOnInit(): void {
-    this.getAllAttendance()
+    this.getTodayAttendance()
   }
  
-  getAllAttendance() {
-    this.attService.getAttendance().subscribe(
+  getTodayAttendance() {
+    this.attService.getTodayAttendance().subscribe(
       (res: any) => {
+        console.log('Attendance data:', res.data);  // Log fetched data
         this.attendance = res.data;
       },
       (error: any) => {

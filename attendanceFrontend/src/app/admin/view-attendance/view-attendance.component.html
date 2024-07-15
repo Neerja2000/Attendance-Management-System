@@ -1,50 +1,45 @@
 <div class="container-fluid mt-5">
     <section class="section">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">
-                  View Attendance
-                </h5>
-            </div>
-            <div class="card-body" >
-                <table class="table table-striped" id="table1">
-                    <thead>
-                        <tr>
-                            <th>Sr No.</th>
-                            <th>Name Of Employees</th>
-                            <th>Check-In</th>
-                            <th>Break</th>
-                            <th>Check-Out</th>
-
-                            <th>Work-Done</th>
-                            <th>Status</th>
-                            <th>View More Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let detail of attendance; let i = index">
-                            <td>{{ i + 1 }}</td>
-                            <td>{{ detail.employeeId.name }}</td>
-                            <td>{{ detail.check_in }}</td>
-                            <td>{{ detail.break }}</td>
-                            <td>{{ detail.check_out }}</td>
-                            <td>{{detail.work_done}}</td>
-                           
-                            <td>
-                              <span class="badge bg-success"  *ngIf="detail.status === 'present'">Present</span>
-                              <span class="badge bg-danger" *ngIf="detail.status !== 'present'">{{ detail.status }}</span>
-                            </td>
-                            <td>
-                            <button class="btn btn-success" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeId._id]">View Details</button>
-
-
-                            </td>
-                          </tr>
-
-                    </tbody>
-                </table>
-            </div>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">
+            View Attendance
+          </h5>
         </div>
-
+        <div class="card-body">
+          <table class="table table-striped" id="table1">
+            <thead>
+              <tr>
+                <th>Sr No.</th>
+                <th>Name Of Employees</th>
+                <th>Check-In</th>
+                <th>Break</th>
+                <th>Check-Out</th>
+                <th>Work-Done</th>
+                <th>Status</th>
+                <th>View More Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detail of attendance; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ detail.employeeId.name }}</td>
+                <td>{{ detail.check_in }}</td>
+                <td>{{ detail.break }}</td>
+                <td>{{ detail.check_out }}</td>
+                <td>{{ detail.work_done }}</td>
+                <td>
+                  <span class="badge bg-success" *ngIf="detail.status === 'present'">Present</span>
+                  <span class="badge bg-danger" *ngIf="detail.status !== 'present'">{{ detail.status }}</span>
+                </td>
+                <td>
+                  <button class="btn btn-success" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeId._id]">View Details</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
-</div>
+  </div>
+  

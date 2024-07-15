@@ -12,10 +12,13 @@ export class AttendanceService {
    {
     this.globalbaseurl=_baseurl
     }
-    getAttendance(){
-      return this.http.get(this.globalbaseurl+'/attendance/getAll')
-    }
+    // getAttendance(){
+    //   return this.http.get(this.globalbaseurl+'/attendance/getAll')
+    // }
     getEmployeeAttendance(employeeId: string): Observable<any> {
       return this.http.get<any>(`${this.globalbaseurl}/attendance/getEmployee?id=${employeeId}`);
+    }
+    getTodayAttendance(): Observable<any> {
+      return this.http.get(this.globalbaseurl+'/attendance/today');
     }
 }
