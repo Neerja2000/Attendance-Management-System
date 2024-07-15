@@ -137,7 +137,7 @@ const changeStatus = (req, res) => {
         const now = new Date();
         const startOfDay = new Date(now.setHours(0, 0, 0, 0)); // Start of today
         const endOfDay = new Date(now.setHours(23, 59, 59, 999)); // End of today
-
+  
         // Build the aggregation pipeline
         const pipeline = [
             {
@@ -149,12 +149,22 @@ const changeStatus = (req, res) => {
                 }
             },
             {
+                $lookup: {
+                    from: 'employees', // Collection name for employee data
+                    localField: 'employeeId',
+                    foreignField: '_id',
+                    as: 'employeeDetails'
+                }
+            },
+            {
+                $unwind: '$employeeDetails'
+            },
+            {
                 $group: {
                     _id: {
                         date: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } },
                         employeeId: "$employeeId"
                     },
-                  
                     attendances: { $push: "$$ROOT" }
                 }
             },
@@ -162,16 +172,16 @@ const changeStatus = (req, res) => {
                 $sort: { "_id.date": 1, "_id.employeeId": 1 } // Optional: Sort by date and employeeId
             }
         ];
-
+  
         const result = await attendance.aggregate(pipeline);
-
+  
         res.json({
             success: true,
             status: 200,
             message: "Today's attendance loaded successfully",
             data: result
         });
-
+  
     } catch (err) {
         res.json({
             success: false,
@@ -179,7 +189,8 @@ const changeStatus = (req, res) => {
             message: err.message
         });
     }
-};
+  };
+  
 
 
 module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance,getTodayAttendance}

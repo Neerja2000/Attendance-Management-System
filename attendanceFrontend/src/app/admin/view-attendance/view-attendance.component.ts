@@ -19,8 +19,8 @@ attendance:any[]=[]
   getTodayAttendance() {
     this.attService.getTodayAttendance().subscribe(
       (res: any) => {
-        console.log('Attendance data:', res.data);  // Log fetched data
-        this.attendance = res.data;
+        console.log('Attendance data:', res.data); // Log fetched data
+        this.attendance = res.data.flatMap((group: any) => group.attendances); // Flatten the attendance array
       },
       (error: any) => {
         console.error('Error:', error);
