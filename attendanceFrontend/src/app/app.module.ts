@@ -13,7 +13,8 @@ import { AddEmployeeComponent } from './admin/add-employee/add-employee.componen
 import { UpdateEmployeeComponent } from './admin/update-employee/update-employee.component';
 import { ViewAttendanceComponent } from './admin/view-attendance/view-attendance.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/view-attendance-details.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {HttpClientModule} from '@angular/common/http'
     ViewEmployeesComponent,
     AddEmployeeComponent,
     UpdateEmployeeComponent,
-    ViewAttendanceComponent
+    ViewAttendanceComponent,
+    ViewAttendanceDetailsComponent
   ],
   imports: [
     BrowserModule,
