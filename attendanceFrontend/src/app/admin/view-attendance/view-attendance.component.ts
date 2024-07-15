@@ -8,7 +8,7 @@ import { AttendanceService } from 'src/app/shared/attendance/attendance.service'
 })
 export class ViewAttendanceComponent implements OnInit {
 attendance:any[]=[]
-
+date: string = '';
   constructor(private attService:AttendanceService){
 
   }

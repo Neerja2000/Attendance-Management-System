@@ -3,7 +3,7 @@
       <div class="card">
         <div class="card-header">
           <h5 class="card-title">
-            View Attendance
+            View Attendance{{date}}
           </h5>
         </div>
         <div class="card-body">
@@ -23,7 +23,7 @@
             <tbody>
               <tr *ngFor="let detail of attendance; let i = index">
                 <td>{{ i + 1 }}</td>
-                <td>{{ detail.employeeDetails.name }}</td>
+                <td>{{ detail.employeeId.name }}</td>
                 <td>{{ detail.check_in }}</td>
                 <td>{{ detail.break }}</td>
                 <td>{{ detail.check_out }}</td>
@@ -33,7 +33,7 @@
                   <span class="badge bg-danger" *ngIf="detail.status !== 'present'">{{ detail.status }}</span>
                 </td>
                 <td>
-                  <button class="btn btn-success" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeDetails._id]">View Details</button>
+                  <button class="btn btn-success" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeId._id]">View Details</button>
                 </td>
               </tr>
             </tbody>

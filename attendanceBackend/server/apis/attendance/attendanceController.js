@@ -153,11 +153,11 @@ const changeStatus = (req, res) => {
                     from: 'employees', // Collection name for employee data
                     localField: 'employeeId',
                     foreignField: '_id',
-                    as: 'employeeDetails'
+                    as: 'employeeId'
                 }
             },
             {
-                $unwind: '$employeeDetails'
+                $unwind: '$employeeId'
             },
             {
                 $group: {
