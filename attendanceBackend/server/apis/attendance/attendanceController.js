@@ -130,4 +130,58 @@ const changeStatus = (req, res) => {
       });
   };
 
-module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance}
+
+  const getTodayAttendance = async (req, res) => {
+    try {
+        const { employeeId } = req.query;
+
+        // Get today's date range
+        const now = new Date();
+        const startOfDay = new Date(now.setHours(0, 0, 0, 0)); // Start of today
+        const endOfDay = new Date(now.setHours(23, 59, 59, 999)); // End of today
+
+        // Build the aggregation pipeline
+        const pipeline = [
+            {
+                $match: {
+                    createdAt: {
+                        $gte: startOfDay,
+                        $lte: endOfDay
+                    },
+                    ...(employeeId ? { employeeId: mongoose.Types.ObjectId(employeeId) } : {})
+                }
+            },
+            {
+                $group: {
+                    _id: {
+                        date: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } },
+                        employeeId: "$employeeId"
+                    },
+                    totalCheckIns: { $sum: 1 },
+                    attendances: { $push: "$$ROOT" }
+                }
+            },
+            {
+                $sort: { "_id.date": 1 }
+            }
+        ];
+
+        const result = await attendance.aggregate(pipeline);
+
+        res.json({
+            success: true,
+            status: 200,
+            message: "Today's attendance loaded successfully",
+            data: result
+        });
+
+    } catch (err) {
+        res.json({
+            success: false,
+            status: 400,
+            message: err.message
+        });
+    }
+};
+
+module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance,getTodayAttendance}
