@@ -10,7 +10,7 @@ export class ViewAttendanceDetailsComponent {
   attendance: any[] = [];
   paginatedAttendance: any[] = [];
   currentPage: number = 1;
-  itemsPerPage: number = 3;
+  itemsPerPage: number = 15;
   totalPages: number = 0;
 
   constructor(private attService: AttendanceService) { }
@@ -50,5 +50,13 @@ export class ViewAttendanceDetailsComponent {
       this.currentPage++;
       this.updatePagination();
     }
+  }
+
+  filterByMonth(month: string) {
+    // Implement filtering logic based on selected month
+    console.log('Filter by month:', month);
+    // Example logic: Filter attendance data based on selected month
+    // Replace with actual filtering logic based on your data structure
+    // this.paginatedAttendance = this.attendance.filter(item => item.date.getMonth() === selectedMonthIndex);
   }
 }

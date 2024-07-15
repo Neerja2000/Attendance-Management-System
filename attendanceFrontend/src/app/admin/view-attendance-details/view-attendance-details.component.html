@@ -2,9 +2,24 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">
-                  View Attendance
-                </h5>
+                <div class="row">
+                    <div class="col-md-9">
+                        <h5 class="card-title">
+                            View Attendance
+                        </h5>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="monthFilter">Filter by Month:</label>
+                            <select class="form-control" id="monthFilter" >
+                                <option value="january">January</option>
+                                <option value="february">February</option>
+                                <option value="march">March</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
@@ -23,8 +38,6 @@
                         <tr *ngFor="let detail of paginatedAttendance; let i = index">
                             <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
                             <td>{{ detail.date }}</td>
-
-                            
                             <td>{{ detail.check_in }}</td>
                             <td>{{ detail.break }}</td>
                             <td>{{ detail.check_out }}</td>
@@ -35,10 +48,8 @@
                                 </span>
                             </td>
                         </tr>
-                        
                     </tbody>
                 </table>
-
                 <div class="d-flex justify-content-between mt-3">
                     <button class="btn btn-primary" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
                     <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
