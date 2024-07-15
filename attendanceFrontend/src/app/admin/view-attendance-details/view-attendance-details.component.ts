@@ -14,6 +14,7 @@ export class ViewAttendanceDetailsComponent {
   itemsPerPage: number = 15;
   totalPages: number = 0;
 
+  
   constructor(
     private route: ActivatedRoute,
     private attService: AttendanceService
