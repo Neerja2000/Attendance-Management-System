@@ -23,6 +23,8 @@
                         <tr *ngFor="let detail of paginatedAttendance; let i = index">
                             <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
                             <td>{{ detail.date }}</td>
+
+                            
                             <td>{{ detail.check_in }}</td>
                             <td>{{ detail.break }}</td>
                             <td>{{ detail.check_out }}</td>
@@ -36,7 +38,7 @@
                         
                     </tbody>
                 </table>
-                
+
                 <div class="d-flex justify-content-between mt-3">
                     <button class="btn btn-primary" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
                     <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
