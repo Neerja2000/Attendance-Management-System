@@ -133,8 +133,6 @@ const changeStatus = (req, res) => {
 
   const getTodayAttendance = async (req, res) => {
     try {
-        const { employeeId } = req.query;
-
         // Get today's date range
         const now = new Date();
         const startOfDay = new Date(now.setHours(0, 0, 0, 0)); // Start of today
@@ -147,8 +145,7 @@ const changeStatus = (req, res) => {
                     createdAt: {
                         $gte: startOfDay,
                         $lte: endOfDay
-                    },
-                    ...(employeeId ? { employeeId: mongoose.Types.ObjectId(employeeId) } : {})
+                    }
                 }
             },
             {
@@ -162,7 +159,7 @@ const changeStatus = (req, res) => {
                 }
             },
             {
-                $sort: { "_id.date": 1 }
+                $sort: { "_id.date": 1, "_id.employeeId": 1 } // Optional: Sort by date and employeeId
             }
         ];
 
@@ -183,5 +180,6 @@ const changeStatus = (req, res) => {
         });
     }
 };
+
 
 module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance,getTodayAttendance}
