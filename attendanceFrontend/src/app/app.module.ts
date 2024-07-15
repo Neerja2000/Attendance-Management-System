@@ -12,6 +12,8 @@ import { ViewEmployeesComponent } from './admin/view-employees/view-employees.co
 import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './admin/update-employee/update-employee.component';
 import { ViewAttendanceComponent } from './admin/view-attendance/view-attendance.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { ViewAttendanceComponent } from './admin/view-attendance/view-attendance
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

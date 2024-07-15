@@ -24,7 +24,7 @@ const routes: Routes = [
       path:'view-employee',component:ViewEmployeesComponent
     },
     {
-      path:'update-employee',component:UpdateEmployeeComponent
+      path:'update-employee/:id',component:UpdateEmployeeComponent
     },
     {
       path:'view-attendance',component:ViewAttendanceComponent

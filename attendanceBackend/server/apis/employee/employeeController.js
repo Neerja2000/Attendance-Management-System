@@ -50,8 +50,15 @@ const getAll=(req,res)=>{
 }
 const getSingle=(req,res)=>{
   
-Employee.findOne({_id:req.body.id})
+Employee.findOne({_id:req.query.id})
 .then((result)=>{
+    if (!result) {
+        return res.status(404).json({
+          success: false,
+          status: 404,
+          message: "Employee not found",
+        });
+      }
     res.json({
         success:true,
         status:200,
