@@ -28,6 +28,9 @@ const routes: Routes = [
     },
     {
       path:'view-attendance',component:ViewAttendanceComponent
+    },
+    {
+      path:'view-attendance-details',component:ViewAttendanceComponent
     }
   ]
   }
