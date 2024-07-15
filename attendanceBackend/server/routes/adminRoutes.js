@@ -11,6 +11,7 @@ router.delete('/employee/delete',employeeController.remove)
 
 // attendance
 router.get("/attendance/getAll",attendanceController.getAll)
+router.get("/attendance/getEmployee",attendanceController.getEmployeeAttendance)
 
 
 module.exports=router

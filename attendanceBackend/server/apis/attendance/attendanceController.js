@@ -63,6 +63,36 @@ const getSingle=(req,res)=>{
     })
 }
 
+
+const getEmployeeAttendance = (req, res) => {
+  const { id: employeeId } = req.query; // Read 'id' query parameter as 'employeeId'
+
+  console.log('Fetching attendance for employeeId:', employeeId);
+
+  attendance.find({ employeeId })
+    .populate('employeeId') // Populate employee details if needed
+    .then((results) => {
+      console.log('Fetched attendance results:', results); // Log fetched results
+      res.json({
+        success: true,
+        status: 200,
+        message: "Employee Attendance Loaded Successfully",
+        data: results
+      });
+    })
+    .catch((err) => {
+      console.error('Error fetching attendance:', err); // Log error if any
+      res.json({
+        success: false,
+        status: 400,
+        message: err.message
+      });
+    });
+};
+
+
+
+
 const changeStatus = (req, res) => {
     const { id, status } = req.body;
   
@@ -100,4 +130,4 @@ const changeStatus = (req, res) => {
       });
   };
 
-module.exports={addAttendance,getAll,getSingle,changeStatus}
+module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance}
