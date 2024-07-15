@@ -6,7 +6,7 @@
                   View Attendance
                 </h5>
             </div>
-            <div class="card-body">
+            <div class="card-body" >
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
@@ -19,16 +19,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>abc</td>
-                            <td>10:10</td>
-                            <td>60 min</td>
-                            <td>7:10</td>
+                        <tr *ngFor="let detail of attendance; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ detail.employeeId.name }}</td>
+                            <td>{{ detail.check_in }}</td>
+                            <td>{{ detail.break }}</td>
+                            <td>{{ detail.check_out }}</td>
                             <td>
-                                <span class="badge bg-success">Present</span>
+                              <span class="badge bg-success" *ngIf="detail.status === 'Present'">Present</span>
+                              <span class="badge bg-danger" *ngIf="detail.status !== 'Present'">{{ detail.status }}</span>
                             </td>
-                        </tr>
+                          </tr>
 
                     </tbody>
                 </table>
