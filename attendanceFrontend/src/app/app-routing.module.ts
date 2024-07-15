@@ -6,6 +6,7 @@ import { AddEmployeeComponent } from './admin/add-employee/add-employee.componen
 import { ViewEmployeesComponent } from './admin/view-employees/view-employees.component';
 import { UpdateEmployeeComponent } from './admin/update-employee/update-employee.component';
 import { ViewAttendanceComponent } from './admin/view-attendance/view-attendance.component';
+import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/view-attendance-details.component';
 
 const routes: Routes = [
 {
@@ -30,7 +31,7 @@ const routes: Routes = [
       path:'view-attendance',component:ViewAttendanceComponent
     },
     {
-      path:'view-attendance-details',component:ViewAttendanceComponent
+      path:'view-attendance-details',component:ViewAttendanceDetailsComponent
     }
   ]
   }
