@@ -130,87 +130,66 @@ const changeStatus = (req, res) => {
       });
   };
 
+
   const getTodayAttendance = async (req, res) => {
     try {
-      // Get today's date range
-      const now = new Date();
-      const startOfDay = new Date(now.setHours(0, 0, 0, 0)); // Start of today
-      const endOfDay = new Date(now.setHours(23, 59, 59, 999)); // End of today
+        // Get today's date range
+        const now = new Date();
+        const startOfDay = new Date(now.setHours(0, 0, 0, 0)); // Start of today
+        const endOfDay = new Date(now.setHours(23, 59, 59, 999)); // End of today
   
-      // Build the aggregation pipeline
-      const pipeline = [
-        {
-          $lookup: {
-            from: 'employees', // Collection name for employee data
-            pipeline: [], // No additional pipeline needed to fetch all employees
-            as: 'employeeDetails'
-          }
-        },
-        {
-          $unwind: {
-            path: '$employeeDetails',
-            preserveNullAndEmptyArrays: true
-          }
-        },
-        {
-          $lookup: {
-            from: 'attendance',
-            let: { empId: '$employeeDetails._id' },
-            pipeline: [
-              {
+        // Build the aggregation pipeline
+        const pipeline = [
+            {
                 $match: {
-                  $expr: {
-                    $and: [
-                      { $eq: ['$employeeId', '$$empId'] },
-                      { $gte: ['$createdAt', startOfDay] },
-                      { $lte: ['$createdAt', endOfDay] }
-                    ]
-                  }
+                    createdAt: {
+                        $gte: startOfDay,
+                        $lte: endOfDay
+                    }
                 }
-              }
-            ],
-            as: 'attendances'
-          }
-        },
-        {
-          $unwind: {
-            path: '$attendances',
-            preserveNullAndEmptyArrays: true
-          }
-        },
-        {
-          $group: {
-            _id: {
-              employeeId: '$employeeDetails._id',
-              employeeName: '$employeeDetails.name'
             },
-            attendances: { $push: '$attendances' }
-          }
-        },
-        {
-          $sort: { '_id.employeeName': 1 } // Optional: Sort by employee name
-        }
-      ];
+            {
+                $lookup: {
+                    from: 'employees', // Collection name for employee data
+                    localField: 'employeeId',
+                    foreignField: '_id',
+                    as: 'employeeId'
+                }
+            },
+            {
+                $unwind: '$employeeId'
+            },
+            {
+                $group: {
+                    _id: {
+                        date: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } },
+                        employeeId: "$employeeId"
+                    },
+                    attendances: { $push: "$$ROOT" }
+                }
+            },
+            {
+                $sort: { "_id.date": 1, "_id.employeeId": 1 } // Optional: Sort by date and employeeId
+            }
+        ];
   
-      const result = await attendance.aggregate(pipeline);
+        const result = await attendance.aggregate(pipeline);
   
-      res.json({
-        success: true,
-        status: 200,
-        message: "Today's attendance loaded successfully",
-        data: result
-      });
+        res.json({
+            success: true,
+            status: 200,
+            message: "Today's attendance loaded successfully",
+            data: result
+        });
   
     } catch (err) {
-      res.json({
-        success: false,
-        status: 400,
-        message: err.message
-      });
+        res.json({
+            success: false,
+            status: 400,
+            message: err.message
+        });
     }
   };
-  
-  
   
 
 

@@ -20,22 +20,12 @@ date: string = '';
     this.attService.getTodayAttendance().subscribe(
       (res: any) => {
         console.log('Attendance data:', res.data); // Log fetched data
-        this.attendance = res.data.map((group: any) => ({
-          employeeId: group._id.employeeId,
-          employeeName: group._id.employeeName,
-          check_in: group.attendances.length > 0 ? group.attendances[0]?.check_in : null,
-          break: group.attendances.length > 0 ? group.attendances[0]?.break : null,
-          check_out: group.attendances.length > 0 ? group.attendances[0]?.check_out : null,
-          work_done: group.attendances.length > 0 ? group.attendances[0]?.work_done : null,
-          status: group.attendances.length > 0 ? group.attendances[0]?.status : 'absent'
-        }));
+        this.attendance = res.data.flatMap((group: any) => group.attendances); // Flatten the attendance array
       },
       (error: any) => {
         console.error('Error:', error);
       }
     );
   }
-  
-  
 
 } 
