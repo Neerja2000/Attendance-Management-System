@@ -1,4 +1,4 @@
-const Employee = require('./empRatingModel');
+const rating = require('./empRatingModel');
 
 const addRating=async(req,res)=>{
     let total=await rating.countDocuments()
