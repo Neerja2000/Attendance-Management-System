@@ -179,7 +179,7 @@ const changeStatus = (req, res) => {
        
       ];
   
-      const result = await Employee.aggregate(pipeline);
+      const result = await Employee.aggregate(pipeline) ;
   
       res.json({
         success: true,
