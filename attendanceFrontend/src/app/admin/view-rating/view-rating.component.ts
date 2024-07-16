@@ -12,6 +12,7 @@ export class ViewRatingComponent implements OnInit {
   constructor(private ratingService: RatingService) { }
 
   ngOnInit(): void {
+    
     this.loadRatings(); // Load ratings when the component initializes
   }
 
@@ -21,6 +22,7 @@ export class ViewRatingComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           this.ratings = res.data; 
+        
         } else {
           console.error('Error fetching ratings:', res.message);
         }
