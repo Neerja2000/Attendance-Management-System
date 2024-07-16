@@ -9,6 +9,7 @@ import { ViewAttendanceComponent } from './admin/view-attendance/view-attendance
 import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/view-attendance-details.component';
 import { LoginComponent } from './login/login.component';
 import { AddRatingComponent } from './admin/add-rating/add-rating.component';
+import { ViewRatingComponent } from './admin/view-rating/view-rating.component';
 
 const routes: Routes = [
 {
@@ -40,6 +41,9 @@ const routes: Routes = [
     },
     {
       path:'add-rating/:id',component:AddRatingComponent
+    },
+    {
+      path:'view-rating',component:ViewRatingComponent
     }
   ]
   }

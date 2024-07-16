@@ -14,19 +14,10 @@ interface Employee {
   styleUrls: ['./add-rating.component.css']
 })
 export class AddRatingComponent implements OnInit {
-  employees: Employee[] = [];
-
-    ngOnInit(): void {
-      throw new Error('Method not implemented.');
-    }
-
-    
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
   
-    addEmployee() {
-      this.employees.push({ name: '', rating: 0, remarks: '' });
-    }
   
-    removeEmployee(index: number) {
-      this.employees.splice(index, 1);
-    }}
+  }
   

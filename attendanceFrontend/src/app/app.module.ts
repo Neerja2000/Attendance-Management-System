@@ -16,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/view-attendance-details.component';
 import { LoginComponent } from './login/login.component';
-import { AddRatingComponent } from './admin/add-rating/add-rating.component'
+import { AddRatingComponent } from './admin/add-rating/add-rating.component';
+import { ViewRatingComponent } from './admin/view-rating/view-rating.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AddRatingComponent } from './admin/add-rating/add-rating.component'
     ViewAttendanceComponent,
     ViewAttendanceDetailsComponent,
     LoginComponent,
-    AddRatingComponent
+    AddRatingComponent,
+    ViewRatingComponent
   ],
   imports: [
     BrowserModule,
