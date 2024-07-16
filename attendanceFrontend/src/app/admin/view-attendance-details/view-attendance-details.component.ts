@@ -11,7 +11,7 @@ export class ViewAttendanceDetailsComponent {
   attendance: any[] = []; // This will hold all attendance records
   paginatedAttendance: any[] = []; // This will hold the currently displayed page of attendance records
   currentPage: number = 1;
-  itemsPerPage: number = 2;
+  itemsPerPage: number = 10;
   totalPages: number = 0;
 
 
