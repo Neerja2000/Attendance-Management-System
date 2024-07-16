@@ -25,4 +25,23 @@ const addRating=async(req,res)=>{
         })
     })  
 }
-module.exports={addRating}
+
+const getAll=(req,res)=>{
+    rating.find()
+    .then((result)=>{
+        res.json({
+            success:true,
+            status:200,
+            message:"Get All Rating",
+            data:result
+        })
+    })
+    .catch((err)=>{
+        res.json({
+            success:false,
+            status:400,
+            message:err
+        })
+    })
+}
+module.exports={addRating,getAll}
