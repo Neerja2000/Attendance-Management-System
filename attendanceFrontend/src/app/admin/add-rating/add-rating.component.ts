@@ -13,10 +13,8 @@ interface Employee {
   templateUrl: './add-rating.component.html',
   styleUrls: ['./add-rating.component.css']
 })
-export class AddRatingComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+export class AddRatingComponent {
+
   
   
   }
