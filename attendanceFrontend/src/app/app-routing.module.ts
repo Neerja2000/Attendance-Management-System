@@ -7,10 +7,14 @@ import { ViewEmployeesComponent } from './admin/view-employees/view-employees.co
 import { UpdateEmployeeComponent } from './admin/update-employee/update-employee.component';
 import { ViewAttendanceComponent } from './admin/view-attendance/view-attendance.component';
 import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/view-attendance-details.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
 {
-  path:"",redirectTo:"admin/layout/dashboard",pathMatch:'full'
+  path:"",redirectTo:"/login",pathMatch:'full'
+},
+{
+  path:"login",component:LoginComponent
 },
   {
     path:"admin/layout",component:LayoutComponent,

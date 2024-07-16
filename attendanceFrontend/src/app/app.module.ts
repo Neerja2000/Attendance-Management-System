@@ -14,7 +14,8 @@ import { UpdateEmployeeComponent } from './admin/update-employee/update-employee
 import { ViewAttendanceComponent } from './admin/view-attendance/view-attendance.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/view-attendance-details.component'
+import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/view-attendance-details.component';
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/
     AddEmployeeComponent,
     UpdateEmployeeComponent,
     ViewAttendanceComponent,
-    ViewAttendanceDetailsComponent
+    ViewAttendanceDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
