@@ -33,7 +33,7 @@
                 <span class="badge bg-danger" *ngIf="detail.status !== 'present'">{{ detail.status }}</span>
               </td>
               <td>
-                <button class="btn btn-outline-success btn-md" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeId]">View Details</button>
+                <button class="btn btn-outline-success btn-sm" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeId]">View Details</button>
               </td>
             </tr>
           </tbody>
