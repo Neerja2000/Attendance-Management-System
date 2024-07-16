@@ -6,9 +6,10 @@ const empRatingSchema=new mongoose.Schema({
        type: Number,
        required: true
      },
-     employeeName: {
-        type: String,
-        required: true
+     employeeId:{
+        type:mongoose.Schema.Types.ObjectId,
+        default:null,
+        ref:'employee'
       },
     
      rating:{
