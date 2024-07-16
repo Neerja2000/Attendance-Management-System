@@ -1,23 +1,16 @@
+<!-- add-rating.component.html -->
 <div class="container">
     <h2>Add Employee Ratings</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Employee Name</th>
-          <th>Rating</th>
-          <th>Remarks</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><input type="text" class="form-control"/></td>
-          <td><input type="number"  class="form-control" /></td>
-          <td><textarea type="text"  class="form-control" ></textarea>
-          
-        </tr>
-      </tbody>
-    </table>
-    <button  class="btn btn-primary">Add Employee</button>
+    <form (submit)="addRating()">
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <input type="text" class="form-control" id="rating" [(ngModel)]="rating" name="rating" required>
+      </div>
+      <div class="form-group">
+        <label for="remarks">Remarks</label>
+        <textarea class="form-control" id="remarks" [(ngModel)]="remarks" name="remarks"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Rating</button>
+    </form>
   </div>
   
