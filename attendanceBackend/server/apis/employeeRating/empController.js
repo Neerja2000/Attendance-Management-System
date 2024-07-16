@@ -27,7 +27,7 @@ const addRating=async(req,res)=>{
 }
 
 const getAll=(req,res)=>{
-    rating.find()
+    rating.find().populate('employeeId')
     .then((result)=>{
         res.json({
             success:true,

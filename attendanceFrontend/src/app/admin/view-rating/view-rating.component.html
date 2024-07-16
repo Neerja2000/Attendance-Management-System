@@ -1,6 +1,7 @@
+<!-- src/app/admin/view-ratings/view-ratings.component.html -->
 
 <div class="container">
-    <h2>View  Ratings</h2>
+    <h2>View Ratings</h2>
     <table class="table">
       <thead>
         <tr>
@@ -12,17 +13,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>riya</td>
-          <td>7</td>
-          <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe recusandae quisquam voluptatum possimus, iste laboriosam velit optio officia ipsa fuga.</td>
-          <td>  <button class="btn btn-warning btn-sm" [routerLink]="['/admin/layout/add-rating']">
-            <i class="bi bi-star-fill"></i>
-          </button></td>
-          <td>9</td>
+        <tr *ngFor="let rating of ratings">
+          <td>{{ rating.employeeId?.name }}</td> <!-- Assuming employeeName is part of your rating object -->
+          <td>{{ rating.rating }}</td>
+          <td>{{ rating.remarks }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" [routerLink]="['/admin/layout/add-rating']">
+              <i class="bi bi-star-fill"></i>
+            </button>
+          </td>
+          <td>{{ rating.adminRating }}</td> <!-- Assuming adminRating is part of your rating object -->
         </tr>
       </tbody>
     </table>
-   
   </div>
   

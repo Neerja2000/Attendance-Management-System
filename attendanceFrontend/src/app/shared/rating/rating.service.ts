@@ -15,4 +15,7 @@ export class RatingService {
   addRatingapi(form: any): Observable<any> {
     return this.http.post(`${this.globalbaseurl}/rating/add`, form);
   }
+  empRatingapi(){
+    return this.http.get(this.globalbaseurl + "/emprating/getAll");
+  }
 }
