@@ -20,6 +20,7 @@ export class AddRatingComponent implements OnInit {
   ngOnInit(): void {
     this.employeeId = this.route.snapshot.paramMap.get('id')!;
   }
+  
 
   setRating(rating: number): void {
     this.rating = rating;
