@@ -8,6 +8,7 @@ import { UpdateEmployeeComponent } from './admin/update-employee/update-employee
 import { ViewAttendanceComponent } from './admin/view-attendance/view-attendance.component';
 import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/view-attendance-details.component';
 import { LoginComponent } from './login/login.component';
+import { AddRatingComponent } from './admin/add-rating/add-rating.component';
 
 const routes: Routes = [
 {
@@ -36,6 +37,9 @@ const routes: Routes = [
     },
     {
       path:'view-attendance-details/:id',component:ViewAttendanceDetailsComponent
+    },
+    {
+      path:'add-rating',component:AddRatingComponent
     }
   ]
   }
