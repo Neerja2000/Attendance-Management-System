@@ -13,7 +13,7 @@ export class ViewAttendanceDetailsComponent {
   currentPage: number = 1;
   itemsPerPage: number = 10;
   totalPages: number = 0;
-
+  filteredAttendance: any[] = []; // This will hold the filtered attendance records
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +33,8 @@ export class ViewAttendanceDetailsComponent {
     this.attService.getEmployeeAttendance(id).subscribe(
       (res: any) => {
         this.attendance = res.data; // Assign all attendance data
-        this.totalPages = Math.ceil(this.attendance.length / this.itemsPerPage); // Calculate total pages
+        this.filteredAttendance = this.attendance; // Initialize filteredAttendance
+        this.totalPages = Math.ceil(this.filteredAttendance.length / this.itemsPerPage); // Calculate total pages
         this.updatePagination(); // Update paginatedAttendance based on currentPage
       },
       (error: any) => {
@@ -45,7 +46,7 @@ export class ViewAttendanceDetailsComponent {
   updatePagination() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    this.paginatedAttendance = this.attendance.slice(startIndex, endIndex);
+    this.paginatedAttendance = this.filteredAttendance.slice(startIndex, endIndex);
   }
 
   previousPage() {
@@ -62,9 +63,21 @@ export class ViewAttendanceDetailsComponent {
     }
   }
 
+  onMonthChange(event: any) {
+    const selectedMonth = event.target.value;
+    this.filterByMonth(selectedMonth);
+  }
+
   filterByMonth(month: string) {
-    // Implement filtering logic based on selected month if needed
-    console.log('Filter by month:', month);
+    if (month) {
+      this.filteredAttendance = this.attendance.filter(detail => {
+        const attendanceMonth = new Date(detail.createdAt).toLocaleString('default', { month: 'long' }).toLowerCase();
+        return attendanceMonth === month;
+      });
+    } else {
+      this.filteredAttendance = this.attendance;
+    }
+    this.totalPages = Math.ceil(this.filteredAttendance.length / this.itemsPerPage); // Recalculate total pages
+    this.updatePagination(); // Update paginatedAttendance based on currentPage
   }
 }
-
