@@ -29,11 +29,11 @@
               <td>{{ detail.check_out }}</td>
               <td>{{ detail.work_done }}</td>
               <td>
-                <span class="badge bg-success" *ngIf="detail.status === 'present'">Present</span>
+                <span class="badge bg-primary" *ngIf="detail.status === 'present'">Present</span>
                 <span class="badge bg-danger" *ngIf="detail.status !== 'present'">{{ detail.status }}</span>
               </td>
               <td>
-                <button class="btn btn-success" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeId]">View Details</button>
+                <button class="btn btn-outline-success btn-md" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeId]">View Details</button>
               </td>
             </tr>
           </tbody>
