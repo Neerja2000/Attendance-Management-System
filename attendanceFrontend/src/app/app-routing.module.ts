@@ -39,7 +39,7 @@ const routes: Routes = [
       path:'view-attendance-details/:id',component:ViewAttendanceDetailsComponent
     },
     {
-      path:'add-rating',component:AddRatingComponent
+      path:'add-rating/:id',component:AddRatingComponent
     }
   ]
   }

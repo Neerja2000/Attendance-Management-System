@@ -1,0 +1,14 @@
+.container {
+    margin-top: 20px;
+  }
+  
+  i {
+    cursor: pointer;
+    font-size: 2em;
+    margin: 5px;
+  }
+  
+  .input-group-text {
+    background-color: #ffffff;
+  }
+  
