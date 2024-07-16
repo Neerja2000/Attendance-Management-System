@@ -21,5 +21,5 @@ router.get("/attendance/today",attendanceController.getTodayAttendance)
 router.post("/rating/add",ratingController.addRating)
 
 // empRating view
-router.post("/emprating/getAll",empRatingController.getAll)
+router.get("/emprating/getAll",empRatingController.getAll)
 module.exports=router
