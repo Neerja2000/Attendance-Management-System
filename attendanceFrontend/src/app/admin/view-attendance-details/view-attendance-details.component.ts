@@ -79,5 +79,5 @@ export class ViewAttendanceDetailsComponent {
     }
     this.totalPages = Math.ceil(this.filteredAttendance.length / this.itemsPerPage); // Recalculate total pages
     this.updatePagination(); // Update paginatedAttendance based on currentPage
-  }
+   }
 }
