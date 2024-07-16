@@ -10,5 +10,5 @@ router.get("/attendance/single",attendanceController.getSingle)
 router.post("/attendance/status",attendanceController.changeStatus)
 
 //rating
-router.post("/rating/add",empRatingController)
+router.post("/rating/add",empRatingController.addRating)
 module.exports=router
