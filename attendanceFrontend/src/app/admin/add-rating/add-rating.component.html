@@ -1,35 +1,23 @@
 <div class="container">
-    <h1>Rating for Employee {{ employeeId }}</h1>
-    <form [formGroup]="ratingForm">
-      <div>
-        <i class="bi" 
-           [ngClass]="{'bi-star-fill': rating >= 1, 'bi-star': rating < 1}" 
-           (click)="setRating(1)"></i>
-        <i class="bi" 
-           [ngClass]="{'bi-star-fill': rating >= 2, 'bi-star': rating < 2}" 
-           (click)="setRating(2)"></i>
-        <i class="bi" 
-           [ngClass]="{'bi-star-fill': rating >= 3, 'bi-star': rating < 3}" 
-           (click)="setRating(3)"></i>
-        <i class="bi" 
-           [ngClass]="{'bi-star-fill': rating >= 4, 'bi-star': rating < 4}" 
-           (click)="setRating(4)"></i>
-        <i class="bi" 
-           [ngClass]="{'bi-star-fill': rating >= 5, 'bi-star': rating < 5}" 
-           (click)="setRating(5)"></i>
-      </div>
-      <div class="col-12 mt-4">
-        <div class="form-group">
-          <label for="remarks-id">Remarks</label>
-          <div class="input-group has-validation">
-            <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
-            <input type="text" class="form-control" placeholder="Remarks" formControlName="remarks" id="remarks-id">
-          </div>
-        </div>
-      </div>
-      <div class="col-12 mt-4">
-        <button type="button" class="btn btn-primary" (click)="addRating()">Add Rating</button>
-      </div>
-    </form>
+    <h2>Add Employee Ratings</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Employee Name</th>
+          <th>Rating</th>
+          <th>Remarks</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" class="form-control"/></td>
+          <td><input type="number"  class="form-control" /></td>
+          <td><textarea type=""  class="form-control" ></textarea>
+          
+        </tr>
+      </tbody>
+    </table>
+    <button  class="btn btn-primary">Add Employee</button>
   </div>
   
