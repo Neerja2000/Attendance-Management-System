@@ -17,7 +17,9 @@ export class AddEmployeeComponent implements OnInit{
     'address':new FormControl(''),
     "joining_date":new FormControl(''),
     "experience":new FormControl(''),
-    "salary":new FormControl('')
+    "salary":new FormControl(''),
+    "userId":new FormControl(''),
+    'password':new FormControl("")
   })
   ngOnInit(): void {
     

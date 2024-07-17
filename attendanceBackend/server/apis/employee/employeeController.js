@@ -11,7 +11,9 @@ const addEmployee=async(req,res)=>{
         joining_date:req.body.joining_date,
         salary:req.body.salary,
         experience:req.body.experience,
-        gender:req.body.gender
+        gender:req.body.gender,
+        userId:req.body.userId,
+        password:req.body.password
     })
     newEmployee.save()
     .then((result)=>{
