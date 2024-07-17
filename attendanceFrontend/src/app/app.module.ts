@@ -17,7 +17,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/view-attendance-details.component';
 import { LoginComponent } from './login/login.component';
 import { AddRatingComponent } from './admin/add-rating/add-rating.component';
-import { ViewRatingComponent } from './admin/view-rating/view-rating.component'
+import { ViewRatingComponent } from './admin/view-rating/view-rating.component';
+import { EmpLayoutComponent } from './employee/emp-layout/emp-layout.component';
+import { EmpHeaderComponent } from './employee/emp-layout/emp-header/emp-header.component';
+import { EmpFooterComponent } from './employee/emp-layout/emp-footer/emp-footer.component';
+import { EmpSidebarComponent } from './employee/emp-layout/emp-sidebar/emp-sidebar.component';
+import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { ViewRatingComponent } from './admin/view-rating/view-rating.component'
     ViewAttendanceDetailsComponent,
     LoginComponent,
     AddRatingComponent,
-    ViewRatingComponent
+    ViewRatingComponent,
+    EmpLayoutComponent,
+    EmpHeaderComponent,
+    EmpFooterComponent,
+    EmpSidebarComponent,
+    EmpDashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './admin/layout/layout.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
@@ -10,6 +10,8 @@ import { ViewAttendanceDetailsComponent } from './admin/view-attendance-details/
 import { LoginComponent } from './login/login.component';
 import { AddRatingComponent } from './admin/add-rating/add-rating.component';
 import { ViewRatingComponent } from './admin/view-rating/view-rating.component';
+import { EmpLayoutComponent } from './employee/emp-layout/emp-layout.component';
+import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component';
 
 const routes: Routes = [
 {
@@ -46,7 +48,15 @@ const routes: Routes = [
       path:'view-rating',component:ViewRatingComponent
     }
   ]
+  },
+  {
+    path:"employee/layout",component:EmpLayoutComponent,
+    children:[{
+      path:'emp-dashboard',component:EmpDashboardComponent
+    }
+  ]
   }
+ 
 ];
 
 @NgModule({
