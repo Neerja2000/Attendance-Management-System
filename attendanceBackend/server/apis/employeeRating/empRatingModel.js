@@ -17,6 +17,11 @@ const empRatingSchema=new mongoose.Schema({
        default:null,
        required:true
      },
+     adminRating:{
+      type:Number,
+      default:null
+      
+    },
      remarks:{
        type:String,
        default:null,

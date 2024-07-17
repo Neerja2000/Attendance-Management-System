@@ -2,7 +2,7 @@ const express=require('express')
 const router=express.Router()
 const employeeController=require("../apis/employee/employeeController")
 const attendanceController=require("../apis/attendance/attendanceController")
-const ratingController=require("../apis/rating/ratingController")
+
 const empRatingController=require("../apis/employeeRating/empController")
 // Employee
 router.post('/employee/add',employeeController.addEmployee)
@@ -17,9 +17,10 @@ router.get("/attendance/getEmployee",attendanceController.getEmployeeAttendance)
 router.get("/attendance/today",attendanceController.getTodayAttendance)
 
 
-// rating
-router.post("/rating/add",ratingController.addRating)
+
 
 // empRating view
 router.get("/emprating/getAll",empRatingController.getAll)
+router.put("/adminrating/add",empRatingController.adminRating)
+
 module.exports=router

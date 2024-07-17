@@ -12,10 +12,15 @@ export class RatingService {
     this.globalbaseurl = _baseurl;
   }
 
-  addRatingapi(form: any): Observable<any> {
-    return this.http.post(`${this.globalbaseurl}/rating/add`, form);
-  }
+ 
   empRatingapi(){
     return this.http.get(this.globalbaseurl + "/emprating/getAll");
   }
+
+  updateAdminRating(_id: string, adminRating: number): Observable<any> {
+    const payload = { _id, adminRating };
+    console.log("hhh",payload)
+    return this.http.put(`${this.globalbaseurl}/adminrating/add`, payload);
+  }
+  
 }

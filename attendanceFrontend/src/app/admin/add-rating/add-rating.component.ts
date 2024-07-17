@@ -13,32 +13,34 @@ interface Employee {
   templateUrl: './add-rating.component.html',
   styleUrls: ['./add-rating.component.css']
 })
-export class AddRatingComponent {
-  employeeId: string;
-  rating: string = ''; // Initialize with an empty string
-  remarks: string = ''; // Initialize with an empty string
+export class AddRatingComponent implements OnInit {
+  employeeId: string = '';
+  rating: number = 0; // Initialize with default value
+  adminRating: number = 0; // Initialize with default value
 
   constructor(private route: ActivatedRoute, private ratingService: RatingService) {
-    this.employeeId = ''; // Initialize with an empty string or handle null checks
     const id = this.route.snapshot.paramMap.get('id');
     this.employeeId = id ? id : '';
   }
 
-  addRating() {
-    const form = {
-      employeeId: this.employeeId,
-      rating: this.rating,
-      remarks: this.remarks
-    };
+  ngOnInit(): void {
+    // Any initialization logic can go here
+  }
 
-    this.ratingService.addRatingapi(form).subscribe(
-      (response) => {
-        console.log('Rating added successfully', response);
-        // Optionally, navigate back to employee list or perform other actions
+  addRating() {
+    this.ratingService.updateAdminRating(this.employeeId, this.adminRating).subscribe(
+      
+      (res: any) => {
+        console.log(res)
+        if (res.success) {
+          console.log('Admin rating updated successfully:', res.data);
+          // Optionally, navigate back to the ratings list or another page
+        } else {
+          console.error('Error updating admin rating:', res.message);
+        }
       },
       (error) => {
-        console.error('Error adding rating', error);
-        // Handle error
+        console.error('Error:', error);
       }
     );
   }
