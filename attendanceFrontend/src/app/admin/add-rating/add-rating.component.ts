@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RatingService } from 'src/app/shared/rating/rating.service';
 
 interface Employee {
@@ -18,7 +18,7 @@ export class AddRatingComponent implements OnInit {
   rating: number = 0; // Initialize with default value
   adminRating: number = 0; // Initialize with default value
 
-  constructor(private route: ActivatedRoute, private ratingService: RatingService) {
+  constructor(private route: ActivatedRoute, private ratingService: RatingService,private router:Router) {
     const id = this.route.snapshot.paramMap.get('id');
     this.employeeId = id ? id : '';
   }
@@ -33,8 +33,10 @@ export class AddRatingComponent implements OnInit {
       (res: any) => {
         console.log(res)
         if (res.success) {
+          this.router.navigateByUrl('/admin/layout/view-rating');
           console.log('Admin rating updated successfully:', res.data);
-          // Optionally, navigate back to the ratings list or another page
+          
+          
         } else {
           console.error('Error updating admin rating:', res.message);
         }
