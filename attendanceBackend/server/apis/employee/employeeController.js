@@ -112,6 +112,10 @@ if(!!req.body.experience)
     result.experience=req.body.experience
 if(!!req.body.gender)
     result.gender=req.body.gender
+if(!!req.body.userId)
+    result.userId=req.body.userId
+if(!!req.body.password)
+    result.password=req.body.password
 
 
 result.save()
