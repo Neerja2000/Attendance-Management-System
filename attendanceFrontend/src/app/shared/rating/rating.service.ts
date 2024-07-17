@@ -19,7 +19,7 @@ export class RatingService {
 
   updateAdminRating(_id: string, adminRating: number): Observable<any> {
     const payload = { _id, adminRating };
-    console.log("hhh",payload)
+   
     return this.http.put(`${this.globalbaseurl}/adminrating/add`, payload);
   }
   

@@ -3,7 +3,7 @@ const router=express.Router()
 const employeeController=require("../apis/employee/employeeController")
 const attendanceController=require("../apis/attendance/attendanceController")
 
-const empRatingController=require("../apis/employeeRating/empController")
+const empRatingController=require("../apis/employeeRating/empRatingController")
 // Employee
 router.post('/employee/add',employeeController.addEmployee)
 router.get('/employee/getAll',employeeController.getAll)
