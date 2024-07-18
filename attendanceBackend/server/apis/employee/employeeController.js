@@ -183,6 +183,37 @@ const remove = (req, res) => {
 
 
 
+
+
+const employeeLogin = (req, res) => {
+    const { userId, password } = req.body;
+    
+    Employee.findOne({ userId, password })
+        .then((employee) => {
+            if (!employee) {
+                return res.status(401).json({
+                    success: false,
+                    status: 401,
+                    message: "Invalid userId or password"
+                });
+            }
+            res.json({
+                success: true,
+                status: 200,
+                message: "Login successful",
+                data: employee
+            });
+        })
+        .catch((err) => {
+            res.json({
+                success: false,
+                status: 400,
+                message: err.message
+            });
+        });
+};
+
+
 module.exports={
-    addEmployee,getAll,getSingle,update,remove
+    addEmployee,getAll,getSingle,update,remove,employeeLogin
 }
