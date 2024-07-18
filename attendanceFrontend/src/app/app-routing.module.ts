@@ -13,6 +13,7 @@ import { ViewRatingComponent } from './admin/view-rating/view-rating.component';
 import { EmpLayoutComponent } from './employee/emp-layout/emp-layout.component';
 import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component';
 import { EmpAddAttendanceComponent } from './employee/emp-add-attendance/emp-add-attendance.component';
+import { EmpViewAttendanceComponent } from './employee/emp-view-attendance/emp-view-attendance.component';
 
 const routes: Routes = [
 {
@@ -57,6 +58,9 @@ const routes: Routes = [
     },
     {
       path:'emp-add-attendance',component:EmpAddAttendanceComponent
+    },
+    {
+      path:'emp-view-attendance',component:EmpViewAttendanceComponent
     }
   ]
   }

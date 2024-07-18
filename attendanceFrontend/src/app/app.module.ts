@@ -23,7 +23,8 @@ import { EmpHeaderComponent } from './employee/emp-layout/emp-header/emp-header.
 import { EmpFooterComponent } from './employee/emp-layout/emp-footer/emp-footer.component';
 import { EmpSidebarComponent } from './employee/emp-layout/emp-sidebar/emp-sidebar.component';
 import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component';
-import { EmpAddAttendanceComponent } from './employee/emp-add-attendance/emp-add-attendance.component'
+import { EmpAddAttendanceComponent } from './employee/emp-add-attendance/emp-add-attendance.component';
+import { EmpViewAttendanceComponent } from './employee/emp-view-attendance/emp-view-attendance.component'
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { EmpAddAttendanceComponent } from './employee/emp-add-attendance/emp-add
     EmpFooterComponent,
     EmpSidebarComponent,
     EmpDashboardComponent,
-    EmpAddAttendanceComponent
+    EmpAddAttendanceComponent,
+    EmpViewAttendanceComponent
   ],
   imports: [
     BrowserModule,
