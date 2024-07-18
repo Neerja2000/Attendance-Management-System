@@ -1,32 +1,51 @@
 const attendance=require("./attendanceModel")
 const Employee=require("../employee/employeeModel")
-const addAttendance=async(req,res)=>{
-    let total=await attendance.countDocuments()
-    let newAttendance = new attendance({
-        AttendanceId:total+1,
-        check_in:req.body.check_in,
-        break:req.body.break,
-        check_out:req.body.check_out,
-        work_done:req.body.work_done,
-        employeeId:req.body.employeeId
-        
-    })
-    newAttendance.save()
-    .then((result)=>{
-        res.json({
-            success:true,
-            status:200,
-            message:"Attendance Added Successfully",
-            data:result
-        })
-    }).catch(err=>{
-        res.json({
-            success:false,
-            status:400,
-            message:err.message
-        })
-    })
-}
+const addAttendance = async (req, res) => {
+  try {
+      let total = await attendance.countDocuments();
+      
+      // Get today's date in YYYY-MM-DD format
+      const today = new Date().toISOString().split('T')[0];
+      
+      // Check if attendance already exists for the same user on the same day
+      const existingAttendance = await attendance.findOne({
+          employeeId: req.body.employeeId,
+          createdAt: { $gte: new Date(today), $lt: new Date(new Date(today).getTime() + 24 * 60 * 60 * 1000) }
+      });
+      
+      if (existingAttendance) {
+          return res.status(400).json({
+              success: false,
+              status: 400,
+              message: "Attendance for this user already exists for today"
+          });
+      }
+      
+      let newAttendance = new attendance({
+          AttendanceId: total + 1,
+          check_in: req.body.check_in,
+          break: req.body.break,
+          check_out: req.body.check_out,
+          work_done: req.body.work_done,
+          employeeId: req.body.employeeId
+      });
+      
+      const result = await newAttendance.save();
+      
+      return res.json({
+          success: true,
+          status: 200,
+          message: "Attendance Added Successfully",
+          data: result
+      });
+  } catch (err) {
+      return res.status(400).json({
+          success: false,
+          status: 400,
+          message: err.message
+      });
+  }
+};
 
 const getAll=(req,res)=>{
     attendance.find().populate('employeeId')
