@@ -21,4 +21,6 @@ export class AttendanceService {
     getTodayAttendance(): Observable<any> {
       return this.http.get(this.globalbaseurl+'/attendance/today');
     }
+
+   
 }

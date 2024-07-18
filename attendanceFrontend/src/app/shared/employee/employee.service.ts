@@ -33,4 +33,6 @@ deleteEmployeeapi(id: string): Observable<any> {
   return this.http.delete(`${this.globalbaseurl}/employee/delete?id=${id}`);
 }
 
+
+
 }

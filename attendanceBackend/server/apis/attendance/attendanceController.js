@@ -66,7 +66,7 @@ const getSingle=(req,res)=>{
 
 
 const getEmployeeAttendance = (req, res) => {
-  const { id: employeeId } = req.query; // Read 'id' query parameter as 'employeeId'
+  const { id: employeeId } = req.query; 
 
   console.log('Fetching attendance for employeeId:', employeeId);
 

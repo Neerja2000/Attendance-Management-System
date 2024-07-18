@@ -12,6 +12,7 @@ import { AddRatingComponent } from './admin/add-rating/add-rating.component';
 import { ViewRatingComponent } from './admin/view-rating/view-rating.component';
 import { EmpLayoutComponent } from './employee/emp-layout/emp-layout.component';
 import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component';
+import { EmpAddAttendanceComponent } from './employee/emp-add-attendance/emp-add-attendance.component';
 
 const routes: Routes = [
 {
@@ -53,6 +54,9 @@ const routes: Routes = [
     path:"employee/layout",component:EmpLayoutComponent,
     children:[{
       path:'emp-dashboard',component:EmpDashboardComponent
+    },
+    {
+      path:'emp-add-attendance',component:EmpAddAttendanceComponent
     }
   ]
   }
