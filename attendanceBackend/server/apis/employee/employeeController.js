@@ -1,38 +1,72 @@
 const Employee = require('./employeeModel');
 
-const addEmployee=async(req,res)=>{
-    let total=await Employee.countDocuments()
-    let newEmployee=new Employee({
-        employeeId:total+1,
-        name:req.body.name,
-        email:req.body.email,
-        phone:req.body.phone,
-        address:req.body.address,
-        joining_date:req.body.joining_date,
-        salary:req.body.salary,
-        experience:req.body.experience,
-        gender:req.body.gender,
-        userId:req.body.userId,
-        password:req.body.password
-    })
-    newEmployee.save()
-    .then((result)=>{
-        res.json({
-            success:true,
-            status:200,
-            message:"employee added successfully",
-            data:result
-        })
-    })
-    .catch((err)=>{
-        res.json({
-            success:false,
-            status:400,
-            message:err
-          
-        })
-    })
-}
+const addEmployee = async (req, res) => {
+    try {
+        const {
+            name, email, phone, address, joining_date, salary, experience,
+            gender, userId, password
+        } = req.body;
+
+        // Validate required fields
+        if (!name || !email || !phone || !address || !joining_date || !salary || 
+            !experience || !gender || !userId || !password) {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: "All fields are required"
+            });
+        }
+
+        // Check if email, phone, or userId already exists
+        const existingEmployee = await Employee.findOne({
+            $or: [
+                { email: email },
+                { phone: phone },
+                { userId: userId }
+            ]
+        });
+
+        if (existingEmployee) {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: "Employee with the same email, phone, or userId already exists"
+            });
+        }
+
+        let total = await Employee.countDocuments();
+        let newEmployee = new Employee({
+            employeeId: total + 1,
+            name,
+            email,
+            phone,
+            address,
+            joining_date,
+            salary,
+            experience,
+            gender,
+            userId,
+            password
+        });
+
+        const result = await newEmployee.save();
+        return res.json({
+            success: true,
+            status: 200,
+            message: "Employee added successfully",
+            data: result
+        });
+    } catch (err) {
+        return res.status(400).json({
+            success: false,
+            status: 400,
+            message: err.message
+        });
+    }
+};
+
+module.exports = addEmployee;
+
 
 const getAll=(req,res)=>{
     Employee.find()
@@ -52,32 +86,45 @@ const getAll=(req,res)=>{
         })
     })
 }
-const getSingle=(req,res)=>{
-  
-Employee.findOne({_id:req.query.id})
-.then((result)=>{
-    if (!result) {
-        return res.status(404).json({
-          success: false,
-          status: 404,
-          message: "Employee not found",
+const getSingle = (req, res) => {
+    const employeeId = req.query.id;
+
+    // Validate that id is provided
+    if (!employeeId) {
+        return res.status(400).json({
+            success: false,
+            status: 400,
+            message: "Employee ID is required"
         });
-      }
-    res.json({
-        success:true,
-        status:200,
-        message:" Single Employee Loaded",
-        data:result
-    })
-})
-.catch((err)=>{
-    res.json({
-        success:false,
-        status:400,
-        message:err
-    })
-})
-}
+    }
+
+    Employee.findOne({ _id: employeeId })
+        .then((result) => {
+            if (!result) {
+                return res.status(404).json({
+                    success: false,
+                    status: 404,
+                    message: "Employee not found"
+                });
+            }
+            res.json({
+                success: true,
+                status: 200,
+                message: "Single Employee Loaded",
+                data: result
+            });
+        })
+        .catch((err) => {
+            res.status(400).json({
+                success: false,
+                status: 400,
+                message: err.message
+            });
+        });
+};
+
+module.exports = getSingle;
+
 
 const update=(req,res)=>{
     let validation=""
