@@ -15,4 +15,6 @@ export class EmpAttendanceService {
    addEmpAttendanceapi(employeeData: any){
     return this.http.post(this.employeebaseurl+'/attendance/add',employeeData)
    }
+
+   
 }

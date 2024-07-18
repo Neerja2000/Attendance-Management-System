@@ -6,7 +6,7 @@ export function getbaseurl(){
 
 }
 export function empbaseurl(){
-  return "http://localhost:3000/employee/"
+  return "http://localhost:3000/employee"
 }
  const provider=[
   {

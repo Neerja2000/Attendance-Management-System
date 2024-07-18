@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import necessary form modules
+import { AuthService } from 'src/app/shared/auth/auth.service';
 import { EmpAttendanceService } from 'src/app/shared/empAttendance/emp-attendance.service';
 
 @Component({
@@ -12,34 +13,39 @@ export class EmpAddAttendanceComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private attendanceService: EmpAttendanceService
+    private attendanceService: EmpAttendanceService,
+    private authService:AuthService
   ) {
     // Initialize the form group and form controls
     this.attendanceForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      checkIn: ['', Validators.required],
+      employeeId: [''],
+     
+      check_in: ['', Validators.required],
       break: ['', Validators.required],
-      checkOut: ['', Validators.required],
-      workDone: ['', Validators.required],
-      present: [false] // Initialize present/absent toggle with false
+      check_out: ['', Validators.required],
+      work_done: ['', Validators.required],
+    
     });
+    
   }
 
   addAttendance() {
-    // Validate form before submission
-    if (this.attendanceForm.invalid) {
+    const employeeId = this.authService.getId(); // Fetch _id using AuthService
+    if (!employeeId) {
+      console.error('EmployeeId not found.');
       return;
     }
 
-    // Call service to add attendance
+    this.attendanceForm.patchValue({ employeeId });
+
     this.attendanceService.addEmpAttendanceapi(this.attendanceForm.value).subscribe(
       (response: any) => {
         console.log('Attendance added successfully', response);
-        // Optionally, you can handle success response here
+        // Optionally handle success response here
       },
       (error: any) => {
         console.error('Error adding attendance', error);
-        // Optionally, you can handle error response here
+        // Optionally handle error response here
       }
     );
   }
