@@ -32,7 +32,11 @@ export class EmpAddAttendanceComponent implements OnInit {
   }
 
   async fetchEmployeeId() {
-    this.employeeId = await this.authService.getId();
+    try {
+      this.employeeId = await this.authService.getId();
+    } catch (error) {
+      console.error('Error fetching employee ID:', error);
+    }
   }
 
   loadAttendance() {
@@ -56,7 +60,7 @@ export class EmpAddAttendanceComponent implements OnInit {
     }
   }
 
-  addAttendanceField(field: string) {
+  submitAttendance() {
     if (!this.employeeId) {
       console.error('EmployeeId not found.');
       return;
