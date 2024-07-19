@@ -109,32 +109,33 @@ const getAll = async (req, res) => {
 
   const getSingle = async (req, res) => {
     try {
-        // Extract employeeId from request parameters or query
-        const { employeeId } = req.params; // Assuming employeeId is passed as a URL parameter
-        
-        // Find the rating document by employeeId
-        const ratingDocument = await rating.findOne({ employeeId: employeeId }).populate('employeeId');
-
-        if (ratingDocument) {
-            res.json({
-                success: true,
-                status: 200,
-                message: "Rating Retrieved Successfully",
-                data: ratingDocument
-            });
-        } else {
-            res.json({
-                success: false,
-                status: 404,
-                message: "Rating Not Found"
-            });
-        }
-    } catch (err) {
+      const { employeeId } = req.params; // Get employeeId from request parameters
+  
+      // Find all ratings for the specified employeeId and populate employee details
+      const ratings = await rating.find({ employeeId: employeeId }).populate('employeeId');
+  
+      if (ratings.length > 0) {
         res.json({
-            success: false,
-            status: 400,
-            message: err.message
+          success: true,
+          status: 200,
+          message: "Ratings Retrieved Successfully",
+          data: ratings
         });
+      } else {
+        res.json({
+          success: false,
+          status: 404,
+          message: "No Ratings Found for This Employee"
+        });
+      }
+    } catch (err) {
+      res.json({
+        success: false,
+        status: 400,
+        message: err.message
+      });
     }
-};
+  };
+  
+
 module.exports={addRating,getAll,adminRating,getSingle}
