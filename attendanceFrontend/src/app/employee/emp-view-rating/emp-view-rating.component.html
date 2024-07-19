@@ -1,1 +1,47 @@
-<p>emp-view-rating works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h5 class="card-title">
+          View Rating for {{ currentMonth }}
+        </h5>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="monthFilter">Filter by Month:</label>
+          <input type="month" class="form-control" [(ngModel)]="selectedMonth" (change)="onFilterChange()">
+        </div>
+        <div class="form-group">
+          <label for="weekFilter">Filter by Week:</label>
+          <select class="form-control" [(ngModel)]="selectedWeek" (change)="onFilterChange()">
+            <option value="">Select Week</option>
+            <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Employee Name</th>
+          <th>Rating</th>
+          <th>Remarks</th>
+          <th>Add Rating</th>
+          <th>Admin's Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rating of ratings">
+          <td>{{ rating.employeeId?.name }}</td> 
+          <td>{{ rating.rating }}</td>
+          <td>{{ rating.remarks }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" [routerLink]="['/admin/layout/add-rating',rating._id]">
+              <i class="bi bi-star-fill"></i>
+            </button>
+          </td>
+          <td>{{ rating.adminRating }}</td> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
