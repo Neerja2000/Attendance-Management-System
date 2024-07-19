@@ -18,7 +18,7 @@ export class ViewAttendanceDetailsComponent {
   constructor(
     private route: ActivatedRoute,
     private attService: AttendanceService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
