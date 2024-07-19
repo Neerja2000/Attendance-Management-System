@@ -15,6 +15,7 @@ import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.co
 import { EmpAddAttendanceComponent } from './employee/emp-add-attendance/emp-add-attendance.component';
 import { EmpViewAttendanceComponent } from './employee/emp-view-attendance/emp-view-attendance.component';
 import { EmpAddRatingComponent } from './employee/emp-add-rating/emp-add-rating.component';
+import { EmpViewRatingComponent } from './employee/emp-view-rating/emp-view-rating.component';
 
 const routes: Routes = [
 {
@@ -67,7 +68,7 @@ const routes: Routes = [
       path:'emp-add-rating',component:EmpAddRatingComponent
     },
     {
-      path:'emp-view-rating',component:EmpViewAttendanceComponent
+      path:'emp-view-rating',component:EmpViewRatingComponent
     }
   ]
   }
