@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const attendanceSchema = new mongoose.Schema({
   AttendanceId: {
     type: Number,
-    required: true
+   
   },
   employeeId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -12,19 +12,19 @@ const attendanceSchema = new mongoose.Schema({
   },
   check_in: {
     type: String,
-    required: true
+   
   },
-  break: {
+  break_time: {
     type: String,
-    required: true
+   
   },
   check_out: {
     type: String,
-    required: true
+   
   },
   work_done: {
     type: String,
-    required: true
+   
   },
   createdAt: {
     type: Date,
@@ -35,6 +35,7 @@ const attendanceSchema = new mongoose.Schema({
     enum: ['absent', 'present'],
     default: 'present'
   }
+  
   
 });
 

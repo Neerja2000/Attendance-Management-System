@@ -8,7 +8,7 @@ const employeeController=require("../apis/employee/employeeController")
 router.post("/attendance/add",attendanceController.addAttendance)
 router.get("/attendance/single",attendanceController.getSingle)
 router.post("/attendance/status",attendanceController.changeStatus)
-
+router.get("/attendance/today",attendanceController.getTodayAttendance)
 //rating
 router.post("/rating/add",empRatingController.addRating)
 

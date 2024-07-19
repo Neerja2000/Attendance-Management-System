@@ -1,41 +1,45 @@
 <div class="container-fluid mt-5">
-    <section class="section">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-title">Add Today's Attendance</h5>
-        </div>
-        <div class="card-body">
-          <form [formGroup]="attendanceForm" (ngSubmit)="addAttendance()">
-            <table class="table table-striped" id="table1">
-              <thead>
-                <tr>
-                
-                  <th>Check-In</th>
-                  <th>Break</th>
-                  <th>Check-Out</th>
-                  <th>Work-Done</th>
-                  
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                 
-
-                  <td><input type="text" formControlName="check_in" class="form-control" required></td>
-                  <td><input type="text" formControlName="break" class="form-control" required></td>
-                  <td><input type="text" formControlName="check_out" class="form-control" required></td>
-                  <td><input type="text" formControlName="work_done" class="form-control" required></td>
-                
-                  <td>
-                    <button type="submit" class="btn btn-primary">Add Attendance</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </form>
-        </div>
+  <section class="section">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Add Today's Attendance</h5>
       </div>
-    </section>
-  </div>
-  
+      <div class="card-body">
+        <form [formGroup]="attendanceForm">
+          <table class="table table-striped" id="table1">
+            <thead>
+              <tr>
+                <th>Check-In</th>
+                <th>Break</th>
+                <th>Check-Out</th>
+                <th>Work-Done</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input type="text" formControlName="check_in" class="form-control" required>
+                  <button type="button" class="btn btn-primary mt-2" (click)="addAttendanceField('check_in')">Save Check-In</button>
+                </td>
+                <td>
+                  <input type="text" formControlName="break_time" class="form-control" required>
+                  <button type="button" class="btn btn-primary mt-2" (click)="addAttendanceField('break_time')">Save Break</button>
+                </td>
+                <td>
+                  <input type="text" formControlName="check_out" class="form-control" required>
+                  <button type="button" class="btn btn-primary mt-2" (click)="addAttendanceField('check_out')">Save Check-Out</button>
+                </td>
+                <td>
+                  <input type="text" formControlName="work_done" class="form-control" required>
+                  <button type="button" class="btn btn-primary mt-2" (click)="addAttendanceField('work_done')">Save Work-Done</button>
+                </td>
+             
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

@@ -2,50 +2,63 @@ const attendance=require("./attendanceModel")
 const Employee=require("../employee/employeeModel")
 const addAttendance = async (req, res) => {
   try {
-      let total = await attendance.countDocuments();
-      
-      // Get today's date in YYYY-MM-DD format
-      const today = new Date().toISOString().split('T')[0];
-      
-      // Check if attendance already exists for the same user on the same day
-      const existingAttendance = await attendance.findOne({
-          employeeId: req.body.employeeId,
-          createdAt: { $gte: new Date(today), $lt: new Date(new Date(today).getTime() + 24 * 60 * 60 * 1000) }
-      });
-      
-      if (existingAttendance) {
-          return res.status(400).json({
-              success: false,
-              status: 400,
-              message: "Attendance for this user already exists for today"
-          });
-      }
-      
-      let newAttendance = new attendance({
-          AttendanceId: total + 1,
-          check_in: req.body.check_in,
-          break: req.body.break,
-          check_out: req.body.check_out,
-          work_done: req.body.work_done,
-          employeeId: req.body.employeeId
-      });
-      
-      const result = await newAttendance.save();
-      
+    console.log('Request Body:', req.body); // Log the request body for debugging
+
+    const { employeeId, check_in, break_time, check_out, work_done } = req.body;
+
+    const today = new Date().toISOString().split('T')[0]; // Today's date
+
+    // Check if attendance already exists for today
+    const existingAttendance = await attendance.findOne({
+      employeeId: employeeId,
+      createdAt: { $gte: new Date(today), $lt: new Date(new Date(today).getTime() + 24 * 60 * 60 * 1000) }
+    });
+
+    if (existingAttendance) {
+      // Update existing record
+      existingAttendance.check_in = check_in || existingAttendance.check_in;
+      existingAttendance.break_time = break_time || existingAttendance.break_time;
+      existingAttendance.check_out = check_out || existingAttendance.check_out;
+      existingAttendance.work_done = work_done || existingAttendance.work_done;
+
+      await existingAttendance.save();
       return res.json({
-          success: true,
-          status: 200,
-          message: "Attendance Added Successfully",
-          data: result
+        success: true,
+        status: 200,
+        message: "Attendance Updated Successfully",
+        data: existingAttendance
       });
+    } else {
+      // Create new record
+      const newAttendance = new Attendance({
+        employeeId: employeeId,
+        check_in: check_in,
+        break_time: break_time,
+        check_out: check_out,
+        work_done: work_done
+      });
+
+      const savedAttendance = await newAttendance.save();
+      return res.json({
+        success: true,
+        status: 200,
+        message: "Attendance Added Successfully",
+        data: savedAttendance
+      });
+    }
   } catch (err) {
-      return res.status(400).json({
-          success: false,
-          status: 400,
-          message: err.message
-      });
+    console.error('Error:', err); // Log the error for debugging
+    return res.status(400).json({
+      success: false,
+      status: 400,
+      message: err.message
+    });
   }
 };
+
+
+
+
 
 const getAll=(req,res)=>{
     attendance.find().populate('employeeId')
@@ -189,7 +202,7 @@ const changeStatus = (req, res) => {
             employeeId: '$_id',
             employeeName: '$name',
             check_in: '$attendance.check_in',
-            break: '$attendance.break',
+            break_time: '$attendance.break_time',
             check_out: '$attendance.check_out',
             work_done: '$attendance.work_done',
             status: '$attendance.status'
