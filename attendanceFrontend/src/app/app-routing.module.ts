@@ -68,7 +68,7 @@ const routes: Routes = [
       path:'emp-add-rating',component:EmpAddRatingComponent
     },
     {
-      path:'emp-view-rating',component:EmpViewRatingComponent
+      path:'emp-view-rating/:employeeId',component:EmpViewRatingComponent
     }
   ]
   }

@@ -1,68 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { RatingService } from 'src/app/shared/rating/rating.service';
+import { ActivatedRoute } from '@angular/router';
+import { EmpRatingService } from 'src/app/shared/empRating/emp-rating.service';
 
 @Component({
   selector: 'app-emp-view-rating',
   templateUrl: './emp-view-rating.component.html',
   styleUrls: ['./emp-view-rating.component.css']
 })
-
-
-
 export class EmpViewRatingComponent implements OnInit {
   ratings: any[] = [];
-  currentMonth!: string;
-  weeks: string[] = ['week1', 'week2', 'week3', 'week4'];
-  selectedWeek: string = '';
-  selectedMonth: string = '';
+  errorMessage: string | null = null;
 
-  constructor(private ratingService: RatingService) { }
+  constructor(private ratingService: EmpRatingService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.currentMonth = this.getCurrentMonth();
-    this.selectedMonth = this.getCurrentMonthForFilter(); // Initialize selectedMonth in YYYY-MM format
-    this.selectedWeek = this.getCurrentWeek();
-    this.loadRatings(); 
+    this.loadRatings();
   }
 
-  getCurrentMonth(): string {
-    const date = new Date();
-    const month = date.toLocaleString('en-US', { month: 'long' });
-    const year = date.getFullYear();
-    return `${month} ${year}`;
+  // Method to load ratings based on the employee ID from the route
+  loadRatings(): void {
+    this.route.paramMap.subscribe(params => {
+      const employeeId = params.get('employeeId');
+      if (employeeId) {
+        this.fetchRatings(employeeId);
+      } else {
+        this.errorMessage = 'Employee ID is required.';
+      }
+    });
   }
 
-  getCurrentMonthForFilter(): string {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    return `${year}-${month}`;
-  }
-
-  getCurrentWeek(): string {
-    const date = new Date();
-    const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-    const currentDay = date.getDate();
-    const weekNumber = Math.ceil(currentDay / 7);
-    return `week${weekNumber}`;
-  }
-
-  loadRatings() {
-    this.ratingService.empRatingapi(this.selectedWeek, this.selectedMonth).subscribe(
-      (res: any) => {
-        if (res.success) {
-          this.ratings = res.data; 
+  // Method to fetch ratings from the service
+  private fetchRatings(employeeId: string): void {
+    this.ratingService.getSingleRating(employeeId).subscribe(
+      response => {
+        if (response.success) {
+          this.ratings = Array.isArray(response.data) ? response.data : [response.data];
+          console.log(response.data);
         } else {
-          console.error('Error fetching ratings:', res.message);
+          this.errorMessage = response.message;
         }
       },
-      (error) => {
-        console.error('Error:', error);
+      error => {
+        this.errorMessage = 'An error occurred while fetching the rating.';
       }
     );
-  }
-
-  onFilterChange() {
-    this.loadRatings();
   }
 }

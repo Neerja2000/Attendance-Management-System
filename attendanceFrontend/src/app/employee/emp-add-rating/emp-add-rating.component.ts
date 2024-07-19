@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { EmpRatingService } from 'src/app/shared/empRating/emp-rating.service';
 import { RatingService } from 'src/app/shared/rating/rating.service';
@@ -16,7 +17,8 @@ export class EmpAddRatingComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private ratingService: EmpRatingService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router:Router
   ) {
     this.ratingForm = this.formBuilder.group({
       rating: ['', Validators.required],
@@ -50,6 +52,7 @@ export class EmpAddRatingComponent implements OnInit {
         (response: any) => {
           console.log('Rating added successfully', response);
           // Optionally handle success response here
+          this.router.navigate(['/employee/layout/emp-view-rating', this.employeeId]);
         },
         (error: any) => {
           console.error('Error adding rating', error);

@@ -105,5 +105,36 @@ const getAll = async (req, res) => {
       });
     }
   };
-  
-module.exports={addRating,getAll,adminRating}
+
+
+  const getSingle = async (req, res) => {
+    try {
+        // Extract employeeId from request parameters or query
+        const { employeeId } = req.params; // Assuming employeeId is passed as a URL parameter
+        
+        // Find the rating document by employeeId
+        const ratingDocument = await rating.findOne({ employeeId: employeeId }).populate('employeeId');
+
+        if (ratingDocument) {
+            res.json({
+                success: true,
+                status: 200,
+                message: "Rating Retrieved Successfully",
+                data: ratingDocument
+            });
+        } else {
+            res.json({
+                success: false,
+                status: 404,
+                message: "Rating Not Found"
+            });
+        }
+    } catch (err) {
+        res.json({
+            success: false,
+            status: 400,
+            message: err.message
+        });
+    }
+};
+module.exports={addRating,getAll,adminRating,getSingle}
