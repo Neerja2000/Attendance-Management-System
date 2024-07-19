@@ -1,1 +1,33 @@
-<p>emp-add-rating works!</p>
+<div class="container-fluid mt-5">
+    <section class="section">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Add Rating</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="ratingForm" (ngSubmit)="addRating()">
+            <table class="table table-striped" id="table1">
+              <thead>
+                <tr>
+                  <th>Rating</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="text" formControlName="rating" class="form-control" required>
+                  </td>
+                  <td>
+                    <input type="text" formControlName="remarks" class="form-control" required>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary mt-2">Add Rating</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+  
