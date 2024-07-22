@@ -24,7 +24,7 @@ admin.findOne({email:'admin@gmail.com'})
         })
     }
     else{
-        
+
         console.log("admin already exists")
     }
 }).catch(err=>{
@@ -41,7 +41,8 @@ const adminLogin = (req, res) => {
           return res.status(400).send('Admin not found');
         }
   
-        const isMatch = bcrypt.compareSync(password, admin.password);
+        const isMatch = bcrypt.compare(password, admin.password);
+       
         if (!isMatch) {
           return res.status(400).send('Incorrect password');
         }
