@@ -23,6 +23,7 @@ export class EmpAddAttendanceComponent implements OnInit {
       break_time_finish: [''],
       check_out: [''],
       work_done: ['']
+      
     });
   }
 
