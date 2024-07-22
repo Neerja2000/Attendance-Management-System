@@ -9,7 +9,7 @@ export class AdminLoginService {
 
   globalbaseurl:any
 
-  constructor(private http:HttpClient,@Inject('embaseurl')_baseurl:any) {
+  constructor(private http:HttpClient,@Inject('baseurl')_baseurl:any) {
     this.globalbaseurl=_baseurl
    }
 
