@@ -17,7 +17,6 @@ export class EmpViewAttendanceComponent implements OnInit {
   filteredAttendance: any[] = [];
 
   constructor(
-    private route: ActivatedRoute,
     private attService: AttendanceService,
     private authService: AuthService // Inject AuthService
   ) {}
@@ -82,4 +81,22 @@ export class EmpViewAttendanceComponent implements OnInit {
     this.totalPages = Math.ceil(this.filteredAttendance.length / this.itemsPerPage);
     this.updatePagination();
   }
+
+  calculateTotalWorkHours(checkIn: string, checkOut: string, breakStart: string, breakFinish: string): string {
+    const checkInTime = new Date(`1970-01-01T${checkIn}:00`);
+    const checkOutTime = new Date(`1970-01-01T${checkOut}:00`);
+    const breakStartTime = new Date(`1970-01-01T${breakStart}:00`);
+    const breakFinishTime = new Date(`1970-01-01T${breakFinish}:00`);
+
+    if (checkInTime && checkOutTime && breakStartTime && breakFinishTime) {
+      const breakDuration = (breakFinishTime.getTime() - breakStartTime.getTime()) / 60000; // break duration in minutes
+      const workDuration = (checkOutTime.getTime() - checkInTime.getTime()) / 60000 - breakDuration; // work duration in minutes
+      const hours = Math.floor(workDuration / 60);
+      const minutes = workDuration % 60;
+      return `${hours}h ${minutes}m`;
+    }
+    return 'N/A';
+  }
 }
+
+

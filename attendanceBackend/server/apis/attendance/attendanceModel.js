@@ -14,7 +14,11 @@ const attendanceSchema = new mongoose.Schema({
     type: String,
    
   },
-  break_time: {
+  break_time_start: {
+    type: String,
+   
+  },
+  break_time_finish: {
     type: String,
    
   },

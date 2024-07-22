@@ -3,7 +3,7 @@ const Employee=require("../employee/employeeModel")
 
 const addAttendance = async (req, res) => {
   try {
-    const { employeeId, check_in, break_time, check_out, work_done } = req.body;
+    const { employeeId, check_in, break_time_start,break_time_finish, check_out, work_done } = req.body;
 
     // Get today's date in YYYY-MM-DD format
     const today = new Date().toISOString().split('T')[0];
@@ -17,7 +17,8 @@ const addAttendance = async (req, res) => {
     if (existingAttendance) {
       // Update existing attendance record with partial updates
       if (check_in) existingAttendance.check_in = check_in;
-      if (break_time) existingAttendance.break_time = break_time;
+      if (break_time_start) existingAttendance.break_time_start = break_time_start;
+      if (break_time_finish) existingAttendance.break_time_finish = break_time_finish;
       if (check_out) existingAttendance.check_out = check_out;
       if (work_done) existingAttendance.work_done = work_done;
 
@@ -34,7 +35,8 @@ const addAttendance = async (req, res) => {
       let newAttendance = new attendance({
         AttendanceId: total + 1,
         check_in: check_in,
-        break_time: break_time,
+        break_time_start: break_time_start,
+        break_time_finish:break_time_finish,
         check_out: check_out,
         work_done: work_done,
         employeeId: employeeId

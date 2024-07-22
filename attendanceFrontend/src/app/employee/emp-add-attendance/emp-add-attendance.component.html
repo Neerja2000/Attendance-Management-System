@@ -10,7 +10,8 @@
             <thead>
               <tr>
                 <th>Check-In</th>
-                <th>Break</th>
+                <th>Break Start</th>
+                <th>Break Finish</th>
                 <th>Check-Out</th>
                 <th>Work-Done</th>
               </tr>
@@ -18,13 +19,16 @@
             <tbody>
               <tr>
                 <td>
-                  <input type="text" formControlName="check_in" class="form-control" required>
+                  <input type="time" formControlName="check_in" class="form-control" required>
                 </td>
                 <td>
-                  <input type="text" formControlName="break_time" class="form-control" required>
+                  <input type="time" formControlName="break_time_start" class="form-control" required>
                 </td>
                 <td>
-                  <input type="text" formControlName="check_out" class="form-control" required>
+                  <input type="time" formControlName="break_time_finish" class="form-control" required>
+                </td>
+                <td>
+                  <input type="time" formControlName="check_out" class="form-control" required>
                 </td>
                 <td>
                   <input type="text" formControlName="work_done" class="form-control" required>

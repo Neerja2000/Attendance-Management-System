@@ -19,7 +19,8 @@ export class EmpAddAttendanceComponent implements OnInit {
   ) {
     this.attendanceForm = this.formBuilder.group({
       check_in: [''],
-      break_time: [''],
+      break_time_start: [''],
+      break_time_finish: [''],
       check_out: [''],
       work_done: ['']
     });
@@ -47,7 +48,8 @@ export class EmpAddAttendanceComponent implements OnInit {
           if (attendance) {
             this.attendanceForm.patchValue({
               check_in: attendance.check_in || '',
-              break_time: attendance.break_time || '',
+              break_time_start: attendance.break_time_start || '',
+              break_time_finish: attendance.break_time_finish || '',
               check_out: attendance.check_out || '',
               work_done: attendance.work_done || ''
             });
@@ -69,7 +71,8 @@ export class EmpAddAttendanceComponent implements OnInit {
     const formData = {
       employeeId: this.employeeId,
       check_in: this.attendanceForm.get('check_in')?.value,
-      break_time: this.attendanceForm.get('break_time')?.value,
+      break_time_start: this.attendanceForm.get('break_time_start')?.value,
+      break_time_finish: this.attendanceForm.get('break_time_finish')?.value,
       check_out: this.attendanceForm.get('check_out')?.value,
       work_done: this.attendanceForm.get('work_done')?.value
     };
