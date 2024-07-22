@@ -203,7 +203,8 @@ const changeStatus = (req, res) => {
             employeeId: '$_id',
             employeeName: '$name',
             check_in: '$attendance.check_in',
-            break_time: '$attendance.break_time',
+            break_time_start: '$attendance.break_time_start',
+            break_time_finish: '$attendance.break_time_finish',
             check_out: '$attendance.check_out',
             work_done: '$attendance.work_done',
             status: '$attendance.status'
