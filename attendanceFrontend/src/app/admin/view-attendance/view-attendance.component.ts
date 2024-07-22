@@ -27,7 +27,8 @@ export class ViewAttendanceComponent implements OnInit {
             employeeId: detail.employeeId,
             employeeName: detail.employeeName,
             check_in: detail.check_in || null,
-            break_time: detail.break_time || null, // Log this field
+            break_time_start: detail.break_time_start || null, // Log this field
+            break_time_finish: detail.break_time_finish || null, 
             check_out: detail.check_out || null,
             work_done: detail.work_done || null,
             status: detail.status || 'absent'
