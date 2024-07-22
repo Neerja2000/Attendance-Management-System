@@ -24,6 +24,7 @@ admin.findOne({email:'admin@gmail.com'})
         })
     }
     else{
+        
         console.log("admin already exists")
     }
 }).catch(err=>{
