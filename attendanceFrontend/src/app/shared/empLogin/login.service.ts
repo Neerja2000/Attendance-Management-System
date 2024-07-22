@@ -8,11 +8,14 @@ import { Observable } from 'rxjs';
 export class LoginService {
   employeebaseurl:any
 
-  constructor(private http:HttpClient,@Inject('embaseurl')_baseurl:any) {
+  constructor(private http:HttpClient,@Inject('baseurl')_baseurl:any) {
     this.employeebaseurl=_baseurl
    }
 
    loginapi(userId: string, password: string): Observable<any> {
     return this.http.post(`${this.employeebaseurl}/login`, { userId, password });
   }
+
+
+
 }

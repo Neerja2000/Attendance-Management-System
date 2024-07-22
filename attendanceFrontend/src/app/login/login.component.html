@@ -14,7 +14,7 @@
           <span class="input-icon"><i class="bi bi-lock-fill"></i></span>
         </div>
         <div class="role-buttons">
-          <button type="button" id="admin-btn" class="role-btn" routerLink="/admin/layout/dashboard">Admin</button>
+          <button type="button" id="admin-btn" class="role-btn"  (click)="adminLogin()">Admin</button>
           <button type="button" id="employee-btn" class="role-btn" (click)="employeeLogin()">Employee</button>
         </div>
       </form>

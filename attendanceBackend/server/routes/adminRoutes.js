@@ -4,6 +4,7 @@ const employeeController=require("../apis/employee/employeeController")
 const attendanceController=require("../apis/attendance/attendanceController")
 
 const empRatingController=require("../apis/employeeRating/empRatingController")
+const adminController=require("../apis/admin/adminController")
 // Employee
 router.post('/employee/add',employeeController.addEmployee)
 router.get('/employee/getAll',employeeController.getAll)
@@ -22,5 +23,9 @@ router.get("/attendance/today",attendanceController.getTodayAttendance)
 // empRating view
 router.get("/emprating/getAll",empRatingController.getAll)
 router.put("/adminrating/add",empRatingController.adminRating)
+
+
+//adminLogin
+router.post("/adminLogin",adminController.adminLogin)
 
 module.exports=router
