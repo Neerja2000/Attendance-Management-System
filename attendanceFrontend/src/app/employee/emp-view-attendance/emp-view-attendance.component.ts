@@ -95,7 +95,7 @@ export class EmpViewAttendanceComponent implements OnInit {
       const minutes = workDuration % 60;
       return `${hours}h ${minutes}m`;
     }
-    return 'N/A';
+    return 'Null';
   }
 }
 
