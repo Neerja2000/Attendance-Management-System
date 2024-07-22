@@ -13,9 +13,9 @@ export class AdminLoginService {
     this.globalbaseurl=_baseurl
    }
 
-   adminapi(userId: string, password: string): Observable<any> {
-    console.log(userId)
+   adminapi(email: string, password: string): Observable<any> {
+    console.log(email)
     console.log(password)
-    return this.http.post(`${this.globalbaseurl}/adminLogin`, { userId, password });
+    return this.http.post(`${this.globalbaseurl}/adminLogin`, { email, password });
   }
 }

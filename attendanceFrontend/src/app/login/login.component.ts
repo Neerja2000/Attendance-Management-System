@@ -34,21 +34,23 @@ export class LoginComponent {
       }
     );
   }
-  adminLogin(){
-    this.adminService.adminapi(this.username,this.password).subscribe(
+  adminLogin() {
+    this.adminService.adminapi(this.username, this.password).subscribe(
       (response) => {
-        if (response.success) {
-          this.authService.storedata(response)
-        
-          this.router.navigate(['/admin/layout/dashboard']);
+        console.log('Admin login response:', response); // Debugging response
+        if (response.token) { // Check if token exists in response
+          this.authService.storedata(response); // Store token and ID
+          this.router.navigate(['/admin/layout/dashboard']); // Navigate to dashboard
         } else {
-          alert(response.message);
+          alert(response.message); // Alert error message if no token
         }
       },
       (error) => {
         console.error('Login failed', error);
         alert('Login failed. Please try again.');
-      } 
-    )
+      }
+    );
   }
+  
+  
 }

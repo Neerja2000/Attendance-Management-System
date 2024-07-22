@@ -7,10 +7,15 @@ export class AuthService {
 
   constructor() { }
 
-  storedata(res:any){
-    sessionStorage.setItem("_id",res.data._id)
-    sessionStorage.setItem('token',res.token)
+  storedata(data: any) {
+    if (data && data.token) {
+      sessionStorage.setItem('token', data.token);
+      
+    } else {
+      console.error('Invalid data received:', data);
+    }
   }
+  
   getId(){
     return sessionStorage.getItem('_id')
   }
