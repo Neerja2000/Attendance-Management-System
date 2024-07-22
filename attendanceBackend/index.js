@@ -4,6 +4,7 @@ const app=express()
 const adminRoute=require("./server/routes/adminRoutes")
 const employeeRoute=require("./server/routes/employeeRoutes")
 const cors=require('cors')
+const admin=require("./server/apis/admin/adminController")
 app.use(cors())
 
 
