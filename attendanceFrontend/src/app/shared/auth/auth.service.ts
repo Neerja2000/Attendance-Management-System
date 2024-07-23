@@ -21,10 +21,10 @@ export class AuthService {
     return sessionStorage.getItem('_id')
   }
   getToken(){
-    
+
     return sessionStorage.getItem('token')
   }
-  removedata(){
+  removedata() {
     sessionStorage.removeItem('_id')
     sessionStorage.removeItem('token')
   }
