@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../shared/empLogin/login.service';
 import { AuthService } from '../shared/auth/auth.service';
 import { AdminLoginService } from '../shared/adminLogin/admin-login.service';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private loginService:LoginService, private router: Router, private authService:AuthService,private adminService:AdminLoginService,private toastr:ToastrService) { }
+  constructor(private loginService:LoginService, private router: Router, private authService:AuthService,private adminService:AdminLoginService) { }
 
   employeeLogin() {
     this.loginService.loginapi(this.username, this.password).subscribe(
@@ -25,7 +25,7 @@ export class LoginComponent {
           this.authService.storedata(response)
         
           this.router.navigate(['/employee/layout/emp-dashboard']);
-          this.toastr.success('Login Successfully','success')
+        
         } else {
           alert(response.message);
         }
