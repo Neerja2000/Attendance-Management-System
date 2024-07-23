@@ -1,11 +1,9 @@
-// login.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { LoginService } from '../shared/empLogin/login.service';
 import { AuthService } from '../shared/auth/auth.service';
 import { AdminLoginService } from '../shared/adminLogin/admin-login.service';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -16,26 +14,47 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private loginService:LoginService, private router: Router, private authService:AuthService,private adminService:AdminLoginService) { }
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private authService: AuthService,
+    private adminService: AdminLoginService,
+    private snackBar: MatSnackBar
+  ) { }
 
   employeeLogin() {
     this.loginService.loginapi(this.username, this.password).subscribe(
       (response) => {
         if (response.success) {
-          this.authService.storedata(response)
-        
+          this.authService.storedata(response);
+          this.snackBar.open('Login successful!', 'Close', {
+            duration: 3000, // Duration in milliseconds
+            panelClass: ['success-snackbar'],
+            verticalPosition: 'top',
+            horizontalPosition: 'right'
+          });
           this.router.navigate(['/employee/layout/emp-dashboard']);
-        
         } else {
-          alert(response.message);
+          this.snackBar.open(response.message, 'Close', {
+            duration: 3000, // Duration in milliseconds
+            panelClass: ['error-snackbar'],
+            verticalPosition: 'top',
+            horizontalPosition: 'right'
+          });
         }
       },
       (error) => {
         console.error('Login failed', error);
-        alert('Login failed. Please try again.');
+        this.snackBar.open('Login failed. Please try again.', 'Close', {
+          duration: 3000, // Duration in milliseconds
+          panelClass: ['error-snackbar'],
+          verticalPosition: 'top',
+          horizontalPosition: 'right'
+        });
       }
     );
   }
+
   adminLogin() {
     this.adminService.adminapi(this.username, this.password).subscribe(
       (response) => {
@@ -50,7 +69,7 @@ export class LoginComponent {
             if (navigated) {
               console.log('Navigation to dashboard successful');
             } else {
-              console.error('Navigation to dashboard failed') ;
+              console.error('Navigation to dashboard failed');
             }
           });
         } else {
@@ -58,11 +77,9 @@ export class LoginComponent {
         }
       },
       (error) => {
-         console.error('Login failed', error);
-        alert('Login failed. Please try again.') ;
+        console.error('Login failed', error);
+        alert('Login failed. Please try again.');
       }
     );
   }
-  
-  
 }
