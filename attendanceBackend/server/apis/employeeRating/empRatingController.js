@@ -2,30 +2,54 @@ const rating = require('./empRatingModel');
 
 
 
-
 const addRating = async (req, res) => {
-    let total = await rating.countDocuments();
-    let newRating = new rating({
-        ratingId: total + 1,
-        rating: req.body.rating,
-        remarks: req.body.remarks,
-        employeeId: req.body.employeeId
-    });
-    newRating.save()
-        .then((result) => {
-            res.json({
-                success: true,
-                status: 200,
-                message: "Rating Added Successfully",
-                data: result
-            });
-        }).catch(err => {
-            res.json({
+    const { rating: newRatingValue, remarks, employeeId } = req.body;
+
+    try {
+        // Get the current date and date one week ago
+        const currentDate = new Date();
+        const oneWeekAgo = new Date();
+        oneWeekAgo.setDate(currentDate.getDate() - 7);
+
+        // Check if there's already a rating from the same employee in the past week
+        const existingRating = await rating.findOne({
+            employeeId,
+            createdAt: { $gte: oneWeekAgo }
+        });
+
+        if (existingRating) {
+            return res.json({
                 success: false,
                 status: 400,
-                message: err.message
+                message: "You can only add one rating per week."
             });
+        }
+
+        // Get the total number of ratings and create a new rating
+        const total = await rating.countDocuments();
+        const newRating = new rating({
+            ratingId: total + 1,
+            rating: newRatingValue,
+            remarks,
+            employeeId
         });
+
+        // Save the new rating
+        const result = await newRating.save();
+        res.json({
+            success: true,
+            status: 200,
+            message: "Rating Added Successfully",
+            data: result
+        });
+
+    } catch (err) {
+        res.json({
+            success: false,
+            status: 400,
+            message: err.message
+        });
+    }
 };
 
 const adminRating = async (req, res) => {

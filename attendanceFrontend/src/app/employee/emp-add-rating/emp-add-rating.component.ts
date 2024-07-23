@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { EmpRatingService } from 'src/app/shared/empRating/emp-rating.service';
@@ -18,7 +19,8 @@ export class EmpAddRatingComponent implements OnInit {
     private formBuilder: FormBuilder,
     private ratingService: EmpRatingService,
     private authService: AuthService,
-    private router:Router
+    private router:Router,
+    private snackBar:MatSnackBar
   ) {
     this.ratingForm = this.formBuilder.group({
       rating: ['', Validators.required],
@@ -51,16 +53,41 @@ export class EmpAddRatingComponent implements OnInit {
       this.ratingService.addEmpAttendanceapi(ratingData).subscribe(
         (response: any) => {
           console.log('Rating added successfully', response);
-          // Optionally handle success response here
-          this.router.navigate(['/employee/layout/emp-view-rating', this.employeeId]);
+          if (response.success) {
+            this.snackBar.open('Rating added successfully!', 'Close', {
+              duration: 3000, // Duration in milliseconds
+              panelClass: ['success-snackbar'],
+              verticalPosition: 'top',
+              // horizontalPosition: 'right'
+            });
+            this.router.navigate(['/employee/layout/emp-view-rating', this.employeeId]);
+          } else {
+            this.snackBar.open(response.message, 'Close', {
+              duration: 3000, // Duration in milliseconds
+              panelClass: ['error-snackbar'],
+              verticalPosition: 'top',
+              // horizontalPosition: 'right'
+            });
+          }
         },
         (error: any) => {
           console.error('Error adding rating', error);
-          // Optionally handle error response here
+          this.snackBar.open('Error adding rating. Please try again.', 'Close', {
+            duration: 3000, // Duration in milliseconds
+            panelClass: ['error-snackbar'],
+            verticalPosition: 'top',
+            horizontalPosition: 'right'
+          });
         }
       );
     } else if (!this.employeeId) {
       console.error('Employee ID is not available.');
+      this.snackBar.open('Employee ID is not available.', 'Close', {
+        duration: 3000, // Duration in milliseconds
+        panelClass: ['error-snackbar'],
+        verticalPosition: 'top',
+        horizontalPosition: 'right'
+      });
     }
   }
 }
