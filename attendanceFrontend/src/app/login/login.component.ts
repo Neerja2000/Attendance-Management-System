@@ -65,20 +65,37 @@ export class LoginComponent {
             _id: this.authService.getId(),
             token: this.authService.getToken()
           });
+
           this.router.navigate(['/admin/layout/dashboard']).then((navigated) => {
             if (navigated) {
               console.log('Navigation to dashboard successful');
+              this.snackBar.open('Login successful!', 'Close', {
+                duration: 3000, // Duration in milliseconds
+                panelClass: ['success-snackbar'],
+                verticalPosition: 'top',
+                horizontalPosition: 'right'
+              });
             } else {
               console.error('Navigation to dashboard failed');
             }
           });
         } else {
-          alert(response.message); // Alert error message if no token
+          this.snackBar.open(response.message, 'Close', {
+            duration: 3000, // Duration in milliseconds
+            panelClass: ['error-snackbar'],
+            verticalPosition: 'top',
+            horizontalPosition: 'right'
+          });
         }
       },
       (error) => {
         console.error('Login failed', error);
-        alert('Login failed. Please try again.');
+        this.snackBar.open('Login failed. Please try again.', 'Close', {
+          duration: 3000, // Duration in milliseconds
+          panelClass: ['error-snackbar'],
+          verticalPosition: 'top',
+          horizontalPosition: 'right'
+        });
       }
     );
   }
