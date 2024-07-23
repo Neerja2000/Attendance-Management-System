@@ -17,6 +17,7 @@ export class AuthService {
     }
   }
   
+  
   getId(){
     return sessionStorage.getItem('_id')
   }
