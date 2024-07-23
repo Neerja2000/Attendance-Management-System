@@ -21,6 +21,7 @@ export class AuthService {
     return sessionStorage.getItem('_id')
   }
   getToken(){
+    
     return sessionStorage.getItem('token')
   }
   removedata(){
