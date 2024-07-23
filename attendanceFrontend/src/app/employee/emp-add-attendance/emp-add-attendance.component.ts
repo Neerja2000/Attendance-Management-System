@@ -23,7 +23,6 @@ export class EmpAddAttendanceComponent implements OnInit {
       break_time_finish: [''],
       check_out: [''],
       work_done: ['']
-      
     });
   }
 
@@ -36,6 +35,11 @@ export class EmpAddAttendanceComponent implements OnInit {
   async fetchEmployeeId() {
     try {
       this.employeeId = await this.authService.getId();
+      if (!this.employeeId) {
+        console.error('EmployeeId not found in session storage.');
+      } else {
+        console.log('Fetched EmployeeId:', this.employeeId); // Debug log
+      }
     } catch (error) {
       console.error('Error fetching employee ID:', error);
     }
