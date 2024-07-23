@@ -48,7 +48,7 @@ export class LoginComponent {
             if (navigated) {
               console.log('Navigation to dashboard successful');
             } else {
-              console.error('Navigation to dashboard failed');
+              console.error('Navigation to dashboard failed') ;
             }
           });
         } else {
