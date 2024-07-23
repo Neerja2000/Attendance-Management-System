@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { EmpAttendanceService } from 'src/app/shared/empAttendance/emp-attendance.service';
 
@@ -15,7 +16,8 @@ export class EmpAddAttendanceComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private attendanceService: EmpAttendanceService,
-    private authService: AuthService
+    private authService: AuthService,
+    private snackbar:MatSnackBar
   ) {
     this.attendanceForm = this.formBuilder.group({
       check_in: [''],
@@ -84,7 +86,13 @@ export class EmpAddAttendanceComponent implements OnInit {
 
     this.attendanceService.addEmpAttendanceapi(formData).subscribe(
       (response: any) => {
-        console.log('Attendance data saved successfully', response);
+        this.snackbar.open(' Changes Saved', 'Close', {
+          duration: 3000, // Duration in milliseconds,
+          
+          panelClass: ['success-snackbar'],
+          verticalPosition: 'top',
+          // horizontalPosition: 'right'
+        });
         this.loadAttendance(); // Refresh the attendance data
       },
       (error: any) => {
