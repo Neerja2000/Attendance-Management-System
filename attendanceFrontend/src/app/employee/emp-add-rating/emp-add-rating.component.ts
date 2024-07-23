@@ -58,7 +58,7 @@ export class EmpAddRatingComponent implements OnInit {
               duration: 3000, // Duration in milliseconds
               panelClass: ['success-snackbar'],
               verticalPosition: 'top',
-              // horizontalPosition: 'right'
+              horizontalPosition: 'right'
             });
             this.router.navigate(['/employee/layout/emp-view-rating', this.employeeId]);
           } else {
@@ -66,7 +66,7 @@ export class EmpAddRatingComponent implements OnInit {
               duration: 3000, // Duration in milliseconds
               panelClass: ['error-snackbar'],
               verticalPosition: 'top',
-              // horizontalPosition: 'right'
+              horizontalPosition: 'right'
             });
           }
         },
