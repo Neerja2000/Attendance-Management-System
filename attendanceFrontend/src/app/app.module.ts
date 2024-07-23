@@ -27,6 +27,8 @@ import { EmpAddAttendanceComponent } from './employee/emp-add-attendance/emp-add
 import { EmpViewAttendanceComponent } from './employee/emp-view-attendance/emp-view-attendance.component';
 import { EmpAddRatingComponent } from './employee/emp-add-rating/emp-add-rating.component';
 import { EmpViewRatingComponent } from './employee/emp-view-rating/emp-view-rating.component'
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,10 @@ import { EmpViewRatingComponent } from './employee/emp-view-rating/emp-view-rati
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
