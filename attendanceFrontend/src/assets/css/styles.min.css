@@ -20028,9 +20028,9 @@ fieldset:disabled .btn {
         width: 100%
     }
 
-    #main-wrapper[data-layout=vertical][data-header-position=fixed] .app-header {
+    /* #main-wrapper[data-layout=vertical][data-header-position=fixed] .app-header {
         width: calc(100% - 270px)
-    }
+    } */
 
     #main-wrapper[data-layout=vertical][data-sidebartype=full] .body-wrapper {
         margin-left: 270px
