@@ -13,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     canActivate():boolean{
         if(this.authservice.getToken()==null)
         {
-            this.snackBar.open('Login failed. Invalid Credientials.', 'Close', {
+            this.snackBar.open('Login failed.  Unauthorized User.', 'Close', {
                 duration: 3000, // Duration in milliseconds
                 panelClass: ['error-snackbar'],
                 verticalPosition: 'top',

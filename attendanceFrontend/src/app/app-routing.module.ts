@@ -16,6 +16,7 @@ import { EmpAddAttendanceComponent } from './employee/emp-add-attendance/emp-add
 import { EmpViewAttendanceComponent } from './employee/emp-view-attendance/emp-view-attendance.component';
 import { EmpAddRatingComponent } from './employee/emp-add-rating/emp-add-rating.component';
 import { EmpViewRatingComponent } from './employee/emp-view-rating/emp-view-rating.component';
+import { AuthGuard } from './auth_guard/auth_guard';
 
 const routes: Routes = [
 {
@@ -27,48 +28,48 @@ const routes: Routes = [
   {
     path:"admin/layout",component:LayoutComponent,
     children:[{
-      path: 'dashboard', component: DashboardComponent
+      path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard]
       
     },
     {
-      path:'add-employee',component:AddEmployeeComponent
+      path:'add-employee',component:AddEmployeeComponent,canActivate: [AuthGuard]
     },
     {
-      path:'view-employee',component:ViewEmployeesComponent
+      path:'view-employee',component:ViewEmployeesComponent,canActivate: [AuthGuard]
     },
     {
-      path:'update-employee/:id',component:UpdateEmployeeComponent
+      path:'update-employee/:id',component:UpdateEmployeeComponent,canActivate: [AuthGuard]
     },
     {
-      path:'view-attendance',component:ViewAttendanceComponent
+      path:'view-attendance',component:ViewAttendanceComponent,canActivate: [AuthGuard]
     },
     {
-      path:'view-attendance-details/:id',component:ViewAttendanceDetailsComponent
+      path:'view-attendance-details/:id',component:ViewAttendanceDetailsComponent,canActivate: [AuthGuard]
     },
     {
-      path:'add-rating/:id',component:AddRatingComponent
+      path:'add-rating/:id',component:AddRatingComponent,canActivate: [AuthGuard]
     },
     {
-      path:'view-rating',component:ViewRatingComponent
+      path:'view-rating',component:ViewRatingComponent,canActivate: [AuthGuard]
     }
   ]
   },
   {
     path:"employee/layout",component:EmpLayoutComponent,
     children:[{
-      path:'emp-dashboard',component:EmpDashboardComponent
+      path:'emp-dashboard',component:EmpDashboardComponent,canActivate: [AuthGuard]
     },
     {
-      path:'emp-add-attendance',component:EmpAddAttendanceComponent
+      path:'emp-add-attendance',component:EmpAddAttendanceComponent,canActivate: [AuthGuard]
     },
     {
-      path:'emp-view-attendance',component:EmpViewAttendanceComponent
+      path:'emp-view-attendance',component:EmpViewAttendanceComponent,canActivate: [AuthGuard]
     },
     {
-      path:'emp-add-rating',component:EmpAddRatingComponent
+      path:'emp-add-rating',component:EmpAddRatingComponent,canActivate: [AuthGuard]
     },
     {
-      path:'emp-view-rating/:employeeId',component:EmpViewRatingComponent
+      path:'emp-view-rating/:employeeId',component:EmpViewRatingComponent,canActivate: [AuthGuard]
     }
   ]
   }
