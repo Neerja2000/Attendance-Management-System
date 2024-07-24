@@ -1,4 +1,8 @@
 const Employee = require('./employeeModel');
+const SECRET_KEY = 'robolaxyAttendance';
+const jwt = require('jsonwebtoken');
+
+
 
 const addEmployee = async (req, res) => {
     try {
@@ -234,7 +238,7 @@ const remove = (req, res) => {
 
 const employeeLogin = (req, res) => {
     const { userId, password } = req.body;
-    
+
     Employee.findOne({ userId, password })
         .then((employee) => {
             if (!employee) {
@@ -244,21 +248,26 @@ const employeeLogin = (req, res) => {
                     message: "Invalid userId or password"
                 });
             }
-            res.json({
+
+            const token = jwt.sign({ id: employee._id, email: employee.email }, SECRET_KEY, { expiresIn: '1h' });
+
+            res.status(200).json({
                 success: true,
                 status: 200,
-                message: "Login successful",
+                message: 'Employee logged in successfully',
+                token,
                 data: employee
             });
         })
         .catch((err) => {
-            res.json({
+            res.status(400).json({
                 success: false,
                 status: 400,
                 message: err.message
             });
         });
 };
+
 
 
 module.exports={

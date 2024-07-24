@@ -11,7 +11,7 @@ export class AuthService {
     if (res.data && res.data._id) {
       // Handling employee login response
       sessionStorage.setItem('_id', res.data._id || '');
-      sessionStorage.setItem('token', ''); // Employee login response doesn't include a token
+      sessionStorage.setItem('token', res.token || ''); // Store token if available
     } else if (res.token) {
       // Handling admin login response
       sessionStorage.setItem('_id', ''); // Admin login response doesn't include `_id`
@@ -21,18 +21,17 @@ export class AuthService {
     }
   }
 
-  
-
-  getId(){
-    return sessionStorage.getItem('_id')
+  getId() {
+    return sessionStorage.getItem('_id');
   }
-  getToken(){
 
-    return sessionStorage.getItem('token')
+  getToken() {
+    return sessionStorage.getItem('token');
   }
+
   removedata() {
-    sessionStorage.removeItem('_id')
-    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('_id');
+    sessionStorage.removeItem('token');
   }
 
 }

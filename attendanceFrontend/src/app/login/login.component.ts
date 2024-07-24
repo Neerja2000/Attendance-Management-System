@@ -27,6 +27,10 @@ export class LoginComponent {
       (response) => {
         if (response.success) {
           this.authService.storedata(response);
+          console.log('Stored data:', {
+            _id: this.authService.getId(),
+            token: this.authService.getToken()
+          });
           this.snackBar.open('Login successful!', 'Close', {
             duration: 3000, // Duration in milliseconds
             panelClass: ['success-snackbar'],
@@ -54,7 +58,6 @@ export class LoginComponent {
       }
     );
   }
-
   adminLogin() {
     this.adminService.adminapi(this.username, this.password).subscribe(
       (response) => {
