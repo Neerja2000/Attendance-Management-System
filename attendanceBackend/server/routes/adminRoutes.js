@@ -5,6 +5,18 @@ const attendanceController=require("../apis/attendance/attendanceController")
 
 const empRatingController=require("../apis/employeeRating/empRatingController")
 const adminController=require("../apis/admin/adminController")
+
+
+
+
+
+//adminLogin
+router.post("/adminLogin",adminController.adminLogin)
+
+//token
+router.use(require("../MiddleWare/tokenChecker"))
+
+
 // Employee
 router.post('/employee/add',employeeController.addEmployee)
 router.get('/employee/getAll',employeeController.getAll)
@@ -25,7 +37,5 @@ router.get("/emprating/getAll",empRatingController.getAll)
 router.put("/adminrating/add",empRatingController.adminRating)
 
 
-//adminLogin
-router.post("/adminLogin",adminController.adminLogin)
 
 module.exports=router
