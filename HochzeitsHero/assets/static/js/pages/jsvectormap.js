@@ -4,7 +4,7 @@ var world_map = new jsVectorMap({
     zoomOnScroll: false,
     regionStyle: {
         hover: {
-            fill: '#662d91'
+            fill: '#ca6d68'
         }
     },
     markers: [
@@ -12,7 +12,7 @@ var world_map = new jsVectorMap({
             name: 'Indonesia',
             coords: [-6.229728, 106.6894311],
             style: {
-                fill: '#662d91'
+                fill: '#ca6d68'
             }
         },
         {
@@ -55,6 +55,6 @@ var world_map = new jsVectorMap({
         },
     ],
     onRegionTooltipShow(event, tooltip) {
-        tooltip.css({ backgroundColor: '#662d91' })
+        tooltip.css({ backgroundColor: '#ca6d68' })
     }
 });
