@@ -15,11 +15,11 @@ var optionsProfileVisit = {
   plotOptions: {},
   series: [
     {
-      name: "Teel",
-      data: [9, 20, 30, 20, 10, 20, 30, 20, 10, 20, 30, 20],
+      name: "Coins",
+      data: [500, 200, 300, 420, 100, 300, 180, 240, 500, 220, 470, 200],
     },
   ],
-  colors: "#CA6D68",
+  colors: "#662d91",
   xaxis: {
     categories: [
       "Jan",
@@ -45,7 +45,7 @@ var optionsProfileVisit = {
 let optionsVisitorsProfile = {
   series: [70, 30],
   labels: ["Male", "Female"],
-  colors: ["#CA6D68", "#55c6e8"],
+  colors: ["#662d91", "#55c6e8"],
   chart: {
     type: "donut",
     width: "100%",

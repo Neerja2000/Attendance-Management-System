@@ -44,7 +44,7 @@
            
             
             <li
-                class="sidebar-item active ">
+                class="sidebar-item  ">
                 <a href="index.html" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
@@ -55,7 +55,7 @@
             
             <li
             class="sidebar-item  has-sub">
-            <a href="#" class='sidebar-link' onclick="navigateTo('./user-dashboard.html')"  >
+            <a href="#" class='sidebar-link'onclick="navigateTo('./user-dashboard.html')"  >
                 <i class="bi bi-person-fill"></i>
                 <span >Accounts</span>
             </a>
@@ -83,7 +83,7 @@
 
         </li>
         <li
-        class="sidebar-item  has-sub">
+        class="sidebar-item  has-sub ">
         <a href="#" class='sidebar-link' onclick="navigateTo('./item-dashboard.html')">
             <i class="bi bi-check2-circle"></i>
             <span >Items</span>
@@ -111,10 +111,10 @@
 
 
     <li
-    class="sidebar-item  has-sub">
-    <a href="#" class='sidebar-link' onclick="navigateTo('./event-dashboard.html')">
+    class="sidebar-item  has-sub active">
+    <a href="#" class='sidebar-link'>
         <i class="bi bi-gift"></i>
-        <span >Events</span>
+        <span onclick="navigateTo('./event-dashboard.html')">Events</span>
     </a>
     
     <ul class="submenu ">
@@ -140,7 +140,7 @@
 
 
 <li
-class="sidebar-item  has-sub ">
+class="sidebar-item  has-sub">
 <a href="#" class='sidebar-link' onclick="navigateTo('./transaction-dashboard.html')">
    <i class="bi bi-currency-exchange"></i>
    <span >Transactions</span>
@@ -225,13 +225,15 @@ class="sidebar-item  has-sub ">
     </div>
 </div>
         </div>
+   
+
         <div id="main">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-            <div class="row">
+           <div class="row">
                 <div class="col-md-12 text-end">
                     <div class="btn-group mb-1">
                         <div class="dropdown">
@@ -252,26 +254,35 @@ class="sidebar-item  has-sub ">
                         </div>
                     </div>
                 </div>
-            </div>                     
+            </div>           
 <div class="page-heading">
-    <h3>Dashboard</h3>
+    <h3>Events Statistics</h3>
 </div> 
 <div class="page-content"> 
     <section class="row">
         <div class="col-12 col-lg-12">
             <div class="row">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Event Habit</h3>
+        
+                        </div>
+                       
+                    </div>
+                </div>
                 <div class="col-6 col-lg-4 col-md-6">
                     <div class="card">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                <div class="col-md-3 col-lg-12 col-xl-12 col-xxl-3 d-flex justify-content-start ">
                                     <div class="stats-icon purple mb-2">
-                                        <i class="iconly-boldProfile"></i>
+                                        <i class=" iconly-bi bi-check2-square"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Total Users</h6>
-                                    <h6 class="font-extrabold mb-0">1120</h6>
+                                <div class="col-md-9 col-lg-12 col-xl-12 col-xxl-9">
+                                    <h6 class="text-muted font-semibold">Total Habit selection events</h6>
+                                    <h6 class="font-extrabold mb-0">112</h6>
                                 </div>
                             </div> 
                         </div>
@@ -281,14 +292,15 @@ class="sidebar-item  has-sub ">
                     <div class="card"> 
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                <div class="col-md-3 col-lg-12 col-xl-12 col-xxl-3 d-flex justify-content-start ">
                                     <div class="stats-icon blue mb-2">
-                                        <i class="iconly-boldAdd-User"></i>
+                                        
+                                        <i class=" iconly-bi bi-clock-fill"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Active Users</h6>
-                                    <h6 class="font-extrabold mb-0">100</h6>
+                                <div class="col-md-9 col-lg-12 col-xl-12 col-xxl-9">
+                                    <h6 class="text-muted font-semibold">Total ongoing Habit events</h6>
+                                    <h6 class="font-extrabold mb-0">10</h6>
                                 </div>
                             </div>
                         </div>
@@ -298,14 +310,15 @@ class="sidebar-item  has-sub ">
                     <div class="card">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                <div class="col-md-3 col-lg-12 col-xl-12 col-xxl-3 d-flex justify-content-start ">
                                     <div class="stats-icon green mb-2">
-                                        <i class="iconly-bi bi-send-fill"></i>
+                                        
+                                        <i class="iconly-bi bi-check-circle-fill"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Total Transactions</h6>
-                                    <h6 class="font-extrabold mb-0">400</h6>
+                                <div class="col-md-9 col-lg-12 col-xl-12 col-xxl-9">
+                                    <h6 class="text-muted font-semibold">Total Hatbit completion events</h6>
+                                    <h6 class="font-extrabold mb-0">40</h6>
                                 </div>
                             </div>
                         </div>
@@ -315,49 +328,82 @@ class="sidebar-item  has-sub ">
                     <div class="card">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                <div class="col-md-3 col-lg-12 col-xl-12 col-xxl-3 d-flex justify-content-start ">
                                     <div class="stats-icon red mb-2">
-                                        <i class="iconly-bi bi-cash-stack"></i>
+                                       
+                                        <i class="iconly-bi bi-hand-thumbs-up-fill"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Coin Earned</h6>
-                                    <h6 class="font-extrabold mb-0">2900</h6>
+                                <div class="col-md-9 col-lg-12 col-xl-12 col-xxl-9">
+                                    <h6 class="text-muted font-semibold">% Engagement Habits</h6>
+                                    <h6 class="font-extrabold mb-0">29%</h6>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Event Task</h3>
+        
+                        </div>
+                       
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-md-6">
                     <div class="card">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon green  mb-2">
-                                        <i class="iconly bi-x-circle-fill"></i>
+                                <div class="col-md-3 col-lg-12 col-xl-12 col-xxl-3 d-flex justify-content-start ">
+                                    <div class="stats-icon blue  mb-2">
+                                       
+                                        <i class=" iconly-bi bi-check2-square"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Ignored Tasks </h6>
+                                <div class="col-md-9 col-lg-12 col-xl-12 col-xxl-9">
+                                    <h6 class="text-muted font-semibold">Total Task selection events</h6>
+                                    <h6 class="font-extrabold mb-0">39</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="col-6 col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-body px-4 py-4-5">
+                            <div class="row">
+                                <div class="col-md-3 col-lg-12 col-xl-12 col-xxl-3 d-flex justify-content-start ">
+                                    <div class="stats-icon red  mb-2">
+                                        <i class="iconly-bi bi-check-circle-fill"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-lg-12 col-xl-12 col-xxl-9">
+                                    <h6 class="text-muted font-semibold">Total Task completion events</h6>
                                     <h6 class="font-extrabold mb-0">29</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
+                <div class="col-6 col-lg-4 col-md-6">
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Monthly Coin Earned </h4>
-                        </div>
-                        <div class="card-body">
-                            <div id="chart-profile-visit"></div>
+                        <div class="card-body px-4 py-4-5">
+                            <div class="row">
+                                <div class="col-md-3 col-lg-12 col-xl-12 col-xxl-3 d-flex justify-content-start ">
+                                    <div class="stats-icon green  mb-2">
+                                        <i class="iconly-bi bi-hand-thumbs-up-fill"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-lg-12 col-xl-12 col-xxl-9">
+                                    <h6 class="text-muted font-semibold">% Engagement Tasks</h6>
+                                    <h6 class="font-extrabold mb-0">29%</h6>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+           
             
            
         </div>
@@ -377,6 +423,7 @@ class="sidebar-item  has-sub ">
     </div>
 </footer>
         </div>
+
     </div>
     <script src="assets/static/js/components/dark.js"></script>
     <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>

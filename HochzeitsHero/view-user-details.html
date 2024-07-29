@@ -20,6 +20,37 @@
     <link rel="stylesheet" href="./assets/compiled/css/table-datatable.css">
     <link rel="stylesheet" href="./assets/compiled/css/app.css">
     <link rel="stylesheet" href="./assets/compiled/css/app-dark.css">
+    <style>
+          .dropdown-toggle::after {
+            display: none;
+        }
+        .arrow-button {
+            width: 40px;
+            height: 40px;
+            background-color: green;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .arrow-button:hover {
+            transform: scale(1.1);
+        }
+
+        .arrow-button::before {
+            content: '';
+            display: block;
+            width: 33%;
+            height: 33%;
+            border-left: 5px solid white;
+            border-top: 5px solid white;
+            transform: rotate(-45deg);
+        }
+    </style>
 </head>
 
 <body>
@@ -30,7 +61,7 @@
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-               <a href="index.html">Teel</a>
+               <a href="index.html">ICHI</a>
             </div>
            
             <div class="sidebar-toggler  x">
@@ -52,64 +83,168 @@
 
             </li>
             
+         
             <li
-                class="sidebar-item active ">
-                <a href="./user-details.html" class='sidebar-link'>
-                    <i class="bi bi-person-fill"></i>
-                    <span>User</span>
-                </a>
+            class="sidebar-item  has-sub active">
+           <a href="#" class='sidebar-link' onclick="navigateTo('./user-dashboard.html')"  >
+                <i class="bi bi-person-fill"></i>
+                <span >Accounts</span>
+            </a>
+            
+            <ul class="submenu ">
+                
+                <li class="submenu-item active  ">
+                    <a class="dropdown-item" href="./user-details.html">AC_USERS</a>
+                    
+                </li>
                 
                
                 
+                <li class="submenu-item  ">
+                    <a class="dropdown-item" href="./referral-system.html">AC_REFERRALS</a>
+                    
+                </li>
+          
+                <li class="submenu-item  ">
+                    <a class="dropdown-item" href="./view-charity-deatil.html">AC_CHARITY</a>
+                    
+                </li>
+            </ul>
+            
 
+        </li>
+        <li
+        class="sidebar-item  has-sub">
+        <a href="#" class='sidebar-link' onclick="navigateTo('./item-dashboard.html')">
+            <i class="bi bi-check2-circle"></i>
+            <span >Items</span>
+        </a>
+        
+        <ul class="submenu ">
+            
+            <li class="submenu-item  ">
+                <a class="dropdown-item" href="./item-detail.html">IT_ITEMS</a>
+                
             </li>
             
-            <li
-                class="sidebar-item  ">
-                <a href="./view-teel.html" class='sidebar-link'>
-                    <i class="bi bi-people-fill"></i>
-                    <span>Teel</span>
-                </a>
-                
+           
             
+            <li class="submenu-item  ">
+                <a class="dropdown-item" href="./item-ignore.html">IT_IGNORE</a>
                 
-
             </li>
+      
             
-            <li
-                class="sidebar-item  ">
-                <a href="./Ticket-Management.html" class='sidebar-link'>
-                    <i class="bi bi-ticket-fill"></i>
-                    <span>Ticket Management</span>
-                </a>
-             
-                
+        </ul>
+        
 
-            </li>
+    </li>
+
+
+    <li
+    class="sidebar-item  has-sub">
+   <a href="#" class='sidebar-link' onclick="navigateTo('./event-dashboard.html')">
+        <i class="bi bi-gift"></i>
+        <span >Events</span>
+    </a>
+    
+    <ul class="submenu ">
+        
+        <li class="submenu-item  ">
+            <a class="dropdown-item" href="./EV-habits.html">EV_HABITS</a>
+            
+        </li>
+        
+       
+        
+        <li class="submenu-item  ">
+            <a class="dropdown-item" href="./EV-Tasks.html">EV_TASKS</a>
+            
+        </li>
+  
+        
+    </ul>
+    
+
+</li>
+
+
+
+<li
+class="sidebar-item  has-sub">
+<a href="#" class='sidebar-link' onclick="navigateTo('./transaction-dashboard.html')">
+   <i class="bi bi-currency-exchange"></i>
+   <span >Transactions</span>
+</a>
+
+<ul class="submenu ">
+    
+    <li class="submenu-item  ">
+        <a class="dropdown-item" href="./TR-Item.html">TR_ITEM</a>
+        
+    </li>
+    
+   
+    
+    <li class="submenu-item  ">
+        <a class="dropdown-item" href="./TR-Other.html"> TR_OTHER</a>
+        
+    </li>
+    <li class="submenu-item  ">
+        <a class="dropdown-item" href="./TR-Charity.html">TR_CHARITY</a>
+        
+    </li>
+
+    
+</ul>
+
+
+</li>
+       
+            
+         
+      
+
+         
+
+
+      
+        <li
+        class="sidebar-item ">
+        <a href="./Privacy-Policy.html" class='sidebar-link'>
+            <i class="bi bi-lock-fill"></i>
+            <span>Privacy Policy</span>
+        </a>
+        
+       
+        
+
+    </li>
+    <li
+    class="sidebar-item ">
+    <a href="./term-&-conditions.html" class='sidebar-link'>
+        <i class="bi bi-file-earmark-text"></i>
+        <span>Terms and Conditions</span>
+    </a>
+    
+   
+    
+
+</li>
+   <li class="sidebar-item ">
+<a href="./my-info.html" class='sidebar-link'>
+    <i class="bi bi-info-circle-fill"></i>
+    <span>My Info</span>
+
+    
+</a>
+</li>
             
           
             
-            <li
-                class="sidebar-item  ">
-                <a href="./transaction.html" class='sidebar-link'>
-                    <i class="bi bi-cash-coin"></i>
-                    <span>Transactions</span>
-                </a>
+           
             
-                
-
-            </li>
-            
-            <li
-                class="sidebar-item  ">
-                <a href="./Privacy-Policy.html" class='sidebar-link'>
-                    <i class="bi bi-shield-fill-check"></i>
-                    <span>Privacy Policy</span>
-                </a>
-                
-
-            </li>
-            
+         
         
             
            
@@ -131,7 +266,28 @@
             </header>
 
           
-             
+   <div class="row">
+                <div class="col-md-12 text-end">
+                    <div class="btn-group mb-1">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle me-1"
+                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <i class="bi bi-gear-fill fs-3"></i> <!-- Bootstrap settings icon -->
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="./TD_Itemtype.html">TD_Itemtype</a>
+                                <a class="dropdown-item" href="./TD_ItemLevel.html">TD_Itemlevel</a>
+                                <a class="dropdown-item" href="./TD_Eventtype.html">TD_Eventtype</a>
+                                <a class="dropdown-item" href="./TD_transactiontype.html">TD_Transactiontype</a>
+                                <a class="dropdown-item" href="./Beneficialtype.html">TD_Beneficialtype</a>
+                                <a class="dropdown-item" href="./System-Settings.html">System Settings (app_param)</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                   
 
 
 
@@ -141,7 +297,7 @@
                     <div class="page-title">
                         <div class="row">
                             <div class="col-12 col-md-6 order-md-1 order-last">
-                                <h3>View Details</h3>
+                                <h3>View Events</h3>
                              
                             
                             </div>
@@ -159,13 +315,11 @@
                                         <div class="col-sm-8">Michael</div>
                                     </div>
                                     <div class="row mb-2">
-                                        <div class="col-sm-4 font-weight-bold">Contact:</div>
+                                        <div class="col-sm-4 font-weight-bold">Phone:</div>
                                         <div class="col-sm-8">947837594</div>
                                     </div>
-                                    <div class="row mb-2">
-                                        <div class="col-sm-4 font-weight-bold">Email:</div>
-                                        <div class="col-sm-8">abc@gmail.com</div>
-                                    </div>
+                                    
+                                   
                               
                         </div>
                             </div>
@@ -174,58 +328,64 @@
                                     <thead>
                                         <tr>
                                             <th>SR NO.</th>
-                                            <th>Group NAME</th>
-                                            <th>Join Date</th>
-                                            <th>BANK </th>
-                                            <th>A/C NO.</th>
+                                            <th>Level</th>
+                                            <th>Item Type</th>
+                                            <th>Start Date</th>
+                                            <th>End Date </th>
+                                           
+                                            <th>Coins</th>
+                                            <th>Action</th>
+                                            <th>Status</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td class="text-bold-500">Group 1</td>
+                                            <td class="text-bold-500">Silver</td>
+                                            <td>Habit</td>
                                             <td>12-01-24</td>
-
-                                            <td>PNB</td>
-                                            <td>18738483748</td>
+                                            <td>15-01-24</td>
+                                            <td>1</td>
+                                            <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, non.</td>
+                                            <td> <span class="text-success">Done</span></td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td class="text-bold-500">Group 2</td>
+                                            <td class="text-bold-500">Diamond</td>
+                                            <td>Habit</td>
                                             <td>12-01-24</td>
-
-                                            <td>HDFC</td>
-                                            <td>18738483748</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, non.</td>
+                                            <td><span class="text-warning">Select</span> </td> 
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td class="text-bold-500">Group 3</td>
+                                            <td class="text-bold-500">Gold</td>
+                                            <td>Task</td>
                                             <td>12-01-24</td>
-
-                                            <td>HDFC</td>
-                                            <td>18738483748</td>
+                                            <td>14-01-24</td>
+                                            <td>5</td>
+                                            <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, non.</td>
+                                            <td> <span class="text-success">Done</span></td>
                                         </tr>
+                                        
                                         <tr>
                                             <td>4</td>
-                                            <td class="text-bold-500">Group 4</td>
-                                            <td>22-02-24</td>
-
-                                            <td>PNB</td>
-                                            <td>18738483748</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td class="text-bold-500">Group 5</td>
+                                            <td class="text-bold-500">Diamond</td>
+                                            <td>Task</td>
                                             <td>8-03-24</td>
-
-                                            <td>HDFC</td>
-                                            <td>18738483748</td>
+                                            <td>18-03-24</td>
+                                            <td>10</td>
+                                            <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, non.</td>
+                                            <td> <span class="text-success">Done</span></td>
                                         </tr>
 
 
                                     </tbody>
                                 </table>
+                                 <a href="./user-details.html"><div class="arrow-button"></div></a>
                             </div>
                         </div>
 
@@ -238,7 +398,7 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2023 &copy; Teel</p>
+                        <p>2023 &copy; ICHI</p>
                     </div>
                     <div class="float-end">
                         <p>Created  <span class="text-danger"></span>
@@ -259,7 +419,11 @@
     <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
     <script src="assets/static/js/pages/simple-datatables.js"></script>
 
-
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+        </script>
 </body>
 
 </html>

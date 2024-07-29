@@ -18,6 +18,57 @@
   <link rel="stylesheet" href="./assets/compiled/css/table-datatable.css">
   <link rel="stylesheet" href="./assets/compiled/css/app.css">
   <link rel="stylesheet" href="./assets/compiled/css/app-dark.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+   .switch {
+            position: relative;
+            display: inline-block;
+            width: 55px;
+            height: 30px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: rgb(205, 0, 0);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        </style>
 </head>
 
 <body>
@@ -28,7 +79,7 @@
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-               <a href="index.html">Teel</a>
+               <a href="index.html">ICHI</a>
             </div>
            
             <div class="sidebar-toggler  x">
@@ -50,64 +101,166 @@
 
             </li>
             
+         
             <li
-                class="sidebar-item active ">
-                <a href="./user-details.html" class='sidebar-link'>
-                    <i class="bi bi-person-fill"></i>
-                    <span>User</span>
-                </a>
+            class="sidebar-item  has-sub active">
+           <a href="#" class='sidebar-link' onclick="navigateTo('./user-dashboard.html')"  >
+                <i class="bi bi-person-fill"></i>
+                <span >Accounts</span>
+            </a>
+            
+            <ul class="submenu ">
+                
+                <li class="submenu-item  active ">
+                    <a class="dropdown-item" href="./user-details.html">AC_USERS</a>
+                    
+                </li>
                 
                
                 
+                <li class="submenu-item  ">
+                    <a class="dropdown-item" href="./referral-system.html">AC_REFERRALS</a>
+                    
+                </li>
+          
+                <li class="submenu-item  ">
+                    <a class="dropdown-item" href="./view-charity-deatil.html">AC_CHARITY</a>
+                    
+                </li>
+            </ul>
+            
 
+        </li>
+        <li
+        class="sidebar-item  has-sub">
+        <a href="#" class='sidebar-link' onclick="navigateTo('./item-dashboard.html')">
+            <i class="bi bi-check2-circle"></i>
+            <span >Items</span>
+        </a>
+        
+        <ul class="submenu ">
+            
+            <li class="submenu-item  ">
+                <a class="dropdown-item" href="./item-detail.html">IT_ITEMS</a>
+                
             </li>
             
-            <li
-                class="sidebar-item  ">
-                <a href="./view-teel.html" class='sidebar-link'>
-                    <i class="bi bi-people-fill"></i>
-                    <span>Teel</span>
-                </a>
-                
+           
             
+            <li class="submenu-item  ">
+                <a class="dropdown-item" href="./item-ignore.html">IT_IGNORE</a>
                 
-
             </li>
+      
             
-            <li
-                class="sidebar-item  ">
-                <a href="./Ticket-Management.html" class='sidebar-link'>
-                    <i class="bi bi-ticket-fill"></i>
-                    <span>Ticket Management</span>
-                </a>
-             
-                
+        </ul>
+        
 
-            </li>
+    </li>
+
+
+    <li
+    class="sidebar-item  has-sub">
+   <a href="#" class='sidebar-link' onclick="navigateTo('./event-dashboard.html')">
+        <i class="bi bi-gift"></i>
+        <span >Events</span>
+    </a>
+    
+    <ul class="submenu ">
+        
+        <li class="submenu-item  ">
+            <a class="dropdown-item" href="./EV-habits.html">EV_HABITS</a>
+            
+        </li>
+        
+       
+        
+        <li class="submenu-item  ">
+            <a class="dropdown-item" href="./EV-Tasks.html">EV_TASKS</a>
+            
+        </li>
+  
+        
+    </ul>
+    
+
+</li>
+
+
+
+<li
+class="sidebar-item  has-sub">
+<a href="#" class='sidebar-link' onclick="navigateTo('./transaction-dashboard.html')">
+   <i class="bi bi-currency-exchange"></i>
+   <span >Transactions</span>
+</a>
+
+<ul class="submenu ">
+    
+    <li class="submenu-item  ">
+        <a class="dropdown-item" href="./TR-Item.html">TR_ITEM</a>
+        
+    </li>
+    
+   
+    
+    <li class="submenu-item  ">
+        <a class="dropdown-item" href="./TR-Other.html"> TR_OTHER</a>
+        
+    </li>
+    <li class="submenu-item  ">
+        <a class="dropdown-item" href="./TR-Charity.html">TR_CHARITY</a>
+        
+    </li>
+
+    
+</ul>
+
+
+</li>
+       
+            
+         
+      
+
+         
+
+
+      
+        <li
+        class="sidebar-item ">
+        <a href="./Privacy-Policy.html" class='sidebar-link'>
+            <i class="bi bi-lock-fill"></i>
+            <span>Privacy Policy</span>
+        </a>
+        
+       
+        
+
+    </li>
+    <li
+    class="sidebar-item ">
+    <a href="./term-&-conditions.html" class='sidebar-link'>
+        <i class="bi bi-file-earmark-text"></i>
+        <span>Terms and Conditions</span>
+    </a>
+    
+   
+    
+
+</li>
+   <li class="sidebar-item ">
+<a href="./my-info.html" class='sidebar-link'>
+    <i class="bi bi-info-circle-fill"></i>
+    <span>My Info</span>
+</a>
+</li>
             
           
             
-            <li
-                class="sidebar-item  ">
-                <a href="./transaction.html" class='sidebar-link'>
-                    <i class="bi bi-cash-coin"></i>
-                    <span>Transactions</span>
-                </a>
+           
             
-                
-
-            </li>
-            
-            <li
-                class="sidebar-item  ">
-                <a href="./Privacy-Policy.html" class='sidebar-link'>
-                    <i class="bi bi-shield-fill-check"></i>
-                    <span>Privacy Policy</span>
-                </a>
-                
-
-            </li>
-            
+         
         
             
            
@@ -127,7 +280,28 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-            
+          <div class="row">
+                <div class="col-md-12 text-end">
+                    <div class="btn-group mb-1">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle me-1"
+                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <i class="bi bi-gear-fill fs-3"></i> <!-- Bootstrap settings icon -->
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="./TD_Itemtype.html">TD_Itemtype</a>
+                                <a class="dropdown-item" href="./TD_ItemLevel.html">TD_Itemlevel</a>
+                                <a class="dropdown-item" href="./TD_Eventtype.html">TD_Eventtype</a>
+                                <a class="dropdown-item" href="./TD_transactiontype.html">TD_Transactiontype</a>
+                                <a class="dropdown-item" href="./Beneficialtype.html">TD_Beneficialtype</a>
+                                <a class="dropdown-item" href="./System-Settings.html">System Settings (app_param)</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                     
 <div class="page-heading">
     
 
@@ -152,91 +326,78 @@
                   
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped" id="table1">
-                        <thead>
-                            <tr>
-                                <th>SR NO.</th>
-                                <th>NAME</th>
-                                <th>EMAIL</th>
-                                <th>PHONE NO.</th>
-                               
-                                <th>MORE DETAILS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                    <td class="text-bold-500">Michael Right</td>
-                                    <td>Michael@gmail.com</td>
-                                    <td class="text-bold-500">+91 9874635534</td>
-                                   
-                                                                           <td><a href="./view-user-details.html" class="btn btn-outline-success">View Details</a></td>
-                                </tr>
+                    <div class="table-responsive">
+                        <table class="table table-striped " id="table1" >
+                            <thead>
                                 <tr>
-                                    <td>2</td>
-                                        <td class="text-bold-500">Michael Right</td>
-                                        <td>Michael@gmail.com</td>
-                                        <td class="text-bold-500">+91 9874635534</td>
-                                       
-                                        <td><a href="./view-user-details.html" class="btn btn-outline-success">View Details</a></td>
+                                    <th>Id</th>
+                                    <th>Account Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Year of Birth</th>
+                                    <th>Age</th>
+                                    <th>Joined</th>
+                                    <th>Left</th>
+                                    <th>User Activity</th>
+                                    <th>In_coins</th>
+                                    <th>Out_coins</th>
+                                    <th>Balance</th>
+                                    <th>User Suspended </th>
+                                    <th>Invites</th>
+                                    <th>View Events</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                        <td class="text-bold-500">
+                                            <i class="fas fa-exclamation-triangle warning-icon text-danger"></i> Michael
+                                            </td>
+                                        <td>+91 8977776233</td>
+                                        <td class="text-bold-500">1996</td>
+                                        <td>27</td>
+                                   <td>18-01-2023</td>
+                                   <td>27-12-2023</td>
+                                        <td><span class="text-success fw-bolder">Active</span></td>
+                                        <td>500</td>
+                                        <td>100</td>
+                                        <td>400</td>
+                                        <td>
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </td>
+                                        <td>20</td>
+                                     <td><a href="./view-user-details.html" class="btn btn-outline-success">View Events</a></td>
                                     </tr>
+                             
                                     <tr>
-                                        <td>3</td>
-                                            <td class="text-bold-500">Michael Right</td>
-                                            <td>Michael@gmail.com</td>
-                                            <td class="text-bold-500">+91 9874635534</td>
-                                            
-                                                                                   <td><a href="./view-user-details.html" class="btn btn-outline-success">View Details</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                                <td class="text-bold-500">Michael Right</td>
-                                                <td>Michael@gmail.com</td>
-                                                <td class="text-bold-500">+91 9874635534</td>
-                                             
-                                                                                       <td><a href="./view-user-details.html" class="btn btn-outline-success">View Details</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                    <td class="text-bold-500">Michael Right</td>
-                                                    <td>Michael@gmail.com</td>
-                                                    <td class="text-bold-500">+91 9874635534</td>
-                                                 
-                                                                                           <td><a href="./view-user-details.html" class="btn btn-outline-success">View Details</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>6</td>
-                                                        <td class="text-bold-500">Michael Right</td>
-                                                        <td>Michael@gmail.com</td>
-                                                        <td class="text-bold-500">+91 9874635534</td>
-                                                        
-                                                                                               <td><a href="./view-user-details.html" class="btn btn-outline-success">View Details</a></td>
-                                                    </tr> <tr>
-                                                        <td>7</td>
-                                                            <td class="text-bold-500">Michael Right</td>
-                                                            <td>Michael@gmail.com</td>
-                                                            <td class="text-bold-500">+91 9874635534</td>
-                                                          
-                                                                                                   <td><a href="./view-user-details.html" class="btn btn-outline-success">View Details</a></td>
-                                                        </tr> <tr>
-                                                            <td>8</td>
-                                                                <td class="text-bold-500">Michael Right</td>
-                                                                <td>Michael@gmail.com</td>
-                                                                <td class="text-bold-500">+91 9874635534</td>
-                                                                
-                                                                                                       <td><a href="./view-user-details.html" class="btn btn-outline-success">View Details</a></td>
-                                                            </tr> <tr>
-                                                                <td>9</td>
-                                                                    <td class="text-bold-500">Michael Right</td>
-                                                                    <td>Michael@gmail.com</td>
-                                                                    <td class="text-bold-500">+91 9874635534</td>
-                                                                   
-                                                                                                           <td><a href="./view-user-details.html" class="btn btn-outline-success">View Details</a></td>
-                                                                </tr>
-                                                              
-                                                                    
-                        </tbody>
-                    </table>
+                                        <td>2</td>
+                                            <td class="text-bold-500">Dawid <br>
+                                                <span class="text-warning"></span> </td>
+                                            <td>+91 8977776233</td>
+                                            <td class="text-bold-500">1997</td>
+                                            <td>27</td>
+                                       <td>18-01-2023</td>
+                                       <td>27-12-2023</td>
+                                            <td><span class="text-success fw-bolder">Active</span></td>
+                                            <td>500</td>
+                                            <td>100</td>
+                                            <td>400</td>
+                                            <td>
+                                                <label class="switch">
+                                                    <input type="checkbox">
+                                                    <span class="slider"></span>
+                                                </label>
+                                            </td>
+                                            <td>20</td>
+                                         <td><a href="./view-user-details.html" class="btn btn-outline-success">View Events</a></td>
+                                        </tr>               
+                                                                        
+                            </tbody>
+                        </table>
+                    </div>
+                    
                 </div>
             </div>
     
@@ -248,7 +409,7 @@
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
-            <p>2023 &copy; Teel</p>
+            <p>2023 &copy; ICHI</p>
         </div>
         <div class="float-end">
             <p>Created  <span class="text-danger"></span>
@@ -268,8 +429,21 @@
     
 <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
 <script src="assets/static/js/pages/simple-datatables.js"></script>
-
-    
+<script>
+    function toggleBlockUnblock(button) {
+        button.classList.toggle('active');
+        if (button.classList.contains('active')) {
+            button.textContent = 'Unblock';
+        } else {
+            button.textContent = 'Block';
+        }
+    }
+</script>
+<script>
+    function navigateTo(url) {
+        window.location.href = url;
+    }
+    </script>
 </body>
 
 </html>
