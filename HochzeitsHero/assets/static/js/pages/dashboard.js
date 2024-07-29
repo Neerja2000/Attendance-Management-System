@@ -15,7 +15,7 @@ var optionsProfileVisit = {
   plotOptions: {},
   series: [
     {
-      name: "Coins",
+      name: "Amount",
       data: [500, 200, 300, 420, 100, 300, 180, 240, 500, 220, 470, 200],
     },
   ],
