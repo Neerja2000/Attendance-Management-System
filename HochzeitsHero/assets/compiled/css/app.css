@@ -192,7 +192,7 @@
     --bs-tertiary-color-rgb: 96, 112, 128;
     --bs-tertiary-bg: #f8f9fa;
     --bs-tertiary-bg-rgb: 248, 249, 250;
-    --bs-heading-color: #3d7e2b;
+    --bs-heading-color: #00000;
     --bs-link-color: #ca6d68;
     --bs-link-color-rgb: 67, 94, 190;
     --bs-link-decoration: underline;
@@ -23091,7 +23091,7 @@ body .bi:before,
     font-size: 1rem;
     list-style: none;
     font-weight: 600;
-    color: #3d7e2b
+    color: #00000
 }
 
 .sidebar-wrapper .menu .sidebar-link {
@@ -23103,7 +23103,7 @@ body .bi:before,
     border-radius: .5rem;
     transition: all .5s;
     text-decoration: none;
-    color: #3d7e2b
+    color:#000
 }
 
 .sidebar-wrapper .menu .sidebar-link svg,
@@ -23183,7 +23183,7 @@ body .bi:before,
 .sidebar-wrapper .menu .submenu .submenu-item a {
     padding: .7rem 2rem;
     display: block;
-    color: #3d7e2b;
+    color: #00000;
     font-size: .85rem;
     font-weight: 600;
     letter-spacing: .5px;
