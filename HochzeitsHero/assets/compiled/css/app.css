@@ -555,7 +555,7 @@ table {
 caption {
     padding-top: .5rem;
     padding-bottom: .5rem;
-    color: #78be1f;
+    color: #ca6d68;
     text-align: left
 }
 
@@ -2505,7 +2505,7 @@ progress {
 .form-text {
     margin-top: .25rem;
     font-size: .875em;
-    color: #78be1f
+    color: #ca6d68
 }
 
 .form-control {
@@ -23091,7 +23091,7 @@ body .bi:before,
     font-size: 1rem;
     list-style: none;
     font-weight: 600;
-    color: #00000
+    color: #000;
 }
 
 .sidebar-wrapper .menu .sidebar-link {
@@ -23108,7 +23108,7 @@ body .bi:before,
 
 .sidebar-wrapper .menu .sidebar-link svg,
 .sidebar-wrapper .menu .sidebar-link i {
-    color: #78be1f
+    color: #ca6d68
 }
 
 .sidebar-wrapper .menu .sidebar-link i:before {
