@@ -20,7 +20,7 @@ var locale = {
     LLLL: 'D MMMM YYYY, dddd HH:mm'
   },
   relativeTime: {
-    future: 'Yaqin %s ichida',
+    future: 'Yaqin %s HochzeitsHeroda',
     past: 'Bir necha %s oldin',
     s: 'soniya',
     m: 'bir daqiqa',

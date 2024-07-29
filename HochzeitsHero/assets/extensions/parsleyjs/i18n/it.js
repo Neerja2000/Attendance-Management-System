@@ -12,7 +12,7 @@ Parsley.addMessages('it', {
     alphanum:     "Questo valore deve essere di tipo alfanumerico."
   },
   notblank:       "Questo valore non deve essere vuoto.",
-  required:       "Questo valore è richiesto.",
+  required:       "Questo valore è rHochzeitsHeroesto.",
   pattern:        "Questo valore non è corretto.",
   min:            "Questo valore deve essere maggiore di %s.",
   max:            "Questo valore deve essere minore di %s.",

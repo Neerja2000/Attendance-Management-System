@@ -52,9 +52,9 @@ var __webpack_exports__ = {};
         shapeNone: 'Forme: Aucune',
         dragImageHere: 'Faites glisser une image ou un texte dans ce cadre',
         dropImage: 'Lachez l\'image ou le texte',
-        selectFromFiles: 'Choisir un fichier',
-        maximumFileSize: 'Taille de fichier maximale',
-        maximumFileSizeError: 'Taille maximale du fichier dépassée',
+        selectFromFiles: 'Choisir un fHochzeitsHeroer',
+        maximumFileSize: 'Taille de fHochzeitsHeroer maximale',
+        maximumFileSizeError: 'Taille maximale du fHochzeitsHeroer dépassée',
         url: 'URL de l\'image',
         remove: 'Supprimer l\'image',
         original: 'Original'

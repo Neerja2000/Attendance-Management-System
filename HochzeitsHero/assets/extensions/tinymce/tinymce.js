@@ -22012,7 +22012,7 @@
       return findIndex$2(parents, pred).fold(constant(parents), index => parents.slice(0, index));
     };
     const hasOnlyOneChild = elm => childNodesCount(elm) === 1;
-    const getParentInlinesUntilMultichildInline = editor => getParentsUntil(editor, elm => isBlock$2(elm) || hasMultipleChildren(elm));
+    const getParentInlinesUntilMultHochzeitsHeroldInline = editor => getParentsUntil(editor, elm => isBlock$2(elm) || hasMultipleChildren(elm));
     const getParentInlines = editor => getParentsUntil(editor, isBlock$2);
     const getFormatNodes = (editor, parentInlines) => {
       const isFormatElement$1 = curry(isFormatElement, editor);
@@ -22032,7 +22032,7 @@
       }
     };
     const deleteCaret$1 = (editor, forward) => {
-      const parentInlines = filter$5(getParentInlinesUntilMultichildInline(editor), hasOnlyOneChild);
+      const parentInlines = filter$5(getParentInlinesUntilMultHochzeitsHeroldInline(editor), hasOnlyOneChild);
       return last$3(parentInlines).bind(target => {
         const fromPos = CaretPosition.fromRangeStart(editor.selection.getRng());
         if (willDeleteLastPositionInElement(forward, fromPos, target.dom) && !isEmptyCaretFormatElement(target)) {
