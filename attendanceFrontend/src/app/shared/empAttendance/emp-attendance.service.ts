@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,6 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class EmpAttendanceService {
 
+  private getHeaders(): HttpHeaders {
+    const token = sessionStorage.getItem('token');
+    let headers = new HttpHeaders();
+
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+
+    return headers;
+  }
   employeebaseurl:any
 
   constructor(private http:HttpClient,@Inject('embaseurl')_baseurl:any) {
@@ -14,10 +24,10 @@ export class EmpAttendanceService {
    }
 
    addEmpAttendanceapi(employeeData: any){
-    return this.http.post(this.employeebaseurl+'/attendance/add',employeeData)
+    return this.http.post(this.employeebaseurl+'/attendance/add',employeeData,{ headers: this.getHeaders() })
    }
 
      getTodayAttendance(): Observable<any> {
-    return this.http.get(`${this.employeebaseurl}/attendance/today`);
+    return this.http.get(`${this.employeebaseurl}/attendance/today`,{ headers: this.getHeaders() });
   }
 }
