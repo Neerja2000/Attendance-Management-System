@@ -39,8 +39,12 @@ updateEmployeeapi( data: any): Observable<any> {
   return this.http.put<any>(`${this.globalbaseurl}/employee/update`, data,{ headers: this.getHeaders() });
 }
 deleteEmployeeapi(id: string): Observable<any> {
-  return this.http.delete(`${this.globalbaseurl}/employee/delete?id=${id}`,{ headers: this.getHeaders() });
+  return this.http.request('DELETE', `${this.globalbaseurl}/employee/delete`, {
+    headers: this.getHeaders(),
+    body: { id: id }  // Send the id in the request body
+  });
 }
+
 
 
 
