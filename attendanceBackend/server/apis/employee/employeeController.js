@@ -71,25 +71,25 @@ const addEmployee = async (req, res) => {
 
 module.exports = addEmployee;
 
+const getAll = (req, res) => {
+    Employee.find({ status: true })  // Filter for employees with status set to true
+        .then((result) => {
+            res.json({
+                success: true,
+                status: 200,
+                message: "Get All Active Employees",
+                data: result
+            });
+        })
+        .catch((err) => {
+            res.status(500).json({
+                success: false,
+                status: 500,
+                message: err.message
+            });
+        });
+};
 
-const getAll=(req,res)=>{
-    Employee.find()
-    .then((result)=>{
-        res.json({
-            success:true,
-            status:200,
-            message:"Get All Employees",
-            data:result
-        })
-    })
-    .catch((err)=>{
-        res.json({
-            success:false,
-            status:400,
-            message:err
-        })
-    })
-}
 const getSingle = (req, res) => {
     const employeeId = req.query.id;
 
@@ -195,40 +195,43 @@ result.save()
         })
     })
 }
-
 const remove = (req, res) => {
     let validation = "";
+
+    // Validate that the id is provided
     if (!req.body.id) {
         validation = "_id is required";
     }
 
     if (validation) {
-        res.send({ success: false, status: 400, message: validation });
+        res.status(400).send({ success: false, message: validation });
     } else {
-        Employee.findOneAndDelete({ _id: req.body.id })
-            .then((result) => {
-                if (result == null) {
-                    res.json({
-                        success: false,
-                        status: 400,
-                        message: "No employee found"
-                    });
-                } else {
-                    res.json({
-                        success: true,
-                        status: 200,
-                        message: "Employee Deleted Successfully",
-                        data: result
-                    });
-                }
-            })
-            .catch((error) => {
-                res.json({
+        // Assuming the Employee model has a 'status' field
+        Employee.findOneAndUpdate(
+            { _id: req.body.id },
+            { status: false }, // Set the status to false
+            { new: true } // Return the updated document
+        )
+        .then((result) => {
+            if (result == null) {
+                res.status(400).json({
                     success: false,
-                    status: 400,
-                    message: error.message
+                    message: "No employee found"
                 });
+            } else {
+                res.status(200).json({
+                    success: true,
+                    message: "Employee status updated to false successfully",
+                    data: result
+                });
+            }
+        })
+        .catch((error) => {
+            res.status(500).json({
+                success: false,
+                message: error.message
             });
+        });
     }
 };
 
