@@ -30,6 +30,8 @@ admin.findOne({ email: 'admin@gmail.com' })
 const adminLogin = (req, res) => {
   const { email, password } = req.body;
 
+  
+
   admin.findOne({ email })
     .then(admin => {
       if (!admin) {
