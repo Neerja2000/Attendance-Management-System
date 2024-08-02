@@ -19,22 +19,9 @@
   <link rel="stylesheet" href="./assets/compiled/css/app.css">
   <link rel="stylesheet" href="./assets/compiled/css/app-dark.css">
   <style>
-    .dropdown-toggle::after {
+      .dropdown-toggle::after {
             display: none;
         }
-        .filter-dropdown {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-        .filter-dropdown select {
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 5px;
-            font-size: 14px;
-            background-color: #f9f9f9;
-        }
-
   </style>
 </head>
 
@@ -69,7 +56,7 @@
             </li>
             
             <li
-            class="sidebar-item  has-sub">
+            class="sidebar-item  has-sub active">
             <a href="#" class='sidebar-link'  >
                 <i class="bi bi-gear-fill"></i> 
 
@@ -125,7 +112,7 @@
     </li>
  
     <li
-    class="sidebar-item  has-sub active">
+    class="sidebar-item  has-sub ">
     <a href="#" class='sidebar-link'  >
         <i class="bi bi-person-check-fill"></i>
         <span >Users</span>
@@ -201,46 +188,32 @@
             
 
             <div class="row">
-                <div class="col-12 col-md-9 ">
-                    <h3>View Users</h3>
+                <div class="col-12 col-md-9 order-md-1 order-last">
+                    <h3>Service Provider Package</h3>
 
                 </div>
-              <div class=" col-12 col-md-3 ">
-                <div class="filter-dropdown">
-                    <label for="locationFilter" class="me-2">Location:</label>
-                    <select id="locationFilter">
-                        <option value="">All Locations</option>
-                        <option value="location1">Location 1</option>
-                        <option value="location2">Location 2</option>
-                        <option value="location3">Location 3</option>
-                    </select>
-                </div>
-              </div>
+              
                
             </div>
         </div>
         <section class="section">
             <div class="card">
-                <div class="card-header d-flex justify-content-end">
-                    <button class="btn btn-primary ">Export to CSV</button>
+                <div class="card-header">
+                  
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-striped " id="table1" >
                             <thead>
                                 <tr>
-                                    <th>Sr No</th>
+                                    <th>Sr No.</th>
                                    
-                                    <th>Name</th>
-                                    <th>Partner Name</th>
-                                    <th>Email</th>
-                                    <th>Phone Number</th>
-                                    <th>Wedding Date</th>
-                                    <th>Location</th>
-                                    <th>Number of Guests</th>
-                                    <th>Budget</th>
-                                    <th>Payment</th>
+                                    
+                                    <th>Package Name</th>
+                                    <th>description</th>
                                  
+                                  
+                                    <th>Action</th>
                                      
                                    
                                     
@@ -249,37 +222,78 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                        <td>John</td>
-                                        <td>Rehana</td>
-                                        <td>John@gmail.com</td>
-                                       <td>9876271362</td>
-                                       <td>11-Oct-2024</td>
-                                        <td >Lorem ipsum dolor sit amet consectetur.</td>
-                                        <td>200</td>
-                                        <td>15.000 EUR</td>
-                                        <td><span class="text-warning">Pending</span></td>
-                                    
+                                     
+                                       <td>Free</td>
+                                        <td >Lorem ipsum dolor sit amet.</td>
+                                       
                                       
-                                      
+                                        <td>
+                                            <div class="d-flex ">
+                                               
+                                               <a href="./update-service-provider-package.html"><button class="btn btn-success btn-sm me-2">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </button></a> 
+                                                <button class="btn btn-danger btn-sm">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                </button>
+                                            </div>
+                                            
+                                        </td>
 
                                      
                                         
                                        
                                     
                                     </tr>
-                                   
                                     <tr>
-                                        <td>1</td>
-                                            <td>John</td>
-                                            <td>Rehana</td>
-                                            <td>John@gmail.com</td>
-                                           <td>9876271362</td>
-                                           <td>11-Oct-2024</td>
-                                            <td >Lorem ipsum dolor sit amet consectetur.</td>
-                                            <td>200</td>
-                                            <td>15.000 EUR</td>
-                                            <td><span class="text-success">Done</span></td>
-                                        </tr>                                      
+                                        <td>2</td>
+                                         
+                                        <td>$30/Month</td>
+                                        <td >Lorem ipsum dolor sit amet.</td>
+                                       
+                                      
+                                        <td>
+                                            <div class="d-flex ">
+                                               
+                                               <a href="./update-service-provider-package.html"><button class="btn btn-success btn-sm me-2">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </button></a> 
+                                                <button class="btn btn-danger btn-sm">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                </button>
+                                            </div>
+                                            
+                                        </td>
+
+                                            
+                                           
+                                        
+                                        </tr>
+                                         
+                                        <tr>
+                                            <td>3</td>
+                                             
+                                            <td>$80/Month</td>
+                                            <td >Lorem ipsum dolor sit amet.</td>
+                                           
+                                          
+                                            <td>
+                                                <div class="d-flex ">
+                                                   
+                                                   <a href="./update-service-provider-package.html"><button class="btn btn-success btn-sm me-2">
+                                                    <i class="bi bi-pencil-fill"></i>
+                                                </button></a> 
+                                                    <button class="btn btn-danger btn-sm">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                    </button>
+                                                </div>
+                                                
+                                            </td>
+    
+                                                
+                                               
+                                            
+                                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -320,9 +334,7 @@
     function navigateTo(url) {
         window.location.href = url;
     }
-    </script>  
-    
-   
+    </script>   
 </body>
 
 </html>

@@ -18,24 +18,11 @@
   <link rel="stylesheet" href="./assets/compiled/css/table-datatable.css">
   <link rel="stylesheet" href="./assets/compiled/css/app.css">
   <link rel="stylesheet" href="./assets/compiled/css/app-dark.css">
-  <style>
-    .dropdown-toggle::after {
+   <style>
+      .dropdown-toggle::after {
             display: none;
         }
-        .filter-dropdown {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-        .filter-dropdown select {
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 5px;
-            font-size: 14px;
-            background-color: #f9f9f9;
-        }
-
-  </style>
+   </style>
 </head>
 
 <body>
@@ -69,7 +56,7 @@
             </li>
             
             <li
-            class="sidebar-item  has-sub">
+            class="sidebar-item  has-sub active">
             <a href="#" class='sidebar-link'  >
                 <i class="bi bi-gear-fill"></i> 
 
@@ -125,7 +112,7 @@
     </li>
  
     <li
-    class="sidebar-item  has-sub active">
+    class="sidebar-item  has-sub ">
     <a href="#" class='sidebar-link'  >
         <i class="bi bi-person-check-fill"></i>
         <span >Users</span>
@@ -174,7 +161,8 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-             <div class="row">
+            
+   <div class="row">
                 <div class="col-md-12 text-end">
                     <div class="btn-group mb-1">
                         <div class="dropdown">
@@ -183,126 +171,81 @@
                                 aria-expanded="false">
                                 <i class="bi bi-gear-fill fs-3"></i> <!-- Bootstrap settings icon -->
                         </a>
-                         
+                           
                         </div>
                     </div>
                 </div>
-            </div>                        
-<div class="page-heading">
+            </div>               
     
-
-  
-
-  
-
-  
-    <div class="page-heading">
-        <div class="page-title">
-            
-
-            <div class="row">
-                <div class="col-12 col-md-9 ">
-                    <h3>View Users</h3>
-
-                </div>
-              <div class=" col-12 col-md-3 ">
-                <div class="filter-dropdown">
-                    <label for="locationFilter" class="me-2">Location:</label>
-                    <select id="locationFilter">
-                        <option value="">All Locations</option>
-                        <option value="location1">Location 1</option>
-                        <option value="location2">Location 2</option>
-                        <option value="location3">Location 3</option>
-                    </select>
-                </div>
-              </div>
-               
-            </div>
-        </div>
-        <section class="section">
-            <div class="card">
-                <div class="card-header d-flex justify-content-end">
-                    <button class="btn btn-primary ">Export to CSV</button>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped " id="table1" >
-                            <thead>
-                                <tr>
-                                    <th>Sr No</th>
-                                   
-                                    <th>Name</th>
-                                    <th>Partner Name</th>
-                                    <th>Email</th>
-                                    <th>Phone Number</th>
-                                    <th>Wedding Date</th>
-                                    <th>Location</th>
-                                    <th>Number of Guests</th>
-                                    <th>Budget</th>
-                                    <th>Payment</th>
-                                 
-                                     
-                                   
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                        <td>John</td>
-                                        <td>Rehana</td>
-                                        <td>John@gmail.com</td>
-                                       <td>9876271362</td>
-                                       <td>11-Oct-2024</td>
-                                        <td >Lorem ipsum dolor sit amet consectetur.</td>
-                                        <td>200</td>
-                                        <td>15.000 EUR</td>
-                                        <td><span class="text-warning">Pending</span></td>
-                                    
-                                      
-                                      
-
-                                     
-                                        
-                                       
-                                    
-                                    </tr>
-                                   
-                                    <tr>
-                                        <td>1</td>
-                                            <td>John</td>
-                                            <td>Rehana</td>
-                                            <td>John@gmail.com</td>
-                                           <td>9876271362</td>
-                                           <td>11-Oct-2024</td>
-                                            <td >Lorem ipsum dolor sit amet consectetur.</td>
-                                            <td>200</td>
-                                            <td>15.000 EUR</td>
-                                            <td><span class="text-success">Done</span></td>
-                                        </tr>                                      
-                            </tbody>
-                        </table>
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Update Service Provider Package</h3>
+        
+                        </div>
+                       
                     </div>
-                    
                 </div>
+               
+            <!-- Basic Vertical form layout section start -->
+            <section id="basic-vertical-layouts">
+                <div class="row match-height">
+                    <div class="col-md-12 col-12">
+                        <div class="card">
+                          
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <form class="form form-vertical">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-12 mb-4">
+                                                    <div class="form-group">
+                                                        <label for="Value">Package Name</label>
+                                                        <input type="text" id="Value" class="form-control" name="Value" placeholder="Add Package" >
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="col-12 mb-4">
+                                                    <div class="form-group">
+                                                        <label for="description">Add Description</label>
+                                                        <textarea name="description" class="form-control" id="description" placeholder="Add Description"></textarea>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="col-12 d-flex justify-content-start mt-3">
+                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                                    <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            </section>
+            <!-- // Basic Vertical form layout section end -->
+        
             </div>
-    
-        </section>
-    </div>
 
 
-</div>
-<footer>
-    <div class="footer clearfix mb-0 text-muted">
-        <div class="float-start">
-            <p>2023 &copy; HochzeitsHero</p>
+
+
+    <footer>
+        <div class="footer clearfix mb-0 text-muted">
+            <div class="float-start">
+                <p>2023 &copy; HochzeitsHero</p>
+            </div>
+            <div class="float-end">
+                <p>Created  <span class="text-danger"></span>
+                    by Robolaxy</a></p>
+            </div>
         </div>
-        <div class="float-end">
-            <p>Created  <span class="text-danger"></span>
-                by Robolaxy</a></p>
-        </div>
-    </div>
-</footer>
+    </footer>
         </div>
     </div>
     <script src="assets/static/js/components/dark.js"></script>
@@ -320,9 +263,8 @@
     function navigateTo(url) {
         window.location.href = url;
     }
-    </script>  
+    </script>
     
-   
 </body>
 
 </html>
