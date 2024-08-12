@@ -29,6 +29,9 @@ import { EmpAddRatingComponent } from './employee/emp-add-rating/emp-add-rating.
 import { EmpViewRatingComponent } from './employee/emp-view-rating/emp-view-rating.component'
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminpasswordComponent } from './admin/adminpassword/adminpassword.component';
+
+
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EmpAddAttendanceComponent,
     EmpViewAttendanceComponent,
     EmpAddRatingComponent,
-    EmpViewRatingComponent
+    EmpViewRatingComponent,
+    AdminpasswordComponent
+   
+   
   ],
   imports: [
     BrowserModule,

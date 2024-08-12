@@ -13,12 +13,14 @@ module.exports = (req, res, next) => {
 
         // Verify the token
         jwt.verify(token, SECRET_KEY, (err, data) => {
+           
             if (err) {
                 // Invalid token or token verification failed
                 res.status(401).send({ success: false, message: 'Unauthorized User' });
             } else {
                 // Token is valid, attach decoded data to the request object
                 req.user = data;
+              
                 next();
             }
         });

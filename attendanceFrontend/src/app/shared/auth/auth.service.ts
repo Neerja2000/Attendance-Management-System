@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -13,9 +14,11 @@ export class AuthService {
       sessionStorage.setItem('_id', res.data._id || '');
       sessionStorage.setItem('token', res.token || ''); // Store token if available
     } else if (res.token) {
+     
       // Handling admin login response
       sessionStorage.setItem('_id', ''); // Admin login response doesn't include `_id`
       sessionStorage.setItem('token', res.token || '');
+      
     } else {
       console.error('Invalid response format:', res);
     }

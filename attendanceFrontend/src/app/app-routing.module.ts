@@ -17,6 +17,7 @@ import { EmpViewAttendanceComponent } from './employee/emp-view-attendance/emp-v
 import { EmpAddRatingComponent } from './employee/emp-add-rating/emp-add-rating.component';
 import { EmpViewRatingComponent } from './employee/emp-view-rating/emp-view-rating.component';
 import { AuthGuard } from './auth_guard/auth_guard';
+import { AdminpasswordComponent } from './admin/adminpassword/adminpassword.component';
 
 const routes: Routes = [
 {
@@ -24,6 +25,9 @@ const routes: Routes = [
 },
 {
   path:"login",component:LoginComponent
+},
+{
+  path:'changePassword',component:AdminpasswordComponent
 },
   {
     path:"admin/layout",component:LayoutComponent,

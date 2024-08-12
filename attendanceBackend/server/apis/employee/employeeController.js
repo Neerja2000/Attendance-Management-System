@@ -274,5 +274,5 @@ const employeeLogin = (req, res) => {
 
 
 module.exports={
-    addEmployee,getAll,update,remove,employeeLogin
+    addEmployee,getAll,getSingle,update,remove,employeeLogin
 }
