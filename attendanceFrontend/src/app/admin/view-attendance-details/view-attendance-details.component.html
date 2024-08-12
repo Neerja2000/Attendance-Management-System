@@ -38,7 +38,8 @@
                       <th>Sr No.</th>
                       <th>Date</th>
                       <th>Check-In</th>
-                      <th>Break</th>
+                      <th>Break Start</th>
+                      <th>Break Finish</th>
                       <th>Check-Out</th>
                       <th>Work Done</th>
                       <th>Total Working Hours</th>
@@ -51,7 +52,9 @@
                       <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
                       <td>{{ detail.createdAt | date:'mediumDate' }}</td><!-- Adjust date format as per your data -->
                       <td>{{ detail.check_in }}</td>
-                      <td>{{ detail.break_time }}</td>
+                      <td>{{ detail.
+                        break_time_start}}</td>
+                      <td>{{ detail.break_time_finish}}</td>
                       <td>{{ detail.check_out }}</td>
                       <td>{{ detail.work_done }}</td>
                       <td>{{ calculateTotalWorkHours(detail.check_in, detail.check_out, detail.break_time_start, detail.break_time_finish) }}</td>
