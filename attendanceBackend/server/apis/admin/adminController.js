@@ -78,7 +78,7 @@ const adminUpdatePassword = (req, res) => {
     }
 
     const email = decoded.email; // Extract email from the token
-console.log("uu",email)
+console.log("email",email)
     admin.findOne({ email })
       .then(admin => {
         if (!admin) {

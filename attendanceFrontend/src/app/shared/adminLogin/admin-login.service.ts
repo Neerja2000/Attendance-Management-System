@@ -6,16 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminLoginService {
-  private getHeaders(): HttpHeaders {
-    const token = sessionStorage.getItem('token');
-    let headers = new HttpHeaders();
-
-    if (token) {
-      headers = headers.set('Authorization', `Bearer ${token}`);
-    }
-
-    return headers;
-  }
+  
 
   globalbaseurl:any
 
@@ -27,7 +18,12 @@ export class AdminLoginService {
   
     return this.http.post(`${this.globalbaseurl}/adminLogin`, { email, password });
   }
-  passwordChange(form: FormData) {
-    return this.http.post(`${this.globalbaseurl}/admin/password`, form,{ headers: this.getHeaders() });
+  passwordChange(body: any): Observable<any> {
+    const token = sessionStorage.getItem('token') || '';
+   
+
+    const headers = new HttpHeaders().set('Authorization', token);
+console.log("Sending token:", token);
+return this.http.post(`${this.globalbaseurl}/admin/password`, body, { headers });
   }
 }

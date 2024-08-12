@@ -18,28 +18,25 @@ export class AdminpasswordComponent implements OnInit {
 
   ngOnInit(): void {}
   submit() {
-    const formData = new FormData();
-  
     const oldPassword = this.ChangePassword.get('oldPassword')?.value || '';
     const newPassword = this.ChangePassword.get('newPassword')?.value || '';
+    
+    const body = {
+      oldPassword,
+      newPassword
+    };
+    console.log(body)
   
-    formData.append('oldPassword', oldPassword);
-    formData.append('newPassword', newPassword);
-  
-    const email = localStorage.getItem('adminEmail') || ''; // Retrieve email from localStorage
-    const adminToken = localStorage.getItem('adminToken') || ''; // Retrieve token from localStorage
-  
-    formData.append('email', email);
-  
-    this.adminService.passwordChange(formData).subscribe(
+    this.adminService.passwordChange(body).subscribe(
       (response: any) => {
         console.log('Password changed successfully:', response);
-        this.router.navigate(['/some-other-route']); // Navigate to another route after success
+        this.router.navigate(['/some-other-route']);
       },
       (error) => {
         console.error('Error changing password:', error);
       }
     );
   }
+  
   
 }
