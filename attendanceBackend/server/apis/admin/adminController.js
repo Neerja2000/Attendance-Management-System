@@ -61,40 +61,58 @@ const adminLogin = (req, res) => {
 
 
 const adminUpdatePassword = (req, res) => {
-  const { email, oldPassword, newPassword } = req.body;
+  const { oldPassword, newPassword } = req.body;
 
-  admin.findOne({ email })
-    .then(admin => {
-      if (!admin) {
-        return res.status(400).send('Admin not found');
-      }
+  // Extract the token from the Authorization header or request body
+  const token = req.headers['authorization'] || req.body.token;
+  console.log("ttt",token)
 
-      bcrypt.compare(oldPassword, admin.password)
-        .then(isMatch => {
-          if (!isMatch) {
-            return res.status(400).send('Incorrect old password');
-          }
+  if (!token) {
+    return res.status(401).send('No token provided');
+  }
 
-          // Hash new password and update it in the database
-          const hashedPassword = bcrypt.hashSync(newPassword, 10);
-          admin.password = hashedPassword;
-          admin.save()
-            .then(() => {
-              res.status(200).json({
-                message: 'Password updated successfully',
+  // Verify and decode the token
+  jwt.verify(token, SECRET_KEY, (err, decoded) => {
+    if (err) {
+      return res.status(401).send('Invalid token');
+    }
+
+    const email = decoded.email; // Extract email from the token
+console.log("uu",email)
+    admin.findOne({ email })
+      .then(admin => {
+        if (!admin) {
+          return res.status(400).send('Admin not found');
+        }
+
+        bcrypt.compare(oldPassword, admin.password)
+          .then(isMatch => {
+            if (!isMatch) {
+              return res.status(400).send('Incorrect old password');
+            }
+
+            // Hash new password and update it in the database
+            const hashedPassword = bcrypt.hashSync(newPassword, 10);
+            admin.password = hashedPassword;
+            admin.save()
+              .then(() => {
+                res.status(200).json({
+                  message: 'Password updated successfully',
+                });
+              })
+              .catch(err => {
+                res.status(500).send('Error updating password: ' + err);
               });
-            })
-            .catch(err => {
-              res.status(500).send('Error updating password: ' + err);
-            });
-        })
-        .catch(err => {
-          res.status(500).send('Error comparing passwords: ' + err);
-        });
-    })
-    .catch(err => {
-      res.status(500).send('Error finding admin: ' + err);
-    });
+          })
+          .catch(err => {
+            res.status(500).send('Error comparing passwords: ' + err);
+          });
+      })
+      .catch(err => {
+        res.status(500).send('Error finding admin: ' + err);
+      });
+  });
 };
+
 
 module.exports = { adminLogin,adminUpdatePassword };

@@ -12,11 +12,11 @@ const adminController=require("../apis/admin/adminController")
 
 //adminLogin
 router.post("/adminLogin",adminController.adminLogin)
-router.post("/admin/password",adminController.adminUpdatePassword)
+
 
 //token
 router.use(require("../MiddleWare/tokenChecker"))
-
+router.post("/admin/password",adminController.adminUpdatePassword)
 
 
 // Employee
