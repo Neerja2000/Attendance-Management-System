@@ -25,6 +25,7 @@ export class AdminpasswordComponent implements OnInit {
       oldPassword,
       newPassword
     };
+    
     console.log(body)
   
     this.adminService.passwordChange(body).subscribe(
