@@ -31,7 +31,7 @@ export class AdminpasswordComponent implements OnInit {
     this.adminService.passwordChange(body).subscribe(
       (response: any) => {
         console.log('Password changed successfully:', response);
-        this.router.navigate(['/some-other-route']);
+        this.router.navigate(['/admin/layout/dashboard']);
       },
       (error) => {
         console.error('Error changing password:', error);
