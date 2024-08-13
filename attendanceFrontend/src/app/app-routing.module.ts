@@ -18,6 +18,7 @@ import { EmpAddRatingComponent } from './employee/emp-add-rating/emp-add-rating.
 import { EmpViewRatingComponent } from './employee/emp-view-rating/emp-view-rating.component';
 import { AuthGuard } from './auth_guard/auth_guard';
 import { AdminpasswordComponent } from './admin/adminpassword/adminpassword.component';
+import { EmployeePasswordComponent } from './employee/employee-password/employee-password.component';
 
 const routes: Routes = [
 {
@@ -57,6 +58,9 @@ const routes: Routes = [
       path:'view-rating',component:ViewRatingComponent,canActivate: [AuthGuard]
     }
   ]
+  },
+  {
+      path:'employee/password',component:EmployeePasswordComponent
   },
   {
     path:"employee/layout",component:EmpLayoutComponent,

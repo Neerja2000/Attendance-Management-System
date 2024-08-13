@@ -12,6 +12,7 @@ router.post("/login",employeeController.employeeLogin)
 
 //token
 router.use(require("../MiddleWare/tokenChecker"))
+router.post("/employee/password",employeeController.employeeUpdatePassword)
 
 // attendance 
 router.post("/attendance/add",attendanceController.addAttendance)

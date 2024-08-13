@@ -30,6 +30,7 @@ import { EmpViewRatingComponent } from './employee/emp-view-rating/emp-view-rati
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminpasswordComponent } from './admin/adminpassword/adminpassword.component';
+import { EmployeePasswordComponent } from './employee/employee-password/employee-password.component';
 
 
 
@@ -58,7 +59,8 @@ import { AdminpasswordComponent } from './admin/adminpassword/adminpassword.comp
     EmpViewAttendanceComponent,
     EmpAddRatingComponent,
     EmpViewRatingComponent,
-    AdminpasswordComponent
+    AdminpasswordComponent,
+    EmployeePasswordComponent
    
    
   ],

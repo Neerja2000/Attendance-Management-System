@@ -6,11 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmployeeService {
- globalbaseurl:any
+ globalbaseurl:any  
+ employeebaseurl:any
 
-  constructor(private http:HttpClient,@Inject('baseurl')_baseurl:any) {
-    this.globalbaseurl=_baseurl
-   }
+
+ constructor(
+  private http: HttpClient,
+  @Inject('baseurl') private _baseurl: any,
+  @Inject('embaseurl') private _embaseurl: any
+) {
+  this.globalbaseurl = _baseurl;
+  this.employeebaseurl = _embaseurl;
+}
 
    private getHeaders(): HttpHeaders {
     const token = sessionStorage.getItem('token');
@@ -45,6 +52,16 @@ deleteEmployeeapi(id: string): Observable<any> {
   });
 }
 
+
+
+passwordChange(body: any): Observable<any> {
+  const token = sessionStorage.getItem('token') || '';
+ 
+
+  const headers = new HttpHeaders().set('Authorization', token);
+console.log("Sending token:", token);
+return this.http.post(`${this.employeebaseurl}/employee/password`, body, { headers });
+}
 
 
 

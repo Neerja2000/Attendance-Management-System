@@ -1,6 +1,7 @@
 const Employee = require('./employeeModel');
 const SECRET_KEY = 'robolaxyAttendance';
 const jwt = require('jsonwebtoken');
+const bcrypt = require("bcryptjs");
 
 
 
@@ -38,6 +39,9 @@ const addEmployee = async (req, res) => {
             });
         }
 
+        // Hash the password before saving
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         let total = await Employee.countDocuments();
         let newEmployee = new Employee({
             employeeId: total + 1,
@@ -50,7 +54,7 @@ const addEmployee = async (req, res) => {
             experience,
             gender,
             userId,
-            password
+            password: hashedPassword
         });
 
         const result = await newEmployee.save();
@@ -242,7 +246,7 @@ const remove = (req, res) => {
 const employeeLogin = (req, res) => {
     const { userId, password } = req.body;
 
-    Employee.findOne({ userId, password })
+    Employee.findOne({ userId })
         .then((employee) => {
             if (!employee) {
                 return res.status(401).json({
@@ -252,27 +256,106 @@ const employeeLogin = (req, res) => {
                 });
             }
 
-            const token = jwt.sign({ id: employee._id, email: employee.email }, SECRET_KEY, { expiresIn: '1h' });
+            // Compare the provided password with the hashed password stored in the database
+            bcrypt.compare(password, employee.password)
+                .then((isMatch) => {
+                    if (!isMatch) {
+                        return res.status(401).json({
+                            success: false,
+                            status: 401,
+                            message: "Invalid userId or password"
+                        });
+                    }
 
-            res.status(200).json({
-                success: true,
-                status: 200,
-                message: 'Employee logged in successfully',
-                token,
-                data: employee
-            });
+                    // Generate JWT token upon successful login
+                    const token = jwt.sign(
+                        { id: employee._id, email: employee.email },
+                        SECRET_KEY,
+                        { expiresIn: '1h' }
+                    );
+
+                    res.status(200).json({
+                        success: true,
+                        status: 200,
+                        message: 'Employee logged in successfully',
+                        token,
+                        data: employee
+                    });
+                })
+                .catch((err) => {
+                    res.status(500).json({
+                        success: false,
+                        status: 500,
+                        message: 'Error comparing passwords: ' + err.message
+                    });
+                });
         })
         .catch((err) => {
-            res.status(400).json({
+            res.status(500).json({
                 success: false,
-                status: 400,
-                message: err.message
+                status: 500,
+                message: 'Error finding employee: ' + err.message
             });
         });
 };
 
 
+const employeeUpdatePassword = (req, res) => {
+    const { oldPassword, newPassword } = req.body;
+  
+    // Extract the token from the Authorization header or request body
+    const token = req.headers['authorization'] || req.body.token;
+    console.log("t",token)
+  
+    if (!token) {
+      return res.status(401).send('No token provided');
+    }
+  
+    // Verify and decode the token
+    jwt.verify(token, SECRET_KEY, (err, decoded) => {
+      if (err) {
+        return res.status(401).send('Invalid token');
+      }
+  
+      const employeeId = decoded.id; // Assuming the token contains _id
+      console.log("employeeId", employeeId);
+      Employee.findOne({ _id: employeeId })
+ 
+        .then(Employee => {
+          if (!Employee) {
+            return res.status(400).send('Employee not found');
+          }
+  
+          bcrypt.compare(oldPassword, Employee.password)
+            .then(isMatch => {
+              if (!isMatch) {
+                return res.status(400).send('Incorrect old password');
+              }
+  
+              // Hash new password and update it in the database
+              const hashedPassword = bcrypt.hashSync(newPassword, 10);
+              Employee.password = hashedPassword;
+              Employee.save()
+                .then(() => {
+                  res.status(200).json({
+                    message: 'Password updated successfully',
+                  });
+                })
+                .catch(err => {
+                  res.status(500).send('Error updating password: ' + err);
+                });
+            })
+            .catch(err => {
+              res.status(500).send('Error comparing passwords: ' + err);
+            });
+        })
+        .catch(err => {
+          res.status(500).send('Error finding admin: ' + err);
+        });
+    });
+  };
+
 
 module.exports={
-    addEmployee,getAll,getSingle,update,remove,employeeLogin
+    addEmployee,getAll,getSingle,update,remove,employeeLogin,employeeUpdatePassword
 }
