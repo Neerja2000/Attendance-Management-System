@@ -43,6 +43,7 @@ export class AdminpasswordComponent implements OnInit {
           panelClass: ['success-snackbar'],
           verticalPosition: 'top',
           horizontalPosition: 'right'
+          
         });
       },
       (error) => {
