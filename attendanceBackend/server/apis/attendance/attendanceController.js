@@ -231,10 +231,59 @@ const changeStatus = (req, res) => {
     }
   };
   
+  const getAttendanceByDate = async (req, res) => {
+    try {
+      const { date } = req.query; // Get the date from the query parameters
   
+      // Validate the date input
+      if (!date) {
+        return res.status(400).json({
+          success: false,
+          status: 400,
+          message: "Date is required",
+        });
+      }
+  
+      // Parse the date to ensure it's in the correct format
+      const selectedDate = new Date(date);
+      if (isNaN(selectedDate.getTime())) {
+        return res.status(400).json({
+          success: false,
+          status: 400,
+          message: "Invalid date format",
+        });
+      }
+  
+      // Define the start and end of the day for the selected date
+      const startOfDay = new Date(selectedDate.setHours(0, 0, 0, 0));
+      const endOfDay = new Date(selectedDate.setHours(23, 59, 59, 999));
+  
+      // Query the database for attendance records on the selected date
+      const results = await attendance.find({
+        createdAt: { $gte: startOfDay, $lte: endOfDay },
+      }).populate('employeeId');
+  
+      res.json({
+        success: true,
+        status: 200,
+        message: "Attendance for the selected date loaded successfully",
+        data: results,
+      });
+    } catch (err) {
+      res.status(500).json({
+        success: false,
+        status: 500,
+        message: err.message,
+      });
+    }
+  };
+
+
+
+
   
   
   
 
 
-module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance,getTodayAttendance}
+module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance,getTodayAttendance,getAttendanceByDate}

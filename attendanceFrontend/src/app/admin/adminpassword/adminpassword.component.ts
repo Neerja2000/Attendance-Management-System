@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AdminLoginService } from 'src/app/shared/adminLogin/admin-login.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-adminpassword',
@@ -15,14 +15,9 @@ export class AdminpasswordComponent implements OnInit {
     oldPassword: new FormControl(''),
     newPassword: new FormControl(''),
   });
-<<<<<<< HEAD
- 
-    
-    constructor(private adminService: AdminLoginService, private router: Router,private snackBar:MatSnackBar) {}
-=======
 
   constructor(private adminService: AdminLoginService, private router: Router,private snackBar:MatSnackBar) {}
->>>>>>> d04f5dae622c5b73e5246ce126517e41267bb86b
+
 
   ngOnInit(): void {}
   submit() {
@@ -39,16 +34,9 @@ export class AdminpasswordComponent implements OnInit {
     this.adminService.passwordChange(body).subscribe(
       (response: any) => {
         console.log('Password changed successfully:', response);
-<<<<<<< HEAD
-        this.snackBar.open('Password changed successfully!', 'Close', {
-          duration: 3000, // Duration in milliseconds
-          panelClass: ['success-snackbar'],
-          verticalPosition: 'top',
-          horizontalPosition: 'right'
-        });
-=======
 
->>>>>>> d04f5dae622c5b73e5246ce126517e41267bb86b
+
+
         this.router.navigate(['/admin/layout/dashboard']);
         this.snackBar.open('Password changed successfully', 'Close', {
           duration: 3000, // Duration in milliseconds

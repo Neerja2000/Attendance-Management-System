@@ -30,6 +30,7 @@ router.delete('/employee/delete',employeeController.remove)
 router.get("/attendance/getAll",attendanceController.getAll)
 router.get("/attendance/getEmployee",attendanceController.getEmployeeAttendance)
 router.get("/attendance/today",attendanceController.getTodayAttendance)
+router.get("/attendance/day",attendanceController.getAttendanceByDate)
 
 
 
