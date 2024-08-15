@@ -263,11 +263,54 @@ const changeStatus = (req, res) => {
         createdAt: { $gte: startOfDay, $lte: endOfDay },
       }).populate('employeeId');
   
+      const pipeline = [
+        {
+          $lookup: {
+            from: 'attendances',
+            let: { empId: '$_id' },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $and: [
+                      { $eq: ['$employeeId', '$$empId'] },
+                      { $gte: ['$createdAt', startOfDay] },
+                      { $lte: ['$createdAt', endOfDay] }
+                    ]
+                  }
+                }
+              }
+            ],
+            as: 'attendances'
+          }
+        },
+        {
+          $addFields: {
+            attendance: { $arrayElemAt: ['$attendances', 0] }
+          }
+        },
+        {
+          $project: {
+            _id: 0,
+            employeeId: '$_id',
+            employeeName: '$name',
+            check_in: '$attendance.check_in',
+            break_time_start: '$attendance.break_time_start',
+            break_time_finish: '$attendance.break_time_finish',
+            check_out: '$attendance.check_out',
+            work_done: '$attendance.work_done',
+            status: '$attendance.status'
+          }
+        },
+       
+      ];
+  
+      const result = await Employee.aggregate(pipeline) ;
       res.json({
         success: true,
         status: 200,
         message: "Attendance for the selected date loaded successfully",
-        data: results,
+        data: result,
       });
     } catch (err) {
       res.status(500).json({
