@@ -870,6 +870,31 @@
             
             </div>
 
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                  <select id="filterState" class="form-select">
+                    <option value="">Select State</option>
+                    <!-- Options will be dynamically added by DataTables -->
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <select id="filterBranch" class="form-select">
+                    <option value="">Select Branch</option>
+                    <!-- Options will be dynamically added by DataTables -->
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <select id="filterVehicle" class="form-select">
+                    <option value="">Select Vehicle</option>
+                    <!-- Options will be dynamically added by DataTables -->
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <input type="month" id="filterMonth" class="form-control" placeholder="Select Month">
+                </div>
+              </div>
+              
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
@@ -882,6 +907,7 @@
                       id="multi-filter-select"
                         class="display table table-striped table-hover"
                       >
+                      
                         <thead>
                           <tr>
                             <th>SN</th>
@@ -897,10 +923,10 @@
                             <th>AC</th>
                             <th>BTR</th>
                             <th>GSM</th>
-                            <td>GPS</td>
+                            <th>GPS</th>
                           </tr>
                         </thead>
-                      
+                       
                         <tbody>
                           <tr>
                             <td>1</td>
@@ -1239,37 +1265,60 @@
       $(document).ready(function () {
         $("#basic-datatables").DataTable({});
 
-        $("#multi-filter-select").DataTable({
-          pageLength: 5,
-          initComplete: function () {
-            this.api()
-              .columns()
-              .every(function () {
-                var column = this;
-                var select = $(
-                  '<select class="form-select"><option value=""></option></select>'
-                )
-                  .appendTo($(column.footer()).empty())
-                  .on("change", function () {
-                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+        $(document).ready(function () {
+  var table = $("#multi-filter-select").DataTable({
+    pageLength: 5,
+    initComplete: function () {
+      // Adding options to the filter selects
+      this.api().columns([1, 2, 3]).every(function () {
+        var column = this;
+        var columnIdx = column.index();
+        var selectId = "";
+        
+        // Assign filter IDs based on column index
+        switch (columnIdx) {
+          case 1:
+            selectId = "#filterState";
+            break;
+          case 2:
+            selectId = "#filterBranch";
+            break;
+          case 3:
+            selectId = "#filterVehicle";
+            break;
+          default:
+            return;
+        }
 
-                    column
-                      .search(val ? "^" + val + "$" : "", true, false)
-                      .draw();
-                  });
+        var select = $(selectId);
+        column
+          .data()
+          .unique()
+          .sort()
+          .each(function (d, j) {
+            select.append('<option value="' + d + '">' + d + "</option>");
+          });
+      });
+    },
+  });
 
-                column
-                  .data()
-                  .unique()
-                  .sort()
-                  .each(function (d, j) {
-                    select.append(
-                      '<option value="' + d + '">' + d + "</option>"
-                    );
-                  });
-              });
-          },
-        });
+  // Event listeners for the filters
+  $("#filterState").on("change", function () {
+    table.column(1).search(this.value).draw();
+  });
+
+  $("#filterBranch").on("change", function () {
+    table.column(2).search(this.value).draw();
+  });
+
+  $("#filterVehicle").on("change", function () {
+    table.column(3).search(this.value).draw();
+  });
+
+  $("#filterMonth").on("change", function () {
+    table.column(9).search(this.value).draw(); // Assuming "Since" is the column with date information
+  });
+});
 
         // Add Row
         $("#add-row").DataTable({
