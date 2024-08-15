@@ -36,7 +36,7 @@ export class ViewAttendanceComponent implements OnInit {
     this.attService.getAttendanceByDate(this.date).subscribe(
      
       (res: any) => {
-        console.log("dds",res)
+       
         this.updateAttendanceList(res);
       },
       (error: any) => {
