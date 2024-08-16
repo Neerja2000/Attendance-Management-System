@@ -903,8 +903,8 @@
                   <input type="month" id="filterMonth" class="form-control" placeholder="Select Month">
                 </div>
                 <div class="col-md mt-4">
-                  <button type="reset" class="btn btn-secondary">Reset Filters</button>
-              </div>
+                  <button id="reset-filters" class="btn btn-secondary">Reset Filters</button>
+                </div>
               </div>
               
             <div class="row">
@@ -1400,6 +1400,15 @@
             action,
           ]);
         $("#addRowModal").modal("hide");
+      });
+      // Reset button functionality
+      $("#reset-filters").on("click", function () {
+        $("#filterClient").val("").change();
+        $("#filterTransporter").val("").change();
+        $("#filterCompany").val("").change();
+        $("#filterVStatus").val("").change();
+       
+        table.search("").columns().search("").draw();
       });
     });
   </script>
