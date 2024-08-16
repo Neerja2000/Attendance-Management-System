@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GPS tracking</title>
+    <meta
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+      name="viewport"
+    />
+    <link
+      rel="icon"
+      href="assets/img/kaiadmin/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="assets/css/demo.css" />
+  </head>
+  <body>
+    <div class="container my-4">
+        <div
+        class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
+      >
+        <div>
+          <h3 class="fw-bold mb-3"> Add Geofence</h3>
+          
+        </div>
+      
+      </div>
+        <form>
+            <div class="row g-3 mt-3">
+                <div class="col-md-4 ">
+                    <label for="name" class="form-label">Name *</label>
+                    <input type="text" class="form-control" id="name" placeholder="name">
+                  
+                </div>
+                <div class="col-md-4">
+                    <label for="ownername" class="form-label">Type *</label>
+                    <select id="ownername" class="form-control">
+                      <option value="" selected disabled>Select Type</option>
+                      <option value="ATM">ATM</option>
+                      <option value="Airport">Airport</option>
+                      
+                    </select>
+                  </div>
+             
+                  <div class="col-md-4">
+                    <label for="ownername" class="form-label">Assign Type *</label>
+                    <select id="ownername" class="form-control">
+                      <option value="" selected disabled>Select Type</option>
+                      <option value="Client">Client</option>
+                      <option value="Vehicle">Vehicle</option>
+                      
+                    </select>
+                  </div>
+             
+             
+            </div>
+            <div class="row g-3 mt-3">
+                <div class="col-md-4 ">
+                    <label for="geofenceCode" class="form-label">Geofence Code</label>
+                    <input type="text" class="form-control" id="geofenceCode" placeholder="Geofence Code">
+                  
+                </div>
+                <div class="col-md-4">
+                    <label for="ownername" class="form-label"> Transit Time</label>
+                    <select id="ownername" class="form-control">
+                      <option value="" selected disabled>Select Transit Time</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      
+                    </select>
+                  </div>
+             
+               
+             
+             
+            </div>
+          
+          
+          
+            <div class="row g-3 mt-3">
+                <div class="col-md-12 d-flex justify-content-end">
+                    <button type="close" class="btn btn-secondary me-2">Close</button>
+                    <button type="reset" class="btn btn-primary me-2">clear</button>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="row mt-3">
+            <div class="col-md-6"  style="padding: 0; margin: 0;">
+         
+                <div class="table-responsive">
+                  <table
+                  id="multi-filter-select"
+                    class="display table table-striped table-hover"
+                  >
+                  
+                  <thead>
+                    <tr>
+                      <th>SN</th>
+                      <th>Name</th>
+                      <th>Place Type</th>
+                      <th>Geo Type</th>
+                      <th>Assign To</th>
+                     
+                     
+                    
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>John</td>
+                      <td>qwerty</td>
+                      <td>qwerty</td>
+                      <td>xyz</td>
+
+                    </tr>
+                 
+                  </tbody>
+                  </table>
+                </div>
+              </div>
+         
+          <div class="col-md-6"  style="padding: 0; margin: 0;">
+          
+              
+            
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509364!2d144.95373631531055!3d-37.81627917975144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1fdfc6d%3A0xe44e24eedaea66aa!2sEureka%20Skydeck!5e0!3m2!1sen!2sau!4v1629255946004!5m2!1sen!2sau"
+                  width="600"
+                  height="450"
+                  style="border: 0; width: 100%"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+         
+         
+        </div>
+    </div>
+     
+
+    
+    
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="assets/js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <script src="assets/js/plugin/chart-circle/circles.min.js"></script>
+
+    <!-- Datatables -->
+    <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="assets/js/plugin/jsvectormap/world.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Kaiadmin JS -->
+    <script src="assets/js/kaiadmin.min.js"></script>
+
+    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+    <script src="assets/js/setting-demo.js"></script>
+    <script src="assets/js/demo.js"></script>
+    <script>
+      $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#177dff",
+        fillColor: "rgba(23, 125, 255, 0.14)",
+      });
+
+      $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#f3545d",
+        fillColor: "rgba(243, 84, 93, .14)",
+      });
+
+      $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#ffa534",
+        fillColor: "rgba(255, 165, 52, .14)",
+      });
+    </script>
+
+<script>
+    $(document).ready(function () {
+      // Initialize DataTable
+      var table = $("#multi-filter-select").DataTable({
+        pageLength: 5,
+        initComplete: function () {
+          // Populate filter select options
+          this.api().columns([ 10, 15]).every(function () {
+            var column = this;
+            var columnIdx = column.index();
+            var selectId = "";
+  
+            // Assign filter IDs based on column index
+            switch (columnIdx) {
+              
+              case 10:
+                selectId = "#filterStatus";
+                break;
+              case 15:
+                selectId = "#filterMonth";
+                break;
+              default:
+                return;
+            }
+  
+            var select = $(selectId);
+            column
+              .data()
+              .unique()
+              .sort()
+              .each(function (d, j) {
+                select.append('<option>' + d + '</option>');
+              });
+          });
+        },
+      });
+  
+      // Event listeners for the filters
+    
+  
+      $("#filterStatus").on("change", function () {
+        table.column(10).search(this.value).draw();
+      });
+  
+      $("#filterMonth").on("change", function () {
+        // Ensure the filter is applied correctly for dates
+        var month = this.value;
+        table.column(15).search(month ? '^' + month : '', true, false).draw();
+      });
+  
+      // Reset button functionality
+      $("#reset-filters").on("click", function () {
+       
+        $("#filterStatus").val("").change();
+        $("#filterMonth").val("").change();
+        table.search("").columns().search("").draw();
+      });
+    });
+  </script>
+  
+  </body>
+</html>
