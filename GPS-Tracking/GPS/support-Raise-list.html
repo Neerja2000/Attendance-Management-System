@@ -70,103 +70,252 @@
             <ul class="nav nav-secondary">
               <li class="nav-item active">
                 <a
-                 
-                  href="./index.html"
-                  
+                  data-bs-toggle="collapse"
+                  href="#dashboard"
+                  class="collapsed"
+                  aria-expanded="false"
                 >
                   <i class="fas fa-home"></i>
                   <p>Dashboard</p>
-                  
+                  <span class="caret"></span>
                 </a>
-              
+                <div class="collapse" id="dashboard">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="../demo1/index.html">
+                        <span class="sub-item">Dashboard 1</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </li>
-             
+              <li class="nav-section">
+                <span class="sidebar-mini-icon">
+                  <i class="fa fa-ellipsis-h"></i>
+                </span>
+                <h4 class="text-section">Components</h4>
+              </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
-                  <i class="fas fa-car"></i>
-                  <p>Manage</p>
+                  <i class="fas fa-layer-group"></i>
+                  <p>Base</p>
                   <span class="caret"></span>
                 </a>
                 <div class="collapse" id="base">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="./Manage-Vechicle.html">
-                        <span class="sub-item">Vehicles</span>
+                      <a href="components/avatars.html">
+                        <span class="sub-item">Avatars</span>
                       </a>
                     </li>
                     <li>
-                      <a href="./Manage-Device.html">
-                        <span class="sub-item">Devices</span>
+                      <a href="components/buttons.html">
+                        <span class="sub-item">Buttons</span>
                       </a>
                     </li>
                     <li>
-                      <a href="./Manage-Transporter.html">
-                        <span class="sub-item">Transporter</span>
+                      <a href="components/gridsystem.html">
+                        <span class="sub-item">Grid System</span>
                       </a>
                     </li>
                     <li>
-                      <a href="./Manage-client.html">
-                        <span class="sub-item">Client</span>
+                      <a href="components/panels.html">
+                        <span class="sub-item">Panels</span>
                       </a>
                     </li>
                     <li>
-                      <a data-bs-toggle="collapse" href="#subnav2">
-                        <span class="sub-item">User Groups</span>
+                      <a href="components/notifications.html">
+                        <span class="sub-item">Notifications</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/sweetalert.html">
+                        <span class="sub-item">Sweet Alert</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/font-awesome-icons.html">
+                        <span class="sub-item">Font Awesome Icons</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/simple-line-icons.html">
+                        <span class="sub-item">Simple Line Icons</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/typography.html">
+                        <span class="sub-item">Typography</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarLayouts">
+                  <i class="fas fa-th-list"></i>
+                  <p>Sidebar Layouts</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="sidebarLayouts">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="sidebar-style-2.html">
+                        <span class="sub-item">Sidebar Style 2</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="icon-menu.html">
+                        <span class="sub-item">Icon Menu</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#forms">
+                  <i class="fas fa-pen-square"></i>
+                  <p>Forms</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="forms">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="forms/forms.html">
+                        <span class="sub-item">Basic Form</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#tables">
+                  <i class="fas fa-table"></i>
+                  <p>Tables</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="tables">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="tables/tables.html">
+                        <span class="sub-item">Basic Table</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="tables/datatables.html">
+                        <span class="sub-item">Datatables</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#maps">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p>Maps</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="maps">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="maps/googlemaps.html">
+                        <span class="sub-item">Google Maps</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="maps/jsvectormap.html">
+                        <span class="sub-item">Jsvectormap</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#charts">
+                  <i class="far fa-chart-bar"></i>
+                  <p>Charts</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="charts">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="charts/charts.html">
+                        <span class="sub-item">Chart Js</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="charts/sparkline.html">
+                        <span class="sub-item">Sparkline</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="widgets.html">
+                  <i class="fas fa-desktop"></i>
+                  <p>Widgets</p>
+                  <span class="badge badge-success">4</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../documentation/index.html">
+                  <i class="fas fa-file"></i>
+                  <p>Documentation</p>
+                  <span class="badge badge-secondary">1</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#submenu">
+                  <i class="fas fa-bars"></i>
+                  <p>Menu Levels</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="submenu">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a data-bs-toggle="collapse" href="#subnav1">
+                        <span class="sub-item">Level 1</span>
                         <span class="caret"></span>
                       </a>
-                      <div class="collapse" id="subnav2">
+                      <div class="collapse" id="subnav1">
                         <ul class="nav nav-collapse subnav">
                           <li>
-                            <a href="./user.html">
-                              <span class="sub-item">User</span>
+                            <a href="#">
+                              <span class="sub-item">Level 2</span>
                             </a>
                           </li>
                           <li>
-                            <a href="./group.html">
-                              <span class="sub-item">Group</span>
+                            <a href="#">
+                              <span class="sub-item">Level 2</span>
                             </a>
                           </li>
                         </ul>
                       </div>
                     </li>
                     <li>
-                      <a href="./manage-vehicles-details.html">
-                        <span class="sub-item">Vehicle Details</span>
+                      <a data-bs-toggle="collapse" href="#subnav2">
+                        <span class="sub-item">Level 1</span>
+                        <span class="caret"></span>
                       </a>
+                      <div class="collapse" id="subnav2">
+                        <ul class="nav nav-collapse subnav">
+                          <li>
+                            <a href="#">
+                              <span class="sub-item">Level 2</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
                     </li>
                     <li>
-                      <a href="./geofence.html">
-                        <span class="sub-item">Geofence</span>
+                      <a href="#">
+                        <span class="sub-item">Level 1</span>
                       </a>
                     </li>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#base">
-                  <i class="fas fa-car"></i>
-                  <p>Support</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="base">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="./support-Raise-list.html">
-                        <span class="sub-item">Raise Ticket</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="./support-answer-list.html">
-                        <span class="sub-item">Answer Tickets</span>
-                      </a>
-                    </li>
-                  
-                  
-                           
-                  </ul>
-                </div>
-              </li>
-           
             </ul>
           </div>
         </div>
@@ -248,7 +397,7 @@
                     </form>
                   </ul>
                 </li>
-                <!-- <li class="nav-item topbar-icon dropdown hidden-caret">
+                <li class="nav-item topbar-icon dropdown hidden-caret">
                   <a
                     class="nav-link dropdown-toggle"
                     href="#"
@@ -494,7 +643,7 @@
                       </div>
                     </div>
                   </div>
-                </li> -->
+                </li>
 
                 <li class="nav-item topbar-user dropdown hidden-caret">
                   <a
@@ -515,7 +664,7 @@
                       <span class="fw-bold">Hizrian</span>
                     </span>
                   </a>
-                  <!-- <ul class="dropdown-menu dropdown-user animated fadeIn">
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
                     <div class="dropdown-user-scroll scrollbar-outer">
                       <li>
                         <div class="user-box">
@@ -548,7 +697,7 @@
                         <a class="dropdown-item" href="#">Logout</a>
                       </li>
                     </div>
-                  </ul> -->
+                  </ul>
                 </li>
               </ul>
             </div>
@@ -562,162 +711,46 @@
               class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
             >
               <div>
-                <h3 class="fw-bold mb-3">Dashboard</h3>
+                <h3 class="fw-bold mb-3">Raise Ticket</h3>
                 
               </div>
+              <!-- <div class="ms-md-auto py-2 py-md-0">
+                <a href="#" class="btn btn-label-info btn-round me-2">Manage</a>
+                <a href="#" class="btn btn-primary btn-round">Add Customer</a>
+              </div> -->
+            </div>
+          
+            <div class="row mb-3">
+                <div class="col-md-3">
+                  <select id="filterTicketType" class="form-select">
+                    <option value="">Select Ticket Type</option>
+                    <!-- Options will be dynamically added by DataTables -->
+                  </select>
+                </div>
+                <div class="col-md-5 mt-2">
+                   
+                    <a href="./support-answer-list.html"> 
+                        <button id="add-button" class="btn btn-secondary">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-3">
              
-            </div>
-            <div class="row">
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-primary bubble-shadow-small"
-                        >
-                          <i class="fas fa-truck"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">All</p>
-                          <h4 class="card-title">1,294</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-info bubble-shadow-small"
-                        >
-                          <i class="fas fa-truck"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Running</p>
-                          <h4 class="card-title">130</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-warning bubble-shadow-small"
-                        >
-                       <i class="fas fa-tachometer-alt"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Overspeed</p>
-                          <h4 class="card-title">50</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-secondary bubble-shadow-small"
-                        >
-                          <i class="far fa-check-circle"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">IDLE</p>
-                          <h4 class="card-title">576</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-danger bubble-shadow-small"
-                        >
-                        <i class="fas fa-times-circle "></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Stopped</p>
-                          <h4 class="card-title">1,294</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-info bubble-shadow-small"
-                        >
-                        <i class="fas fa-exclamation-circle "></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Unreachable</p>
-                          <h4 class="card-title">130</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-secondary bubble-shadow-small"
-                        >
-                        <i class="fas fa-star "></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">New</p>
-                          <h4 class="card-title">50</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            
-            </div>
 
+                  <!-- <input type="date" id="filterAddedDate" class="form-control" placeholder="Select Added Date"> -->
+                  <input type="date" id="addedDateFilter" class="form-control" placeholder="Added Date">
+
+                </div>
+                <div class="col-md-3">
+                  <!-- <input type="date" id="filterUpdatedDate" class="form-control" placeholder="Select Updated Date"> -->
+                  <input type="date" id="updatedDateFilter" class="form-control" placeholder="Updated Date">
+                </div>
+                <div class="col-md-3">
+                  <button id="reset-filters" class="btn btn-secondary">Reset Filters</button>
+                </div>
+              </div>
+              
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
@@ -727,78 +760,54 @@
                   <div class="card-body">
                     <div class="table-responsive">
                       <table
-                        id="basic-datatables"
+                      id="multi-filter-select"
                         class="display table table-striped table-hover"
                       >
-                        <thead>
-                          <tr>
-                            <th>SN</th>
-                            <th>State</th>
-                            <th>Branch</th>
-                            <th>Vehicle</th>
-                            <th>Address</th>
-                            <th>POI</th>
-                            <th>LU</th>
-                            <th>Parking</th>
-                            <th>SPD(kmph)</th>
-                            <th>Since</th>
-                            <th>AC</th>
-                            <th>BTR</th>
-                            <th>GSM</th>
-                            <td>GPS</td>
-                          </tr>
-                        </thead>
                       
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Punjab</td>
-                            <td>Mohali</td>
-                            <td>6188</td>
-                            <td>Sec 71 Mohali</td>
-                            <td>320800</td>
-                            <td>3537</td>
-                            <td>SS</td>
-                            <td>jhds</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                          </tr>
-                    
-              
-                      
-                        </tbody>
+                      <thead>
+                        <tr>
+                          <th>SN</th>
+                          <th>Ticket Id</th>
+                          <th>Ticket Type</th>
+                          <th>Status</th>
+                          <th>Added</th>
+                          <th>Updated</th>
+                          <th>Description</th>
+                          <th>Reopen</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>123456789012345</td>
+                          <td>Airtel</td>
+                          <td>Active</td>
+                          <td>Added</td>
+                          <td>fgbhn</td>
+                          <td>gfghhhjhb</td>
+                          <td>567</td>
+                          
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>987654321098765</td>
+                          <td>Verizon</td>
+                          <td>Inactive</td>
+                          <td>added</td>
+                          <td>password456</td>
+                          <td>Infcgh</td>
+                          <td>78</td>
+                        
+                        </tr>
+                      </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-        
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card card-round">
-                 
-                  <div class="card-body">
-                    <div class="row">
-                    
-                      <div class="col-md-12">
-                        <div class="mapcontainer">
-                          <div
-                            id="world-map"
-                            class="w-100"
-                            style="height: 300px"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        
+      
           </div>
         </div>
 
@@ -1083,62 +1092,82 @@
         fillColor: "rgba(255, 165, 52, .14)",
       });
     </script>
-    <script>
-      $(document).ready(function () {
-        $("#basic-datatables").DataTable({});
-
-        $("#multi-filter-select").DataTable({
-          pageLength: 5,
-          initComplete: function () {
-            this.api()
-              .columns()
-              .every(function () {
+ <script>
+ $(document).ready(function () {
+    // Initialize DataTable
+    var table = $("#multi-filter-select").DataTable({
+        pageLength: 5,
+        initComplete: function () {
+            this.api().columns([2]).every(function () {
                 var column = this;
-                var select = $(
-                  '<select class="form-select"><option value=""></option></select>'
-                )
-                  .appendTo($(column.footer()).empty())
-                  .on("change", function () {
-                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                var select = $('#filterTicketType');
+                column.data().unique().sort().each(function (d) {
+                    select.append('<option value="' + d + '">' + d + '</option>');
+                });
+            });
+        },
+    });
 
-                    column
-                      .search(val ? "^" + val + "$" : "", true, false)
-                      .draw();
-                  });
+    // Daterangepicker for Added Date
+    $('#filterAddedDate').daterangepicker({
+        autoUpdateInput: false,
+        maxDate: moment(),  // Set the maximum selectable date to today
+        locale: {
+            format: 'DD/MM/YY',
+            cancelLabel: 'Clear'
+        },
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+            'Custom Range': []
+        }
+    }, function (start, end) {
+        $('#filterAddedDate').val(start.format('DD/MM/YY') + ' - ' + end.format('DD/MM/YY'));
+        table.column(4).search($('#filterAddedDate').val()).draw();
+    });
 
-                column
-                  .data()
-                  .unique()
-                  .sort()
-                  .each(function (d, j) {
-                    select.append(
-                      '<option value="' + d + '">' + d + "</option>"
-                    );
-                  });
-              });
-          },
-        });
+    // Set custom placeholder for Added Date
+    $('#filterAddedDate').attr('placeholder', 'Added Date');
 
-        // Add Row
-        $("#add-row").DataTable({
-          pageLength: 5,
-        });
+    // Daterangepicker for Updated Date
+    $('#filterUpdatedDate').daterangepicker({
+        autoUpdateInput: false,
+        maxDate: moment(),  // Set the maximum selectable date to today
+        locale: {
+            format: 'DD/MM/YY',
+            cancelLabel: 'Clear'
+        },
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+            'Custom Range': []
+        }
+    }, function (start, end) {
+        $('#filterUpdatedDate').val(start.format('DD/MM/YY') + ' - ' + end.format('DD/MM/YY'));
+        table.column(5).search($('#filterUpdatedDate').val()).draw();
+    });
 
-        var action =
-          '<td> <div class="form-button-action"> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+    // Set custom placeholder for Updated Date
+    $('#filterUpdatedDate').attr('placeholder', 'Updated Date');
 
-        $("#addRowButton").click(function () {
-          $("#add-row")
-            .dataTable()
-            .fnAddData([
-              $("#addName").val(),
-              $("#addPosition").val(),
-              $("#addOffice").val(),
-              action,
-            ]);
-          $("#addRowModal").modal("hide");
-        });
-      });
-    </script>
+    // Reset button functionality
+    $("#reset-filters").on("click", function () {
+        $('#filterTicketType').val("").change();
+        $('#filterAddedDate').val("").data('daterangepicker').setStartDate(moment().startOf('month'));
+        $('#filterUpdatedDate').val("").data('daterangepicker').setStartDate(moment().startOf('month'));
+        table.search("").columns().search("").draw();
+    });
+});
+
+
+
+
+  </script>
+  
+  
   </body>
 </html>
