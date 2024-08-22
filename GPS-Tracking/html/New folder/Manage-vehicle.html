@@ -1072,6 +1072,69 @@
                     <h4>Zero Configuration</h4>
                   </div>
                   <div class="card-body">
+                    <div class="row mb-3">
+                      <!-- Filter 1: Select Client -->
+                      <div class="col-md-2">
+                        <label for="filter-client" class="form-label">Client</label>
+                        <select id="filter-client" class="form-select">
+                          <!-- Options will be dynamically populated -->
+                        </select>
+                      </div>
+                  
+                      <!-- Filter 2: Select Transporter or Company -->
+                      <div class="col-md-2">
+                        <label for="filter-company-transporter" class="form-label">Company/Transporter</label>
+                        <select id="filter-company-transporter" class="form-select">
+                          <option value="">Select Transporter or Company</option>
+                          <option value="company">Company</option>
+                          <option value="transporter">Transporter</option>
+                        </select>
+                      </div>
+                  
+                      <!-- Filter 3: Conditional selection based on Filter 2 -->
+                      <div class="col-md-2" id="conditional-filter">
+                        <label for="filter-conditional" class="form-label">Select</label>
+                        <select id="filter-conditional" class="form-select">
+                          <!-- Options will be dynamically populated based on Filter 2 selection -->
+                        </select>
+                      </div>
+                  
+                      <!-- Filter 4: Status (Active/Inactive) -->
+                      <div class="col-md-2">
+                        <label for="filter-status" class="form-label">Status</label>
+                        <select id="filter-status" class="form-select">
+                          <option value="">Select Status</option>
+                          <!-- Options will be dynamically populated -->
+                        </select>
+                      </div>
+                  
+                      <!-- Filter 5: Select Month -->
+                      <div class="col-md-2">
+                        <label for="filter-month" class="form-label">Month</label>
+                        <select id="filter-month" class="form-select">
+                          <option value="">All Months</option>
+                          <!-- Add months here manually -->
+                          <option value="January">January</option>
+                          <option value="February">February</option>
+                          <option value="March">March</option>
+                          <option value="April">April</option>
+                          <option value="May">May</option>
+                          <option value="June">June</option>
+                          <option value="July">July</option>
+                          <option value="August">August</option>
+                          <option value="September">September</option>
+                          <option value="October">October</option>
+                          <option value="November">November</option>
+                          <option value="December">December</option>
+                        </select>
+                      </div>
+                  
+                      <!-- Filter 6: Reset Button -->
+                      <div class="col-md-2 d-flex align-items-end">
+                        <button id="reset-filters" class="btn btn-secondary w-100">Reset</button>
+                      </div>
+                    </div>
+                  
                     <div class="table-responsive">
                       <table class="display" id="basic-1">
                         <thead>
@@ -1114,7 +1177,19 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td>Tiger Nixon</td>
+                            <td>Demo Muthu</td>
+                            <td>789766544</td>
+                            <td>5678997666</td>
+                            <td>unicorn</td>
+                            <td>fiverr</td>
+                            <td>fiverr</td>
+                            <td>concox</td>
+                            <td>Inactive</td>
+                            <td>Personal Car</td>
+                            <td>Airtel lot</td>
+                            <td>2011/04/25</td>
+                            <td>Inactive</td>
+                            <td>Active</td>
                             <td>System Architect</td>
                             <td>Edinburgh</td>
                             <td>61</td>
@@ -1132,21 +1207,9 @@
                             <td>61</td>
                             <td>2011/04/25</td>
                             <td>$320,800</td>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                            <td> 
-                              <ul class="action"> 
-                                <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
+                            <td>
+                              <ul class="action">
+                                <li class="edit"><a href="#"><i class="icon-pencil-alt"></i></a></li>
                                 <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
                               </ul>
                             </td>
@@ -1154,13 +1217,12 @@
                             <td>2011/04/25</td>
                             <td>$320,800</td>
                           </tr>
-                         
-                        
-                        
+                          <!-- Add more rows as needed -->
                         </tbody>
                       </table>
                     </div>
                   </div>
+                  
                 </div>
               </div>
               <!-- Zero Configuration  Ends-->
@@ -1207,5 +1269,122 @@
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
+    <script>
+        $(document).ready(function () {
+          // Initialize DataTable
+          var table = $('#basic-1').DataTable({
+            pageLength: 5,
+            processing: true,
+            serverSide: true,
+            ajax: {
+              url: '/api/data', // Your API endpoint for fetching data
+              dataSrc: 'data',
+              type: 'GET'
+            },
+            columns: [
+              { data: 'vehicleNo' },
+              { data: 'imei' },
+              { data: 'sim' },
+              { data: 'client' },
+              { data: 'transporter' },
+              { data: 'company' },
+              { data: 'dType' },
+              { data: 'state' },
+              { data: 'vType' },
+              { data: 'operator' },
+              { data: 'lastUpdated' },
+              { data: 'vStatus' },
+              { data: 'dStatus' },
+              { data: 'sensors' },
+              { data: 'added' },
+              { data: 'subStart' },
+              { data: 'subDue' },
+              { data: 'odometer' },
+              { data: 'inactiveDate' },
+              { data: 'modifiedDate' },
+              { data: 'overspeed' },
+              { data: 'mileage' },
+              { data: 'port' },
+              { data: 'vehicleNickname' },
+              { data: 'remark' },
+              { data: 'autoRenewal' },
+              { data: 'dAssigned' },
+              { data: 'ignWire' },
+              { data: 'loadingStatus' },
+              { data: 'address' },
+              { data: 'vehicleLog' },
+              { data: 'delete' },
+              { data: 'certificate' },
+              { data: 'command' }
+            ]
+          });
+      
+          // Filter 1: Client
+          $('#filter-client').on('change', function () {
+            table.column(3).search(this.value).draw();
+          });
+      
+          // Filter 2: Company/Transporter
+          $('#filter-company-transporter').on('change', function () {
+            var value = this.value;
+            // Populate the third filter based on the selected value
+            if (value === 'company') {
+              populateConditionalFilter('company');
+            } else if (value === 'transporter') {
+              populateConditionalFilter('transporter');
+            } else {
+              $('#filter-conditional').empty();
+            }
+          });
+      
+          // Filter 3: Conditional filter
+          $('#filter-conditional').on('change', function () {
+            var filterType = $('#filter-company-transporter').val();
+            var value = this.value;
+            if (filterType === 'company') {
+              table.column(5).search(value).draw();
+            } else if (filterType === 'transporter') {
+              table.column(4).search(value).draw();
+            }
+          });
+      
+          // Filter 4: Status
+          $('#filter-status').on('change', function () {
+            table.column(11).search(this.value).draw();
+          });
+      
+          // Filter 5: Month
+          $('#filter-month').on('change', function () {
+            // Adjust this code based on how months are stored in your data
+            table.column(16).search(this.value).draw(); // Example column index for the month
+          });
+      
+          // Reset Filters
+          $('#reset-filters').on('click', function () {
+            $('#filter-client').val('');
+            $('#filter-company-transporter').val('');
+            $('#filter-conditional').empty();
+            $('#filter-status').val('');
+            $('#filter-month').val('');
+            table.search('').columns().search('').draw();
+          });
+      
+          // Populate conditional filter options
+          function populateConditionalFilter(type) {
+            $.ajax({
+              url: '/api/getOptions', // Your API endpoint to get options
+              data: { type: type },
+              success: function (data) {
+                var options = data[type];
+                var $conditionalFilter = $('#filter-conditional');
+                $conditionalFilter.empty();
+                options.forEach(function (option) {
+                  $conditionalFilter.append('<option value="' + option + '">' + option + '</option>');
+                });
+              }
+            });
+          }
+        });
+      </script>
   </body>
 </html>
