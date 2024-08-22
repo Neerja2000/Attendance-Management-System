@@ -20438,12 +20438,7 @@ select.crypto-select.primary {
     width: 40%;
   }
 }
-@media (max-width: 3000px) {
-  .profile-box .cartoon img {
-    width: 30%;
-   margin-left: 55%;
-  }
-}
+
 @media (max-width: 767px) {
   .profile-box .cartoon {
     right: 10px;
