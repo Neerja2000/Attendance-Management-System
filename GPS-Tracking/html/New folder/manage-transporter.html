@@ -894,7 +894,16 @@
         </div>
         <!-- Page Sidebar Ends-->
         <div class="page-body">
-          
+            <div class="container-fluid">
+                <div class="page-title">
+                  <div class="row">
+                    <div class="col-6">
+                      <h4>Transporters</h4>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
           <!-- Container-fluid starts-->
           <div class="container-fluid">
           
@@ -904,10 +913,45 @@
                 <div class="card">
                  
                   <div class="card-header pb-0 card-no-border d-flex justify-content-between align-items-center">
-                    <h4>Manage Vehicle</h4>
+                    <h4></h4>
                     <div>
+                        <a href="#"> <button type="button" class="btn btn-primary btn-sm">
+                            <i class="icon-download"></i> Demo
+                        </button></a> 
+                        <a href="#"> <button type="button" class="btn btn-primary btn-sm">
+                            <i class="icon-upload"></i> Upload
+                        </button></a> 
+
                         <!-- Rows Visibility Button -->
-                       
+                        <button class="btn btn-secondary dropdown btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="icon-eye"></i> Row Visibility
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="option1">
+                                    <label class="form-check-label" for="option1">
+                                        Option 1
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="option2">
+                                    <label class="form-check-label" for="option2">
+                                        Option 2
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="option3">
+                                    <label class="form-check-label" for="option3">
+                                        Option 3
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
                         
                         <!-- Column Visibility Button -->
                       
@@ -952,72 +996,61 @@
     
                 
                   <div class="card-body">
-                    <div class="row mb-3">
-                      <!-- Filter 1: Select Client -->
-                      <div class="col-md">
-                     
-                        <select id="filter-client" class="form-select">
-                          <option value="" selected disabled>All </option>
-                          <option value="All">All</option>
-                        </select>
-                      </div>
-                  
-                      <!-- Filter 2: Select Transporter or Company -->
-                      <div class="col-md">
-                      
-                        <select id="filter-status" class="form-select">
-                          <option value="" selected disabled>All </option>
-                          <option value="All">All</option>
-                          
-                        </select>
-                      </div>
-                  
-                      
-                  
-                      <!-- Filter 5: Select Month -->
-                      <div class="col-md-3">
-
-                        <input type="month" id="filter-month" class="form-control">
-                    </div>
-                    
-                  
-                      <!-- Filter 6: Reset Button -->
-                      <div class="col-md-2 d-flex align-items-end">
-                        <button id="reset-filters" class="btn btn-primary w-100"><i class="bi bi-arrow-clockwise"></i> Reset</button>
-                      </div>
-                    </div>
-                  
+                
                     <div class="table-responsive mt-3">
                       <table class="display" id="basic-1">
                         <thead>
                           <tr>
                             
-                            <th>Imei</th>
-                            <th>Sim</th>
-                            <th>Operator</th>
-                            <th>Type</th>
+                            <th>SN</th>
+                            <th>Username</th>
                             <th>Client</th>
-                            <th>Password</th>
+                            <th>No. of vehicles</th>
+                            <th>Contact Person</th>
+                            <th>Phone No.</th>
+                            <th>Email</th>
+                            <th>Company </th>
+                            <th>Inactive Time</th>
+                            <th>Timezone</th>
                             <th>Status</th>
-                            <th>Ign Wire</th>
-                            <th>Assigned</th>
-                            <th>Added</th>
-                            <th>Delete</th>
-                           
+                            <th>Auto_EXP</th>
+                           <th>Sub_Start</th>
+                           <th>Sub_Due</th>
+                           <th>Sub_Extended</th>
+                           <th>Language</th>
+                           <th>Sub_Override</th>
+                           <th>Suspension</th>
+                           <th>Show Password</th>
+                           <th>Reset Password</th>
+                           <th>Address</th>
+                           <th>Delete</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td>987867567</td>
-                            <td>6636547835648</td>
-                            <td>Airtel Lot</td>
-                            <td>Concox</td>
-                            <td>unicorn</td>
-                            <td>123</td>
+                            <td>1</td>
+                            <td>fiver</td>
+                            <td>client</td>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>fiver</td>
+                            <td>12</td>
+                            <td>Asia/Calcutta</td>
                             <td><span class="badge badge-light-success badge-rounded">Active</span></td>
-                            <td><span class="badge badge-light-success badge-rounded">C</span></td>
                             <td><span class="badge badge-light-danger badge-rounded"> N</span></td>
-                            <td>04/09/2024</td>
+                            <td>12/03/2024</td>
+                            <td>12/03/2024</td>
+                            <td>12/03/2024</td>
+                            <td>English</td>
+                            <td><span class="badge badge-light-danger badge-rounded"> N</span></td>
+                            <td><span class="badge badge-primary">Suspend</span></td>
+                            <td><span class="badge badge-primary">Show</span></td>
+                            <td><span class="badge badge-primary">Reset</span></td>
+                          
+                            <td></td>
+                          
                             <td></td>
                           </tr>
                      
@@ -1073,86 +1106,7 @@
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          const table = document.getElementById("basic-1");
-          const rows = table.querySelectorAll("tbody tr");
-  
-          const data = {
-              clients: new Set(),
-              statusOptions: new Set()
-          };
-  
-          rows.forEach(row => {
-              const cells = row.querySelectorAll("td");
-              const client = cells[4].textContent.trim();  // 'Client' is in the 5th column
-              const status = cells[6].textContent.trim();  // 'Status' is in the 7th column
-  
-              data.clients.add(client);
-              data.statusOptions.add(status);
-          });
-  
-          data.clients = Array.from(data.clients);
-          data.statusOptions = Array.from(data.statusOptions);
-  
-          const clientSelect = document.getElementById("filter-client");
-          const statusSelect = document.getElementById("filter-status");
-          const monthSelect = document.getElementById("filter-month");
-  
-          data.clients.forEach(client => {
-              let option = document.createElement("option");
-              option.value = client;
-              option.textContent = client;
-              clientSelect.appendChild(option);
-          });
-  
-          data.statusOptions.forEach(status => {
-              let option = document.createElement("option");
-              option.value = status;
-              option.textContent = status;
-              statusSelect.appendChild(option);
-          });
-  
-          function filterTable() {
-              const clientFilter = clientSelect.value.toLowerCase();
-              const statusFilter = statusSelect.value.toLowerCase();
-              const monthFilter = monthSelect.value.toLowerCase();
-  
-              rows.forEach(row => {
-                  const cells = row.querySelectorAll("td");
-                  const client = cells[4].textContent.toLowerCase();  // 'Client' is in the 5th column
-                  const status = cells[6].textContent.toLowerCase();  // 'Status' is in the 7th column
-                  const lastUpdated = cells[9].textContent.toLowerCase();  // 'Added' is in the 10th column
-  
-                  let showRow = true;
-  
-                  if (clientFilter && client !== clientFilter) {
-                      showRow = false;
-                  }
-                  if (statusFilter && status !== statusFilter) {
-                      showRow = false;
-                  }
-                  if (monthFilter && !lastUpdated.includes(monthFilter)) {
-                      showRow = false;
-                  }
-  
-                  row.style.display = showRow ? "" : "none";
-              });
-          }
-  
-          clientSelect.addEventListener("change", filterTable);
-          statusSelect.addEventListener("change", filterTable);
-          monthSelect.addEventListener("change", filterTable);
-  
-          const resetButton = document.getElementById("reset-filters");
-          resetButton.addEventListener("click", function () {
-              clientSelect.value = "";
-              statusSelect.value = "";
-              monthSelect.value = "";
-              filterTable(); // Show all rows
-          });
-      });
-  </script>
+ 
   
   </body>
 </html>
