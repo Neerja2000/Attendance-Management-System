@@ -27,7 +27,6 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/datatables.css">
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
@@ -36,7 +35,6 @@
     <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   </head>
   <body> 
     <!-- loader starts-->
@@ -894,147 +892,96 @@
         </div>
         <!-- Page Sidebar Ends-->
         <div class="page-body">
-          
-          <!-- Container-fluid starts-->
           <div class="container-fluid">
-          
-            <div class="row">
-              <!-- Zero Configuration  Starts-->
-              <div class="col-sm-12">
-                <div class="card">
-                 
-                  <div class="card-header pb-0 card-no-border d-flex justify-content-between align-items-center">
-                    <h4>Manage Vehicle</h4>
-                    <div>
-                        <!-- Rows Visibility Button -->
-                       
-                        
-                        <!-- Column Visibility Button -->
-                      
-                          <button class="btn btn-secondary dropdown btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                              <i class="icon-eye"></i> Column Visibility
-                          </button>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <li>
-                                  <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="option1">
-                                      <label class="form-check-label" for="option1">
-                                          Option 1
-                                      </label>
-                                  </div>
-                              </li>
-                              <li>
-                                  <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="option2">
-                                      <label class="form-check-label" for="option2">
-                                          Option 2
-                                      </label>
-                                  </div>
-                              </li>
-                              <li>
-                                  <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="option3">
-                                      <label class="form-check-label" for="option3">
-                                          Option 3
-                                      </label>
-                                  </div>
-                              </li>
-                          </ul>
-                     
-                        
-                        <!-- Add Button -->
-                         <a href="./add-devices.html"> <button type="button" class="btn btn-primary btn-sm">
-                          <i class="icon-plus"></i> Add
-                      </button></a> 
-                       
-                    </div>
+            <div class="page-title">
+              <div class="row">
+                <div class="col-6">
+               
                 </div>
-    
-                
-                  <div class="card-body">
-                    <div class="row mb-3">
-                      <!-- Filter 1: Select Client -->
-                      <div class="col-md">
-                     
-                        <select id="filter-client" class="form-select">
-                          <option value="" selected disabled>All </option>
-                          <option value="All">All</option>
-                          <option value="Unicorn">Unicorn</option>
-                          <option value="Fiver">Fiver</option>
-                        </select>
-                      </div>
-                  
-                      <!-- Filter 2: Select Transporter or Company -->
-                      <div class="col-md">
-                      
-                        <select id="filter-company-transporter" class="form-select">
-                          <option value="" selected disabled>All </option>
-                          <option value="All">All</option>
-                          <option value="Active">Active</option>
-                          <option value="Inactive">Inactive</option>
-                        </select>
-                      </div>
-                  
-                      
-                  
-                      <!-- Filter 5: Select Month -->
-                      <div class="col-md-3">
-
-                        <input type="month" id="filter-month" class="form-control">
-                    </div>
-                    
-                  
-                      <!-- Filter 6: Reset Button -->
-                      <div class="col-md-2 d-flex align-items-end">
-                        <button id="reset-filters" class="btn btn-primary w-100"><i class="bi bi-arrow-clockwise"></i> Reset</button>
-                      </div>
-                    </div>
-                  
-                    <div class="table-responsive mt-3">
-                      <table class="display" id="basic-1">
-                        <thead>
-                          <tr>
-                            
-                            <th>Imei</th>
-                            <th>Sim</th>
-                            <th>Operator</th>
-                            <th>Type</th>
-                            <th>Client</th>
-                            <th>Password</th>
-                            <th>Status</th>
-                            <th>Ign Wire</th>
-                            <th>Assigned</th>
-                            <th>Added</th>
-                            <th>Delete</th>
-                           
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>987867567</td>
-                            <td>6636547835648</td>
-                            <td>Airtel Lot</td>
-                            <td>Concox</td>
-                            <td>unicorn</td>
-                            <td>123</td>
-                            <td><span class="badge badge-success badge-rounded">Active</span></td>
-                            <td><span class="badge badge-success badge-rounded">C</span></td>
-                            <td><span class="badge badge-danger badge-rounded"> N</span></td>
-                            <td>04/09/2024</td>
-                            <td></td>
-                          </tr>
-                     
-                          <!-- Add more rows as needed -->
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  
+                <div class="col-6">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">                                       
+                        <svg class="stroke-icon">
+                          <use href="../assets/svg/icon-sprite.svg#stroke-home"></use>
+                        </svg></a></li>
+                    <li class="breadcrumb-item">Form Layout</li>
+                    <li class="breadcrumb-item active"> Step Form Wizard</li>
+                  </ol>
                 </div>
               </div>
-              <!-- Zero Configuration  Ends-->
-             
-             
+            </div>
+          </div>
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-12"> 
+                <div class="card">
+
+                  <div class="card-body">
+                    <div class="horizontal-wizard-wrapper">
+                      <div class="row g-3 p-3">
+                       
+                        <div class="col-12"> 
+                                <div class="card ">
+                                    <div class="card-header bg-primary">
+                                        <h4 class="text-center">Add Device</h4>
+                                      </div>
+                                </div>
+                           
+                              <form class="row g-3 needs-validation" novalidate="">
+                                <div class="col-xl-4 ">
+                                  <label class="form-label" for="Imei">Imei<span class="txt-danger">*</span></label>
+                                  <input class="form-control" id="Imei" type="text" placeholder="Imei" required="">
+                                
+                                </div>
+                                <div class="col-xl-4 ">
+                                  <label class="form-label" for="SimNumber">Sim Number<span class="txt-danger">*</span></label>
+                                  <input class="form-control" id="SimNumber" type="text" placeholder="Sim Number" required="">
+                             
+                                </div>
+                                <div class="col-xl-4 ">
+                                  <label class="form-label" for="SimOperator">Sim Operator<span class="txt-danger">*</span></label>
+                                  <input class="form-control" id="SimOperator" type="text" required="" placeholder="Sim Operator">
+                            
+                                </div>
+                                <div class="col-xl-4 col-sm-4">
+                                  <label class="form-label" for="customState-wizard">Device Type<span class="txt-danger">*</span></label>
+                                  <select class="form-select" id="customState-wizard" required="">
+                                    <option selected="" disabled="" value="">Choose</option>
+                                    <option>Concox(8500) </option>
+                                    <option>ET-300(8502) </option>
+                                    <option>BW-09(8502)</option>
+                                  </select>
+                                 
+                                </div>
+                                <div class="col-xl-4 col-sm-4">
+                                    <label class="form-label" for="customState-wizard">Client<span class="txt-danger">*</span> </label>
+                                    <select class="form-select" id="customState-wizard" required="">
+                                      <option selected="" disabled="" value="">Select</option>
+                                      <option>unicorn</option>
+                                      <option>fiver</option>
+                                     
+                                    </select>
+                             
+                                  </div>
+                                <div class="col-sm-4">
+                                  <label class="form-label" for="Password">Password</label>
+                                  <input class="form-control" id="Password" type="password" placeholder="Password" required="">
+                             
+                                </div>
+                              
+                                <div class="col-12 text-end">
+                                  <button class="btn btn-primary">Submit</button>
+                                </div>
+                              </form>
+                     
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
              
             </div>
           </div>
@@ -1070,12 +1017,9 @@
     <script src="../assets/js/slick/slick.min.js"></script>
     <script src="../assets/js/slick/slick.js"></script>
     <script src="../assets/js/header-slick.js"></script>
-    <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
-    <script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
-   
   </body>
 </html>
