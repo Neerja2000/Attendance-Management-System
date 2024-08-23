@@ -1085,7 +1085,7 @@
                       <div class="col-md-2">
                         <label for="filter-company-transporter" class="form-label">Company/Transporter</label>
                         <select id="filter-company-transporter" class="form-select">
-                          <option value="">Select Transporter or Company</option>
+                          <option value="">Select </option>
                           <option value="company">Company</option>
                           <option value="transporter">Transporter</option>
                         </select>
@@ -1131,7 +1131,7 @@
                   
                       <!-- Filter 6: Reset Button -->
                       <div class="col-md-2 d-flex align-items-end">
-                        <button id="reset-filters" class="btn btn-secondary w-100">Reset</button>
+                        <button id="reset-filters" class="btn btn-primary w-100">Reset</button>
                       </div>
                     </div>
                   
@@ -1270,121 +1270,89 @@
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
     <script>
-        $(document).ready(function () {
-          // Initialize DataTable
-          var table = $('#basic-1').DataTable({
-            pageLength: 5,
-            processing: true,
-            serverSide: true,
-            ajax: {
-              url: '/api/data', // Your API endpoint for fetching data
-              dataSrc: 'data',
-              type: 'GET'
-            },
-            columns: [
-              { data: 'vehicleNo' },
-              { data: 'imei' },
-              { data: 'sim' },
-              { data: 'client' },
-              { data: 'transporter' },
-              { data: 'company' },
-              { data: 'dType' },
-              { data: 'state' },
-              { data: 'vType' },
-              { data: 'operator' },
-              { data: 'lastUpdated' },
-              { data: 'vStatus' },
-              { data: 'dStatus' },
-              { data: 'sensors' },
-              { data: 'added' },
-              { data: 'subStart' },
-              { data: 'subDue' },
-              { data: 'odometer' },
-              { data: 'inactiveDate' },
-              { data: 'modifiedDate' },
-              { data: 'overspeed' },
-              { data: 'mileage' },
-              { data: 'port' },
-              { data: 'vehicleNickname' },
-              { data: 'remark' },
-              { data: 'autoRenewal' },
-              { data: 'dAssigned' },
-              { data: 'ignWire' },
-              { data: 'loadingStatus' },
-              { data: 'address' },
-              { data: 'vehicleLog' },
-              { data: 'delete' },
-              { data: 'certificate' },
-              { data: 'command' }
-            ]
-          });
-      
-          // Filter 1: Client
-          $('#filter-client').on('change', function () {
-            table.column(3).search(this.value).draw();
-          });
-      
-          // Filter 2: Company/Transporter
-          $('#filter-company-transporter').on('change', function () {
-            var value = this.value;
-            // Populate the third filter based on the selected value
-            if (value === 'company') {
-              populateConditionalFilter('company');
-            } else if (value === 'transporter') {
-              populateConditionalFilter('transporter');
-            } else {
-              $('#filter-conditional').empty();
-            }
-          });
-      
-          // Filter 3: Conditional filter
-          $('#filter-conditional').on('change', function () {
-            var filterType = $('#filter-company-transporter').val();
-            var value = this.value;
-            if (filterType === 'company') {
-              table.column(5).search(value).draw();
-            } else if (filterType === 'transporter') {
-              table.column(4).search(value).draw();
-            }
-          });
-      
-          // Filter 4: Status
-          $('#filter-status').on('change', function () {
-            table.column(11).search(this.value).draw();
-          });
-      
-          // Filter 5: Month
-          $('#filter-month').on('change', function () {
-            // Adjust this code based on how months are stored in your data
-            table.column(16).search(this.value).draw(); // Example column index for the month
-          });
-      
-          // Reset Filters
-          $('#reset-filters').on('click', function () {
-            $('#filter-client').val('');
-            $('#filter-company-transporter').val('');
-            $('#filter-conditional').empty();
-            $('#filter-status').val('');
-            $('#filter-month').val('');
-            table.search('').columns().search('').draw();
-          });
-      
-          // Populate conditional filter options
-          function populateConditionalFilter(type) {
-            $.ajax({
-              url: '/api/getOptions', // Your API endpoint to get options
-              data: { type: type },
-              success: function (data) {
-                var options = data[type];
-                var $conditionalFilter = $('#filter-conditional');
-                $conditionalFilter.empty();
-                options.forEach(function (option) {
-                  $conditionalFilter.append('<option value="' + option + '">' + option + '</option>');
-                });
-              }
+      document.addEventListener("DOMContentLoaded", function () {
+    // Extract data from table
+    const table = document.getElementById("basic-1");
+    const rows = table.querySelectorAll("tbody tr");
+
+    const data = {
+        clients: new Set(),
+        companyOptions: new Set(),
+        transporterOptions: new Set(),
+        statusOptions: new Set()
+    };
+
+    // Iterate through each row in the table and collect data
+    rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        data.clients.add(cells[3].textContent.trim());  // Assuming 'Client' is in the 4th column
+        data.companyOptions.add(cells[5].textContent.trim());  // Assuming 'Company' is in the 6th column
+        data.transporterOptions.add(cells[4].textContent.trim());  // Assuming 'Transporter' is in the 5th column
+        data.statusOptions.add(cells[11].textContent.trim());  // Assuming 'Status' is in the 12th column
+    });
+
+    // Convert Sets to Arrays
+    data.clients = Array.from(data.clients);
+    data.companyOptions = Array.from(data.companyOptions);
+    data.transporterOptions = Array.from(data.transporterOptions);
+    data.statusOptions = Array.from(data.statusOptions);
+
+    // Populate Client Filter
+    const clientSelect = document.getElementById("filter-client");
+    data.clients.forEach(client => {
+        let option = document.createElement("option");
+        option.value = client;
+        option.textContent = client;
+        clientSelect.appendChild(option);
+    });
+
+    // Handle Company/Transporter selection change
+    const companyTransporterSelect = document.getElementById("filter-company-transporter");
+    const conditionalFilter = document.getElementById("filter-conditional");
+
+    companyTransporterSelect.addEventListener("change", function () {
+        // Clear the previous options
+        conditionalFilter.innerHTML = "";
+        const selectedValue = companyTransporterSelect.value;
+
+        // Populate based on selection
+        if (selectedValue === "company") {
+            data.companyOptions.forEach(company => {
+                let option = document.createElement("option");
+                option.value = company;
+                option.textContent = company;
+                conditionalFilter.appendChild(option);
             });
-          }
-        });
+        } else if (selectedValue === "transporter") {
+            data.transporterOptions.forEach(transporter => {
+                let option = document.createElement("option");
+                option.value = transporter;
+                option.textContent = transporter;
+                conditionalFilter.appendChild(option);
+            });
+        }
+    });
+
+    // Populate Status Filter
+    const statusSelect = document.getElementById("filter-status");
+    data.statusOptions.forEach(status => {
+        let option = document.createElement("option");
+        option.value = status;
+        option.textContent = status;
+        statusSelect.appendChild(option);
+    });
+
+    // Reset Filters
+    const resetButton = document.getElementById("reset-filters");
+    resetButton.addEventListener("click", function () {
+        clientSelect.value = "";
+        companyTransporterSelect.value = "";
+        conditionalFilter.innerHTML = ""; // Clear conditional filter
+        statusSelect.value = "";
+        document.getElementById("filter-month").value = "";
+    });
+});
+
       </script>
   </body>
 </html>
