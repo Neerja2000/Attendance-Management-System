@@ -1311,131 +1311,142 @@
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
     <script>
-     document.addEventListener("DOMContentLoaded", function () {
-    const table = document.getElementById("basic-1");
-    const rows = table.querySelectorAll("tbody tr");
-
-    // Extract data from table (as previously described)
-    const data = {
-        clients: new Set(),
-        companyOptions: new Set(),
-        transporterOptions: new Set(),
-        statusOptions: new Set()
-    };
-
-    rows.forEach(row => {
-        const cells = row.querySelectorAll("td");
-        data.clients.add(cells[3].textContent.trim());  // Assuming 'Client' is in the 4th column
-        data.companyOptions.add(cells[5].textContent.trim());  // Assuming 'Company' is in the 6th column
-        data.transporterOptions.add(cells[4].textContent.trim());  // Assuming 'Transporter' is in the 5th column
-        data.statusOptions.add(cells[11].textContent.trim());  // Assuming 'Status' is in the 12th column
-    });
-
-    data.clients = Array.from(data.clients);
-    data.companyOptions = Array.from(data.companyOptions);
-    data.transporterOptions = Array.from(data.transporterOptions);
-    data.statusOptions = Array.from(data.statusOptions);
-
-    const clientSelect = document.getElementById("filter-client");
-    const companyTransporterSelect = document.getElementById("filter-company-transporter");
-    const conditionalFilter = document.getElementById("filter-conditional");
-    const statusSelect = document.getElementById("filter-status");
-    const monthSelect = document.getElementById("filter-month");
-
-    data.clients.forEach(client => {
-        let option = document.createElement("option");
-        option.value = client;
-        option.textContent = client;
-        clientSelect.appendChild(option);
-    });
-
-    companyTransporterSelect.addEventListener("change", function () {
-        conditionalFilter.innerHTML = "";
-        const selectedValue = companyTransporterSelect.value;
-
-        if (selectedValue === "company") {
-            data.companyOptions.forEach(company => {
-                let option = document.createElement("option");
-                option.value = company;
-                option.textContent = company;
-                conditionalFilter.appendChild(option);
-            });
-        } else if (selectedValue === "transporter") {
-            data.transporterOptions.forEach(transporter => {
-                let option = document.createElement("option");
-                option.value = transporter;
-                option.textContent = transporter;
-                conditionalFilter.appendChild(option);
-            });
-        }
-    });
-
-    data.statusOptions.forEach(status => {
-        let option = document.createElement("option");
-        option.value = status;
-        option.textContent = status;
-        statusSelect.appendChild(option);
-    });
-
-    // Function to filter rows based on selected filters
-    function filterTable() {
-        const clientFilter = clientSelect.value.toLowerCase();
-        const companyTransporterFilter = companyTransporterSelect.value.toLowerCase();
-        const conditionalFilterValue = conditionalFilter.value.toLowerCase();
-        const statusFilter = statusSelect.value.toLowerCase();
-        const monthFilter = monthSelect.value.toLowerCase();
-
+      document.addEventListener("DOMContentLoaded", function () {
+        const table = document.getElementById("basic-1");
+        const rows = table.querySelectorAll("tbody tr");
+    
+        const data = {
+            clients: new Set(),
+            companyOptions: new Map(),
+            transporterOptions: new Map(),
+            statusOptions: new Set()
+        };
+    
         rows.forEach(row => {
             const cells = row.querySelectorAll("td");
-            const client = cells[3].textContent.toLowerCase();  // Assuming 'Client' is in the 4th column
-            const transporter = cells[4].textContent.toLowerCase();  // Assuming 'Transporter' is in the 5th column
-            const company = cells[5].textContent.toLowerCase();  // Assuming 'Company' is in the 6th column
-            const status = cells[11].textContent.toLowerCase();  // Assuming 'Status' is in the 12th column
-            const lastUpdated = cells[10].textContent.toLowerCase();  // Assuming 'Last Updated' is in the 11th column
-
-            let showRow = true;
-
-            if (clientFilter && client !== clientFilter) {
-                showRow = false;
+            const client = cells[3].textContent.trim();  // Assuming 'Client' is in the 4th column
+            const company = cells[5].textContent.trim();  // Assuming 'Company' is in the 6th column
+            const transporter = cells[4].textContent.trim();  // Assuming 'Transporter' is in the 5th column
+            const status = cells[11].textContent.trim();  // Assuming 'Status' is in the 12th column
+    
+            data.clients.add(client);
+    
+            if (!data.companyOptions.has(client)) {
+                data.companyOptions.set(client, new Set());
             }
-            if (companyTransporterFilter) {
-                if (companyTransporterFilter === "company" && company !== conditionalFilterValue) {
-                    showRow = false;
-                } else if (companyTransporterFilter === "transporter" && transporter !== conditionalFilterValue) {
+            data.companyOptions.get(client).add(company);
+    
+            if (!data.transporterOptions.has(client)) {
+                data.transporterOptions.set(client, new Set());
+            }
+            data.transporterOptions.get(client).add(transporter);
+    
+            data.statusOptions.add(status);
+        });
+    
+        data.clients = Array.from(data.clients);
+        data.statusOptions = Array.from(data.statusOptions);
+    
+        const clientSelect = document.getElementById("filter-client");
+        const companyTransporterSelect = document.getElementById("filter-company-transporter");
+        const conditionalFilter = document.getElementById("filter-conditional");
+        const statusSelect = document.getElementById("filter-status");
+        const monthSelect = document.getElementById("filter-month");
+    
+        data.clients.forEach(client => {
+            let option = document.createElement("option");
+            option.value = client;
+            option.textContent = client;
+            clientSelect.appendChild(option);
+        });
+    
+        data.statusOptions.forEach(status => {
+            let option = document.createElement("option");
+            option.value = status;
+            option.textContent = status;
+            statusSelect.appendChild(option);
+        });
+    
+        // Function to populate the conditional filter based on client and second filter
+        function populateConditionalFilter() {
+            conditionalFilter.innerHTML = ""; // Clear previous options
+            const selectedClient = clientSelect.value;
+            const selectedType = companyTransporterSelect.value;
+    
+            if (selectedClient && selectedType) {
+                let options;
+                if (selectedType === "company") {
+                    options = data.companyOptions.get(selectedClient) || new Set();
+                } else if (selectedType === "transporter") {
+                    options = data.transporterOptions.get(selectedClient) || new Set();
+                }
+    
+                options.forEach(optionValue => {
+                    let option = document.createElement("option");
+                    option.value = optionValue;
+                    option.textContent = optionValue;
+                    conditionalFilter.appendChild(option);
+                });
+    
+                // Immediately filter the table with the new conditions
+                filterTable();
+            }
+        }
+    
+        // Event listeners to populate the third filter whenever client or type changes
+        clientSelect.addEventListener("change", populateConditionalFilter);
+        companyTransporterSelect.addEventListener("change", populateConditionalFilter);
+        conditionalFilter.addEventListener("change", filterTable);
+    
+        function filterTable() {
+            const clientFilter = clientSelect.value.toLowerCase();
+            const companyTransporterFilter = companyTransporterSelect.value.toLowerCase();
+            const conditionalFilterValue = conditionalFilter.value.toLowerCase();
+            const statusFilter = statusSelect.value.toLowerCase();
+            const monthFilter = monthSelect.value.toLowerCase();
+    
+            rows.forEach(row => {
+                const cells = row.querySelectorAll("td");
+                const client = cells[3].textContent.toLowerCase();  // Assuming 'Client' is in the 4th column
+                const transporter = cells[4].textContent.toLowerCase();  // Assuming 'Transporter' is in the 5th column
+                const company = cells[5].textContent.toLowerCase();  // Assuming 'Company' is in the 6th column
+                const status = cells[11].textContent.toLowerCase();  // Assuming 'Status' is in the 12th column
+                const lastUpdated = cells[10].textContent.toLowerCase();  // Assuming 'Last Updated' is in the 11th column
+    
+                let showRow = true;
+    
+                if (clientFilter && client !== clientFilter) {
                     showRow = false;
                 }
-            }
-            if (statusFilter && status !== statusFilter) {
-                showRow = false;
-            }
-            if (monthFilter && !lastUpdated.includes(monthFilter)) {
-                showRow = false;
-            }
-
-            row.style.display = showRow ? "" : "none";
+                if (companyTransporterFilter) {
+                    if (companyTransporterFilter === "company" && company !== conditionalFilterValue) {
+                        showRow = false;
+                    } else if (companyTransporterFilter === "transporter" && transporter !== conditionalFilterValue) {
+                        showRow = false;
+                    }
+                }
+                if (statusFilter && status !== statusFilter) {
+                    showRow = false;
+                }
+                if (monthFilter && !lastUpdated.includes(monthFilter)) {
+                    showRow = false;
+                }
+    
+                row.style.display = showRow ? "" : "none";
+            });
+        }
+    
+        const resetButton = document.getElementById("reset-filters");
+        resetButton.addEventListener("click", function () {
+            clientSelect.value = "";
+            companyTransporterSelect.value = "";
+            conditionalFilter.innerHTML = ""; // Clear conditional filter
+            statusSelect.value = "";
+            monthSelect.value = "";
+            filterTable(); // Show all rows
         });
-    }
-
-    // Attach filterTable to filter change events
-    clientSelect.addEventListener("change", filterTable);
-    companyTransporterSelect.addEventListener("change", filterTable);
-    conditionalFilter.addEventListener("change", filterTable);
-    statusSelect.addEventListener("change", filterTable);
-    monthSelect.addEventListener("change", filterTable);
-
-    // Reset Filters
-    const resetButton = document.getElementById("reset-filters");
-    resetButton.addEventListener("click", function () {
-        clientSelect.value = "";
-        companyTransporterSelect.value = "";
-        conditionalFilter.innerHTML = ""; // Clear conditional filter
-        statusSelect.value = "";
-        monthSelect.value = "";
-        filterTable(); // Show all rows
     });
-});
-
-
-      </script>
+    
+          </script>
   </body>
 </html>
