@@ -1217,6 +1217,47 @@
                             <td>2011/04/25</td>
                             <td>$320,800</td>
                           </tr>
+                          <tr>
+                            <td>Demo Muthu</td>
+                            <td>789766544</td>
+                            <td>5678997666</td>
+                            <td>uihf</td>
+                            <td>fghfgh</td>
+                            <td>fiverr</td>
+                            <td>concox</td>
+                            <td>Inactive</td>
+                            <td>Personal Car</td>
+                            <td>Airtel lot</td>
+                            <td>2011/04/25</td>
+                            <td>Inactive</td>
+                            <td>InActive</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>
+                              <ul class="action">
+                                <li class="edit"><a href="#"><i class="icon-pencil-alt"></i></a></li>
+                                <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
+                              </ul>
+                            </td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                          </tr>
                           <!-- Add more rows as needed -->
                         </tbody>
                       </table>
@@ -1270,11 +1311,11 @@
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-    // Extract data from table
+     document.addEventListener("DOMContentLoaded", function () {
     const table = document.getElementById("basic-1");
     const rows = table.querySelectorAll("tbody tr");
 
+    // Extract data from table (as previously described)
     const data = {
         clients: new Set(),
         companyOptions: new Set(),
@@ -1282,7 +1323,6 @@
         statusOptions: new Set()
     };
 
-    // Iterate through each row in the table and collect data
     rows.forEach(row => {
         const cells = row.querySelectorAll("td");
         data.clients.add(cells[3].textContent.trim());  // Assuming 'Client' is in the 4th column
@@ -1291,14 +1331,17 @@
         data.statusOptions.add(cells[11].textContent.trim());  // Assuming 'Status' is in the 12th column
     });
 
-    // Convert Sets to Arrays
     data.clients = Array.from(data.clients);
     data.companyOptions = Array.from(data.companyOptions);
     data.transporterOptions = Array.from(data.transporterOptions);
     data.statusOptions = Array.from(data.statusOptions);
 
-    // Populate Client Filter
     const clientSelect = document.getElementById("filter-client");
+    const companyTransporterSelect = document.getElementById("filter-company-transporter");
+    const conditionalFilter = document.getElementById("filter-conditional");
+    const statusSelect = document.getElementById("filter-status");
+    const monthSelect = document.getElementById("filter-month");
+
     data.clients.forEach(client => {
         let option = document.createElement("option");
         option.value = client;
@@ -1306,16 +1349,10 @@
         clientSelect.appendChild(option);
     });
 
-    // Handle Company/Transporter selection change
-    const companyTransporterSelect = document.getElementById("filter-company-transporter");
-    const conditionalFilter = document.getElementById("filter-conditional");
-
     companyTransporterSelect.addEventListener("change", function () {
-        // Clear the previous options
         conditionalFilter.innerHTML = "";
         const selectedValue = companyTransporterSelect.value;
 
-        // Populate based on selection
         if (selectedValue === "company") {
             data.companyOptions.forEach(company => {
                 let option = document.createElement("option");
@@ -1333,14 +1370,58 @@
         }
     });
 
-    // Populate Status Filter
-    const statusSelect = document.getElementById("filter-status");
     data.statusOptions.forEach(status => {
         let option = document.createElement("option");
         option.value = status;
         option.textContent = status;
         statusSelect.appendChild(option);
     });
+
+    // Function to filter rows based on selected filters
+    function filterTable() {
+        const clientFilter = clientSelect.value.toLowerCase();
+        const companyTransporterFilter = companyTransporterSelect.value.toLowerCase();
+        const conditionalFilterValue = conditionalFilter.value.toLowerCase();
+        const statusFilter = statusSelect.value.toLowerCase();
+        const monthFilter = monthSelect.value.toLowerCase();
+
+        rows.forEach(row => {
+            const cells = row.querySelectorAll("td");
+            const client = cells[3].textContent.toLowerCase();  // Assuming 'Client' is in the 4th column
+            const transporter = cells[4].textContent.toLowerCase();  // Assuming 'Transporter' is in the 5th column
+            const company = cells[5].textContent.toLowerCase();  // Assuming 'Company' is in the 6th column
+            const status = cells[11].textContent.toLowerCase();  // Assuming 'Status' is in the 12th column
+            const lastUpdated = cells[10].textContent.toLowerCase();  // Assuming 'Last Updated' is in the 11th column
+
+            let showRow = true;
+
+            if (clientFilter && client !== clientFilter) {
+                showRow = false;
+            }
+            if (companyTransporterFilter) {
+                if (companyTransporterFilter === "company" && company !== conditionalFilterValue) {
+                    showRow = false;
+                } else if (companyTransporterFilter === "transporter" && transporter !== conditionalFilterValue) {
+                    showRow = false;
+                }
+            }
+            if (statusFilter && status !== statusFilter) {
+                showRow = false;
+            }
+            if (monthFilter && !lastUpdated.includes(monthFilter)) {
+                showRow = false;
+            }
+
+            row.style.display = showRow ? "" : "none";
+        });
+    }
+
+    // Attach filterTable to filter change events
+    clientSelect.addEventListener("change", filterTable);
+    companyTransporterSelect.addEventListener("change", filterTable);
+    conditionalFilter.addEventListener("change", filterTable);
+    statusSelect.addEventListener("change", filterTable);
+    monthSelect.addEventListener("change", filterTable);
 
     // Reset Filters
     const resetButton = document.getElementById("reset-filters");
@@ -1349,9 +1430,11 @@
         companyTransporterSelect.value = "";
         conditionalFilter.innerHTML = ""; // Clear conditional filter
         statusSelect.value = "";
-        document.getElementById("filter-month").value = "";
+        monthSelect.value = "";
+        filterTable(); // Show all rows
     });
 });
+
 
       </script>
   </body>
