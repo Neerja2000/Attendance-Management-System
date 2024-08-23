@@ -35,6 +35,7 @@
     <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   </head>
   <body> 
     <!-- loader starts-->
@@ -79,10 +80,10 @@
                                     <div class="card-header bg-primary">
                                         <div class="row">
                                             <div class="col-md-10">
-                                                <h4>Add Vehicle</h4>
+                                                <h4>Add Transporter</h4>
                                             </div>
                                             <div class="col-md">
-                                                <a href="./Manage-vehicle.html">  <div class="btn btn-secondary"><i class="bi bi-arrow-90deg-up"></i></div></a>
+                                                <a href="./manage-transporter.html">  <div class="btn btn-secondary"><i class="bi bi-arrow-90deg-up"></i></div></a>
                     
                                             </div>
                                         </div>
@@ -90,32 +91,27 @@
                                 </div>
                            
                               <form class="row g-3 needs-validation" novalidate="">
-                                <div class="col-xl-4 ">
-                                  <label class="form-label" for="Imei">Imei<span class="txt-danger">*</span></label>
-                                  <input class="form-control" id="Imei" type="text" placeholder="Imei" required="">
+                                <div class="col-xl-3 ">
+                                  <label class="form-label" for="Username">Username<span class="txt-danger">*</span></label>
+                                  <input class="form-control" id="Username" type="text" placeholder="Username" required="">
                                 
                                 </div>
-                                <div class="col-xl-4 ">
-                                  <label class="form-label" for="SimNumber">Sim Number<span class="txt-danger">*</span></label>
-                                  <input class="form-control" id="SimNumber" type="text" placeholder="Sim Number" required="">
+                                <div class="col-xl-3 ">
+                                  <label class="form-label" for="Password">Password<span class="txt-danger">*</span></label>
+                                  <input class="form-control" id="Password" type="password" placeholder="Password" required="">
                              
                                 </div>
-                                <div class="col-xl-4 ">
-                                  <label class="form-label" for="SimOperator">Sim Operator<span class="txt-danger">*</span></label>
-                                  <input class="form-control" id="SimOperator" type="text" required="" placeholder="Sim Operator">
+                                <div class="col-xl-3 ">
+                                  <label class="form-label" for="confirmPassword">Confirm Password<span class="txt-danger">*</span></label>
+                                  <input class="form-control" id="confirmPassword" type="password" required="" placeholder="Sim Operator">
                             
                                 </div>
-                                <div class="col-xl-4 col-sm-4">
-                                  <label class="form-label" for="customState-wizard">Device Type<span class="txt-danger">*</span></label>
-                                  <select class="form-select" id="customState-wizard" required="">
-                                    <option selected="" disabled="" value="">Choose</option>
-                                    <option>Concox(8500) </option>
-                                    <option>ET-300(8502) </option>
-                                    <option>BW-09(8502)</option>
-                                  </select>
-                                 
-                                </div>
-                                <div class="col-xl-4 col-sm-4">
+                                <div class="col-xl-3 ">
+                                    <label class="form-label" for="company">Company<span class="txt-danger">*</span></label>
+                                    <input class="form-control" id="company" type="password" required="" placeholder="Company">
+                              
+                                  </div>
+                                <div class="col-xl-3 ">
                                     <label class="form-label" for="customState-wizard">Client<span class="txt-danger">*</span> </label>
                                     <select class="form-select" id="customState-wizard" required="">
                                       <option selected="" disabled="" value="">Select</option>
@@ -125,15 +121,105 @@
                                     </select>
                              
                                   </div>
-                                <div class="col-sm-4">
-                                  <label class="form-label" for="Password">Password</label>
-                                  <input class="form-control" id="Password" type="password" placeholder="Password" required="">
+                                  <div class="col-xl-3">
+                                    <label class="form-label" for="customState-wizard">Timezone<span class="txt-danger">*</span></label>
+                                    <select class="form-select" id="customState-wizard" required="">
+                                        <option selected="" disabled="" value="">Select</option>
+                                        <option value="UTC-08:00">UTC-08:00 - Pacific Standard Time</option>
+                                        <option value="UTC-05:00">UTC-05:00 - Eastern Standard Time</option>
+                                        <option value="UTC±00:00">UTC±00:00 - Coordinated Universal Time</option>
+                                        <option value="UTC+01:00">UTC+01:00 - Central European Time</option>
+                                        <option value="UTC+02:00">UTC+02:00 - Eastern European Time</option>
+                                        <option value="UTC+03:00">UTC+03:00 - Moscow Time</option>
+                                        <option value="UTC+05:00">UTC+05:00 - Pakistan Standard Time</option>
+                                        <option value="UTC+08:00">UTC+08:00 - China Standard Time</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-3 ">
+                                    <label class="form-label" for="customState-wizard">Inactive Time<span class="txt-danger">*</span> </label>
+                                    <select class="form-select" id="customState-wizard" required="">
+                                      <option selected="" disabled="" value="">Select</option>
+                                      <option  value="">1</option>
+                                      <option  value="">2</option>
+                                     <option value="">3</option>
+                                     <option  value="">4</option>
+                                      <option  value="">5</option>
+                                     <option value="">6</option>
+                                    </select>
                              
-                                </div>
+                                  </div>
+                                  <div class="col-xl-3 ">
+                                    <label class="form-label" for="customState-wizard">Language<span class="txt-danger">*</span> </label>
+                                    <select class="form-select" id="customState-wizard" required="">
+                                      <option selected="" disabled="" value="">Select</option>
+                                      <option>English</option>
+                                      <option>Hindi</option>
+                                      <option>Arabic</option>
+                                      <option>French</option>
+                                    </select>
+                             
+                                  </div>
+                                  <div class="col-xl-3 ">
+                                    <label class="form-label" for="name">Name(optional)</label>
+                                    <input class="form-control" id="name" type="text" placeholder="Name" required="">
+                                  
+                                  </div>
+                                  <div class="col-xl-3 ">
+                                    <label class="form-label" for="email">Email(optional)</label>
+                                    <input class="form-control" id="email" type="email" placeholder="Email" required="">
+                               
+                                  </div>
+                                  <div class="col-xl-3 ">
+                                    <label class="form-label" for="Phone">Phone(optional)</label>
+                                    <input class="form-control" id="Phone" type="number" required="" placeholder="Phone">
                               
-                                <div class="col-12 text-end">
-                                  <button class="btn btn-primary">Submit</button>
-                                </div>
+                                  </div>
+                                  <div class="col-xl-3 ">
+                                      <label class="form-label" for="address">Address(optional)</label>
+                                      <input class="form-control" id="address" type="text" required="" placeholder="Address">
+                                
+                                    </div>
+                                    <div class="col-xl-3 ">
+                                        <label class="form-label" for="start">Subscription Start Date<span class="txt-danger">*</span></label>
+                                        <input class="form-control" id="start" type="date" required="">
+                                      
+                                      </div>
+                                      <div class="col-xl-3 ">
+                                        <label class="form-label" for="Due">Subscription Due Date<span class="txt-danger">*</span></label>
+                                        <input class="form-control" id="Due" type="date" required="">
+                                      
+                                      </div>
+                                      <div class="col-xl-3 ">
+                                        <label class="form-label" for="Extend">Subscription Extend Date(optional)</label>
+                                        <input class="form-control" id="Extend" type="date" required="">
+                                      
+                                      </div>
+                                      <div class="col-xl-3 ">
+                                        <label class="form-label" for="Expiry">Subscription Expiry Count(optional)</label>
+                                        <input class="form-control" id="Expiry" type="text" required="">
+                                      
+                                      </div>
+
+                                      <div class="col-xl-3 ">
+                                        <label class="form-label" for="MaximumRadius">Maximum Radius For Nearest POI (Km)</label>
+                                        <input class="form-control" id="MaximumRadius" type="text" required="">
+                                      
+                                      </div>
+                                      
+                                      <div class="col-xl-3 ">
+                                        <label class="form-label" for="MinimumDistance">Minimum Distance For Address (Km)</label>
+                                        <input class="form-control" id="MinimumDistance" type="text" required="">
+                                      
+                                      </div>
+                                      <div class="d-flex justify-content-end">
+                                        <div class="me-2">
+                                            <button class="btn btn-primary">Reset</button>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
+                                    
                               </form>
                      
                           
