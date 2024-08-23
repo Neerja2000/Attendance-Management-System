@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cuba admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <title>Cuba - Premium Admin Template</title>
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+    <!-- Plugins css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
+    <!-- Plugins css Ends-->
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  </head>
+  <body> 
+    <!-- loader starts-->
+    <div class="loader-wrapper">
+      <div class="loader-index"> <span></span></div>
+      <svg>
+        <defs></defs>
+        <filter id="goo">
+          <fegaussianblur in="SourceGraphic" stddeviation="11" result="blur"></fegaussianblur>
+          <fecolormatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"> </fecolormatrix>
+        </filter>
+      </svg>
+    </div>
+    <!-- loader ends-->
+    <!-- tap on top starts-->
+    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <!-- tap on tap ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+      <!-- Page Header Start-->
+     
+      <!-- Page Header Ends                              -->
+      <!-- Page Body Start-->
+      
+       
+       
+          
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-12"> 
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Add Vehicle</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="horizontal-wizard-wrapper">
+                      <div class="row g-3">
+                        <div class="col-12 main-horizontal-header">
+                          <div class="nav nav-pills horizontal-options" id="horizontal-wizard-tab" role="tablist" aria-orientation="vertical"><a class="nav-link active" id="wizard-info-tab" data-bs-toggle="pill" href="#wizard-info" role="tab" aria-controls="wizard-info" aria-selected="true"> 
+                              <div class="horizontal-wizard">
+                                <div class="stroke-icon-wizard"><i class="fas fa-truck"></i></div>
+                                <div class="horizontal-wizard-content"> 
+                                  <h6>Add Transporter</h6>
+                                </div>
+                              </div></a><a class="nav-link" id="bank-wizard-tab" data-bs-toggle="pill" href="#bank-wizard" role="tab" aria-controls="bank-wizard" aria-selected="false"> 
+                              <div class="horizontal-wizard">
+                                <div class="stroke-icon-wizard"><i class="fas fa-microchip"></i></div>
+                                <div class="horizontal-wizard-content"> 
+                                  <h6>Add Device</h6>
+                                </div>
+                              </div></a><a class="nav-link" id="inquiry-wizard-tab" data-bs-toggle="pill" href="#inquiry-wizard" role="tab" aria-controls="inquiry-wizard" aria-selected="false"> 
+                              <div class="horizontal-wizard">
+                                <div class="stroke-icon-wizard"><i class="fas fa-car"></i>
+                                </div>
+                                <div class="horizontal-wizard-content"> 
+                                  <h6>Add Vehicle</h6>
+                                </div>
+                              </div></a><a class="nav-link" id="successful-wizard-tab" data-bs-toggle="pill" href="#successful-wizard" role="tab" aria-controls="successful-wizard" aria-selected="false"> 
+                              <div class="horizontal-wizard">
+                                <div class="stroke-icon-wizard"><i class="fas fa-info-circle"></i></div>
+                                <div class="horizontal-wizard-content"> 
+                                  <h6>Add Vehicle Detail (Optional) </h6>
+                                </div>
+                              </div></a></div>
+                        </div>
+                        <div class="col-12"> 
+                          <div class="tab-content dark-field" id="horizontal-wizard-tabContent">
+                            <div class="tab-pane fade show active" id="wizard-info" role="tabpanel" aria-labelledby="wizard-info-tab">
+                              <form class="row g-3 needs-validation" novalidate="">
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username *</label>
+                                        <input type="text" class="form-control" id="username" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password *</label>
+                                        <input type="password" class="form-control" id="password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="confirm-password" class="form-label">Confirm Password *</label>
+                                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="company-name" class="form-label">Company Name *</label>
+                                        <input type="text" class="form-control" id="company-name" placeholder="Company Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="client" class="form-label">Client *</label>
+                                        <select class="form-select" id="client">
+                                            <option selected>Select Client</option>
+                                            <option value="Client A">Client A</option>
+                                            <option value="Client B">Client B</option>
+                                            <option value="Client C">Client C</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="timezone" class="form-label">Timezone *</label>
+                                        <select class="form-select" id="timezone">
+                                            <option selected>(GMT+5:30) Asia/Calcutta</option>
+                                            <option value="GMT+0">GMT</option>
+                                            <option value="GMT+1">GMT+1</option>
+                                            <!-- Add more options as needed -->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="inactive-time" class="form-label">Inactive Time *</label>
+                                        <input type="number" class="form-control" id="inactive-time" placeholder="Inactive Time">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="language" class="form-label">Language *</label>
+                                        <select class="form-select" id="language">
+                                            <option selected>English</option>
+                                            <option value="French">French</option>
+                                            <option value="Spanish">Spanish</option>
+                                            <!-- Add more options as needed -->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="mb-3">
+                                      <label for="name" class="form-label">Name </label>
+                                      <input type="text" class="form-control" id="name" placeholder="Name">
+                                  </div>
+                              </div>
+                              <div class="col-md-3">
+                                  <div class="mb-3">
+                                      <label for="email" class="form-label">Email </label>
+                                      <input type="email" class="form-control" id="email" placeholder="Email">
+                                  </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="number" class="form-control" id="phone" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="address" placeholder="Address">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="mb-3">
+                                  <label for="subscription-start-date" class="form-label">Subscription Start Date *</label>
+                                  <input type="date" class="form-control" id="subscription-start-date">
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="mb-3">
+                                  <label for="subscription-due-date" class="form-label">Subscription Due Date *</label>
+                                  <input type="date" class="form-control" id="subscription-due-date">
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="mb-3">
+                                  <label for="subscription-extend-date" class="form-label">Subscription Extend Date (Optional)</label>
+                                  <input type="date" class="form-control" id="subscription-extend-date">
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="mb-3">
+                                  <label for="subscription-expiry-count" class="form-label">Subscription Expiry Count (Optional)</label>
+                                  <input type="number" class="form-control" id="subscription-expiry-count" placeholder="10">
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="mb-3">
+                                  <label for="max-radius" class="form-label">Maximum Radius For Nearest POI (in Km)</label>
+                                  <input type="text" class="form-control" id="max-radius">
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="mb-3">
+                                  <label for="min-distance" class="form-label">Minimum Distance For Address (in Km)</label>
+                                  <input type="text" class="form-control" id="min-distance">
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-check ">
+                                  <input type="checkbox" class="form-check-input" id="active">
+                                  <label class="form-check-label" for="active">Active</label>
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                              <div class="form-check ">
+                                  <input type="checkbox" class="form-check-input" id="enable-notification">
+                                  <label class="form-check-label" for="enable-notification">Overwrite Subscription for all vehicles</label>
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-check ">
+                                <input type="checkbox" class="form-check-input" id="enable-notification">
+                                <label class="form-check-label" for="enable-notification">Should vehicle inactive after subscription expire</label>
+                            </div>
+                        </div>
+                        <div class="col-12 text-end"> 
+                            <button class="btn btn-primary">Skip</button>
+                            <button class="btn btn-primary">Reset</button>
+                            <button class="btn btn-primary">Save </button>
+                          </div>
+                          </div>
+
+                              </form>
+                            </div>
+                            <div class="tab-pane fade" id="bank-wizard" role="tabpanel" aria-labelledby="bank-wizard-tab">
+                              <form class="row g-3 needs-validation" novalidate="">
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="Imei" class="form-label">Imei *</label>
+                                        <input type="text" class="form-control" id="Imei" placeholder="Imei">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="mb-3">
+                                      <label for="Sim" class="form-label">Sim Number *</label>
+                                      <input type="text" class="form-control" id="Sim" placeholder="Sim Number">
+                                  </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="Operator" class="form-label">Sim Operator *</label>
+                                    <select class="form-select" id="Operator">
+                                        <option selected>Select </option>
+                                        <option value="Operator A">Operator A</option>
+                                        <option value="Operator B">Operator B</option>
+                                        <option value="Operator C">Operator C</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="mb-3">
+                                  <label for="Device-Type" class="form-label">Device Type *</label>
+                                  <select class="form-select" id="Device-Type">
+                                      <option selected>Select </option>
+                                      <option value="Device Type A">Device Type A</option>
+                                      <option value="Device Type B">Device Type B</option>
+                                      <option value="Device Type C">Device Type C</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="Client" class="form-label">Select Client *</label>
+                                <select class="form-select" id="Client">
+                                    <option selected>Select </option>
+                                    <option value="Client A">Client A</option>
+                                    <option value="Client B">Client B</option>
+                                    <option value="Client C">Client C</option>
+                                </select>
+                            </div>
+                        </div>
+                              <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <div class="form-check ">
+                                      <input type="checkbox" class="form-check-input" id="active">
+                                      <label class="form-check-label" for="active">Active</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-12">
+                                  <div class="form-check ">
+                                      <input type="checkbox" class="form-check-input" id="enable-notification1">
+                                      <label class="form-check-label" for="enable-notification1">Ignition wire connected in (+)ve</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-check ">
+                                    <input type="checkbox" class="form-check-input" id="enable-notification2">
+                                    <label class="form-check-label" for="enable-notification2">Ignition wire not connected
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-check ">
+                                    <input type="checkbox" class="form-check-input" id="enable-notification3">
+                                    <label class="form-check-label" for="enable-notification3">Air condition wire connected in (+)ve
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-end"> 
+                                <button class="btn btn-primary">Skip</button>
+                                <button class="btn btn-primary">Reset</button>
+                                <button class="btn btn-primary">Save </button>
+                              </div>
+                              </div>
+                              </form>
+                            </div>
+                            <div class="tab-pane fade" id="inquiry-wizard" role="tabpanel" aria-labelledby="inquiry-wizard-tab">
+                              <form class="row g-3 needs-validation" novalidate="">
+                                <div class="col-12 inquiries-form">
+                                  <div class="row"> 
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label for="vehicle-name" class="form-label">Vehicle *</label>
+                                            <input type="text" class="form-control" id="vehicle-name" placeholder="Vehicle Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="mb-3">
+                                          <label for="Mileage" class="form-label">Mileage *</label>
+                                          <input type="text" class="form-control" id="Mileage" placeholder="Mileage">
+                                      </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="Vehicle-Type" class="form-label">Vehicle Type *</label>
+                                        <select class="form-select" id="Vehicle-Type">
+                                            <option selected>Select </option>
+                                            <option value="Vehicle Type A">Vehicle Type A</option>
+                                            <option value="Vehicle Type B">Vehicle Type B</option>
+                                            <option value="Vehicle Type C">Vehicle Type C</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="Overspeed" class="form-label">Overspeed *</label>
+                                        <input type="text" class="form-control" id="Overspeed" placeholder="Overspeed">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="mb-3">
+                                      <label for="Client" class="form-label">Client *</label>
+                                      <select class="form-select" id="Client">
+                                          <option selected>Select  Client</option>
+                                          <option value="Client A">Client A</option>
+                                          <option value="Client B">Client B</option>
+                                          <option value="Client C">Client C</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="Devices" class="form-label">Devices</label>
+                                    <select class="form-select" id="Devices">
+                                        <option selected>Select Devices</option>
+                                        <option value="Devices A">Devices A</option>
+                                        <option value="Devices B">Devices B</option>
+                                        <option value="Devices C">Devices C</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="mb-3">
+                                  <label for="Coin" class="form-label">Attach Coin</label>
+                                  <select class="form-select" id="Coin">
+                                      <option selected>Select Coin</option>
+                                      <option value="Coin A">Coin A</option>
+                                      <option value="Coin B">Coin B</option>
+                                      <option value="Coin C">Coin C</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="Transporter" class="form-label">Transporter *</label>
+                                <select class="form-select" id="Transporter">
+                                    <option selected>Select Transporter</option>
+                                    <option value="Transporter A">Transporter A</option>
+                                    <option value="Transporter B">Transporter B</option>
+                                    <option value="Transporter C">Transporter C</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="subscription-start-date" class="form-label">Subscription Start Date *</label>
+                                <input type="date" class="form-control" id="subscription-start-date">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="subscription-due-date" class="form-label">Subscription Due Date *</label>
+                                <input type="date" class="form-control" id="subscription-due-date">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="Current Odometer" class="form-label">Current Odometer Reading (Optional) </label>
+                                <input type="date" class="form-control" id="Current Odometer">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="Vehicle-Nickname" class="form-label">Vehicle Nickname (Optional)</label>
+                                <input type="number" class="form-control" id="Vehicle-Nickname" placeholder="Vehicle Nickname">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="Remark" class="form-label">Remark (Optional)</label>
+                                <input type="text" class="form-control" id="Remark">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="Remark2" class="form-label">Remark2</label>
+                                <input type="text" class="form-control" id="Remark2">
+                            </div>
+                        </div>
+                                  </div>
+                                </div>
+                                
+                                <div class="row">
+                                   
+                                  <div class="col-md-12">
+                                      <div class="form-check ">
+                                          <input type="checkbox" class="form-check-input" id="enable-notification">
+                                          <label class="form-check-label" for="enable-notification">Parking violation alarm on Ignition on</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-12">
+                                    <div class="form-check ">
+                                        <input type="checkbox" class="form-check-input" id="enable-notification">
+                                        <label class="form-check-label" for="enable-notification">Auto Renewal</label>
+                                    </div>
+                                </div>
+                                  </div>
+                                <div class="col-12 text-end"> 
+                                  <button class="btn btn-primary">Reset</button>
+                                  <button class="btn btn-primary">Save </button>
+                                </div>
+                              </form>
+                            </div>
+                            <div class="tab-pane fade" id="successful-wizard" role="tabpanel" aria-labelledby="successful-wizard-tab">
+                                <form class="row g-3 needs-validation" novalidate="">
+                                    <div class="col-12 inquiries-form">
+                                      <div class="row"> 
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label for="Client" class="form-label">Client *</label>
+                                                <select class="form-select" id="Client">
+                                                    <option selected>Select  Client</option>
+                                                    <option value="Client A">Client A</option>
+                                                    <option value="Client B">Client B</option>
+                                                    <option value="Client C">Client C</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label for="Transporter" class="form-label">Transporter *</label>
+                                                <select class="form-select" id="Transporter">
+                                                    <option selected>Select Transporter</option>
+                                                    <option value="Transporter A">Transporter A</option>
+                                                    <option value="Transporter B">Transporter B</option>
+                                                    <option value="Transporter C">Transporter C</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                       
+                                      <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label for="Vehicle-Type" class="form-label">Vehicle  *</label>
+                                            <select class="form-select" id="Vehicle-Type">
+                                                <option selected>Select </option>
+                                                <option value="Vehicle Type A">Vehicle Type A</option>
+                                                <option value="Vehicle Type B">Vehicle Type B</option>
+                                                <option value="Vehicle Type C">Vehicle Type C</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                      <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label for="Owner-Name" class="form-label">Owner Name*</label>
+                                            <input type="text" class="form-control" id="Owner-Name" placeholder="Owner Name">
+                                        </div>
+                                    </div>
+                                  
+                                  <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label for="Owner-By" class="form-label">Owner By</label>
+                                        <select class="form-select" id="Owner-By">
+                                            <option selected>Select Owner By</option>
+                                            <option value="Owner By A">Owner By A</option>
+                                            <option value="Owner By B">Owner By B</option>
+                                            <option value="Owner By C">Owner By C</option>
+                                        </select>
+                                    </div>
+                                </div>
+                              
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="subscription-start-date" class="form-label">Vehicle Brand *</label>
+                                    <input type="text" class="form-control" id="subscription-start-date">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="Vehicle-Model" class="form-label">Vehicle Model *</label>
+                                    <input type="text" class="form-control" id="Vehicle-Model">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="Vehicle-Body" class="form-label">Vehicle Body </label>
+                                    <input type="text" class="form-control" id="Vehicle-Body">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="Capacity" class="form-label">Capacity</label>
+                                    <input type="number" class="form-control" id="Capacity" placeholder="Capacity">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="Manufacture" class="form-label">Manufacture Date</label>
+                                    <input type="text" class="form-control" id="Manufacture">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="Purchase" class="form-label">Purchase Date</label>
+                                    <input type="text" class="form-control" id="Purchase">
+                                </div>
+                            </div>
+                                      </div>
+                                    </div>
+                                    
+                               
+                                    <div class="col-12 text-end"> 
+                                      <button class="btn btn-primary">Reset</button>
+                                      <button class="btn btn-primary">Save </button>
+                                    </div>
+                                  </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+             
+             
+            </div>
+          </div>
+          <!-- Container-fluid Ends-->
+        </div>
+        <!-- footer start-->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12 footer-copyright text-center">
+                <p class="mb-0">Copyright 2023 © Cuba theme by pixelstrap  </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- latest jquery-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <!-- Bootstrap js-->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- feather icon js-->
+    <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- scrollbar js-->
+    <script src="../assets/js/scrollbar/simplebar.js"></script>
+    <script src="../assets/js/scrollbar/custom.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="../assets/js/config.js"></script>
+    <!-- Plugins JS start-->
+    <script src="../assets/js/sidebar-menu.js"></script>
+    <script src="../assets/js/sidebar-pin.js"></script>
+    <script src="../assets/js/slick/slick.min.js"></script>
+    <script src="../assets/js/slick/slick.js"></script>
+    <script src="../assets/js/header-slick.js"></script>
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/theme-customizer/customizer.js"></script>
+  </body>
+</html>
