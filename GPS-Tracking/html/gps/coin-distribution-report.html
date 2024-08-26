@@ -318,7 +318,8 @@
             <div class="page-title">
               <div class="row">
                 <div class="col-6">
-                  <h4>Travel Summary Reports</h4>
+                  <h4>Coin Distribution Report
+                </h4>
                 </div>
                 
               </div>
@@ -330,74 +331,7 @@
               <!-- Zero Configuration  Starts-->
               <div class="col-sm-12">
                 <div class="card">
-                  <div class="card-header pb-0 card-no-border d-flex justify-content-between align-items-center">
-                    <h4></h4>
-                    <div>
-                        <!-- Rows Visibility Button -->
-                        <button type="button" class="btn btn-secondary btn-sm dropdown  dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="icon-eye"></i> Rows Visibility
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="option1">
-                                    <label class="form-check-label" for="option1">
-                                        Option 1
-                                    </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="option2">
-                                    <label class="form-check-label" for="option2">
-                                        Option 2
-                                    </label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="option3">
-                                    <label class="form-check-label" for="option3">
-                                        Option 3
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
-                        <!-- Column Visibility Button -->
-                        <button class="btn btn-secondary dropdown btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="icon-eye"></i> Column Visibility
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <li>
-                              <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="option1">
-                                  <label class="form-check-label" for="option1">
-                                      Option 1
-                                  </label>
-                              </div>
-                          </li>
-                          <li>
-                              <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="option2">
-                                  <label class="form-check-label" for="option2">
-                                      Option 2
-                                  </label>
-                              </div>
-                          </li>
-                          <li>
-                              <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="option3">
-                                  <label class="form-check-label" for="option3">
-                                      Option 3
-                                  </label>
-                              </div>
-                          </li>
-                      </ul>
-                        
-                     
-                       
-                    </div>
-                </div>
+                 
                 
                   <div class="card-body">
                     <div class="row mb-3">
@@ -409,21 +343,7 @@
                         </select>
                       </div>
                   
-                      <!-- Filter 2: Select Transporter or Company -->
-                      <div class="col-md-2">
-                        <label for="filter-company-transporter" class="form-label">Company</label>
-                        <select id="filter-company-transporter" class="form-select">
-                          <option value="">Select </option>
-                        
-                        </select>
-                      </div>
-                      <div class="col-md-2">
-                        <label for="filter-company-transporter" class="form-label">Transporter</label>
-                        <select id="filter-company-transporter" class="form-select">
-                          <option value="">Select </option>
                       
-                        </select>
-                      </div>
                   
                   
                    
@@ -436,7 +356,7 @@
                   
                       <!-- Filter 6: Reset Button -->
                       <div class="col-md-2 d-flex align-items-end">
-                        <button id="reset-filters" class="btn btn-primary w-100">Reset</button>
+                        <button id="reset-filters" class="btn btn-primary w-100">Search</button>
                       </div>
                     </div>
                   
@@ -445,17 +365,12 @@
                         <thead>
                           <tr>
                             <th>SN</th>
-                            <th>Vehicle</th>
-                            <th>Start Address</th>
-                            <th>Total Distance</th>
-                            <th>Running</th>
-                            <th>Idle</th>
-                            <th>Stop</th>
-                            <th>Over Speed</th>
-                            <th>Over Speed Count</th>
-                            <th>End Address</th>
-                            <th>Max.Speed(km/h)</th>
-                            <th>Avg.Speed(km/h)</th>
+                            <th>From User</th>
+                            <th>To User</th>
+                            <th>Action Performed</th>
+                            <th>Coins Transferred</th>
+                            <th>Action Performed On</th>
+                        
                            
                           </tr>
                         </thead>
@@ -467,12 +382,7 @@
                            <td></td>
                            <td></td>
                            <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
+                          
                           </tr>
                         
                           <!-- Add more rows as needed -->
