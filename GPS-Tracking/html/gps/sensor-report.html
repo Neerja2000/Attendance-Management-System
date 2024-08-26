@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cuba admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <title>Cuba - Premium Admin Template</title>
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+    <!-- Plugins css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/datatables.css">
+    <!-- Plugins css Ends-->
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  </head>
+  <body> 
+    <!-- loader starts-->
+    <div class="loader-wrapper">
+      <div class="loader-index"> <span></span></div>
+      <svg>
+        <defs></defs>
+        <filter id="goo">
+          <fegaussianblur in="SourceGraphic" stddeviation="11" result="blur"></fegaussianblur>
+          <fecolormatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"> </fecolormatrix>
+        </filter>
+      </svg>
+    </div>
+    <!-- loader ends-->
+    <!-- tap on top starts-->
+    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <!-- tap on tap ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+      <!-- Page Header Start-->
+      <div class="page-header">
+        <div class="header-wrapper row m-0">
+          <form class="form-inline search-full col" action="#" method="get">
+            <div class="form-group w-100">
+              <div class="Typeahead Typeahead--twitterUsers">
+                <div class="u-posRelative">
+                  <input class="demo-input Typeahead-input form-control-plaintext w-100" type="text" placeholder="Search Cuba .." name="q" title="" autofocus>
+                  <div class="spinner-border Typeahead-spinner" role="status"><span class="sr-only">Loading...</span></div><i class="close-search" data-feather="x"></i>
+                </div>
+                <div class="Typeahead-menu"></div>
+              </div>
+            </div>
+          </form>
+          <div class="header-logo-wrapper col-auto p-0">
+            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt=""><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt=""></a></div>
+            <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
+          </div>
+          <div class="left-header col-xxl-5 col-xl-6 col-lg-5 col-md-4 col-sm-3 p-0">
+            <div class="notification-slider">
+              <div class="d-flex h-100"> <img src="../assets/images/giftools.gif" alt="gif">
+                <h6 class="mb-0 f-w-400"><span class="font-primary">Don't Miss Out! </span><span class="f-light">Out new update has been release.</span></h6><i class="icon-arrow-top-right f-light"></i>
+              </div>
+              <div class="d-flex h-100"><img src="../assets/images/giftools.gif" alt="gif">
+                <h6 class="mb-0 f-w-400"><span class="f-light">Something you love is now on sale! </span></h6><a class="ms-1" href="https://1.envato.market/3GVzd" target="_blank">Buy now !</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">
+            <ul class="nav-menus">
+              <li class="language-nav">
+                <div class="translate_wrapper">
+                  <div class="current_lang">
+                    <div class="lang"><i class="flag-icon flag-icon-us"></i><span class="lang-txt">EN                               </span></div>
+                  </div>
+                  <div class="more_lang">
+                    <div class="lang selected" data-value="en"><i class="flag-icon flag-icon-us"></i><span class="lang-txt">English<span> (US)</span></span></div>
+                    <div class="lang" data-value="de"><i class="flag-icon flag-icon-de"></i><span class="lang-txt">Deutsch</span></div>
+                    <div class="lang" data-value="es"><i class="flag-icon flag-icon-es"></i><span class="lang-txt">Español</span></div>
+                    <div class="lang" data-value="fr"><i class="flag-icon flag-icon-fr"></i><span class="lang-txt">Français</span></div>
+                    <div class="lang" data-value="pt"><i class="flag-icon flag-icon-pt"></i><span class="lang-txt">Português<span> (BR)</span></span></div>
+                    <div class="lang" data-value="cn"><i class="flag-icon flag-icon-cn"></i><span class="lang-txt">简体中文</span></div>
+                    <div class="lang" data-value="ae"><i class="flag-icon flag-icon-ae"></i><span class="lang-txt">لعربية <span> (ae)</span></span></div>
+                  </div>
+                </div>
+              </li>
+              <li>                         <span class="header-search">
+                  <svg>
+                    <use href="../assets/svg/icon-sprite.svg#search"></use>
+                  </svg></span></li>
+              <li class="onhover-dropdown">
+                <svg>
+                  <use href="../assets/svg/icon-sprite.svg#star"></use>
+                </svg>
+                <div class="onhover-show-div bookmark-flip">
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="front">
+                        <h6 class="f-18 mb-0 dropdown-title">Bookmark</h6>
+                        <ul class="bookmark-dropdown">
+                          <li>
+                            <div class="row">
+                              <div class="col-4 text-center">
+                                <div class="bookmark-content">
+                                  <div class="bookmark-icon"><i data-feather="file-text"></i></div><span>Forms</span>
+                                </div>
+                              </div>
+                              <div class="col-4 text-center">
+                                <div class="bookmark-content">
+                                  <div class="bookmark-icon"><i data-feather="user"></i></div><span>Profile</span>
+                                </div>
+                              </div>
+                              <div class="col-4 text-center">
+                                <div class="bookmark-content">
+                                  <div class="bookmark-icon"><i data-feather="server"></i></div><span>Tables</span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="text-center"><a class="flip-btn f-w-700" id="flip-btn" href="javascript:void(0)">Add New Bookmark</a></li>
+                        </ul>
+                      </div>
+                      <div class="back">
+                        <ul>
+                          <li>
+                            <div class="bookmark-dropdown flip-back-content">
+                              <input type="text" placeholder="search...">
+                            </div>
+                          </li>
+                          <li><a class="f-w-700 d-block flip-back" id="flip-back" href="javascript:void(0)">Back</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="mode">
+                  <svg>
+                    <use href="../assets/svg/icon-sprite.svg#moon"></use>
+                  </svg>
+                </div>
+              </li>
+              <li class="cart-nav onhover-dropdown">
+                <div class="cart-box">
+                  <svg>
+                    <use href="../assets/svg/icon-sprite.svg#stroke-ecommerce"></use>
+                  </svg><span class="badge rounded-pill badge-success">2</span>
+                </div>
+                <div class="cart-dropdown onhover-show-div">
+                  <h6 class="f-18 mb-0 dropdown-title">Cart</h6>
+                  <ul>
+                    <li>
+                      <div class="media"><img class="img-fluid b-r-5 me-3 img-60" src="../assets/images/other-images/cart-img.jpg" alt="">
+                        <div class="media-body"><span>Furniture Chair for Home</span>
+                          <div class="qty-box">
+                            <div class="input-group"><span class="input-group-prepend">
+                                <button class="btn quantity-left-minus" type="button" data-type="minus" data-field="">-</button></span>
+                              <input class="form-control input-number" type="text" name="quantity" value="1"><span class="input-group-prepend">
+                                <button class="btn quantity-right-plus" type="button" data-type="plus" data-field="">+</button></span>
+                            </div>
+                          </div>
+                          <h6 class="font-primary">$500</h6>
+                        </div>
+                        <div class="close-circle"><a class="bg-danger" href="#"><i data-feather="x"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="media"><img class="img-fluid b-r-5 me-3 img-60" src="../assets/images/other-images/cart-img.jpg" alt="">
+                        <div class="media-body"><span>Furniture Chair for Home</span>
+                          <div class="qty-box">
+                            <div class="input-group"><span class="input-group-prepend">
+                                <button class="btn quantity-left-minus" type="button" data-type="minus" data-field="">-</button></span>
+                              <input class="form-control input-number" type="text" name="quantity" value="1"><span class="input-group-prepend">
+                                <button class="btn quantity-right-plus" type="button" data-type="plus" data-field="">+</button></span>
+                            </div>
+                          </div>
+                          <h6 class="font-primary">$500.00</h6>
+                        </div>
+                        <div class="close-circle"><a class="bg-danger" href="#"><i data-feather="x"></i></a></div>
+                      </div>
+                    </li>
+                    <li class="total">
+                      <h6 class="mb-0">Order Total : <span class="f-right">$1000.00</span></h6>
+                    </li>
+                    <li class="text-center"><a class="d-block mb-3 view-cart f-w-700" href="cart.html">Go to your cart</a><a class="btn btn-primary view-checkout" href="checkout.html">Checkout</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="onhover-dropdown">
+                <div class="notification-box">
+                  <svg>
+                    <use href="../assets/svg/icon-sprite.svg#notification"></use>
+                  </svg><span class="badge rounded-pill badge-secondary">4 </span>
+                </div>
+                <div class="onhover-show-div notification-dropdown">
+                  <h6 class="f-18 mb-0 dropdown-title">Notitications                               </h6>
+                  <ul>
+                    <li class="b-l-primary border-4">
+                      <p>Delivery processing <span class="font-danger">10 min.</span></p>
+                    </li>
+                    <li class="b-l-success border-4">
+                      <p>Order Complete<span class="font-success">1 hr</span></p>
+                    </li>
+                    <li class="b-l-secondary border-4">
+                      <p>Tickets Generated<span class="font-secondary">3 hr</span></p>
+                    </li>
+                    <li class="b-l-warning border-4">
+                      <p>Delivery Complete<span class="font-warning">6 hr</span></p>
+                    </li>
+                    <li><a class="f-w-700" href="#">Check all</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="profile-nav onhover-dropdown pe-0 py-0">
+                <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.png" alt="">
+                  <div class="media-body"><span>Emay Walter</span>
+                    <p class="mb-0">Admin <i class="middle fa fa-angle-down"></i></p>
+                  </div>
+                </div>
+                <ul class="profile-dropdown onhover-show-div">
+                  <li><a href="sign-up.html"><i data-feather="user"></i><span>Account </span></a></li>
+                  <li><a href="letter-box.html"><i data-feather="mail"></i><span>Inbox</span></a></li>
+                  <li><a href="task.html"><i data-feather="file-text"></i><span>Taskboard</span></a></li>
+                  <li><a href="edit-profile.html"><i data-feather="settings"></i><span>Settings</span></a></li>
+                  <li><a href="login.html"><i data-feather="log-in"> </i><span>Log in</span></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <script class="result-template" type="text/x-handlebars-template">
+            <div class="ProfileCard u-cf">                        
+            <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
+            <div class="ProfileCard-details">
+            <div class="ProfileCard-realName">{{name}}</div>
+            </div>
+            </div>
+          </script>
+          <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div></script>
+        </div>
+      </div>
+      <!-- Page Header Ends                              -->
+      <!-- Page Body Start-->
+      <div class="page-body-wrapper">
+        <!-- Page Sidebar Start-->
+        <div class="sidebar-wrapper" data-sidebar-layout="stroke-svg">
+          <div>
+            <div class="logo-wrapper"><a href="index.html">
+              <h2>GPS </h2><img class="img-fluid for-dark"
+                  src="../assets/images/logo/logo_dark.png" alt=""></a>
+              <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+              <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
+            </div>
+            <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid"
+                  src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+            <nav class="sidebar-main">
+              <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
+              <div id="sidebar-menu">
+                <ul class="sidebar-links" id="simple-bar">
+                  <li class="back-btn"><a href="index.html"><img class="img-fluid"
+                        src="../assets/images/logo/logo-icon.png" alt=""></a>
+                    <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
+                        aria-hidden="true"></i></div>
+                  </li>
+  
+                 
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav"
+                      href="./index.html">
+                      <i class="bi bi-speedometer2 text-secondary" style="font-size: 18px;"></i>
+                     <span>Dashboard</span></a></li>
+                    
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
+                     
+                    <i class="bi bi-truck text-secondary" style="font-size: 18px;"></i>
+                      <span class="">Manage</span></a>
+                    
+                    <ul class="sidebar-submenu">
+                      <li><a href="./Manage-vehicle.html">Vehicles</a></li>
+                      <li><a href="./manage-devices.html">Devices</a></li>
+                      <li><a href="./manage-transporter.html">Transporter</a></li>
+                      <li><a href="./manage-client.html">Client</a></li>
+                      <li><a href="#">User Group</a></li>
+                      <li><a href="#">Vehicle Detail</a></li>
+                    </ul>
+                  </li>
+                  
+               
+                
+                </ul>
+              </div>
+              <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
+            </nav>
+          </div>
+        </div>
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-title">
+              <div class="row">
+                <div class="col-6">
+                  <h4>Sensor Report</h4>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
+            <div class="row">
+              <!-- Zero Configuration  Starts-->
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-header pb-0 card-no-border d-flex justify-content-between align-items-center">
+                    <h4></h4>
+                    <div>
+                        <!-- Rows Visibility Button -->
+                        <button type="button" class="btn btn-secondary btn-sm dropdown  dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="icon-eye"></i> Rows Visibility
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="option1">
+                                    <label class="form-check-label" for="option1">
+                                        Option 1
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="option2">
+                                    <label class="form-check-label" for="option2">
+                                        Option 2
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="option3">
+                                    <label class="form-check-label" for="option3">
+                                        Option 3
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- Column Visibility Button -->
+                        <button class="btn btn-secondary dropdown btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="icon-eye"></i> Column Visibility
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <li>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="option1">
+                                  <label class="form-check-label" for="option1">
+                                      Option 1
+                                  </label>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="option2">
+                                  <label class="form-check-label" for="option2">
+                                      Option 2
+                                  </label>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="option3">
+                                  <label class="form-check-label" for="option3">
+                                      Option 3
+                                  </label>
+                              </div>
+                          </li>
+                      </ul>
+                        
+                        <!-- Add Button -->
+                         <a href="./add-Vehicle.html"> <button type="button" class="btn btn-primary btn-sm">
+                          <i class="icon-plus"></i> Add
+                      </button></a> 
+                       
+                    </div>
+                </div>
+                
+                  <div class="card-body">
+                    <div class="row mb-3">
+                      <!-- Filter 1: Select Client -->
+                      <div class="col-md-2">
+                        <label for="filter-client" class="form-label">Client</label>
+                        <select id="filter-client" class="form-select">
+                          <!-- Options will be dynamically populated -->
+                        </select>
+                      </div>
+                  
+                      <!-- Filter 2: Select Transporter or Company -->
+                      <div class="col-md-2">
+                        <label for="filter-company-transporter" class="form-label">Company</label>
+                        <select id="filter-company-transporter" class="form-select">
+                          <option value="">Select </option>
+                        
+                        </select>
+                      </div>
+                      <div class="col-md-2">
+                        <label for="filter-company-transporter" class="form-label">Transporter</label>
+                        <select id="filter-company-transporter" class="form-select">
+                          <option value="">Select </option>
+                      
+                        </select>
+                      </div>
+                  
+                  
+                   
+                      <!-- Filter 5: Select Month -->
+                      <div class="col-md-4">
+                        <label for="dateRangePicker" class="form-label">Select</label>
+                        <input type="text" id="dateRangePicker" class="form-control">
+                    </div>
+                    
+                  
+                      <!-- Filter 6: Reset Button -->
+                      <div class="col-md-2 d-flex align-items-end">
+                        <button id="reset-filters" class="btn btn-primary w-100">Reset</button>
+                      </div>
+                    </div>
+                  
+                    <div class="table-responsive">
+                      <table class="display" id="basic-1">
+                        <thead>
+                          <tr>
+                            <th>SN</th>
+                            <th>Vehicle No.</th>
+                            <th>Type</th>
+                            <th>Medium</th>
+                            <th>Created By</th>
+                            <th>Location</th>
+                            <th>Added</th>
+                            <th>Address</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                         
+                          </tr>
+                        
+                          <!-- Add more rows as needed -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <!-- Zero Configuration  Ends-->
+             
+             
+             
+            </div>
+          </div>
+          <!-- Container-fluid Ends-->
+        </div>
+        <!-- footer start-->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12 footer-copyright text-center">
+                <p class="mb-0">Copyright 2023 © </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- latest jquery-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <!-- Bootstrap js-->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- feather icon js-->
+    <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- scrollbar js-->
+    <script src="../assets/js/scrollbar/simplebar.js"></script>
+    <script src="../assets/js/scrollbar/custom.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="../assets/js/config.js"></script>
+    <!-- Plugins JS start-->
+    <script src="../assets/js/sidebar-menu.js"></script>
+    <script src="../assets/js/sidebar-pin.js"></script>
+    <script src="../assets/js/slick/slick.min.js"></script>
+    <script src="../assets/js/slick/slick.js"></script>
+    <script src="../assets/js/header-slick.js"></script>
+    <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/theme-customizer/customizer.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const table = document.getElementById("basic-1");
+        const rows = table.querySelectorAll("tbody tr");
+    
+        const data = {
+            clients: new Set(),
+            companyOptions: new Map(),
+            transporterOptions: new Map(),
+            statusOptions: new Set()
+        };
+    
+        rows.forEach(row => {
+            const cells = row.querySelectorAll("td");
+            const client = cells[3].textContent.trim();  // Assuming 'Client' is in the 4th column
+            const company = cells[5].textContent.trim();  // Assuming 'Company' is in the 6th column
+            const transporter = cells[4].textContent.trim();  // Assuming 'Transporter' is in the 5th column
+            const status = cells[11].textContent.trim();  // Assuming 'Status' is in the 12th column
+    
+            data.clients.add(client);
+    
+            if (!data.companyOptions.has(client)) {
+                data.companyOptions.set(client, new Set());
+            }
+            data.companyOptions.get(client).add(company);
+    
+            if (!data.transporterOptions.has(client)) {
+                data.transporterOptions.set(client, new Set());
+            }
+            data.transporterOptions.get(client).add(transporter);
+    
+            data.statusOptions.add(status);
+        });
+    
+        data.clients = Array.from(data.clients);
+        data.statusOptions = Array.from(data.statusOptions);
+    
+        const clientSelect = document.getElementById("filter-client");
+        const companyTransporterSelect = document.getElementById("filter-company-transporter");
+        const conditionalFilter = document.getElementById("filter-conditional");
+        const statusSelect = document.getElementById("filter-status");
+        const monthSelect = document.getElementById("filter-month");
+    
+        data.clients.forEach(client => {
+            let option = document.createElement("option");
+            option.value = client;
+            option.textContent = client;
+            clientSelect.appendChild(option);
+        });
+    
+        data.statusOptions.forEach(status => {
+            let option = document.createElement("option");
+            option.value = status;
+            option.textContent = status;
+            statusSelect.appendChild(option);
+        });
+    
+        // Function to populate the conditional filter based on client and second filter
+        function populateConditionalFilter() {
+            conditionalFilter.innerHTML = ""; // Clear previous options
+            const selectedClient = clientSelect.value;
+            const selectedType = companyTransporterSelect.value;
+    
+            if (selectedClient && selectedType) {
+                let options;
+                if (selectedType === "company") {
+                    options = data.companyOptions.get(selectedClient) || new Set();
+                } else if (selectedType === "transporter") {
+                    options = data.transporterOptions.get(selectedClient) || new Set();
+                }
+    
+                options.forEach(optionValue => {
+                    let option = document.createElement("option");
+                    option.value = optionValue;
+                    option.textContent = optionValue;
+                    conditionalFilter.appendChild(option);
+                });
+    
+                // Immediately filter the table with the new conditions
+                filterTable();
+            }
+        }
+    
+        // Event listeners to populate the third filter whenever client or type changes
+        clientSelect.addEventListener("change", populateConditionalFilter);
+        companyTransporterSelect.addEventListener("change", populateConditionalFilter);
+        conditionalFilter.addEventListener("change", filterTable);
+    
+        function filterTable() {
+            const clientFilter = clientSelect.value.toLowerCase();
+            const companyTransporterFilter = companyTransporterSelect.value.toLowerCase();
+            const conditionalFilterValue = conditionalFilter.value.toLowerCase();
+            const statusFilter = statusSelect.value.toLowerCase();
+            const monthFilter = monthSelect.value.toLowerCase();
+    
+            rows.forEach(row => {
+                const cells = row.querySelectorAll("td");
+                const client = cells[3].textContent.toLowerCase();  // Assuming 'Client' is in the 4th column
+                const transporter = cells[4].textContent.toLowerCase();  // Assuming 'Transporter' is in the 5th column
+                const company = cells[5].textContent.toLowerCase();  // Assuming 'Company' is in the 6th column
+                const status = cells[11].textContent.toLowerCase();  // Assuming 'Status' is in the 12th column
+                const lastUpdated = cells[10].textContent.toLowerCase();  // Assuming 'Last Updated' is in the 11th column
+    
+                let showRow = true;
+    
+                if (clientFilter && client !== clientFilter) {
+                    showRow = false;
+                }
+                if (companyTransporterFilter) {
+                    if (companyTransporterFilter === "company" && company !== conditionalFilterValue) {
+                        showRow = false;
+                    } else if (companyTransporterFilter === "transporter" && transporter !== conditionalFilterValue) {
+                        showRow = false;
+                    }
+                }
+                if (statusFilter && status !== statusFilter) {
+                    showRow = false;
+                }
+                if (monthFilter && !lastUpdated.includes(monthFilter)) {
+                    showRow = false;
+                }
+    
+                row.style.display = showRow ? "" : "none";
+            });
+        }
+    
+        const resetButton = document.getElementById("reset-filters");
+        resetButton.addEventListener("click", function () {
+            clientSelect.value = "";
+            companyTransporterSelect.value = "";
+            conditionalFilter.innerHTML = ""; // Clear conditional filter
+            statusSelect.value = "";
+            monthSelect.value = "";
+            filterTable(); // Show all rows
+        });
+    });
+    
+          </script>
+
+
+<script>
+    $(function() {
+    $('#dateRangePicker').daterangepicker({
+        opens: 'left',
+        autoUpdateInput: false,
+        locale: {
+            cancelLabel: 'Clear'
+        },
+        ranges: {
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+            'Custom Range': []
+        }
+    }, function(start, end, label) {
+        $('#dateRangePicker').val(start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY'));
+    });
+    
+    $('#dateRangePicker').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+    });
+});
+
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+  </body>
+</html>
