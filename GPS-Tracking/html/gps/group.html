@@ -111,55 +111,114 @@
       <!-- Page Body Start-->
       <div class="page-body-wrapper">
         <!-- Page Sidebar Start-->
-        <div class="sidebar-wrapper" data-sidebar-layout="stroke-svg">
-          <div>
-            <div class="logo-wrapper"><a href="index.html">
-              <h2>GPS </h2><img class="img-fluid for-dark"
-                  src="../assets/images/logo/logo_dark.png" alt=""></a>
-              <div class="back-btn"><i class="fa fa-angle-left"></i></div>
-              <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
-            </div>
-            <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid"
-                  src="../assets/images/logo/logo-icon.png" alt=""></a></div>
-            <nav class="sidebar-main">
-              <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
-              <div id="sidebar-menu">
-                <ul class="sidebar-links" id="simple-bar">
-                  <li class="back-btn"><a href="index.html"><img class="img-fluid"
-                        src="../assets/images/logo/logo-icon.png" alt=""></a>
-                    <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
-                        aria-hidden="true"></i></div>
-                  </li>
-  
-                 
-                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav"
-                      href="./index.html">
-                      <i class="bi bi-speedometer2 text-secondary" style="font-size: 18px;"></i>
-                     <span>Dashboard</span></a></li>
-                    
-                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
-                     
-                    <i class="bi bi-truck text-secondary" style="font-size: 18px;"></i>
-                      <span class="">Manage</span></a>
-                    
-                    <ul class="sidebar-submenu">
-                      <li><a href="./Manage-vehicle.html">Vehicles</a></li>
-                      <li><a href="./manage-devices.html">Devices</a></li>
-                      <li><a href="./manage-transporter.html">Transporter</a></li>
-                      <li><a href="./manage-client.html">Client</a></li>
-                      <li><a href="#">User Group</a></li>
-                      <li><a href="#">Vehicle Detail</a></li>
-                    </ul>
-                  </li>
-                  
-               
-                
-                </ul>
-              </div>
-              <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
-            </nav>
+      <div class="sidebar-wrapper" data-sidebar-layout="stroke-svg">
+        <div>
+          <div class="logo-wrapper"><a href="index.html">
+            <h2>GPS </h2><img class="img-fluid for-dark"
+                src="../assets/images/logo/logo_dark.png" alt=""></a>
+            <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+            <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
           </div>
+          <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid"
+                src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+          <nav class="sidebar-main">
+            <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
+            <div id="sidebar-menu">
+              <ul class="sidebar-links" id="simple-bar">
+                <li class="back-btn"><a href="index.html"><img class="img-fluid"
+                      src="../assets/images/logo/logo-icon.png" alt=""></a>
+                  <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
+                      aria-hidden="true"></i></div>
+                </li>
+
+               
+                <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav"
+                    href="./index.html">
+                    <i class="bi bi-speedometer text-secondary" style="font-size: 18px;"></i>
+                   <span>Dashboard</span></a></li>
+                  
+                <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
+                   
+                  <i class="bi bi-car-front-fill text-secondary" style="font-size: 18px;"></i>
+                    <span class="">Manage</span></a>
+                  
+                  <ul class="sidebar-submenu">
+                    <li><a href="./Manage-vehicle.html">Vehicles</a></li>
+                    <li><a href="./manage-devices.html">Devices</a></li>
+                    <li><a href="./manage-transporter.html">Transporter</a></li>
+                    <li><a href="./manage-client.html">Client</a></li>
+                    <li><a class="submenu-title" href="#">User Group<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
+                      <ul class="nav-sub-childmenu submenu-content">
+                        <li><a href="./user.html">User</a></li>
+                        <li><a href="./group.html">Group</a></li>
+                      
+                      </ul>
+                    </li>
+
+                    <li><a href="./vehicles-details.html">Vehicle Detail</a></li>
+                    <li><a href="./Geofence.html">Geofence</a></li>
+
+                  </ul>
+                </li>
+                <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
+                   
+                  <i class="bi bi-file-text-fill text-secondary" style="font-size: 18px;"></i>
+                    <span class="">Reports</span></a>
+                  
+                  <ul class="sidebar-submenu">
+                    <li><a href="report-distance.html">Distance Report</a></li>
+                    <li><a href="./status-report.html"> Status Report</a></li>
+                    <li><a href="./travel-summary-report.html">Travel Summary Report</a></li>
+                    <li><a href="./Stopped-Storage.html"> Stoppage Summary Report</a></li>
+                    <li><a href="./sensor-report.html">Sensor Report</a></li>
+                    <li><a href="./vehicles-log.html"> Vehicle Log Report</a></li>
+                    <li><a href="./Google-map-api.html">Google Map Api Report</a></li>
+                    <li><a href="./subscription-report-change.html">Subscription Changed Report</a></li>
+                    <li><a href="./Subscription expired report.html">Subscription Expired Report</a></li>
+                    <li><a href="./Geofence-report.html">Geofence Report</a></li>
+                    <li><a href="./coin-distribution-report.html">Coin Distribution Report</a></li>
+                 
+
+                    <li><a href="./detached-coin-report.html">Detached Coins Report</a></li>
+                    <li><a href="./coin-attachment.html">Coin Attachment Report</a></li>
+                    <li><a href="./Expiring-coin-report.html">Expiring Coin Report</a></li>
+                  </ul>
+                </li>
+
+                <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
+                   
+                  <i class="bi bi-ticket-fill text-secondary" style="font-size: 18px;"></i>
+                    <span class="">Support</span></a>
+                  
+                  <ul class="sidebar-submenu">
+                    <li><a href="./Raise-list.html">Raise Ticket</a></li>
+                    <li><a href="./answer-list.html">Answer Tickets</a></li>
+                  
+
+                  </ul>
+                </li>
+                <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
+                   
+                  <i class="bi bi-lock-fill text-secondary" style="font-size: 18px;"></i>
+                    <span class="">Access Management</span></a>
+                  
+                  <ul class="sidebar-submenu">
+                    <li><a href="./access-management.html">Access Management</a></li>
+                 
+                  
+
+                  </ul>
+                </li>
+
+                
+             
+              
+              </ul>
+            </div>
+            <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
+          </nav>
         </div>
+      </div>
         <!-- Page Sidebar Ends-->
         <div class="page-body">
           
