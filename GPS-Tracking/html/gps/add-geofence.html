@@ -27,7 +27,6 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/datatables.css">
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
@@ -312,91 +311,100 @@
         </div>
         <!-- Page Sidebar Ends-->
         <div class="page-body">
-          
+       
           <!-- Container-fluid starts-->
           <div class="container-fluid">
-          
             <div class="row">
-              <!-- Zero Configuration  Starts-->
-              <div class="col-sm-12">
+              <div class="col-sm-12"> 
                 <div class="card">
-                 
-                  <div class="card-header pb-0 card-no-border d-flex justify-content-between align-items-center">
-                    <h4>Manage Geofence</h4>
-                    <div>
-                        <!-- Rows Visibility Button -->
-                       
-                        
-                        <!-- Column Visibility Button -->
-                      
-                         
-                     
-                        
-                        <!-- Add Button -->
-                         <a href="./add-geofence.html"> <button type="button" class="btn btn-primary btn-sm">
-                          <i class="icon-plus"></i> Add
-                      </button></a> 
-                       
-                    </div>
-                </div>
-    
-                
+
                   <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="table-responsive mt-3">
-                            <table class="display" id="basic-1">
-                              <thead>
-                                <tr>
-                                  
-                                  <th>SN</th>
-                                  <th>Name</th>
-                                  <th>Place Type</th>
-                                  <th>Geo Type</th>
-                                  <th>Assign To</th>
-                                  <th>Geofence Code</th>
-                                  <th>Transit Time</th>
-                               
-                                 
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
+                    <div class="horizontal-wizard-wrapper">
+                      <div class="row g-3 p-3">
+                       
+                        <div class="col-12"> 
+                                <div class="card ">
+                                    <div class="card-header bg-primary">
+                                      <div class="row">
+                                        <div class="col-md-10">
+                                            <h4>Add Geofence</h4>
+                                        </div>
+                                        <div class="col-md">
+                                            <a href="./Geofence.html">  <div class="btn btn-secondary"><i class="bi bi-arrow-90deg-up"></i></div></a>
+                
+                                        </div>
+                                    </div>
+                                      </div>
+                                </div>
                            
-                                <!-- Add more rows as needed -->
-                              </tbody>
-                            </table>
-                          </div>
+                              <form class="row g-3 needs-validation" novalidate="">
+                                <div class="col-xl-3 ">
+                                  <label class="form-label" for="Name">Name<span class="txt-danger">*</span></label>
+                                  <input class="form-control" id="Name" type="text" placeholder="Name" required="">
+                                
+                                </div>
+                                <div class="col-xl-3">
+                                    <label class="form-label" for="Type">Type <span class="txt-danger">*</span></label>
+                                    <select class="form-select" id="Type" required="">
+                                      <option selected="" disabled="" value="">Select</option>
+                                      <option value="">ATM</option>
+                                      <option value="">Airport</option>
+                                      <option value=""> Bank</option>
+                                      <option value="">Beach</option>
+                                     
+                                    </select>
+                             
+                                  </div>
+                                  <div class="col-xl-3">
+                                    <label class="form-label" for="Type">Assign Type <span class="txt-danger">*</span></label>
+                                    <select class="form-select" id="Type" required="">
+                                      <option selected="" disabled="" value="">Select</option>
+                                      <option value="">Client</option>
+                                      <option value="">Vehicle</option>
+                                      <option value=""> Transporter</option>
+                                      <option value="">Group</option>
+                                     
+                                    </select>
+                             
+                                  </div>
+                                <div class="col-xl-3 ">
+                                  <label class="form-label" for="code">Geofence Code(optional)</label>
+                                  <input class="form-control" id="code" type="text" required="" placeholder="Password">
+                            
+                                </div>
+                                <div class="col-xl-3">
+                                    <label class="form-label" for="Type">Transit Time(in Days's)</label>
+                                    <select class="form-select" id="Type" required="">
+                                      <option selected="" disabled="" value="">Select</option>
+                                      <option value="">1</option>
+                                      <option value="">2</option>
+                                      <option value="">3</option>
+                                      <option value="">4</option>
+                                     
+                                    </select>
+                             
+                                  </div>
+                        
+                              
+                              
+                                <div class="col-12 text-end mt-5">
+                                    <button class="btn btn-primary">Reset</button>
+                                  <button class="btn btn-primary">Save</button>
+                                </div>
+                              </form>
+                     
+                          
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-6" style="padding: 0; margin: 0;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2636826.613585597!2d73.91071043901786!3d30.793239607108095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1724330044876!5m2!1sen!2sin" height="400px" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                      
-                      
-                      
-                       </div>
-                </div>
-                  
-                  
                   </div>
-                  
                 </div>
               </div>
-              <!-- Zero Configuration  Ends-->
-             
-             
              
             </div>
-          </div>
+       
           <!-- Container-fluid Ends-->
-        </div>
+        </div></div>
         <!-- footer start-->
          <footer class="footer">
           <div class="container-fluid">
@@ -427,12 +435,9 @@
     <script src="../assets/js/slick/slick.min.js"></script>
     <script src="../assets/js/slick/slick.js"></script>
     <script src="../assets/js/header-slick.js"></script>
-    <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
-    <script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
-
   </body>
 </html>
