@@ -37,6 +37,7 @@
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   </head>
   <body> 
     <!-- loader starts-->
@@ -247,6 +248,7 @@
                     <div class="row mb-3">
                         <!-- Filter 2: Select Ticket Type -->
                         <div class="col-md">
+                          <label for="filter-ticket-type" class="form-label">Select</label>
                             <select id="filter-ticket-type" class="form-select">
                                 <option value="" selected disabled>All Ticket Types</option>
                                 <option value="All">All</option>
@@ -254,14 +256,18 @@
                         </div>
                         
                         <!-- Filter 3: Added Date -->
-                        <div class="col-md">
-                            <input type="date" id="filter-added-date" class="form-control" placeholder="Added Date">
+                        
+                         <div class="col-md-4">
+                          <label for="dateRangePicker1" class="form-label">Added Date Filter</label>
+                          <input type="text" id="dateRangePicker1" class="form-control">
                         </div>
                         
                         <!-- Filter 4: Updated Date -->
-                        <div class="col-md">
-                            <input type="date" id="filter-updated-date" class="form-control" placeholder="Updated Date">
+                        <div class="col-md-4">
+                          <label for="dateRangePicker2" class="form-label">Updated Date Filter</label>
+                          <input type="text" id="dateRangePicker2" class="form-control">
                         </div>
+                      
                         
                         <!-- Filter 5: Reset Button -->
                         <div class="col-md-2 d-flex align-items-end">
@@ -446,6 +452,37 @@
             });
         });
     </script>
-    
+     <script>
+      $(function() {
+        function applyDateRangePicker(selector) {
+          $(selector).daterangepicker({
+            opens: 'left',
+            autoUpdateInput: true,
+            locale: {
+              cancelLabel: 'Clear'
+            },
+            ranges: {
+              'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+              'This Month': [moment().startOf('month'), moment().endOf('month')],
+              'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+              'Custom Range': []
+            }
+          }, function(start, end, label) {
+            $(selector).val(start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY'));
+          });
+      
+          $(selector).on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+          });
+        }
+      
+        applyDateRangePicker('#dateRangePicker1');
+        applyDateRangePicker('#dateRangePicker2');
+      });
+      </script>
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   </body>
 </html>
