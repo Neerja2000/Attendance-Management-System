@@ -459,7 +459,7 @@
         $(function() {
         $('#dateRangePicker').daterangepicker({
             opens: 'left',
-            autoUpdateInput: false,
+            autoUpdateInput: true,
             locale: {
                 cancelLabel: 'Clear'
             },
@@ -468,7 +468,8 @@
                 'This Month': [moment().startOf('month'), moment().endOf('month')],
                 'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
                 'Custom Range': []
-            }
+            },
+            alwaysShowCalendars: true 
         }, function(start, end, label) {
             $('#dateRangePicker').val(start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY'));
         });
