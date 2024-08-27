@@ -481,9 +481,35 @@
                     <h4></h4>
                     <div>
                         <!-- Rows Visibility Button -->
-                        <button type="button" class="btn btn-secondary btn-sm">
-                            <i class="icon-eye"></i> Rows Visibility
-                        </button>
+                        <button class="btn btn-secondary dropdown btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="icon-eye"></i> Row Visibility
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <li>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="option1">
+                                  <label class="form-check-label" for="option1">
+                                      Option 1
+                                  </label>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="option2">
+                                  <label class="form-check-label" for="option2">
+                                      Option 2
+                                  </label>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="option3">
+                                  <label class="form-check-label" for="option3">
+                                      Option 3
+                                  </label>
+                              </div>
+                          </li>
+                      </ul>
                         
                         <!-- Column Visibility Button -->
                         <button class="btn btn-secondary dropdown btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -546,7 +572,7 @@
                   
                       <!-- Filter 3: Conditional selection based on Filter 2 -->
                       <div class="col-md-2" id="conditional-filter">
-                        <label for="filter-conditional" class="form-label">Select</label>
+                        <label for="filter-conditional" class="form-label ms-4">Select</label>
                         <select id="filter-conditional" class="form-select">
                           <!-- Options will be dynamically populated based on Filter 2 selection -->
                         </select>
@@ -563,28 +589,13 @@
                   
                       <!-- Filter 5: Select Month -->
                       <div class="col-md-2">
-                        <label for="filter-month" class="form-label">Month</label>
-                        <select id="filter-month" class="form-select">
-                          <option value="">All Months</option>
-                          <!-- Add months here manually -->
-                          <option value="January">January</option>
-                          <option value="February">February</option>
-                          <option value="March">March</option>
-                          <option value="April">April</option>
-                          <option value="May">May</option>
-                          <option value="June">June</option>
-                          <option value="July">July</option>
-                          <option value="August">August</option>
-                          <option value="September">September</option>
-                          <option value="October">October</option>
-                          <option value="November">November</option>
-                          <option value="December">December</option>
-                        </select>
-                      </div>
+                        <label for="filter-month" class="form-label">Select Month</label>
+                        <input type="month" id="filter-month" class="form-control">
+                    </div>
                   
                       <!-- Filter 6: Reset Button -->
                       <div class="col-md-2 d-flex align-items-end">
-                        <button id="reset-filters" class="btn btn-primary w-100">Reset</button>
+                        <button id="reset-filters" class="btn btn-primary w-100"><i class="bi bi-arrow-clockwise"></i> Reset</button>
                       </div>
                     </div>
                   
