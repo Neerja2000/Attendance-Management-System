@@ -2,7 +2,16 @@
   <section class="section">
     <div class="card">
       <div class="card-header">
-        <h5 class="card-title">Add Today's Attendance</h5>
+        <div class="row">
+          <div class="col-md-8">
+            <h5 class="card-title">Add Today's Attendance</h5>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-primary" [routerLink]="['/employee/layout/add-daily-rating']">+ Add Today's Rating</button>
+
+          </div>
+        </div>
+
       </div>
       <div class="card-body">
         <form [formGroup]="attendanceForm" (ngSubmit)="submitAttendance()">

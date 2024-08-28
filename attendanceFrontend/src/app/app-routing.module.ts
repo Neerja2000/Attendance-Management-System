@@ -19,6 +19,7 @@ import { EmpViewRatingComponent } from './employee/emp-view-rating/emp-view-rati
 import { AuthGuard } from './auth_guard/auth_guard';
 import { AdminpasswordComponent } from './admin/adminpassword/adminpassword.component';
 import { EmployeePasswordComponent } from './employee/employee-password/employee-password.component';
+import { AddDailyRatingComponent } from './employee/add-daily-rating/add-daily-rating.component';
 
 const routes: Routes = [
 {
@@ -65,7 +66,7 @@ const routes: Routes = [
   {
     path:"employee/layout",component:EmpLayoutComponent,
     children:[{
-      path:'emp-dashboard',component:EmpDashboardComponent,canActivate: [AuthGuard]
+      path:'emp-dashboard',component:EmpDashboardComponent,canActivate:[AuthGuard]
     },
     {
       path:'emp-add-attendance',component:EmpAddAttendanceComponent,canActivate: [AuthGuard]
@@ -78,6 +79,9 @@ const routes: Routes = [
     },
     {
       path:'emp-view-rating/:employeeId',component:EmpViewRatingComponent,canActivate: [AuthGuard]
+    },
+    {
+      path:'add-daily-rating',component:AddDailyRatingComponent,canActivate:[AuthGuard]
     }
   ]
   }

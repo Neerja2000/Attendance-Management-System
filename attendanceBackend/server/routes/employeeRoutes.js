@@ -3,7 +3,7 @@ const router=express.Router()
 const attendanceController=require("../apis/attendance/attendanceController")
 const empRatingController=require("../apis/employeeRating/empRatingController")
 const employeeController=require("../apis/employee/employeeController")
-
+const dailyRatingController=require("../apis/dailyRating/dailyRatingController")
 
 
 // login
@@ -21,7 +21,10 @@ router.post("/attendance/status",attendanceController.changeStatus)
 router.get("/attendance/today",attendanceController.getTodayAttendance)
 //rating
 router.post("/rating/add",empRatingController.addRating)
+
 router.get('/rating/getSingle/:employeeId', empRatingController.getSingle);
+// daily
+router.post("/dailyRating/add",dailyRatingController.addDailyRating)
 
 
 module.exports=router

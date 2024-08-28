@@ -5,7 +5,7 @@ const attendanceController=require("../apis/attendance/attendanceController")
 
 const empRatingController=require("../apis/employeeRating/empRatingController")
 const adminController=require("../apis/admin/adminController")
-
+const dailyRatingController=require("../apis/dailyRating/dailyRatingController")
 
 
 
@@ -35,10 +35,11 @@ router.get("/attendance/day",attendanceController.getAttendanceByDate)
 
 
 
-// empRating view
+// adminRating 
 router.get("/emprating/getAll",empRatingController.getAll)
 router.put("/adminrating/add",empRatingController.adminRating)
 
-
+// view daily rating
+router.get("/dailyRating/all",dailyRatingController.getDailyRating)
 
 module.exports=router

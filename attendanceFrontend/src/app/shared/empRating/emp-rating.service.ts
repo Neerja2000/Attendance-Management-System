@@ -24,9 +24,14 @@ export class EmpRatingService {
    }
 
 
-  addEmpAttendanceapi(RatingData: any){
+   addEmpRatingapi(RatingData: any){
     return this.http.post(this.employeebaseurl+'/rating/add',RatingData,{ headers: this.getHeaders() })
    }
+
+   addEmpDailyRatingapi(RatingData: any){
+    return this.http.post(this.employeebaseurl+'/dailyRating/add',RatingData,{ headers: this.getHeaders() })
+   }
+
 
    getSingleRating(employeeId: string): Observable<any> {
     return this.http.get(`${this.employeebaseurl}/rating/getSingle/${employeeId}`,{ headers: this.getHeaders() });

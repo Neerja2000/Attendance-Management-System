@@ -3,16 +3,17 @@
       <div class="card">
         <div class="card-header">
             <div class="row"> <div class="col-md-9">
-                <h5 class="card-title">Add Rating</h5>
+                <h5 class="card-title">Add Today's Rating</h5>
             </div>
-            <div class="col-md-3">
-                <button class="btn btn-primary"[routerLink]="employeeId ? ['/employee/layout/emp-view-rating', employeeId] : []" >view rating</button>
-            </div></div>
+            <div class="col-md">
+                <button class="btn btn-primary"  [routerLink]="['/employee/layout/emp-add-attendance']" ><i class="bi bi-arrow-left"></i> Go Back</button>
+            </div>
+           </div>
            
          
         </div>
         <div class="card-body">
-          <form [formGroup]="ratingForm" (ngSubmit)="addRating()">
+          <form [formGroup]="dailyAttendance" (ngSubmit)="submit()">
             <table class="table table-striped" id="table1">
               <thead>
                 <tr>
@@ -29,7 +30,7 @@
                       </select>
                   </td>
                   <td>
-                    <input type="text" formControlName="remarks" class="form-control" required>
+                    <input type="text" formControlName="remarks"  class="form-control" required>
                   </td>
                 </tr>
               </tbody>

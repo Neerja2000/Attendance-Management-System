@@ -52,6 +52,12 @@ const addRating = async (req, res) => {
     }
 };
 
+
+
+
+
+
+
 const adminRating = async (req, res) => {
     try {
         const updatedRating = await rating.findOneAndUpdate(

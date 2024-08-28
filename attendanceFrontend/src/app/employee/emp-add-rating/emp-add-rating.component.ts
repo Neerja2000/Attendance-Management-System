@@ -14,7 +14,7 @@ import { RatingService } from 'src/app/shared/rating/rating.service';
 export class EmpAddRatingComponent implements OnInit {
   ratingForm: FormGroup;
   employeeId: string | null = null;
-
+  ratings = Array.from({ length: 10 }, (_, i) => i + 1);
   constructor(
     private formBuilder: FormBuilder,
     private ratingService: EmpRatingService,
@@ -50,7 +50,7 @@ export class EmpAddRatingComponent implements OnInit {
 
       console.log('Sending Rating Data:', ratingData); // Log the data being sent
 
-      this.ratingService.addEmpAttendanceapi(ratingData).subscribe(
+      this.ratingService.addEmpRatingapi(ratingData).subscribe(
         (response: any) => {
           console.log('Rating added successfully', response);
           if (response.success) {

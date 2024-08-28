@@ -40,5 +40,7 @@ export class RatingService {
    
     return this.http.put(`${this.globalbaseurl}/adminrating/add`, payload,{ headers: this.getHeaders() });
   }
-  
+  getDailyRating(){
+    return this.http.get(`${this.globalbaseurl}/dailyRating/all`,{ headers: this.getHeaders() });
+  }
 }
