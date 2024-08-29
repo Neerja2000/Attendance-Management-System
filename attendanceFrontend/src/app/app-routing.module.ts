@@ -20,6 +20,7 @@ import { AuthGuard } from './auth_guard/auth_guard';
 import { AdminpasswordComponent } from './admin/adminpassword/adminpassword.component';
 import { EmployeePasswordComponent } from './employee/employee-password/employee-password.component';
 import { AddDailyRatingComponent } from './employee/add-daily-rating/add-daily-rating.component';
+import { ViewDailyRatingComponent } from './admin/view-daily-rating/view-daily-rating.component';
 
 const routes: Routes = [
 {
@@ -57,6 +58,9 @@ const routes: Routes = [
     },
     {
       path:'view-rating',component:ViewRatingComponent,canActivate: [AuthGuard]
+    },
+    {
+      path:'view-daily-rating',component:ViewDailyRatingComponent
     }
   ]
   },
