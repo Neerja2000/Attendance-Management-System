@@ -19,6 +19,7 @@
                 <th>Wednesday</th>
                 <th>Thursday</th>
                 <th>Friday</th>
+                <th>Average</th>
               </tr>
             </thead>
             <tbody>
@@ -31,6 +32,7 @@
                   </div>
                   <div *ngIf="!employee.ratings[day]" class="text-center">-</div>
                 </td>
+                <td>{{employee.averageRating}}</td>
               </tr>
             </tbody>
           </table>

@@ -42,7 +42,8 @@ employeeId:any
     const employeeMap = new Map<string, any>();
   
     this.ratings.forEach(rating => {
-      // Check if employeeId exists
+      
+  
       if (rating.employeeId && rating.employeeId._id) {
         const date = new Date(rating.createdAt);
         const dayOfWeek = date.getDay();
@@ -52,7 +53,9 @@ employeeId:any
         if (!employeeMap.has(employeeId)) {
           employeeMap.set(employeeId, {
             name: rating.employeeId.name,
-            ratings: {}
+            ratings: {},
+            totalRating: 0,
+            ratingCount: 0
           });
         }
   
@@ -61,16 +64,29 @@ employeeId:any
           rating: rating.rating,
           remarks: rating.remarks
         };
+  
+        employeeData.totalRating += rating.rating;
+        employeeData.ratingCount++;
       } else {
         console.warn('Missing employeeId in rating:', rating);
       }
     });
   
-    this.employees = Array.from(employeeMap.values());
+    // Debugging
+    console.log('Employee Map after Processing:', employeeMap);
   
-    // Debugging statements
-    console.log('Employee Map:', employeeMap);
-    console.log('Employees:', this.employees);
+    this.employees = Array.from(employeeMap.values()).map(employee => {
+      const averageRating = employee.ratingCount > 0 
+        ? (employee.totalRating / employee.ratingCount).toFixed(2) 
+        : '0.00'; // Use '0.00' instead of 'N/A'
+  
+
+  
+      return {
+        ...employee,
+        averageRating
+      };
+    });
   }
   
   
