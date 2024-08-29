@@ -1,4 +1,5 @@
 const rating = require('./dailyRatingModel');
+const Employee=require("../employee/employeeModel")
 const addDailyRating = (req, res) => {
     const { rating: newRatingValue, remarks, employeeId } = req.body;
 
@@ -80,6 +81,7 @@ const getDailyRatings = (req, res) => {
             $lte: endOfWeek
         }
     })
+    .populate('employeeId','name') // Populate 'employeeId' field with 'name' only
     .then((result) => {
         res.json({
             success: true,

@@ -24,9 +24,8 @@ employeeId:any
       (response: any) => {
         if (response.success) {
           this.ratings = response.data;
-         
-          this.processRatings();
           console.log(response.data)
+          this.processRatings();
         } else {
           console.error('Failed to load ratings:', response.message);
         }
@@ -38,28 +37,42 @@ employeeId:any
   }
 
   processRatings(): void {
-
-    // Assuming `ratings` array contains objects with fields: `employeeId`, `rating`, `remarks`, and `createdAt`.
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-
-    this.employees = this.ratings.reduce((acc: any[], rating: any) => {
-      const date = new Date(rating.createdAt);
-      const dayOfWeek = date.getDay();
-      const dayName = days[dayOfWeek - 1]; // Convert 1-5 (Mon-Fri) to "Monday"-"Friday"
-
-      if (dayName) {
-        let employee = acc.find((e) => e.employeeId === rating.employeeId);
-        if (!employee) {
-          employee = {
-            employeeId: rating.employeeId,
-            name: rating.employeeName, // Assuming `employeeName` exists, or fetch it from a separate API
+  
+    const employeeMap = new Map<string, any>();
+  
+    this.ratings.forEach(rating => {
+      // Check if employeeId exists
+      if (rating.employeeId && rating.employeeId._id) {
+        const date = new Date(rating.createdAt);
+        const dayOfWeek = date.getDay();
+        const dayName = days[dayOfWeek - 1];
+        const employeeId = rating.employeeId._id;
+  
+        if (!employeeMap.has(employeeId)) {
+          employeeMap.set(employeeId, {
+            name: rating.employeeId.name,
             ratings: {}
-          };
-          acc.push(employee);
+          });
         }
-        employee.ratings[dayName] = rating;
+  
+        const employeeData = employeeMap.get(employeeId);
+        employeeData.ratings[dayName] = {
+          rating: rating.rating,
+          remarks: rating.remarks
+        };
+      } else {
+        console.warn('Missing employeeId in rating:', rating);
       }
-      return acc;
-    }, []);
+    });
+  
+    this.employees = Array.from(employeeMap.values());
+  
+    // Debugging statements
+    console.log('Employee Map:', employeeMap);
+    console.log('Employees:', this.employees);
   }
+  
+  
+  
 }

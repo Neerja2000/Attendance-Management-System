@@ -23,7 +23,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let employee of employees">
-                <td>{{ employee.employeeName }}</td>
+                <td>{{ employee.name }}</td>
                 <td *ngFor="let day of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']">
                   <div *ngIf="employee.ratings[day]">
                     <div>{{ employee.ratings[day].rating }}</div>
