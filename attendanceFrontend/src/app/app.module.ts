@@ -32,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminpasswordComponent } from './admin/adminpassword/adminpassword.component';
 import { EmployeePasswordComponent } from './employee/employee-password/employee-password.component';
 import { AddDailyRatingComponent } from './employee/add-daily-rating/add-daily-rating.component';
+import { ViewDailyRatingComponent } from './admin/view-daily-rating/view-daily-rating.component';
 
 
 
@@ -62,7 +63,8 @@ import { AddDailyRatingComponent } from './employee/add-daily-rating/add-daily-r
     EmpViewRatingComponent,
     AdminpasswordComponent,
     EmployeePasswordComponent,
-    AddDailyRatingComponent
+    AddDailyRatingComponent,
+    ViewDailyRatingComponent
    
    
   ],
