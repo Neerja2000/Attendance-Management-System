@@ -12,8 +12,7 @@
       </div>
       <div class="form-group">
         <label for="weekFilter">Filter by Week:</label>
-        <select class="form-control" [(ngModel)]="selectedWeek" (change)="onFilterChange()">
-          <option value="" selected disabled>Select Week</option>
+        <select id="weekSelect" [(ngModel)]="selectedWeek" (change)="loadRatings()" class="form-control">
           <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
         </select>
       </div>

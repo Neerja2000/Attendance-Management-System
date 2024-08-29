@@ -128,7 +128,6 @@ const getAll = async (req, res) => {
       }
     }
 
-    // Log the start and end dates to verify correctness
     console.log("Start Date:", startDate);
     console.log("End Date:", endDate);
 
@@ -139,6 +138,8 @@ const getAll = async (req, res) => {
       }
     }).populate('employeeId');
 
+    console.log("Fetched Ratings:", ratings);
+
     res.json({
       success: true,
       status: 200,
@@ -146,6 +147,7 @@ const getAll = async (req, res) => {
       data: ratings
     });
   } catch (err) {
+    console.error('Error:', err);
     res.json({
       success: false,
       status: 400,
@@ -153,6 +155,7 @@ const getAll = async (req, res) => {
     });
   }
 };
+
 
 
 
