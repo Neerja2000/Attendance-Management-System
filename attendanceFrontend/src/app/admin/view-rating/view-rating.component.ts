@@ -42,25 +42,25 @@ export class ViewRatingComponent implements OnInit {
     return `week${Math.ceil(day / 7)}`;
   }
 
-  loadRatings() {
-    console.log('Selected Week:', this.selectedWeek);
-    console.log('Selected Month:', this.selectedMonth);
-    
-    this.ratingService.empRatingapi(this.selectedWeek, this.selectedMonth).subscribe(
-      (res: any) => {
-        console.log('API Response:', res);
-        if (res.success) {
-          this.ratings = res.data; 
-        } else {
-          console.error('Error fetching ratings:', res.message);
-        }
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
-  }
+loadRatings() {
+  console.log('Selected Week:', this.selectedWeek);
+  console.log('Selected Month:', this.selectedMonth);
   
+  this.ratingService.empRatingapi(this.selectedWeek, this.selectedMonth).subscribe(
+    (res: any) => {
+      console.log('API Response:', res);
+      if (res.success) {
+        this.ratings = res.data; 
+      } else {
+        console.error('Error fetching ratings:', res.message);
+      }
+    },
+    (error) => {
+      console.error('Error:', error);
+    }
+  );
+}
+
   
   onFilterChange() {
     this.loadRatings();
