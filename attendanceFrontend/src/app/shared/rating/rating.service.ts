@@ -43,4 +43,5 @@ export class RatingService {
   getDailyRating(){
     return this.http.get(`${this.globalbaseurl}/dailyRating/all`,{ headers: this.getHeaders() });
   }
+
 }

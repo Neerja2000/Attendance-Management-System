@@ -1,1 +1,41 @@
-<p>view-daily-rating works!</p>
+<!-- src/app/view-daily-rating/view-daily-rating.component.html -->
+<div class="container-fluid mt-5">
+    <section class="section">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-9">
+              <h5 class="card-title">View Daily Rating</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped" id="table1">
+            <thead>
+              <tr>
+                <th>Name Of Employees</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let employee of employees">
+                <td>{{ employee.employeeName }}</td>
+                <td *ngFor="let day of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']">
+                  <div *ngIf="employee.ratings[day]">
+                    <div>{{ employee.ratings[day].rating }}</div>
+                    <p>{{ employee.ratings[day].remarks }}</p>
+                  </div>
+                  <div *ngIf="!employee.ratings[day]" class="text-center">-</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+  
