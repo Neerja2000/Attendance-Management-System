@@ -38,15 +38,17 @@ export class ViewRatingComponent implements OnInit {
 
   getCurrentWeek(): string {
     const date = new Date();
-    const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-    const currentDay = date.getDate();
-    const weekNumber = Math.ceil(currentDay / 7);
-    return `week${weekNumber}`;
+    const day = date.getDate();
+    return `week${Math.ceil(day / 7)}`;
   }
 
   loadRatings() {
+    console.log('Selected Week:', this.selectedWeek);
+    console.log('Selected Month:', this.selectedMonth);
+    
     this.ratingService.empRatingapi(this.selectedWeek, this.selectedMonth).subscribe(
       (res: any) => {
+        console.log('API Response:', res);
         if (res.success) {
           this.ratings = res.data; 
         } else {
@@ -58,7 +60,8 @@ export class ViewRatingComponent implements OnInit {
       }
     );
   }
-
+  
+  
   onFilterChange() {
     this.loadRatings();
   }

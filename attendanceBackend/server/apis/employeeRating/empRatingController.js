@@ -92,42 +92,53 @@ const adminRating = async (req, res) => {
 
 
 
-
 const getAll = async (req, res) => {
   try {
-    const { week, month } = req.query; // Get week and month from query parameters
-    
-    const startDate = new Date(); 
-    const endDate = new Date();
-    
+    const { week, month } = req.query;
+
+    let startDate = new Date();
+    let endDate = new Date();
+
     if (month) {
       const [year, monthNum] = month.split('-');
-      startDate.setFullYear(year, monthNum - 1, 1);
-      endDate.setFullYear(year, monthNum, 0);
-    }
-    
-    if (week) {
-      const weekNum = parseInt(week.replace('week', ''));
-      const startOfWeek = startDate.getDate() + (weekNum - 1) * 7;
-      startDate.setDate(startOfWeek);
-      endDate.setDate(startOfWeek + 6);
+      startDate.setFullYear(year, monthNum - 1, 1); // Start at the 1st day of the month
+      endDate = new Date(startDate);
+      endDate.setMonth(monthNum - 1);
+      endDate.setFullYear(year);
+      endDate.setMonth(monthNum);
+      endDate.setDate(0); // End at the last day of the month
+
+      if (week) {
+        const weekNum = parseInt(week.replace('week', ''));
+        const firstDayOfMonth = startDate.getDay();
+        const daysOffset = (weekNum - 1) * 7 - (firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1);
+
+        startDate.setDate(startDate.getDate() + daysOffset);
+        startDate.setHours(0, 0, 0, 0);
+
+        // Calculate end date for the week, ensuring it doesn't exceed the month's last day
+        endDate = new Date(startDate);
+        endDate.setDate(startDate.getDate() + 6);
+        endDate.setHours(23, 59, 59, 999);
+
+        // If the end date goes past the month's end, truncate it to the month's last day
+        if (endDate.getMonth() !== startDate.getMonth()) {
+          endDate = new Date(startDate.getFullYear(), startDate.getMonth() + 1, 0, 23, 59, 59, 999);
+        }
+      }
     }
 
-    // Set startDate to the beginning of the day and endDate to the end of the day
-    startDate.setHours(0, 0, 0, 0);
-    endDate.setHours(23, 59, 59, 999);
-
-    // Log the dates to debug
+    // Log the start and end dates to verify correctness
     console.log("Start Date:", startDate);
     console.log("End Date:", endDate);
-    
+
     const ratings = await rating.find({
       createdAt: {
         $gte: startDate,
         $lte: endDate
       }
     }).populate('employeeId');
-  
+
     res.json({
       success: true,
       status: 200,
@@ -142,6 +153,9 @@ const getAll = async (req, res) => {
     });
   }
 };
+
+
+
 
 
 
