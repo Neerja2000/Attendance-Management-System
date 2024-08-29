@@ -1,4 +1,4 @@
-const rating = require('./empRatingModel');
+const rating = require("./empRatingModel")
 
 
 
@@ -94,47 +94,55 @@ const adminRating = async (req, res) => {
 
 
 const getAll = async (req, res) => {
-    try {
-      const { week, month } = req.query; // Get week and month from query parameters
-      
-      const startDate = new Date(); 
-      const endDate = new Date();
-      
-      // Set the start and end dates based on the provided month and week
-      if (month) {
-        const [year, monthNum] = month.split('-');
-        startDate.setFullYear(year, monthNum - 1, 1);
-        endDate.setFullYear(year, monthNum, 0);
-      }
-  
-      if (week) {
-        const weekNum = parseInt(week.replace('week', ''));
-        const startOfWeek = startDate.getDate() + (weekNum - 1) * 7;
-        startDate.setDate(startOfWeek);
-        endDate.setDate(startOfWeek + 6);
-      }
-      
-      const ratings = await rating.find({
-        createdAt: {
-          $gte: startDate,
-          $lte: endDate
-        }
-      }).populate('employeeId');
-  
-      res.json({
-        success: true,
-        status: 200,
-        message: "Get All Rating",
-        data: ratings
-      });
-    } catch (err) {
-      res.json({
-        success: false,
-        status: 400,
-        message: err.message
-      });
+  try {
+    const { week, month } = req.query; // Get week and month from query parameters
+    
+    const startDate = new Date(); 
+    const endDate = new Date();
+    
+    if (month) {
+      const [year, monthNum] = month.split('-');
+      startDate.setFullYear(year, monthNum - 1, 1);
+      endDate.setFullYear(year, monthNum, 0);
     }
-  };
+    
+    if (week) {
+      const weekNum = parseInt(week.replace('week', ''));
+      const startOfWeek = startDate.getDate() + (weekNum - 1) * 7;
+      startDate.setDate(startOfWeek);
+      endDate.setDate(startOfWeek + 6);
+    }
+
+    // Set startDate to the beginning of the day and endDate to the end of the day
+    startDate.setHours(0, 0, 0, 0);
+    endDate.setHours(23, 59, 59, 999);
+
+    // Log the dates to debug
+    console.log("Start Date:", startDate);
+    console.log("End Date:", endDate);
+    
+    const ratings = await rating.find({
+      createdAt: {
+        $gte: startDate,
+        $lte: endDate
+      }
+    }).populate('employeeId');
+  
+    res.json({
+      success: true,
+      status: 200,
+      message: "Get All Rating",
+      data: ratings
+    });
+  } catch (err) {
+    res.json({
+      success: false,
+      status: 400,
+      message: err.message
+    });
+  }
+};
+
 
 
   const getSingle = async (req, res) => {

@@ -50,21 +50,21 @@ const addDailyRating = (req, res) => {
         });
   };
 
-  const getDailyRating =(req,res)=>{
-    rating.find()   
-     .then((result)=>{
-        res.json({
-            success:true,
-            status:200,
-            message:"Attendance Loaded Successfully",
-            data:result
-        })
-    }).catch(err=>{
-        res.json({
-            success:false,
-            status:400,
-            message:err.message
-        })
-    })
-  }
-  module.exports={addDailyRating,getDailyRating}
+//   const getDailyRating =(req,res)=>{
+//     rating.find()   
+//      .then((result)=>{
+//         res.json({
+//             success:true,
+//             status:200,
+//             message:"Attendance Loaded Successfully",
+//             data:result
+//         })
+//     }).catch(err=>{
+//         res.json({
+//             success:false,
+//             status:400,
+//             message:err.message
+//         })
+//     })
+//   }
+  module.exports={addDailyRating}

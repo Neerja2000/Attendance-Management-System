@@ -40,6 +40,6 @@ router.get("/emprating/getAll",empRatingController.getAll)
 router.put("/adminrating/add",empRatingController.adminRating)
 
 // view daily rating
-router.get("/dailyRating/all",dailyRatingController.getDailyRating)
+// router.get("/dailyRating/all",dailyRatingController.getDailyRating)
 
 module.exports=router
