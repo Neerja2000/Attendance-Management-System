@@ -49,7 +49,7 @@
       }
 
       .dashboard-card {
-          padding: 5px;
+          padding: 5px 10px;
           text-align: center;
           border-radius: 10px;
           background-color: #fff;
@@ -125,9 +125,9 @@
       }
 
       .card-content {
-          margin-left: 5px;
-          text-align: left;
-          flex-grow: 1;
+         font-size: 16px;
+        
+
       }
 
       @media (max-width: 1200px) {
@@ -142,6 +142,8 @@
               flex: 0 0 33.333%;
               max-width: 33.333%;
           }
+          
+    
       }
 
       @media (max-width: 768px) {
@@ -157,6 +159,27 @@
               max-width: 100%;
           }
       }
+
+
+      .popup-message {
+    display: none;
+    position: absolute;
+    top: -35px; /* Adjust this value to control how far above the card the message appears */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card:hover .popup-message {
+    display: block;
+}
   </style>
   </head>
 
@@ -368,21 +391,23 @@
                         </div>
                         <div class="card-content">
                             <span>0</span>
-                            <br>All
+                           
                         </div>
+                        <div class="popup-message">All</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3 col-xl col-custom">
-                    <div class="dashboard-card">
-                        <div class="card-icon-container card-orange">
-                            <i class="bi bi-truck fs-4 card-icon"></i>
-                        </div>
-                        <div class="card-content">
-                            <span>7</span>
-                            <br>Running
-                        </div>
-                    </div>
-                </div>
+                  <div class="dashboard-card">
+                      <div class="card-icon-container card-orange">
+                          <i class="bi bi-truck fs-4 card-icon"></i>
+                      </div>
+                      <div class="card-content">
+                          <span>7</span>
+                      </div>
+                      <div class="popup-message">Running</div>
+                  </div>
+              </div>
+              
                 <div class="col-6 col-md-3 col-lg-3 col-xl col-custom">
                     <div class="dashboard-card">
                         <div class="card-icon-container card-yellow">
@@ -390,8 +415,9 @@
                         </div>
                         <div class="card-content">
                             <span>0</span>
-                            <br>Overspeed
+                            
                         </div>
+                        <div class="popup-message">Overspeed</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3 col-xl col-custom">
@@ -401,8 +427,9 @@
                         </div>
                         <div class="card-content">
                             <span>0</span>
-                            <br>Idle
+                          
                         </div>
+                        <div class="popup-message">Idle</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3 col-xl col-custom">
@@ -412,8 +439,9 @@
                         </div>
                         <div class="card-content">
                             <span>0</span>
-                            <br>Stopped
+                         
                         </div>
+                        <div class="popup-message">Stopped</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3 col-xl col-custom">
@@ -423,8 +451,9 @@
                         </div>
                         <div class="card-content">
                             <span>0</span>
-                            <br>UnReachable
+                          
                         </div>
+                        <div class="popup-message">UnReachable</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3 col-xl col-custom">
@@ -434,8 +463,9 @@
                         </div>
                         <div class="card-content">
                             <span>0</span>
-                            <br>New
+                          
                         </div>
+                        <div class="popup-message">New</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3 col-xl col-custom">
@@ -445,8 +475,9 @@
                         </div>
                         <div class="card-content">
                             <span>0</span>
-                            <br>InActive
+                          
                         </div>
+                        <div class="popup-message">Inactive</div>
                     </div>
                 </div>
             </div>
