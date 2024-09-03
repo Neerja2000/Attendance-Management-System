@@ -164,7 +164,7 @@
       .popup-message {
     display: none;
     position: absolute;
-    top: -35px; /* Adjust this value to control how far above the card the message appears */
+    top: 63px; /* Adjust this value to control how far above the card the message appears */
     left: 50%;
     transform: translateX(-50%);
     background-color: #333;
@@ -179,6 +179,24 @@
 
 .dashboard-card:hover .popup-message {
     display: block;
+}
+
+
+.sticky-container {
+
+z-index:3;
+}
+
+
+.sticky {
+position: fixed;
+top: 78px;
+width: 100%;
+
+
+
+background-color: #F7F8F9;
+
 }
   </style>
   </head>
@@ -379,11 +397,11 @@
           </div>
           <!-- Container-fluid starts-->
           <div class="container-fluid">
-            <div class="row widget-grid">
+            <div class="row widget-grid sticky-container " id="stickyHeader">
              
 
 
-              <div class="row">
+              <div class="row ">
                 <div class="col-6 col-md-3 col-lg-3 col-xl col-custom " >
                     <div class="dashboard-card">
                         <div class="card-icon-container card-green">
@@ -497,7 +515,7 @@
                             <h4 class="text-light">0</h4><span class="text-light">All</span>
                           </div>
                         </div>
-
+  
                       </div>
                     </div>
                   </div>
@@ -548,7 +566,7 @@
                             <h4 class="text-light">0</h4><span class="text-light">Idle</span>
                           </div>
                         </div>
-
+  
                       </div>
                     </div>
                   </div>
@@ -586,7 +604,7 @@
                             <h4 class="text-light">0</h4><span class="text-light">UnReachable</span>
                           </div>
                         </div>
-
+  
                       </div>
                     </div>
                   </div>
@@ -603,7 +621,7 @@
                             <h4 class="text-light">0</h4><span class="text-light">New</span>
                           </div>
                         </div>
-
+  
                       </div>
                     </div>
                   </div>
@@ -628,7 +646,7 @@
                 
                
               </div>
-            <div class="row">
+            <div class="row mt-5">
               <!-- Zero Configuration  Starts-->
               <div class="col-sm-12">
                 <div class="card">
@@ -1067,5 +1085,30 @@
     });
     
           </script>
+
+<script>
+  window.onscroll = function() {toggleSticky()};
+
+var header = document.getElementById("stickyHeader");
+var sticky = header.offsetTop;
+
+function toggleSticky() {
+ if (window.pageYOffset > sticky) {
+   header.classList.add("sticky");
+   // Dynamically set the width to match the container
+   header.style.width = header.parentElement.offsetWidth + 'px';
+ } else {
+   header.classList.remove("sticky");
+   // Reset width to auto when not sticky
+   header.style.width = 'auto';
+ }
+}
+
+// Optional: Ensure width is set correctly on page load
+window.addEventListener('load', function() {
+ header.style.width = header.parentElement.offsetWidth + 'px';
+});
+
+ </script>
   </body>
 </html>
