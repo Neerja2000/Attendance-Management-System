@@ -128,7 +128,7 @@
 
       .card-content {
          font-size: 16px;
-        
+      
 
       }
 
@@ -1205,19 +1205,27 @@
   <script>new WOW().init();</script>
 
   <script>
-    window.onscroll = function() {makeSticky()};
+   window.onscroll = function() {toggleSticky()};
 
 var header = document.getElementById("stickyHeader");
 var sticky = header.offsetTop;
 
-function makeSticky() {
+function toggleSticky() {
   if (window.pageYOffset > sticky) {
     header.classList.add("sticky");
-    
+    // Dynamically set the width to match the container
+    header.style.width = header.parentElement.offsetWidth + 'px';
   } else {
     header.classList.remove("sticky");
+    // Reset width to auto when not sticky
+    header.style.width = 'auto';
   }
 }
+
+// Optional: Ensure width is set correctly on page load
+window.addEventListener('load', function() {
+  header.style.width = header.parentElement.offsetWidth + 'px';
+});
 
   </script>
 </body>
