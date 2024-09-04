@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Footer Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    footer {
+      background-color: #D1AD9F;
+   
+    }
+    .footerClass{
+        padding: 40px ;
+    }
+
+    .footer-logo {
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-icon {
+      text-decoration: none;
+      color: #000;
+      font-size: 18px;
+    }
+
+    .underline {
+      border: 0;
+      border-top: 2px solid #000;
+      margin: 10px 0;
+      width: 10%;
+    }
+
+    .full-white-line {
+      border-top: 1px solid #fff;
+      margin: 0;
+    }
+
+   
+  </style>
+</head>
+<body>
+
+  <footer>
+    <div class="container-fluid">
+      <!-- First Row -->
+      <div class="row text-center text-md-left footerClass">
+        <!-- Column 1 -->
+        <div class="col-md-3 col-12 mb-4">
+          <img src="./eberjey-logo.webp" alt="Logo" class="footer-logo">
+          <p>Sophisticated simplicity for the independent mind.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <!-- Column 2 -->
+        <div class="col-md-3 col-12 mb-4">
+          <h4>Help & Information</h4>
+          <hr class="underline">
+        </div>
+        <!-- Column 3 -->
+        <div class="col-md-3 col-12 mb-4">
+          <h4>About Us</h4>
+          <hr class="underline">
+        </div>
+        <!-- Column 4 -->
+        <div class="col-md-3 col-12 mb-4">
+          <h4>Categories</h4>
+          <hr class="underline">
+        </div>
+      </div>
+
+      <!-- Full Width White Line -->
+      <hr class="full-white-line">
+
+      <!-- Second Row -->
+      <div class=" row footer-bottom-row text-center text-md-left footerClass">
+        <div class="col-md-6 col-12 mb-2">
+          <p>© Copyright 2024 | By Developer. Powered by Developer.</p>
+        </div>
+        <div class="col-md-6 col-12 text-md-right text-center">
+          <img src="end-image.png" alt="End Image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
