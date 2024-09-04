@@ -1,0 +1,55 @@
+<!-- src/app/view-daily-rating/view-daily-rating.component.html -->
+<div class="container-fluid mt-5">
+    <section class="section">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-9">
+              <h5 class="card-title">View Daily Rating</h5>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                  <label for="monthFilter">Filter by Month:</label>
+                  <input type="month" class="form-control" [(ngModel)]="selectedMonth" (change)="onFilterChange()">
+                </div>
+                <div class="form-group">
+                  <label for="weekFilter">Filter by Week:</label>
+                  <select id="weekSelect" [(ngModel)]="selectedWeek" (change)="loadRatings()" class="form-control">
+                    <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
+                  </select>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped" id="table1">
+            <thead>
+              <tr>
+                <th>Name Of Employees</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Average</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let employee of employees">
+                <td>{{ employee.name }}</td>
+                <td *ngFor="let day of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']">
+                  <div *ngIf="employee.ratings[day]">
+                    <div style="font-weight: bold; font-size: 18px;">{{ employee.ratings[day].rating }}</div>
+                    <p>{{ employee.ratings[day].remarks }}</p>
+                  </div>
+                  <div *ngIf="!employee.ratings[day]" class="text-center">---</div>
+                </td>
+                <td>{{employee.averageRating}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+  
