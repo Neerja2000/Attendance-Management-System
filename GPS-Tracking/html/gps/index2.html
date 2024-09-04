@@ -842,77 +842,369 @@
             <!-- Zero Configuration  Starts-->
 
             <div class="col-sm-12 col-md-5 mb-4" >
-              <div class="card shadow-sm" onclick="openDetailsCard()">
-                <div class="card-body p-3">
-                  <!-- Truck Icon and Client Details -->
-                  <div class="d-flex align-items-center mb-2">
-                    <img src="./box-truck.png" alt="Truck Icon" class="me-2" style="width: 40px;">
-                    <div>
-                      <div class="mb-0" style="font-size: 14px;">356860820035993</div>
-                      <div class="text-muted mb-0" style="font-size: 9px;">testclient2</div>
-                    </div>
-                    <!-- LU and Since Details -->
-                    <div class="ms-auto">
-                      <div class="d-flex align-items-center">
-                        <div class="me-3">
-                          <p class="mb-1">
-                            <i class="bi bi-signpost-2-fill me-1 fs-6" style="color: orange;"></i>LU
-                          </p>
-                          <p class="text-muted" style="font-size: 10px;">27/08/2024 18:03:25</p>
-                        </div>
-                        <div>
-                          <p class="mb-1">
-                            <i class="bi bi-clock-fill me-1 fs-6" style="color: blue;"></i>Since
-                          </p>
-                          <p class="text-muted" style="font-size: 10px;">28/08/2024 06:11:31</p>
+              <div class="div">
+                <div class="card shadow-sm" onclick="openDetailsCard('detailsCard1')" style="position: relative;">
+                  <div class="card-body p-3">
+                    <!-- Truck Icon and Client Details -->
+                    <div class="d-flex align-items-center mb-2">
+                      <img src="./box-truck.png" alt="Truck Icon" class="me-2" style="width: 40px;">
+                      <div>
+                        <div class="mb-0" style="font-size: 14px;">356860820035993</div>
+                        <div class="text-muted mb-0" style="font-size: 9px;">testclient2</div>
+                      </div>
+                      <!-- LU and Since Details -->
+                      <div class="ms-auto">
+                        <div class="d-flex align-items-center">
+                          <div class="me-3">
+                            <p class="mb-1">
+                              <i class="bi bi-signpost-2-fill me-1 fs-6" style="color: orange;"></i>LU
+                            </p>
+                            <p class="text-muted" style="font-size: 10px;">27/08/2024 18:03:25</p>
+                          </div>
+                          <div>
+                            <p class="mb-1">
+                              <i class="bi bi-clock-fill me-1 fs-6" style="color: blue;"></i>Since
+                            </p>
+                            <p class="text-muted" style="font-size: 10px;">28/08/2024 06:11:31</p>
+                          </div>
                         </div>
                       </div>
                     </div>
+              
+                    <!-- Icon Indicators -->
+                    <div class="me-2 mb-2">
+                      <i class="bi bi-clock-history me-2 ms-4 fs-6 text-dark"></i>
+                      <i class="bi bi-reception-3 me-2 fs-6 text-success"></i>
+                      <i class="bi bi-snow me-2 fs-6 text-primary"></i>
+                      <i class="bi bi-battery-full fs-6 text-danger"></i>
+                    </div>
+              
+                    <!-- SPD and Distance Details -->
+                    <div class="row">
+                      <div class="col-4">
+                        <p class="mb-1" style="font-size: 12px;">
+                          <i class="bi bi-speedometer me-1 fs-6" style="color: red;"></i>SPD
+                        </p>
+                        <p class="text-muted" style="font-size: 10px;">0 kmph</p>
+                      </div>
+                      <div class="col-8">
+                        <p class="mb-1" style="font-size: 12px;">
+                          <i class="bi bi-geo-alt-fill me-1 fs-6" style="color: green;"></i>DISTANCE
+                        </p>
+                        <p class="text-muted" style="font-size: 10px;">0 km</p>
+                      </div>
+                      <div class="col-4">
+                        <p class="mb-1" style="font-size: 12px;">
+                          <i class="bi bi-geo-fill me-1 fs-6" style="color: purple;"></i>POI
+                        </p>
+                        <p class="text-muted" style="font-size: 10px;">N/A</p>
+                      </div>
+                      <div class="col-8">
+                        <p class="mb-1" style="font-size: 12px;">
+                          <i class="bi bi-geo-alt-fill me-1 fs-6" style="color: darkgreen;"></i>Address
+                        </p>
+                        <p class="text-muted" style="font-size: 10px;">658 m from M.S.B. Rd Keeramangalam Tamil Nadu 614624 India</p>
+                      </div>
+                    </div>
                   </div>
-          
-                  <!-- Icon Indicators -->
-                  <div class="me-2 mb-2">
-                    <i class="bi bi-clock-history me-2 ms-4 fs-6 text-dark"></i>
-                    <i class="bi bi-reception-3 me-2 fs-6 text-success"></i>
-                    <i class="bi bi-snow me-2 fs-6 text-primary"></i>
-                    <i class="bi bi-battery-full fs-6 text-danger"></i>
-                  </div>
-          
-                  <!-- SPD and Distance Details -->
-                  <div class="row">
-                    <div class="col-4">
-                      <p class="mb-1" style="font-size: 12px;">
-                        <i class="bi bi-speedometer me-1 fs-6" style="color: red;"></i>SPD
-                      </p>
-                      <p class="text-muted" style="font-size: 10px;">0 kmph</p>
-                    </div>
-                    <div class="col-8">
-                      <p class="mb-1" style="font-size: 12px;">
-                        <i class="bi bi-geo-alt-fill me-1 fs-6" style="color: green;"></i>DISTANCE
-                      </p>
-                      <p class="text-muted" style="font-size: 10px;">0 km</p>
-                    </div>
-                    <div class="col-4">
-                      <p class="mb-1" style="font-size: 12px;">
-                        <i class="bi bi-geo-fill me-1 fs-6" style="color: purple;"></i>POI
-                      </p>
-                      <p class="text-muted" style="font-size: 10px;">N/A</p>
-                    </div>
-                    <div class="col-8">
-                      <p class="mb-1" style="font-size: 12px;">
-                        <i class="bi bi-geo-alt-fill me-1 fs-6" style="color: darkgreen;"></i>Address
-                      </p>
-                      <p class="text-muted" style="font-size: 10px;">658 m from M.S.B. Rd Keeramangalam Tamil Nadu 614624 India</p>
-                    </div>
-                  </div>
+        
+                  
                 </div>
+                <div id="detailsCard1" class="details-card d-none" style="position: absolute; top: 0; right: -75%; z-index: 1; width: 100%; max-width:fit-content; height: 400px; overflow-y: auto; background-color: #ffffff; ">
+                  <div class="shadow-sm p-3">
+                    <div class="d-flex">
+                      <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Drivers</button>
+                      <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Track</button>
+                      <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">History</button>
+                      
+                      <!-- Dropdown Button with Dropdown Menu -->
+                      <div class="dropdown ms-2">
+                          <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                              More
+                              <i class="bi bi-chevron-down ms-1"></i>
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <li><a class="dropdown-item" href="#">Option 1</a></li>
+                              <li><a class="dropdown-item" href="#">Option 2</a></li>
+                              <li><a class="dropdown-item" href="#">Option 3</a></li>
+                          </ul>
+                      </div>
+                      
+                      <button onclick="closeDetailsCard()" class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px 7px;">
+                          <i class="bi bi-x-lg"></i>
+                      </button>
+                  </div>
+                <div class="details">
+                   <div class="d-flex mt-3">
+                    <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+                    <p class="text-muted ms-1" style="font-size: 12px;">Distance From Last Stop</p>
+                      <p style="font-size: 12px;" class="mb-0 ms-auto">0.07 km</p>
+                   </div>
+                 
+                   <div class="d-flex ">
+                    <i class="bi bi-car-front" style="color: rgb(255, 0, 230); font-size: 13px;"></i>
+                    <p class="text-muted ms-1 " style="font-size: 12px;">Duration From Last Stop</p>
+                    <p class="mb-0 ms-auto" style="font-size: 12px;">19:35</p>
+                  </div>
+                  <div class="d-flex ">
+                    <i class="bi bi-speedometer " style="color: rgb(132, 0, 255); font-size: 13px;"></i>
+                    <p class="text-muted ms-1 " style="font-size: 12px;">Speed</p>
+                      <p style="font-size: 12px;" class="mb-0 ms-auto">0 kmph</p>
+                   </div>
+                   <div class="d-flex ">
+                    <i class="bi bi-info-circle-fill " style="color: rgb(30, 30, 88); font-size: 13px;"></i>
+                    <p class="text-muted ms-1" style="font-size: 12px;">Last Updated
+                    </p>
+                      <p style="font-size: 12px;" class="mb-0 ms-auto">27/08/2024 18:03:25</p>
+                   </div>
+                   <div class="d-flex ">
+                    <i class="bi bi-speedometer2 " style="color: lightgreen; font-size: 13px;"></i>
+                    <p class="text-muted ms-1" style="font-size: 12px;">Odometer</p>
+                      <p style="font-size: 12px;" class="mb-0 ms-auto">1</p>
+                   </div>
+                   <div class="d-flex ">
+                    <i class="bi bi-speedometer2 " style="color: lightgreen; font-size: 13px;"></i>
+                    <p class="text-muted ms-1" style="font-size: 12px;">Ododuration</p>
+                      <p style="font-size: 12px;" class="mb-0 ms-auto">19 hours</p>
+                   </div>
+                   <div class="d-flex ">
+                    <i class="bi bi-download " style="color: yellowgreen; font-size: 13px;"></i>
+                    <p class="text-muted ms-1" style="font-size: 12px;">Alias</p>
+                      <p style="font-size: 12px;" class="mb-0 ms-auto">N/A</p>
+                   </div>
+                   <div class="d-flex ">
+                    <i class="bi bi-geo-fill " style="color: orangered; font-size: 13px;"></i>
+                    <p class="text-muted ms-1" style="font-size: 12px;">
+                      Today Distance</p>
+                      <p style="font-size: 12px;" class="mb-0 ms-auto">0 km</p>
+                   </div>
+                   <div class="d-flex ">
+                    <i class="bi bi-map " style="color: rgb(4, 116, 167); font-size: 13px;"></i>
+                    <p class="text-muted ms-1" style="font-size: 12px;">Co-ordinates
+                    </p>
+                      <p style="font-size: 12px;" class="mb-0 ms-auto">10.2913, 79.0955</p>
+                   </div>
+                   <div class="d-flex ">
+                    <i class="bi bi-fire " style="color: red; font-size: 13px;"></i>
+                    <p class="text-muted ms-1" style="font-size: 12px;">Fuel</p>
+                      <p style="font-size: 12px;" class="mb-0 ms-auto">0.85/20 L</p>
+                   </div>
+                   <div class="d-flex ">
+                    <i class="bi bi-lock-fill " style="color: rgb(238, 0, 255); font-size: 13px;"></i>
+                    <p class="text-muted ms-1" style="font-size: 12px;">Lock Status
+                    </p>
+                      <p style="font-size: 12px;" class="mb-0 ms-auto">UNLOCK</p>
+                   </div>
+                   <div class="d-flex ">
+                    <i class="bi bi-exclamation-triangle " style="color: red; font-size: 13px;"></i>
+                    <p class="text-muted ms-1" style="font-size: 12px;">Panic</p>
+        
+                   </div>
+                  </div>
+                  <div class="details mt-4">
+                    <span>Temperature</span>
+                    <div class="d-flex mt-3">
+                     <i class="bi bi-thermometer-sun " style="color: red; font-size: 13px;"></i>
+                     <p class="text-muted ms-1" style="font-size: 12px;">Humidity</p>
+                       <p style="font-size: 12px;" class="mb-0 ms-auto">N/A</p>
+                    </div>
+                 </div> 
+                 <div class="details mt-4">
+                  <span>Fuel</span>
+                  <div class="d-flex mt-3">
+                   <i class="bi bi-fire " style="color: red; font-size: 13px;"></i>
+                   <p class="text-muted ms-1" style="font-size: 12px;">Fuel</p>
+                     
+                  </div>
+               </div> 
+        
+                  </div></div>
               </div>
            
           
             <!-- Details Card -->
          
+      <div class="div">
+        <div class="card shadow-sm" onclick="openDetailsCard('detailsCard2')">
+          <div class="card-body p-3">
+            <!-- Truck Icon and Client Details -->
+            <div class="d-flex align-items-center mb-2">
+              <img src="./box-truck.png" alt="Truck Icon" class="me-2" style="width: 40px;">
+              <div>
+                <div class="mb-0" style="font-size: 14px;">356860820035993</div>
+                <div class="text-muted mb-0" style="font-size: 9px;">testclient2</div>
+              </div>
+              <!-- LU and Since Details -->
+              <div class="ms-auto">
+                <div class="d-flex align-items-center">
+                  <div class="me-3">
+                    <p class="mb-1">
+                      <i class="bi bi-signpost-2-fill me-1 fs-6" style="color: orange;"></i>LU
+                    </p>
+                    <p class="text-muted" style="font-size: 10px;">27/08/2024 18:03:25</p>
+                  </div>
+                  <div>
+                    <p class="mb-1">
+                      <i class="bi bi-clock-fill me-1 fs-6" style="color: blue;"></i>Since
+                    </p>
+                    <p class="text-muted" style="font-size: 10px;">28/08/2024 06:11:31</p>
+                  </div>
+                </div>
+              </div>
+            </div>
       
-                <div class="card shadow-sm" onclick="openDetailsCard()">
+            <!-- Icon Indicators -->
+            <div class="me-2 mb-2">
+              <i class="bi bi-clock-history me-2 ms-4 fs-6 text-dark"></i>
+              <i class="bi bi-reception-3 me-2 fs-6 text-success"></i>
+              <i class="bi bi-snow me-2 fs-6 text-primary"></i>
+              <i class="bi bi-battery-full fs-6 text-danger"></i>
+            </div>
+      
+            <!-- SPD and Distance Details -->
+            <div class="row">
+              <div class="col-4">
+                <p class="mb-1" style="font-size: 12px;">
+                  <i class="bi bi-speedometer me-1 fs-6" style="color: red;"></i>SPD
+                </p>
+                <p class="text-muted" style="font-size: 10px;">0 kmph</p>
+              </div>
+              <div class="col-8">
+                <p class="mb-1" style="font-size: 12px;">
+                  <i class="bi bi-geo-alt-fill me-1 fs-6" style="color: green;"></i>DISTANCE
+                </p>
+                <p class="text-muted" style="font-size: 10px;">0 km</p>
+              </div>
+              <div class="col-4">
+                <p class="mb-1" style="font-size: 12px;">
+                  <i class="bi bi-geo-fill me-1 fs-6" style="color: purple;"></i>POI
+                </p>
+                <p class="text-muted" style="font-size: 10px;">N/A</p>
+              </div>
+              <div class="col-8">
+                <p class="mb-1" style="font-size: 12px;">
+                  <i class="bi bi-geo-alt-fill me-1 fs-6" style="color: darkgreen;"></i>Address
+                </p>
+                <p class="text-muted" style="font-size: 10px;">658 m from M.S.B. Rd Keeramangalam Tamil Nadu 614624 India</p>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+        <div id="detailsCard2" class="details-card d-none" style="position: absolute; top: 25%; right: -75%; z-index: 1; width: 100%; max-width:fit-content; height: 400px; overflow-y: auto; background-color: #ffffff; ">
+          <div class="shadow-sm p-3">
+            <div class="d-flex">
+              <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Drivers</button>
+              <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Track</button>
+              <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">History</button>
+              
+              <!-- Dropdown Button with Dropdown Menu -->
+              <div class="dropdown ms-2">
+                  <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      More
+                      <i class="bi bi-chevron-down ms-1"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <li><a class="dropdown-item" href="#">Option 1</a></li>
+                      <li><a class="dropdown-item" href="#">Option 2</a></li>
+                      <li><a class="dropdown-item" href="#">Option 3</a></li>
+                  </ul>
+              </div>
+              
+              <button onclick="closeDetailsCard()" class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px 7px;">
+                  <i class="bi bi-x-lg"></i>
+              </button>
+          </div>
+        <div class="details">
+           <div class="d-flex mt-3">
+            <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+            <p class="text-muted ms-1" style="font-size: 12px;">Distance From Last Stop</p>
+              <p style="font-size: 12px;" class="mb-0 ms-auto">0.07 km</p>
+           </div>
+         
+           <div class="d-flex ">
+            <i class="bi bi-car-front" style="color: rgb(255, 0, 230); font-size: 13px;"></i>
+            <p class="text-muted ms-1 " style="font-size: 12px;">Duration From Last Stop</p>
+            <p class="mb-0 ms-auto" style="font-size: 12px;">19:35</p>
+          </div>
+          <div class="d-flex ">
+            <i class="bi bi-speedometer " style="color: rgb(132, 0, 255); font-size: 13px;"></i>
+            <p class="text-muted ms-1 " style="font-size: 12px;">Speed</p>
+              <p style="font-size: 12px;" class="mb-0 ms-auto">0 kmph</p>
+           </div>
+           <div class="d-flex ">
+            <i class="bi bi-info-circle-fill " style="color: rgb(30, 30, 88); font-size: 13px;"></i>
+            <p class="text-muted ms-1" style="font-size: 12px;">Last Updated
+            </p>
+              <p style="font-size: 12px;" class="mb-0 ms-auto">27/08/2024 18:03:25</p>
+           </div>
+           <div class="d-flex ">
+            <i class="bi bi-speedometer2 " style="color: lightgreen; font-size: 13px;"></i>
+            <p class="text-muted ms-1" style="font-size: 12px;">Odometer</p>
+              <p style="font-size: 12px;" class="mb-0 ms-auto">1</p>
+           </div>
+           <div class="d-flex ">
+            <i class="bi bi-speedometer2 " style="color: lightgreen; font-size: 13px;"></i>
+            <p class="text-muted ms-1" style="font-size: 12px;">Ododuration</p>
+              <p style="font-size: 12px;" class="mb-0 ms-auto">19 hours</p>
+           </div>
+           <div class="d-flex ">
+            <i class="bi bi-download " style="color: yellowgreen; font-size: 13px;"></i>
+            <p class="text-muted ms-1" style="font-size: 12px;">Alias</p>
+              <p style="font-size: 12px;" class="mb-0 ms-auto">N/A</p>
+           </div>
+           <div class="d-flex ">
+            <i class="bi bi-geo-fill " style="color: orangered; font-size: 13px;"></i>
+            <p class="text-muted ms-1" style="font-size: 12px;">
+              Today Distance</p>
+              <p style="font-size: 12px;" class="mb-0 ms-auto">0 km</p>
+           </div>
+           <div class="d-flex ">
+            <i class="bi bi-map " style="color: rgb(4, 116, 167); font-size: 13px;"></i>
+            <p class="text-muted ms-1" style="font-size: 12px;">Co-ordinates
+            </p>
+              <p style="font-size: 12px;" class="mb-0 ms-auto">10.2913, 79.0955</p>
+           </div>
+           <div class="d-flex ">
+            <i class="bi bi-fire " style="color: red; font-size: 13px;"></i>
+            <p class="text-muted ms-1" style="font-size: 12px;">Fuel</p>
+              <p style="font-size: 12px;" class="mb-0 ms-auto">0.85/20 L</p>
+           </div>
+           <div class="d-flex ">
+            <i class="bi bi-lock-fill " style="color: rgb(238, 0, 255); font-size: 13px;"></i>
+            <p class="text-muted ms-1" style="font-size: 12px;">Lock Status
+            </p>
+              <p style="font-size: 12px;" class="mb-0 ms-auto">UNLOCK</p>
+           </div>
+           <div class="d-flex ">
+            <i class="bi bi-exclamation-triangle " style="color: red; font-size: 13px;"></i>
+            <p class="text-muted ms-1" style="font-size: 12px;">Panic</p>
+
+           </div>
+          </div>
+          <div class="details mt-4">
+            <span>Temperature</span>
+            <div class="d-flex mt-3">
+             <i class="bi bi-thermometer-sun " style="color: red; font-size: 13px;"></i>
+             <p class="text-muted ms-1" style="font-size: 12px;">Humidity</p>
+               <p style="font-size: 12px;" class="mb-0 ms-auto">N/A</p>
+            </div>
+         </div> 
+         <div class="details mt-4">
+          <span>Fuel</span>
+          <div class="d-flex mt-3">
+           <i class="bi bi-fire " style="color: red; font-size: 13px;"></i>
+           <p class="text-muted ms-1" style="font-size: 12px;">Fuel</p>
+             
+          </div>
+       </div> 
+
+          </div></div>
+      </div>
+                <div class="div">
+
+                  <div class="card shadow-sm" onclick="openDetailsCard('detailsCard3')">
                     <div class="card-body p-3">
                       <!-- Truck Icon and Client Details -->
                       <div class="d-flex align-items-center mb-2">
@@ -979,7 +1271,120 @@
   
                     
                   </div>
-                  <div class="card shadow-sm" onclick="openDetailsCard()">
+                  <div id="detailsCard3" class="details-card d-none" style="position: absolute; top: 45%; right: -75%; z-index: 1; width: 100%; max-width:fit-content; height: 400px; overflow-y: auto; background-color: #ffffff; ">
+                    <div class="shadow-sm p-3">
+                      <div class="d-flex">
+                        <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Drivers</button>
+                        <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Track</button>
+                        <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">History</button>
+                        
+                        <!-- Dropdown Button with Dropdown Menu -->
+                        <div class="dropdown ms-2">
+                            <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                                <i class="bi bi-chevron-down ms-1"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#">Option 1</a></li>
+                                <li><a class="dropdown-item" href="#">Option 2</a></li>
+                                <li><a class="dropdown-item" href="#">Option 3</a></li>
+                            </ul>
+                        </div>
+                        
+                        <button onclick="closeDetailsCard()" class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px 7px;">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                  <div class="details">
+                     <div class="d-flex mt-3">
+                      <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Distance From Last Stop</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">0.07 km</p>
+                     </div>
+                   
+                     <div class="d-flex ">
+                      <i class="bi bi-car-front" style="color: rgb(255, 0, 230); font-size: 13px;"></i>
+                      <p class="text-muted ms-1 " style="font-size: 12px;">Duration From Last Stop</p>
+                      <p class="mb-0 ms-auto" style="font-size: 12px;">19:35</p>
+                    </div>
+                    <div class="d-flex ">
+                      <i class="bi bi-speedometer " style="color: rgb(132, 0, 255); font-size: 13px;"></i>
+                      <p class="text-muted ms-1 " style="font-size: 12px;">Speed</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">0 kmph</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-info-circle-fill " style="color: rgb(30, 30, 88); font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Last Updated
+                      </p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">27/08/2024 18:03:25</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-speedometer2 " style="color: lightgreen; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Odometer</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">1</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-speedometer2 " style="color: lightgreen; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Ododuration</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">19 hours</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-download " style="color: yellowgreen; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Alias</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">N/A</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-geo-fill " style="color: orangered; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">
+                        Today Distance</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">0 km</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-map " style="color: rgb(4, 116, 167); font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Co-ordinates
+                      </p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">10.2913, 79.0955</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-fire " style="color: red; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Fuel</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">0.85/20 L</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-lock-fill " style="color: rgb(238, 0, 255); font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Lock Status
+                      </p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">UNLOCK</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-exclamation-triangle " style="color: red; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Panic</p>
+          
+                     </div>
+                    </div>
+                    <div class="details mt-4">
+                      <span>Temperature</span>
+                      <div class="d-flex mt-3">
+                       <i class="bi bi-thermometer-sun " style="color: red; font-size: 13px;"></i>
+                       <p class="text-muted ms-1" style="font-size: 12px;">Humidity</p>
+                         <p style="font-size: 12px;" class="mb-0 ms-auto">N/A</p>
+                      </div>
+                   </div> 
+                   <div class="details mt-4">
+                    <span>Fuel</span>
+                    <div class="d-flex mt-3">
+                     <i class="bi bi-fire " style="color: red; font-size: 13px;"></i>
+                     <p class="text-muted ms-1" style="font-size: 12px;">Fuel</p>
+                       
+                    </div>
+                 </div> 
+          
+                    </div></div>
+                </div>
+                
+                <div class="div">
+
+                  <div class="card shadow-sm" onclick="openDetailsCard('detailsCard4')">
                     <div class="card-body p-3">
                       <!-- Truck Icon and Client Details -->
                       <div class="d-flex align-items-center mb-2">
@@ -1046,73 +1451,116 @@
   
                     
                   </div>
-                  <div class="card shadow-sm" onclick="openDetailsCard()">
-                    <div class="card-body p-3">
-                      <!-- Truck Icon and Client Details -->
-                      <div class="d-flex align-items-center mb-2">
-                        <img src="./box-truck.png" alt="Truck Icon" class="me-2" style="width: 40px;">
-                        <div>
-                          <div class="mb-0" style="font-size: 14px;">356860820035993</div>
-                          <div class="text-muted mb-0" style="font-size: 9px;">testclient2</div>
+                  <div id="detailsCard4" class="details-card d-none" style="position: absolute; top: 60%; right: -75%; z-index: 1; width: 100%; max-width:fit-content; height: 400px; overflow-y: auto; background-color: #ffffff; ">
+                    <div class="shadow-sm p-3">
+                      <div class="d-flex">
+                        <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Drivers</button>
+                        <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Track</button>
+                        <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">History</button>
+                        
+                        <!-- Dropdown Button with Dropdown Menu -->
+                        <div class="dropdown ms-2">
+                            <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                                <i class="bi bi-chevron-down ms-1"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#">Option 1</a></li>
+                                <li><a class="dropdown-item" href="#">Option 2</a></li>
+                                <li><a class="dropdown-item" href="#">Option 3</a></li>
+                            </ul>
                         </div>
-                        <!-- LU and Since Details -->
-                        <div class="ms-auto">
-                          <div class="d-flex align-items-center">
-                            <div class="me-3">
-                              <p class="mb-1">
-                                <i class="bi bi-signpost-2-fill me-1 fs-6" style="color: orange;"></i>LU
-                              </p>
-                              <p class="text-muted" style="font-size: 10px;">27/08/2024 18:03:25</p>
-                            </div>
-                            <div>
-                              <p class="mb-1">
-                                <i class="bi bi-clock-fill me-1 fs-6" style="color: blue;"></i>Since
-                              </p>
-                              <p class="text-muted" style="font-size: 10px;">28/08/2024 06:11:31</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                
-                      <!-- Icon Indicators -->
-                      <div class="me-2 mb-2">
-                        <i class="bi bi-clock-history me-2 ms-4 fs-6 text-dark"></i>
-                        <i class="bi bi-reception-3 me-2 fs-6 text-success"></i>
-                        <i class="bi bi-snow me-2 fs-6 text-primary"></i>
-                        <i class="bi bi-battery-full fs-6 text-danger"></i>
-                      </div>
-                
-                      <!-- SPD and Distance Details -->
-                      <div class="row">
-                        <div class="col-4">
-                          <p class="mb-1" style="font-size: 12px;">
-                            <i class="bi bi-speedometer me-1 fs-6" style="color: red;"></i>SPD
-                          </p>
-                          <p class="text-muted" style="font-size: 10px;">0 kmph</p>
-                        </div>
-                        <div class="col-8">
-                          <p class="mb-1" style="font-size: 12px;">
-                            <i class="bi bi-geo-alt-fill me-1 fs-6" style="color: green;"></i>DISTANCE
-                          </p>
-                          <p class="text-muted" style="font-size: 10px;">0 km</p>
-                        </div>
-                        <div class="col-4">
-                          <p class="mb-1" style="font-size: 12px;">
-                            <i class="bi bi-geo-fill me-1 fs-6" style="color: purple;"></i>POI
-                          </p>
-                          <p class="text-muted" style="font-size: 10px;">N/A</p>
-                        </div>
-                        <div class="col-8">
-                          <p class="mb-1" style="font-size: 12px;">
-                            <i class="bi bi-geo-alt-fill me-1 fs-6" style="color: darkgreen;"></i>Address
-                          </p>
-                          <p class="text-muted" style="font-size: 10px;">658 m from M.S.B. Rd Keeramangalam Tamil Nadu 614624 India</p>
-                        </div>
-                      </div>
+                        
+                        <button onclick="closeDetailsCard()" class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px 7px;">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
                     </div>
-  
-                    
-                  </div>
+                  <div class="details">
+                     <div class="d-flex mt-3">
+                      <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Distance From Last Stop</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">0.07 km</p>
+                     </div>
+                   
+                     <div class="d-flex ">
+                      <i class="bi bi-car-front" style="color: rgb(255, 0, 230); font-size: 13px;"></i>
+                      <p class="text-muted ms-1 " style="font-size: 12px;">Duration From Last Stop</p>
+                      <p class="mb-0 ms-auto" style="font-size: 12px;">19:35</p>
+                    </div>
+                    <div class="d-flex ">
+                      <i class="bi bi-speedometer " style="color: rgb(132, 0, 255); font-size: 13px;"></i>
+                      <p class="text-muted ms-1 " style="font-size: 12px;">Speed</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">0 kmph</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-info-circle-fill " style="color: rgb(30, 30, 88); font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Last Updated
+                      </p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">27/08/2024 18:03:25</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-speedometer2 " style="color: lightgreen; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Odometer</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">1</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-speedometer2 " style="color: lightgreen; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Ododuration</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">19 hours</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-download " style="color: yellowgreen; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Alias</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">N/A</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-geo-fill " style="color: orangered; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">
+                        Today Distance</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">0 km</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-map " style="color: rgb(4, 116, 167); font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Co-ordinates
+                      </p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">10.2913, 79.0955</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-fire " style="color: red; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Fuel</p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">0.85/20 L</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-lock-fill " style="color: rgb(238, 0, 255); font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Lock Status
+                      </p>
+                        <p style="font-size: 12px;" class="mb-0 ms-auto">UNLOCK</p>
+                     </div>
+                     <div class="d-flex ">
+                      <i class="bi bi-exclamation-triangle " style="color: red; font-size: 13px;"></i>
+                      <p class="text-muted ms-1" style="font-size: 12px;">Panic</p>
+          
+                     </div>
+                    </div>
+                    <div class="details mt-4">
+                      <span>Temperature</span>
+                      <div class="d-flex mt-3">
+                       <i class="bi bi-thermometer-sun " style="color: red; font-size: 13px;"></i>
+                       <p class="text-muted ms-1" style="font-size: 12px;">Humidity</p>
+                         <p style="font-size: 12px;" class="mb-0 ms-auto">N/A</p>
+                      </div>
+                   </div> 
+                   <div class="details mt-4">
+                    <span>Fuel</span>
+                    <div class="d-flex mt-3">
+                     <i class="bi bi-fire " style="color: red; font-size: 13px;"></i>
+                     <p class="text-muted ms-1" style="font-size: 12px;">Fuel</p>
+                       
+                    </div>
+                 </div> 
+          
+                    </div></div>
+                </div>
 
                   <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
@@ -1137,120 +1585,12 @@
             <div class="col-sm-12 col-md-7" style="position: relative; padding: 0;">
   
               <!-- Details Card -->
-              <div id="detailsCard" class="details-card d-none" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%; max-width:fit-content; height: 400px; overflow-y: auto; background-color: #ffffff; ">
-                <div class="shadow-sm p-3">
-                  <div class="d-flex">
-                    <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Drivers</button>
-                    <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Track</button>
-                    <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">History</button>
-                    
-                    <!-- Dropdown Button with Dropdown Menu -->
-                    <div class="dropdown ms-2">
-                        <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            More
-                            <i class="bi bi-chevron-down ms-1"></i>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="#">Option 1</a></li>
-                            <li><a class="dropdown-item" href="#">Option 2</a></li>
-                            <li><a class="dropdown-item" href="#">Option 3</a></li>
-                        </ul>
-                    </div>
-                    
-                    <button onclick="closeDetailsCard()" class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px 7px;">
-                        <i class="bi bi-x-lg"></i>
-                    </button>
-                </div>
-              <div class="details">
-                 <div class="d-flex mt-3">
-                  <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
-                  <p class="text-muted ms-1" style="font-size: 12px;">Distance From Last Stop</p>
-                    <p style="font-size: 12px;" class="mb-0 ms-auto">0.07 km</p>
-                 </div>
-               
-                 <div class="d-flex ">
-                  <i class="bi bi-car-front" style="color: rgb(255, 0, 230); font-size: 13px;"></i>
-                  <p class="text-muted ms-1 " style="font-size: 12px;">Duration From Last Stop</p>
-                  <p class="mb-0 ms-auto" style="font-size: 12px;">19:35</p>
-                </div>
-                <div class="d-flex ">
-                  <i class="bi bi-speedometer " style="color: rgb(132, 0, 255); font-size: 13px;"></i>
-                  <p class="text-muted ms-1 " style="font-size: 12px;">Speed</p>
-                    <p style="font-size: 12px;" class="mb-0 ms-auto">0 kmph</p>
-                 </div>
-                 <div class="d-flex ">
-                  <i class="bi bi-info-circle-fill " style="color: rgb(30, 30, 88); font-size: 13px;"></i>
-                  <p class="text-muted ms-1" style="font-size: 12px;">Last Updated
-                  </p>
-                    <p style="font-size: 12px;" class="mb-0 ms-auto">27/08/2024 18:03:25</p>
-                 </div>
-                 <div class="d-flex ">
-                  <i class="bi bi-speedometer2 " style="color: lightgreen; font-size: 13px;"></i>
-                  <p class="text-muted ms-1" style="font-size: 12px;">Odometer</p>
-                    <p style="font-size: 12px;" class="mb-0 ms-auto">1</p>
-                 </div>
-                 <div class="d-flex ">
-                  <i class="bi bi-speedometer2 " style="color: lightgreen; font-size: 13px;"></i>
-                  <p class="text-muted ms-1" style="font-size: 12px;">Ododuration</p>
-                    <p style="font-size: 12px;" class="mb-0 ms-auto">19 hours</p>
-                 </div>
-                 <div class="d-flex ">
-                  <i class="bi bi-download " style="color: yellowgreen; font-size: 13px;"></i>
-                  <p class="text-muted ms-1" style="font-size: 12px;">Alias</p>
-                    <p style="font-size: 12px;" class="mb-0 ms-auto">N/A</p>
-                 </div>
-                 <div class="d-flex ">
-                  <i class="bi bi-geo-fill " style="color: orangered; font-size: 13px;"></i>
-                  <p class="text-muted ms-1" style="font-size: 12px;">
-                    Today Distance</p>
-                    <p style="font-size: 12px;" class="mb-0 ms-auto">0 km</p>
-                 </div>
-                 <div class="d-flex ">
-                  <i class="bi bi-map " style="color: rgb(4, 116, 167); font-size: 13px;"></i>
-                  <p class="text-muted ms-1" style="font-size: 12px;">Co-ordinates
-                  </p>
-                    <p style="font-size: 12px;" class="mb-0 ms-auto">10.2913, 79.0955</p>
-                 </div>
-                 <div class="d-flex ">
-                  <i class="bi bi-fire " style="color: red; font-size: 13px;"></i>
-                  <p class="text-muted ms-1" style="font-size: 12px;">Fuel</p>
-                    <p style="font-size: 12px;" class="mb-0 ms-auto">0.85/20 L</p>
-                 </div>
-                 <div class="d-flex ">
-                  <i class="bi bi-lock-fill " style="color: rgb(238, 0, 255); font-size: 13px;"></i>
-                  <p class="text-muted ms-1" style="font-size: 12px;">Lock Status
-                  </p>
-                    <p style="font-size: 12px;" class="mb-0 ms-auto">UNLOCK</p>
-                 </div>
-                 <div class="d-flex ">
-                  <i class="bi bi-exclamation-triangle " style="color: red; font-size: 13px;"></i>
-                  <p class="text-muted ms-1" style="font-size: 12px;">Panic</p>
-
-                 </div>
-                </div>
-                <div class="details mt-4">
-                  <span>Temperature</span>
-                  <div class="d-flex mt-3">
-                   <i class="bi bi-thermometer-sun " style="color: red; font-size: 13px;"></i>
-                   <p class="text-muted ms-1" style="font-size: 12px;">Humidity</p>
-                     <p style="font-size: 12px;" class="mb-0 ms-auto">N/A</p>
-                  </div>
-               </div> 
-               <div class="details mt-4">
-                <span>Fuel</span>
-                <div class="d-flex mt-3">
-                 <i class="bi bi-fire " style="color: red; font-size: 13px;"></i>
-                 <p class="text-muted ms-1" style="font-size: 12px;">Fuel</p>
-                   
-                </div>
-             </div> 
-
-                </div></div>
+             
              
             
             
               <!-- Map -->
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2636826.613585597!2d73.91071043901786!3d30.793239607108095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1724330044876!5m2!1sen!2sin" height="600px" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2636826.613585597!2d73.91071043901786!3d30.793239607108095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1724330044876!5m2!1sen!2sin" height="800px" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               
             </div>
           </div>
@@ -1353,13 +1693,30 @@ window.addEventListener('load', function() {
 
 
   <script>
-    function openDetailsCard() {
-    document.getElementById('detailsCard').classList.remove('d-none');
+let currentlyOpenCard = null;
+
+function openDetailsCard(cardId) {
+  // Close the currently open card if there is one
+  if (currentlyOpenCard && currentlyOpenCard !== cardId) {
+    document.getElementById(currentlyOpenCard).classList.add('d-none');
+  }
+  
+  // Open the new card
+  const cardToOpen = document.getElementById(cardId);
+  cardToOpen.classList.remove('d-none');
+  
+  // Update the currently open card
+  currentlyOpenCard = cardId;
 }
 
 function closeDetailsCard() {
-    document.getElementById('detailsCard').classList.add('d-none');
+  if (currentlyOpenCard) {
+    document.getElementById(currentlyOpenCard).classList.add('d-none');
+    currentlyOpenCard = null;
+  }
 }
+
+
 
   </script>
 </body>
