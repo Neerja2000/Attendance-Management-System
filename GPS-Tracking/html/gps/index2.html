@@ -1137,26 +1137,56 @@
             <div class="col-sm-12 col-md-7" style="position: relative; padding: 0;">
   
               <!-- Details Card -->
-              <div id="detailsCard" class="details-card d-none" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%; max-width: 400px;">
+              <div id="detailsCard" class="details-card d-none" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%; max-width:fit-content; height: 300px; overflow-y: scroll; ">
                 <div class="card shadow-sm p-3">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h5>Details</h5>
-                    <button onclick="closeDetailsCard()" class="btn btn-outline-secondary btn-sm">Close</button>
+                  <div class="d-flex ">
+                   <button class="btn btn-sm" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Drivers</button>
+                   <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">Track</button>
+                   <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169); padding: 5px;">History</button>
+                   <button class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169);padding: 5px;">More</button>
+                  <button onclick="closeDetailsCard()" class="btn btn-sm ms-2" style="border: 1px solid rgb(169, 169, 169);padding: 5px 7px;"><i  class="bi bi-x-lg "></i></button>  
                   </div>
-              
-                  <h5>Details</h5>
-                  <p>Distance From Last Stop: 0.07 km</p>
-                  <p>Duration From Last Stop: 19:35</p>
-                  <p>Speed: 0 kmph</p>
-                  <p>Last Updated: 27/08/2024 18:03:25</p>
-                  <p>Odometer: 1</p>
-                  <p>Odouration: 19 hours</p>
-                  <p>Alias: N/A</p>
-                  <p>Today Distance: 0 km</p>
-                  <p>Coordinates: 10.2913, 79.0955</p>
-                  <p>Fuel: 0.85/20 L</p>
-                  <p>Lock Status: UNLOCK</p>
+              <div class="details">
+                 <div class="d-flex mt-3">
+                  <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+                  <p class="text-muted ms-1" style="font-size: 12px;">Distance From Last Stop</p>
+                    <p style="font-size: 12px;" class="ms-5">0.07 km</p>
+                 </div>
+               
+                <div class="d-flex">
+                  <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+                  <p class="text-muted ms-1" style="font-size: 12px;">Duration From Last Stop
+                  </p>
+                    <p style="font-size: 12px;" class="ms-5">0.07 km</p>
+                 </div>
                 </div>
+                <div class="d-flex ">
+                  <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+                  <p class="text-muted ms-1" style="font-size: 12px;">Speed</p>
+                    <p style="font-size: 12px;" class="ms-5">0.07 km</p>
+                 </div>
+                 <div class="d-flex ">
+                  <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+                  <p class="text-muted ms-1" style="font-size: 12px;">Distance From Last Stop</p>
+                    <p style="font-size: 12px;" class="ms-5">0.07 km</p>
+                 </div>
+                 <div class="d-flex ">
+                  <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+                  <p class="text-muted ms-1" style="font-size: 12px;">Distance From Last Stop</p>
+                    <p style="font-size: 12px;" class="ms-5">0.07 km</p>
+                 </div>
+                 <div class="d-flex ">
+                  <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+                  <p class="text-muted ms-1" style="font-size: 12px;">Distance From Last Stop</p>
+                    <p style="font-size: 12px;" class="ms-5">0.07 km</p>
+                 </div>
+                 <div class="d-flex ">
+                  <i class="bi bi-geo-alt-fill " style="color: red; font-size: 13px;"></i>
+                  <p class="text-muted ms-1" style="font-size: 12px;">Distance From Last Stop</p>
+                    <p style="font-size: 12px;" class="ms-5">0.07 km</p>
+                 </div>
+                </div></div>
+              </div>
               </div>
             
               <!-- Map -->
