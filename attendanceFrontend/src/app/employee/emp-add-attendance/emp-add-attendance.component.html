@@ -8,10 +8,8 @@
           </div>
           <div class="col-md-4">
             <button class="btn btn-primary" [routerLink]="['/employee/layout/add-daily-rating']">+ Add Today's Rating</button>
-
           </div>
         </div>
-
       </div>
       <div class="card-body">
         <form [formGroup]="attendanceForm" (ngSubmit)="submitAttendance()">
@@ -27,21 +25,14 @@
             </thead>
             <tbody>
               <tr>
+                <td><input type="time" formControlName="check_in" class="form-control" required></td>
+                <td><input type="time" formControlName="break_time_start" class="form-control" required></td>
+                <td><input type="time" formControlName="break_time_finish" class="form-control" required></td>
+                <td><input type="time" formControlName="check_out" class="form-control" required></td>
                 <td>
-                  <input type="time" formControlName="check_in" class="form-control" required>
-                </td>
-                <td>
-                  <input type="time" formControlName="break_time_start" class="form-control" required>
-                </td>
-                <td>
-                  <input type="time" formControlName="break_time_finish" class="form-control" required>
-                </td>
-                <td>
-                  <input type="time" formControlName="check_out" class="form-control" required>
-                </td>
-                <td>
-                  <textarea formControlName="work_done" class="form-control" required></textarea>
-
+                  <button type="button" class="btn btn-primary" (click)="openWorkDoneModal()">
+                    {{ isWorkDoneAdded ? 'Change Work' : 'Add Work' }}
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -51,4 +42,23 @@
       </div>
     </div>
   </section>
+</div>
+
+<!-- Work Done Modal -->
+<div class="modal fade" id="workDoneModal" tabindex="-1" aria-labelledby="workDoneModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="workDoneModalLabel">{{ isWorkDoneAdded ? 'Change Work Done' : 'Add Work Done' }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <textarea [(ngModel)]="workDoneContent" class="form-control" placeholder="Enter work done" required></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="saveWorkDone()">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

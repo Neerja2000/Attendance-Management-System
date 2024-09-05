@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { EmpAttendanceService } from 'src/app/shared/empAttendance/emp-attendance.service';
-
+declare var bootstrap: any;
 @Component({
   selector: 'app-emp-add-attendance',
   templateUrl: './emp-add-attendance.component.html',
@@ -12,12 +12,14 @@ import { EmpAttendanceService } from 'src/app/shared/empAttendance/emp-attendanc
 export class EmpAddAttendanceComponent implements OnInit {
   attendanceForm: FormGroup;
   employeeId: string | null = null;
+  isWorkDoneAdded: boolean = false; // Flag to check if work has been added
+  workDoneContent: string = ''; // Store work done content for modal
 
   constructor(
     private formBuilder: FormBuilder,
     private attendanceService: EmpAttendanceService,
     private authService: AuthService,
-    private snackbar:MatSnackBar
+    private snackbar: MatSnackBar
   ) {
     this.attendanceForm = this.formBuilder.group({
       check_in: [''],
@@ -40,7 +42,7 @@ export class EmpAddAttendanceComponent implements OnInit {
       if (!this.employeeId) {
         console.error('EmployeeId not found in session storage.');
       } else {
-        console.log('Fetched EmployeeId:', this.employeeId); // Debug log
+        console.log('Fetched EmployeeId:', this.employeeId);
       }
     } catch (error) {
       console.error('Error fetching employee ID:', error);
@@ -60,6 +62,11 @@ export class EmpAddAttendanceComponent implements OnInit {
               check_out: attendance.check_out || '',
               work_done: attendance.work_done || ''
             });
+
+            if (attendance.work_done) {
+              this.isWorkDoneAdded = true;
+              this.workDoneContent = attendance.work_done; // Set existing work content
+            }
           }
         },
         (error: any) => {
@@ -67,6 +74,26 @@ export class EmpAddAttendanceComponent implements OnInit {
         }
       );
     }
+  }
+
+  openWorkDoneModal() {
+    // Set the modal textarea with existing work content (if available)
+    this.workDoneContent = this.attendanceForm.get('work_done')?.value || '';
+    
+    const modal = new bootstrap.Modal(document.getElementById('workDoneModal'));
+    modal.show();
+  }
+
+  saveWorkDone() {
+    // Update the form control with the new work done data
+    this.attendanceForm.patchValue({ work_done: this.workDoneContent });
+
+    // Close the modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('workDoneModal'));
+    modal.hide();
+
+    // Optionally, you can call the backend API to save the work done data
+    this.submitAttendance(); // Call this method if you want to save the changes immediately
   }
 
   submitAttendance() {
@@ -86,12 +113,10 @@ export class EmpAddAttendanceComponent implements OnInit {
 
     this.attendanceService.addEmpAttendanceapi(formData).subscribe(
       (response: any) => {
-        this.snackbar.open(' Changes Saved', 'Close', {
-          duration: 3000, // Duration in milliseconds,
-          
+        this.snackbar.open('Changes Saved', 'Close', {
+          duration: 3000, // Duration in milliseconds
           panelClass: ['success-snackbar'],
           verticalPosition: 'top',
-          // horizontalPosition: 'right'
         });
         this.loadAttendance(); // Refresh the attendance data
       },
