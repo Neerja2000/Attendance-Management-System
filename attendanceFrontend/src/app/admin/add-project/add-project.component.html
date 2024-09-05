@@ -8,39 +8,40 @@
                 <!-- Project Details -->
                 <div class="mb-3">
                     <label for="projectName" class="form-label">Project Name</label>
-                    <input type="text" class="form-control" id="projectName" required>
+                    <input type="text" class="form-control project-input" id="projectName" required>
                 </div>
                 
                 <div class="mb-3">
                     <label for="projectDescription" class="form-label">Project Description</label>
-                    <textarea class="form-control" id="projectDescription" rows="3" required></textarea>
+                    <textarea class="form-control project-input" id="projectDescription" rows="3" required></textarea>
                 </div>
 
-                <!-- Assigned To -->
-                <div class="custom-dropdown mb-3">
-                    <div class="dropdown-button">Select Employees</div>
-                    <div class="dropdown-content">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="person1" id="person1">
-                            <label class="form-check-label" for="person1">Person 1</label>
+                <!-- Assigned To (Select Employees) -->
+                <div class="mb-3">
+                    <label class="form-label">Select Employees</label>
+                    <div class="employee-dropdown">
+                        <div class="employee-list">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="person1" id="person1">
+                                <label class="form-check-label" for="person1">Person 1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="person2" id="person2">
+                                <label class="form-check-label" for="person2">Person 2</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="person3" id="person3">
+                                <label class="form-check-label" for="person3">Person 3</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="person4" id="person4">
+                                <label class="form-check-label" for="person4">Person 4</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="person5" id="person5">
+                                <label class="form-check-label" for="person5">Person 5</label>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="person2" id="person2">
-                            <label class="form-check-label" for="person2">Person 2</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="person3" id="person3">
-                            <label class="form-check-label" for="person3">Person 3</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="person4" id="person4">
-                            <label class="form-check-label" for="person4">Person 4</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="person5" id="person5">
-                            <label class="form-check-label" for="person5">Person 5</label>
-                        </div>
-                        <!-- Add more options as needed -->
                     </div>
                 </div>
 
@@ -50,20 +51,52 @@
                     <input class="form-control" type="file" id="documentation" multiple>
                 </div>
 
-                <!-- Tasks -->
-                <div class="mb-3">
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+                <!-- Tasks Section -->
+                <div class="mt-5">
                     <label class="form-label">Tasks</label>
                     <div id="tasksContainer">
                         <div class="task-item mb-3">
-                            <input type="text" class="form-control mb-2" placeholder="Task Name" required>
-                            <input type="number" class="form-control" placeholder="Expected Hours" required>
+                            <input type="text" class="form-control mb-2 project-input" placeholder="Task Name" required>
+                            <input type="number" class="form-control mb-2 project-input" placeholder="Expected Hours" required>
+                            
                         </div>
+                        
+                <button type="submit" class="btn btn-primary">Add Task</button>
                     </div>
-                    <button type="button" class="btn btn-secondary" id="addTaskBtn">Add Task</button>
-                    <button type="button" class="btn btn-info mt-2" id="loadMoreTasksBtn">Load More Tasks</button>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <!-- Static Task Cards -->
+                <div class="cards mt-5">
+                    <div class="row" id="taskCards">
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-title">Task 1</h6>
+                                    <p class="card-text">Expected Hours: 5</p>
+                                  
+                                </div>
+                                <div class="card-footer text-end">
+                                    <button class="btn btn-danger btn-sm delete-btn">🗑️ Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-title">Task 2</h6>
+                                    <p class="card-text">Expected Hours: 8</p>
+                                   
+                                </div>
+                                <div class="card-footer text-end">
+                                    <button class="btn btn-danger btn-sm delete-btn">🗑️ Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
