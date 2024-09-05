@@ -7,7 +7,7 @@ const empRatingController=require("../apis/employeeRating/empRatingController")
 const adminController=require("../apis/admin/adminController")
 const dailyRatingController=require("../apis/dailyRating/dailyRatingController")
 const projectController=require("../apis/project/projectController")
-
+const upload = require('../config/multerconfig');
 
 
 //adminLogin
@@ -43,5 +43,5 @@ router.put("/adminrating/add",empRatingController.adminRating)
 router.get("/dailyRating/all",dailyRatingController.getDailyRatings)
 
 
-router.post("/project/add",projectController.addProject)
+router.post("/project/add", upload.single('document'), projectController.addProject);
 module.exports=router

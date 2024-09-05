@@ -1,47 +1,39 @@
-const mongoose=require('mongoose')
+const mongoose = require('mongoose');
 
-const projectSchema=new mongoose.Schema({
+const projectSchema = new mongoose.Schema({
+  projectId: {
+    type: Number,
+    required: true
+  },
+  employeeIds: [{ 
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'employee',
+    default: null
+  }],
+  projectName: {
+    type: String,
+    default: null,
+    required: true
+  },
+  projectDescription: {
+    type: String,
+    default: null,
+    required: true
+  },
+  document: {
+    type: String,
+    default: null
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  status: {
+    type: Boolean,
+    default: true
+  }
+});
 
-   projectId: {
-       type: Number,
-       required: true
-     },
-     employeeId:{
-        type:mongoose.Schema.Types.ObjectId,
-        default:null,
-        ref:'employee'
-      },
-    
-     projectName:{
-       type:String,
-       default:null,
-       required:true
-     },
-     employeeNames:{
-        type:String,
-        required:true
-     },
-     projectDescription:{
-      type:String,
-      default:null,
-      required:true
-    },
-     document:{
-       type:String,
-       default:null,
-       
-     },
-     createdAt: {
-        type: Date,
-        default: Date.now
-    
-      },
-      status: {
-        type: Boolean,
-        default: true
-      }
+const Project = mongoose.model('Project', projectSchema);
 
-})
-const projects = mongoose.model('projects', projectSchema);
-
-module.exports = projects;
+module.exports = Project;

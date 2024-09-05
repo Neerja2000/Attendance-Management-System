@@ -4,24 +4,27 @@ const addProject = async (req, res) => {
     try {
         // Extract the data from req.body
         const {
-            employeeId,
+            employeeIds,
             projectName,
             projectDescription,
-            employeeNames,
-            document,
+          
            
         } = req.body;
 
+        const document = req.file ? req.file.filename : null;
         // Get the total count of documents to assign a projectId
+        const employeeIdArray = Array.isArray(employeeIds)
+        ? employeeIds.map(id => mongoose.Types.ObjectId(id))
+        : [];
         let total = await project.countDocuments();
 
         // Create a new project instance based on the extracted fields
         let newProject = new project({
             projectId: total + 1,  // Increment projectId by the total number of documents
-            employeeId,            // Employee assigned to the project
+            employeeIds:employeeIdArray,            // Employee assigned to the project
             projectName,           // Project name
             projectDescription,
-            employeeNames,    // Project description
+            // Project description
             document,              // Document associated with the project
             
         });
