@@ -46,14 +46,20 @@
 
 <!-- Work Done Modal -->
 <div class="modal fade" id="workDoneModal" tabindex="-1" aria-labelledby="workDoneModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 90%;">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="workDoneModalLabel">{{ isWorkDoneAdded ? 'Change Work Done' : 'Add Work Done' }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <textarea [(ngModel)]="workDoneContent" class="form-control" placeholder="Enter work done" required></textarea>
+        <ckeditor [(ngModel)]="workDoneContent" 
+                  [editor]="Editor"
+                  [config]="{ toolbar: ['heading', '|', 'bold', 'italic', 'bullets','bulletedList', 'numberedList'] }"
+                  style=" height: 500px; width: 50%;"
+                  placeholder="Enter work done"
+                  required>
+        </ckeditor>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -62,3 +68,5 @@
     </div>
   </div>
 </div>
+
+

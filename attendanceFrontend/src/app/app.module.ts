@@ -34,6 +34,7 @@ import { EmployeePasswordComponent } from './employee/employee-password/employee
 import { AddDailyRatingComponent } from './employee/add-daily-rating/add-daily-rating.component';
 import { ViewDailyRatingComponent } from './admin/view-daily-rating/view-daily-rating.component';
 import { DailyRatingViewComponent } from './employee/daily-rating-view/daily-rating-view.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -77,7 +78,8 @@ import { DailyRatingViewComponent } from './employee/daily-rating-view/daily-rat
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

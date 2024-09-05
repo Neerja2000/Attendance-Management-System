@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { EmpAttendanceService } from 'src/app/shared/empAttendance/emp-attendance.service';
 declare var bootstrap: any;
@@ -10,6 +11,8 @@ declare var bootstrap: any;
   styleUrls: ['./emp-add-attendance.component.css']
 })
 export class EmpAddAttendanceComponent implements OnInit {
+  public Editor = ClassicEditor;
+
   attendanceForm: FormGroup;
   employeeId: string | null = null;
   isWorkDoneAdded: boolean = false; // Flag to check if work has been added
