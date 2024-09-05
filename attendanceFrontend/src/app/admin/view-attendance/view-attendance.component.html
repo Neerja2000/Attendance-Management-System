@@ -4,9 +4,7 @@
       <div class="card-header">
         <div class="row">
           <div class="col-md-9">
-            <h5 class="card-title">
-              View Attendance
-            </h5>
+            <h5 class="card-title">View Attendance</h5>
           </div>
           <div class="col-md-3">
             <input type="date" class="form-control" id="attendanceDatePicker" [(ngModel)]="date" (change)="getAttendanceByDate()" [max]="maxDate">
@@ -37,7 +35,7 @@
               <td>{{ detail.break_time_start }}</td>
               <td>{{ detail.break_time_finish }}</td>
               <td>{{ detail.check_out }}</td>
-              <td>{{ detail.work_done }}</td>
+              <td [innerHTML]="detail.work_done"></td> <!-- Use innerHTML binding -->
               <td>
                 <span class="badge bg-primary" *ngIf="detail.status === 'present'">Present</span>
                 <span class="badge bg-danger" *ngIf="detail.status !== 'present'">{{ detail.status }}</span>

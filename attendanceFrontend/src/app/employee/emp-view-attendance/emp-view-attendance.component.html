@@ -51,7 +51,8 @@
                 <td>{{ detail.break_time_start }}</td>
                 <td>{{ detail.break_time_finish }}</td>
                 <td>{{ detail.check_out }}</td>
-                <td>{{ detail.work_done }}</td>
+                
+                <td [innerHTML]="detail.work_done"></td>
                 <td>{{ calculateTotalWorkHours(detail.check_in, detail.check_out, detail.break_time_start, detail.break_time_finish) }}</td>
                 <td>
                   <span class="badge" [ngClass]="{'bg-success': detail.status === 'present', 'bg-danger': detail.status !== 'present'}">
