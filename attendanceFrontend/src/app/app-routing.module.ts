@@ -23,6 +23,8 @@ import { AddDailyRatingComponent } from './employee/add-daily-rating/add-daily-r
 import { ViewDailyRatingComponent } from './admin/view-daily-rating/view-daily-rating.component';
 import { DailyRatingViewComponent } from './employee/daily-rating-view/daily-rating-view.component';
 import { AddProjectComponent } from './admin/add-project/add-project.component';
+import { AddProjectTaskComponent } from './admin/add-project-task/add-project-task.component';
+import { ViewProjectComponent } from './admin/view-project/view-project.component';
 
 const routes: Routes = [
 {
@@ -66,6 +68,11 @@ const routes: Routes = [
     },
     {
       path:'add-project',component:AddProjectComponent
+    },
+    {
+      path:'add-project-task',component:AddProjectTaskComponent
+    },{
+      path:'view-project',component:ViewProjectComponent
     }
   ]
   },

@@ -36,6 +36,8 @@ import { ViewDailyRatingComponent } from './admin/view-daily-rating/view-daily-r
 import { DailyRatingViewComponent } from './employee/daily-rating-view/daily-rating-view.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AddProjectComponent } from './admin/add-project/add-project.component';
+import { AddProjectTaskComponent } from './admin/add-project-task/add-project-task.component';
+import { ViewProjectComponent } from './admin/view-project/view-project.component';
 
 
 
@@ -69,7 +71,9 @@ import { AddProjectComponent } from './admin/add-project/add-project.component';
     AddDailyRatingComponent,
     ViewDailyRatingComponent,
     DailyRatingViewComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    AddProjectTaskComponent,
+    ViewProjectComponent
    
    
   ],
