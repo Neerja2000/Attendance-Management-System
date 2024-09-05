@@ -3,13 +3,10 @@ const project = require("./projectModel");
 const addProject = async (req, res) => {
     try {
         // Extract the data from req.body
-        const {
-            employeeIds,
-            projectName,
-            projectDescription,
-          
-           
-        } = req.body;
+     console.log('Request Body:', req.body); // Add logging
+
+        const { employeeIds, projectName, projectDescription } = req.body;
+        console.log('Employee IDs:', employeeIds); // Log employeeIds
 
         const document = req.file ? req.file.filename : null;
         // Get the total count of documents to assign a projectId
