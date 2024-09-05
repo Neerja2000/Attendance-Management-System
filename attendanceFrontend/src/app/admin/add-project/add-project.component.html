@@ -1,0 +1,70 @@
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header ">
+            <h5 class="card-title mb-0">Project Assignment Form</h5>
+        </div>
+        <div class="card-body">
+            <form>
+                <!-- Project Details -->
+                <div class="mb-3">
+                    <label for="projectName" class="form-label">Project Name</label>
+                    <input type="text" class="form-control" id="projectName" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="projectDescription" class="form-label">Project Description</label>
+                    <textarea class="form-control" id="projectDescription" rows="3" required></textarea>
+                </div>
+
+                <!-- Assigned To -->
+                <div class="custom-dropdown mb-3">
+                    <div class="dropdown-button">Select Employees</div>
+                    <div class="dropdown-content">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="person1" id="person1">
+                            <label class="form-check-label" for="person1">Person 1</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="person2" id="person2">
+                            <label class="form-check-label" for="person2">Person 2</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="person3" id="person3">
+                            <label class="form-check-label" for="person3">Person 3</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="person4" id="person4">
+                            <label class="form-check-label" for="person4">Person 4</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="person5" id="person5">
+                            <label class="form-check-label" for="person5">Person 5</label>
+                        </div>
+                        <!-- Add more options as needed -->
+                    </div>
+                </div>
+
+                <!-- Documentation -->
+                <div class="mb-3">
+                    <label for="documentation" class="form-label">Documentation</label>
+                    <input class="form-control" type="file" id="documentation" multiple>
+                </div>
+
+                <!-- Tasks -->
+                <div class="mb-3">
+                    <label class="form-label">Tasks</label>
+                    <div id="tasksContainer">
+                        <div class="task-item mb-3">
+                            <input type="text" class="form-control mb-2" placeholder="Task Name" required>
+                            <input type="number" class="form-control" placeholder="Expected Hours" required>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" id="addTaskBtn">Add Task</button>
+                    <button type="button" class="btn btn-info mt-2" id="loadMoreTasksBtn">Load More Tasks</button>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

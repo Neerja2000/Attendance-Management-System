@@ -22,6 +22,7 @@ import { EmployeePasswordComponent } from './employee/employee-password/employee
 import { AddDailyRatingComponent } from './employee/add-daily-rating/add-daily-rating.component';
 import { ViewDailyRatingComponent } from './admin/view-daily-rating/view-daily-rating.component';
 import { DailyRatingViewComponent } from './employee/daily-rating-view/daily-rating-view.component';
+import { AddProjectComponent } from './admin/add-project/add-project.component';
 
 const routes: Routes = [
 {
@@ -62,6 +63,9 @@ const routes: Routes = [
     },
     {
       path:'view-daily-rating',component:ViewDailyRatingComponent
+    },
+    {
+      path:'add-project',component:AddProjectComponent
     }
   ]
   },
