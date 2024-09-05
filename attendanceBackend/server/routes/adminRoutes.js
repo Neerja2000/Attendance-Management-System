@@ -6,7 +6,7 @@ const attendanceController=require("../apis/attendance/attendanceController")
 const empRatingController=require("../apis/employeeRating/empRatingController")
 const adminController=require("../apis/admin/adminController")
 const dailyRatingController=require("../apis/dailyRating/dailyRatingController")
-
+const projectController=require("../apis/project/projectController")
 
 
 
@@ -15,7 +15,7 @@ router.post("/adminLogin",adminController.adminLogin)
 
 
 //token
-router.use(require("../MiddleWare/tokenChecker"))
+// router.use(require("../MiddleWare/tokenChecker"))
 router.post("/admin/password",adminController.adminUpdatePassword)
 
 
@@ -42,4 +42,6 @@ router.put("/adminrating/add",empRatingController.adminRating)
 // view daily rating
 router.get("/dailyRating/all",dailyRatingController.getDailyRatings)
 
+
+router.post("/project/add",projectController.addProject)
 module.exports=router
