@@ -1,12 +1,11 @@
 <div class="container-fluid mt-5">
-    <section class="section">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-title">
-            View Employee
-          </h5>
-        </div>
-        <div class="card-body w-100">
+  <section class="section">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">View Employee</h5>
+      </div>
+      <div class="card-body w-100">
+        <div class="table-responsive"> <!-- Add table-responsive class here -->
           <table class="table table-striped" id="table1">
             <thead>
               <tr>
@@ -27,28 +26,22 @@
               <tr *ngFor="let detail of employees; let i = index">
                 <td>{{i+1}}</td>
                 <td>{{ detail.name }}</td>
-                <td>{{detail.gender}}</td>
+                <td>{{ detail.gender }}</td>
                 <td>{{ detail.email }}</td>
                 <td>{{ detail.phone }}</td>
                 <td>{{ detail.userId }}</td>
                 <td>{{ detail.password }}</td>
                 <td>{{ detail.address }}</td>
-                <td>{{detail.experience}}</td>
+                <td>{{ detail.experience }}</td>
                 <td>{{ detail.salary }}</td>
-              
                 <td>
-                  <div class="d-flex ">
-   
-                      <button class="btn btn-primary btn-sm me-2" [routerLink]="['/admin/layout/update-employee',detail._id]">
-                        <i class="bi bi-pencil-fill"></i>
-                      </button>
-               
+                  <div class="d-flex">
+                    <button class="btn btn-primary btn-sm me-2" [routerLink]="['/admin/layout/update-employee', detail._id]">
+                      <i class="bi bi-pencil-fill"></i>
+                    </button>
                     <button class="btn btn-danger btn-sm me-2" (click)="delete(detail._id)">
                       <i class="bi bi-trash-fill"></i>
                     </button>
-
-                  
-                  
                   </div>
                 </td>
               </tr>
@@ -56,6 +49,6 @@
           </table>
         </div>
       </div>
-    </section>
-  </div>
-  
+    </div>
+  </section>
+</div>
