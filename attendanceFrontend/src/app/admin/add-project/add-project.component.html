@@ -16,16 +16,22 @@
           <textarea class="form-control" id="projectDescription" rows="3" formControlName="projectDescription"></textarea>
         </div>
 
-        <!-- Assigned To (Select Employees) -->
         <div class="mb-3">
-          <label class="form-label">Select Employees</label>
-          <div class="employee-list">
-            <div *ngFor="let employee of employees" class="form-check">
-              <input class="form-check-input" type="checkbox" [value]="employee._id" [id]="'person' + employee._id" (change)="onEmployeeChange($event)">
-              <label class="form-check-label" [for]="'person' + employee._id">{{ employee.name }}</label>
-            </div>
-          </div>
+        <label for="projectDescription" class="form-label">Select Employees</label>
+        <div class="dropdown" >
+          <input class="form-control dropdown-toggle" type="text" id="dropdownMenuInput" placeholder="Select Employees" readonly aria-expanded="false" data-bs-toggle="dropdown" aria-haspopup="true" aria-controls="dropdownMenu">
+          <ul class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuInput" style="height: 300px; overflow-y: auto;">
+            <li *ngFor="let employee of employees" class="dropdown-item">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" [value]="employee._id" [id]="'person' + employee._id" (change)="onEmployeeChange($event)">
+                <label class="form-check-label" [for]="'person' + employee._id">{{ employee.name }}</label>
+              </div>
+            </li>
+          </ul>
         </div>
+      </div>
+        
+        
 
         <!-- Documentation -->
         <div class="mb-3">
