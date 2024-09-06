@@ -1,61 +1,42 @@
 <div class="container mt-5">
     <div class="card shadow-sm">
-        <div class="card-header ">
-            <h5 class="card-title mb-0">Project Assignment Form</h5>
-        </div>
-        <div class="card-body">
-            <form>
-                <!-- Project Details -->
-                <div class="mb-3">
-                    <label for="projectName" class="form-label">Project Name</label>
-                    <input type="text" class="form-control project-input" id="projectName" required>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="projectDescription" class="form-label">Project Description</label>
-                    <textarea class="form-control project-input" id="projectDescription" rows="3" required></textarea>
-                </div>
-
-                <!-- Assigned To (Select Employees) -->
-                <div class="mb-3">
-                    <label class="form-label">Select Employees</label>
-                    <div class="employee-dropdown">
-                        <div class="employee-list">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="person1" id="person1">
-                                <label class="form-check-label" for="person1">Person 1</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="person2" id="person2">
-                                <label class="form-check-label" for="person2">Person 2</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="person3" id="person3">
-                                <label class="form-check-label" for="person3">Person 3</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="person4" id="person4">
-                                <label class="form-check-label" for="person4">Person 4</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="person5" id="person5">
-                                <label class="form-check-label" for="person5">Person 5</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Documentation -->
-                <div class="mb-3">
-                    <label for="documentation" class="form-label">Documentation</label>
-                    <input class="form-control" type="file" id="documentation" multiple>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-primary" routerLink="/admin/layout/view-project">Submit</button>
-
-               
-            </form>
-        </div>
+      <div class="card-header">
+        <h5 class="card-title mb-0">Project Assignment Form</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="addProject" (ngSubmit)="projectapi()">
+          <!-- Project Details -->
+          <div class="mb-3">
+            <label for="projectName" class="form-label">Project Name</label>
+            <input type="text" class="form-control" id="projectName" formControlName="projectName">
+          </div>
+          
+          <div class="mb-3">
+            <label for="projectDescription" class="form-label">Project Description</label>
+            <textarea class="form-control" id="projectDescription" rows="3" formControlName="projectDescription"></textarea>
+          </div>
+  
+          <!-- Assigned To (Select Employees) -->
+          <div class="mb-3">
+            <label class="form-label">Select Employees</label>
+            <div class="employee-list">
+              <div *ngFor="let employee of employees" class="form-check">
+                <input class="form-check-input" type="checkbox" [value]="employee.employeeId" [id]="'person' + employee.employeeId" (change)="onEmployeeChange($event)">
+                <label class="form-check-label" [for]="'person' + employee.employeeId">{{ employee.name }}</label>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Documentation -->
+          <div class="mb-3">
+            <label for="documentation" class="form-label">Documentation</label>
+            <input class="form-control" type="file" id="documentation" multiple (change)="uploadFiles($event)">
+          </div>
+  
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
+  
