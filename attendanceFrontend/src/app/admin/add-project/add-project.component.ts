@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { EmployeeService } from 'src/app/shared/employee/employee.service';
@@ -15,13 +16,14 @@ export class AddProjectComponent implements OnInit {
   addProject = new FormGroup({
     projectName: new FormControl('', Validators.required),
     projectDescription: new FormControl('', Validators.required),
-    employees: new FormArray([]), // Initialize with FormArray
-    files: new FormControl<File[]>([]) // Initialize as an array of File objects
+    employees: new FormArray([]),
+    files: new FormControl<File[]>([])
   });
 
   constructor(
     private employeeService: EmployeeService,
-    private projectService: ProjectService // Ensure this service exists for posting data
+    private projectService: ProjectService,
+    private router: Router // Inject Router
   ) { }
 
   ngOnInit(): void {
@@ -46,7 +48,6 @@ export class AddProjectComponent implements OnInit {
 
     const employeesArray = this.addProject.get('employees') as FormArray;
 
-    // Check if ID is a valid ObjectId (24-char hex string)
     if (isChecked) {
       if (selectedEmployeeId.match(/^[0-9a-fA-F]{24}$/)) {
         employeesArray.push(new FormControl(selectedEmployeeId));
@@ -59,36 +60,30 @@ export class AddProjectComponent implements OnInit {
         employeesArray.removeAt(index);
       }
     }
-    
   }
 
-  // Handling file upload
   uploadFiles(event: any) {
     const files = event.target.files;
     this.selectedFiles = Array.from(files); // Convert FileList to array
     this.addProject.patchValue({ 'files': this.selectedFiles });
   }
 
-  // Submitting the form
   projectapi() {
     const formData = new FormData();
     formData.append('projectName', this.addProject.value.projectName || '');
     formData.append('projectDescription', this.addProject.value.projectDescription || '');
   
-    // Append employee IDs
     const employeesArray = this.addProject.get('employees') as FormArray;
     employeesArray.controls.forEach(control => {
       formData.append('employeeIds[]', control.value);
     });
   
-    // Append files
     if (this.addProject.value.files) {
       this.addProject.value.files.forEach((file: File) => {
         formData.append('files', file, file.name);
       });
     }
   
-    // Log FormData to verify contents
     formData.forEach((value, key) => {
       console.log(key, value);
     });
@@ -96,12 +91,11 @@ export class AddProjectComponent implements OnInit {
     this.projectService.addProjectApi(formData).subscribe(
       (res: any) => {
         console.log('Project added successfully', res);
+        this.router.navigate(['/admin/layout/view-project']); // Navigate after successful submission
       },
       (error: any) => {
         console.error('Error:', error);
       }
     );
   }
-  
-  
 }
