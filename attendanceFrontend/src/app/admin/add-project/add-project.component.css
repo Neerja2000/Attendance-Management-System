@@ -64,3 +64,15 @@
     font-size: 20px; /* Title font size */
     font-weight: 600; /* Bold title */
 }
+
+
+
+
+.employee-list {
+    max-height: 200px; /* Set your desired height */
+    overflow-y: auto; 
+    border: 1px solid rgb(232, 230, 230);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
