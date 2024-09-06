@@ -25,6 +25,6 @@ router.post("/rating/add",empRatingController.addRating)
 router.get('/rating/getSingle/:employeeId', empRatingController.getSingle);
 // daily
 router.post("/dailyRating/add",dailyRatingController.addDailyRating)
-
+router.get("/dailyRating/getSingle/:employeeId",dailyRatingController.getSingleEmployeeRating)
 
 module.exports=router

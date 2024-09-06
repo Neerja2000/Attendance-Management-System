@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class EmployeeService {
  globalbaseurl:any  
  employeebaseurl:any
+  employeeId$: any;
 
 
  constructor(

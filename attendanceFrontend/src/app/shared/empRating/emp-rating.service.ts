@@ -36,4 +36,7 @@ export class EmpRatingService {
    getSingleRating(employeeId: string): Observable<any> {
     return this.http.get(`${this.employeebaseurl}/rating/getSingle/${employeeId}`,{ headers: this.getHeaders() });
   }
+  getSingleEmployeeRating(employeeId: string): Observable<any> {
+    return this.http.get(`${this.employeebaseurl}/dailyRating/getSingle/${employeeId}`,{ headers: this.getHeaders() });
+  }
 }

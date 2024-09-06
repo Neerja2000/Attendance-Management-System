@@ -100,7 +100,7 @@ const routes: Routes = [
       path:'add-daily-rating',component:AddDailyRatingComponent,canActivate:[AuthGuard]
     },
     {
-      path:'daily-rating-view',component:DailyRatingViewComponent,canActivate:[AuthGuard]
+      path:'daily-rating-view/:employeeId',component:DailyRatingViewComponent,canActivate:[AuthGuard]
     }
   ]
   }
