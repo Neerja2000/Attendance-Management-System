@@ -7,6 +7,7 @@ const empRatingController=require("../apis/employeeRating/empRatingController")
 const adminController=require("../apis/admin/adminController")
 const dailyRatingController=require("../apis/dailyRating/dailyRatingController")
 const projectController=require("../apis/project/projectController")
+const taskController=require("../apis/task/taskController")
 const upload = require('../config/multerconfig');
 
 
@@ -44,4 +45,10 @@ router.get("/dailyRating/all",dailyRatingController.getDailyRatings)
 
 
 router.post("/project/add", upload.single('document'), projectController.addProject);
+
+
+
+
+router.post("/task/add", upload.array('files', 5), taskController.addTask);
+router.get("/task/allProduct",taskController.getAllTasks)
 module.exports=router

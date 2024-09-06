@@ -14,3 +14,11 @@ const storage = multer.diskStorage({
 // Initialize the upload middleware with the storage configuration
 const upload = multer({ storage: storage });
 module.exports = upload;
+
+
+
+
+
+
+
+
