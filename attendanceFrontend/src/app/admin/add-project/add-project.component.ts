@@ -59,6 +59,7 @@ export class AddProjectComponent implements OnInit {
         employeesArray.removeAt(index);
       }
     }
+    
   }
 
   // Handling file upload
