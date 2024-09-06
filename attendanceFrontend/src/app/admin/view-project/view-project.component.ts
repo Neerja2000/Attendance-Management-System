@@ -30,7 +30,7 @@ export class ViewProjectComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           this.projects = res.data;
-          console.log("Projects Data:", this.projects); // Debug log
+         
         } else {
           console.error('Error retrieving projects:', res.message);
         }
@@ -50,7 +50,7 @@ export class ViewProjectComponent implements OnInit {
             acc[emp._id] = emp.name; // Use _id as key
             return acc;
           }, {});
-          console.log("Employee Map:", this.employees); // Debug log
+          // Debug log
         } else {
           console.error('Error retrieving employees:', res.message);
         }
