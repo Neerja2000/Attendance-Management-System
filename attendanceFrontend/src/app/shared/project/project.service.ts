@@ -26,7 +26,11 @@ export class ProjectService {
   addProjectApi(formData:FormData)
   {
 
-
     return this.http.post(this.globalbaseurl+"/project/add",formData,{ headers: this.getHeaders() })
+  }
+
+
+  getAllProjectApi() {
+    return this.http.get(this.globalbaseurl + "/project/getAll", { headers: this.getHeaders() });
   }
 }

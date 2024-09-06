@@ -1,51 +1,57 @@
 <div class="container-fluid mt-5">
     <section class="section">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">
-                    View Projects
-                </h5>
-            </div>
-            <div class="card-body w-100">
-                <table class="table table-striped" id="table1">
-                    <thead>
-                        <tr>
-                            <th>SrNo.</th>
-                            <th>Project Name</th>
-                            <th>Project Description</th>
-                            <th>Assigned Employee</th>
-                            <th>Documentation</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Project 1</td>
-                            <td>Project description goes here...</td>
-                            <td>John Doe</td>
-                            <td>Documentation link</td>
-                            <td>
-                                <div class="d-flex">
-                                    <!-- Add Task Button -->
-                                  
-                                   <button routerLink="/admin/layout/add-project-task" class="btn btn-primary btn-sm me-2" title="Add Task">
-                                        <i class="bi bi-plus-circle-fill"></i>
-                                    </button>
-                                    <!-- Edit Project Button -->
-                                    <button class="btn btn-secondary btn-sm me-2" title="Edit Project">
-                                        <i class="bi bi-pencil-fill"></i>
-                                    </button>
-                                    <!-- Delete Project Button -->
-                                    <button class="btn btn-danger btn-sm" title="Delete Project">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">View Projects</h5>
         </div>
+        <div class="card-body w-100">
+          <table class="table table-striped" id="table1">
+            <thead>
+              <tr>
+                <th>SrNo.</th>
+                <th>Project Name</th>
+                <th>Project Description</th>
+                <th>Assigned Employee</th>
+                <th>Documentation</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let project of projects; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ project.projectName }}</td>
+                <td>{{ project.projectDescription }}</td>
+                <td>
+                    <span *ngFor="let empId of project.employeeIds">
+                      {{ getEmployeeNames([empId])[0] }}<br>
+                    </span>
+                  </td>
+                <td>
+                  <span *ngFor="let file of project.files">
+                    <a [href]="fileUrl(file)" target="_blank">{{ file }}</a>
+                  </span>
+                </td>
+                <td>
+                  <div class="d-flex">
+                    <!-- Add Task Button -->
+                    <button routerLink="/admin/layout/add-project-task" class="btn btn-primary btn-sm me-2" title="Add Task">
+                      <i class="bi bi-plus-circle-fill"></i>
+                    </button>
+                    <!-- Edit Project Button -->
+                    <button class="btn btn-secondary btn-sm me-2" title="Edit Project">
+                      <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <!-- Delete Project Button -->
+                    <button class="btn btn-danger btn-sm" title="Delete Project">
+                      <i class="bi bi-trash-fill"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
-</div>
+  </div>
+  

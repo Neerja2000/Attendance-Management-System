@@ -65,7 +65,7 @@ const getAll = async (req, res) => {
             data: projects
         });
     } catch (err) {
-        console.error('Error in getAll:', err);  // Log the error for debugging
+         // Log the error for debugging
 
         res.status(500).json({
             success: false,
