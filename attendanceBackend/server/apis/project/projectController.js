@@ -1,29 +1,32 @@
 const project = require("./projectModel");
+const mongoose = require('mongoose');
 
 const addProject = async (req, res) => {
     try {
         // Extract the data from req.body
-     console.log('Request Body:', req.body); // Add logging
+        console.log('Request Body:', req.body); // Add logging to check the incoming data
 
-        const { employeeIds, projectName, projectDescription } = req.body;
-        console.log('Employee IDs:', employeeIds); // Log employeeIds
+        // Parse employeeIds if they come as a string
+        const employeeIds = typeof req.body.employeeIds === 'string' ? JSON.parse(req.body.employeeIds) : req.body.employeeIds;
+        console.log('Parsed Employee IDs:', employeeIds); // Log parsed employeeIds
 
+        const { projectName, projectDescription } = req.body;
         const document = req.file ? req.file.filename : null;
-        // Get the total count of documents to assign a projectId
+
+        // Ensure employeeIds is an array and map it to ObjectId
         const employeeIdArray = Array.isArray(employeeIds)
-        ? employeeIds.map(id => mongoose.Types.ObjectId(id))
-        : [];
+            ? employeeIds.map(id => new mongoose.Types.ObjectId(id))
+            : []; // Ensure it's an array of ObjectId
+
         let total = await project.countDocuments();
 
         // Create a new project instance based on the extracted fields
         let newProject = new project({
             projectId: total + 1,  // Increment projectId by the total number of documents
-            employeeIds:employeeIdArray,            // Employee assigned to the project
+            employeeIds: employeeIdArray,  // Assign multiple employees
             projectName,           // Project name
-            projectDescription,
-            // Project description
-            document,              // Document associated with the project
-            
+            projectDescription,    // Project description
+            document               // Document associated with the project
         });
 
         // Save the new project to the database
@@ -45,5 +48,7 @@ const addProject = async (req, res) => {
         });
     }
 };
+
+
 
 module.exports = { addProject };

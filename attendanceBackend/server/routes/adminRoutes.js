@@ -44,7 +44,7 @@ router.put("/adminrating/add",empRatingController.adminRating)
 router.get("/dailyRating/all",dailyRatingController.getDailyRatings)
 
 
-router.post("/project/add", upload.single('document'), projectController.addProject);
+router.post("/project/add", upload.array('document',5), projectController.addProject);
 
 
 
