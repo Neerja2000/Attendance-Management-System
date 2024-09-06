@@ -43,7 +43,27 @@ const addProject = async (req, res) => {
     }
 };
 
+const getAll = async (req, res) => {
+    try {
+        // Retrieve all tasks from the database
+        const projects = await project.find(); // This assumes you're using Mongoose and Task is your model
+
+        res.json({
+            success: true,
+            status: 200,
+            message: "projects retrieved successfully",
+            data: projects
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            status: 500,
+            message: err.message
+        });
+    }
+};
 
 
 
-module.exports = { addProject };
+
+module.exports = { addProject,getAll };

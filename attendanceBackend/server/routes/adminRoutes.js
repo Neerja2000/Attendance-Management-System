@@ -45,10 +45,10 @@ router.get("/dailyRating/all",dailyRatingController.getDailyRatings)
 
 
 router.post("/project/add", upload.array('files',5), projectController.addProject);
-
+router.get("/project/getAll",projectController.getAll)
 
 
 
 router.post("/task/add", upload.array('files', 5), taskController.addTask);
-router.get("/task/allProduct",taskController.getAllTasks)
+router.get("/task/getAll",taskController.getAllTasks)
 module.exports=router
