@@ -20,10 +20,10 @@ const projectSchema = new mongoose.Schema({
     default: null,
     required: true
   },
-  document: {
+  files: [{
     type: String,
-    default: null
-  },
+    default: []
+}],
   createdAt: {
     type: Date,
     default: Date.now
