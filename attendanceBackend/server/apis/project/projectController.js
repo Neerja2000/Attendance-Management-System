@@ -55,16 +55,18 @@ const addProject = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        // Retrieve all tasks from the database
-        const projects = await project.find(); // This assumes you're using Mongoose and Task is your model
+        // Retrieve all projects from the database
+        const projects = await project.find(); 
 
         res.json({
             success: true,
             status: 200,
-            message: "projects retrieved successfully",
+            message: "Projects retrieved successfully",
             data: projects
         });
     } catch (err) {
+        console.error('Error in getAll:', err);  // Log the error for debugging
+
         res.status(500).json({
             success: false,
             status: 500,
@@ -73,7 +75,4 @@ const getAll = async (req, res) => {
     }
 };
 
-
-
-
-module.exports = { addProject,getAll };
+module.exports = { addProject, getAll };

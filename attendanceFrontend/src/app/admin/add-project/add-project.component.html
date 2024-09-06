@@ -1,42 +1,41 @@
 <div class="container mt-5">
-    <div class="card shadow-sm">
-      <div class="card-header">
-        <h5 class="card-title mb-0">Project Assignment Form</h5>
-      </div>
-      <div class="card-body">
-        <form [formGroup]="addProject" (ngSubmit)="projectapi()">
-          <!-- Project Details -->
-          <div class="mb-3">
-            <label for="projectName" class="form-label">Project Name</label>
-            <input type="text" class="form-control" id="projectName" formControlName="projectName">
-          </div>
-          
-          <div class="mb-3">
-            <label for="projectDescription" class="form-label">Project Description</label>
-            <textarea class="form-control" id="projectDescription" rows="3" formControlName="projectDescription"></textarea>
-          </div>
-  
-          <!-- Assigned To (Select Employees) -->
-          <div class="mb-3">
-            <label class="form-label">Select Employees</label>
-            <div class="employee-list">
-              <div *ngFor="let employee of employees" class="form-check">
-                <input class="form-check-input" type="checkbox" [value]="employee.employeeId" [id]="'person' + employee.employeeId" (change)="onEmployeeChange($event)">
-                <label class="form-check-label" [for]="'person' + employee.employeeId">{{ employee.name }}</label>
-              </div>
+  <div class="card shadow-sm">
+    <div class="card-header">
+      <h5 class="card-title mb-0">Project Assignment Form</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="addProject" (ngSubmit)="projectapi()">
+        <!-- Project Details -->
+        <div class="mb-3">
+          <label for="projectName" class="form-label">Project Name</label>
+          <input type="text" class="form-control" id="projectName" formControlName="projectName">
+        </div>
+
+        <div class="mb-3">
+          <label for="projectDescription" class="form-label">Project Description</label>
+          <textarea class="form-control" id="projectDescription" rows="3" formControlName="projectDescription"></textarea>
+        </div>
+
+        <!-- Assigned To (Select Employees) -->
+        <div class="mb-3">
+          <label class="form-label">Select Employees</label>
+          <div class="employee-list">
+            <div *ngFor="let employee of employees" class="form-check">
+              <input class="form-check-input" type="checkbox" [value]="employee._id" [id]="'person' + employee._id" (change)="onEmployeeChange($event)">
+              <label class="form-check-label" [for]="'person' + employee._id">{{ employee.name }}</label>
             </div>
           </div>
-  
-          <!-- Documentation -->
-          <div class="mb-3">
-            <label for="documentation" class="form-label">Documentation</label>
-            <input class="form-control" type="file" id="documentation" multiple (change)="uploadFiles($event)">
-          </div>
-  
-          <!-- Submit Button -->
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
+        </div>
+
+        <!-- Documentation -->
+        <div class="mb-3">
+          <label for="documentation" class="form-label">Documentation</label>
+          <input class="form-control" type="file" id="documentation" multiple (change)="uploadFiles($event)">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
   </div>
-  
+</div>

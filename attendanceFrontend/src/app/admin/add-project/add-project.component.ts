@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { EmployeeService } from 'src/app/shared/employee/employee.service';
 import { ProjectService } from 'src/app/shared/project/project.service';
 
@@ -11,11 +11,11 @@ import { ProjectService } from 'src/app/shared/project/project.service';
 export class AddProjectComponent implements OnInit {
   employees: any[] = [];
   selectedFiles: File[] = [];
-  selectedEmployeeIds: string[] = []; // Track selected employee IDs
+
   addProject = new FormGroup({
-    projectName: new FormControl(''),
-    projectDescription: new FormControl(''),
-    employees: new FormControl<string[]>([]), // Explicitly type as an array of strings
+    projectName: new FormControl('', Validators.required),
+    projectDescription: new FormControl('', Validators.required),
+    employees: new FormArray([]), // Initialize with FormArray
     files: new FormControl<File[]>([]) // Initialize as an array of File objects
   });
 
@@ -44,49 +44,63 @@ export class AddProjectComponent implements OnInit {
     const selectedEmployeeId = event.target.value;
     const isChecked = event.target.checked;
 
-    if (isChecked) {
-      this.selectedEmployeeIds.push(selectedEmployeeId);
-    } else {
-      this.selectedEmployeeIds = this.selectedEmployeeIds.filter(id => id !== selectedEmployeeId);
-    }
+    const employeesArray = this.addProject.get('employees') as FormArray;
 
-    this.addProject.patchValue({ 'employees': this.selectedEmployeeIds });
+    // Check if ID is a valid ObjectId (24-char hex string)
+    if (isChecked) {
+      if (selectedEmployeeId.match(/^[0-9a-fA-F]{24}$/)) {
+        employeesArray.push(new FormControl(selectedEmployeeId));
+      } else {
+        console.error('Invalid ObjectId:', selectedEmployeeId);
+      }
+    } else {
+      const index = employeesArray.controls.findIndex(control => control.value === selectedEmployeeId);
+      if (index > -1) {
+        employeesArray.removeAt(index);
+      }
+    }
   }
 
+  // Handling file upload
   uploadFiles(event: any) {
     const files = event.target.files;
     this.selectedFiles = Array.from(files); // Convert FileList to array
     this.addProject.patchValue({ 'files': this.selectedFiles });
   }
 
+  // Submitting the form
   projectapi() {
     const formData = new FormData();
     formData.append('projectName', this.addProject.value.projectName || '');
     formData.append('projectDescription', this.addProject.value.projectDescription || '');
-
+  
     // Append employee IDs
-    if (this.addProject.value.employees) {
-      this.addProject.value.employees.forEach((empId: string) => {
-        formData.append('employeeIds[]', empId);
-      });
-    }
-
+    const employeesArray = this.addProject.get('employees') as FormArray;
+    employeesArray.controls.forEach(control => {
+      formData.append('employeeIds[]', control.value);
+    });
+  
     // Append files
     if (this.addProject.value.files) {
       this.addProject.value.files.forEach((file: File) => {
-        formData.append('files[]', file, file.name);
+        formData.append('files', file, file.name);
       });
     }
-
+  
+    // Log FormData to verify contents
+    formData.forEach((value, key) => {
+      console.log(key, value);
+    });
+  
     this.projectService.addProjectApi(formData).subscribe(
       (res: any) => {
         console.log('Project added successfully', res);
-        // Handle success
       },
       (error: any) => {
         console.error('Error:', error);
-        // Handle error
       }
     );
   }
+  
+  
 }
