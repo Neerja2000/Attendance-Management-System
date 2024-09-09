@@ -11,14 +11,14 @@ router.post("/login",employeeController.employeeLogin)
 
 
 //token
-router.use(require("../MiddleWare/tokenChecker"))
+// router.use(require("../MiddleWare/tokenChecker"))
 router.post("/employee/password",employeeController.employeeUpdatePassword)
 
 // attendance 
 router.post("/attendance/add",attendanceController.addAttendance)
 router.get("/attendance/single",attendanceController.getSingle)
 router.post("/attendance/status",attendanceController.changeStatus)
-router.get("/attendance/today",attendanceController.getTodayAttendance)
+router.get('/attendance/today/:employeeId', attendanceController.getTodayAttendanceByEmployeeId);
 //rating
 router.post("/rating/add",empRatingController.addRating)
 

@@ -81,5 +81,7 @@ const getAll = async (req, res) => {
     }
 };
 
+const deleteproject=async(req,res)=>{
 
-module.exports = { addProject, getAll };
+}
+module.exports = { addProject, getAll,deleteproject };

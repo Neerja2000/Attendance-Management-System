@@ -54,8 +54,9 @@ export class EmpAddAttendanceComponent implements OnInit {
 
   loadAttendance() {
     if (this.employeeId) {
-      this.attendanceService.getTodayAttendance().subscribe(
+      this.attendanceService.getTodayAttendanceByEmployeeId(this.employeeId).subscribe(
         (response: any) => {
+          console.log('Attendance Response:', response);
           const attendance = response.data.find((att: any) => att.employeeId === this.employeeId);
           if (attendance) {
             this.attendanceForm.patchValue({
@@ -65,19 +66,25 @@ export class EmpAddAttendanceComponent implements OnInit {
               check_out: attendance.check_out || '',
               work_done: attendance.work_done || ''
             });
-
+  
             if (attendance.work_done) {
               this.isWorkDoneAdded = true;
-              this.workDoneContent = attendance.work_done; // Set existing work content
+              this.workDoneContent = attendance.work_done;
             }
           }
         },
         (error: any) => {
           console.error('Error loading attendance', error);
+          this.snackbar.open('Failed to load attendance data', 'Close', {
+            duration: 3000,
+            panelClass: ['error-snackbar'],
+            verticalPosition: 'top',
+          });
         }
       );
     }
   }
+  
 
   openWorkDoneModal() {
     // Set the modal textarea with existing work content (if available)

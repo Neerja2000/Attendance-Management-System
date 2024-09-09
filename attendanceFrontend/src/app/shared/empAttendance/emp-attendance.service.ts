@@ -27,7 +27,10 @@ export class EmpAttendanceService {
     return this.http.post(this.employeebaseurl+'/attendance/add',employeeData,{ headers: this.getHeaders() })
    }
 
-     getTodayAttendance(): Observable<any> {
-    return this.http.get(`${this.employeebaseurl}/attendance/today`,{ headers: this.getHeaders() });
+   getTodayAttendanceByEmployeeId(employeeId: string) {
+    return this.http.get(`${this.employeebaseurl}/attendance/today/${employeeId}`, { headers: this.getHeaders() });
   }
+  
+  
+
 }

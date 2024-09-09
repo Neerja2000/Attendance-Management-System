@@ -1,6 +1,6 @@
 const attendance=require("./attendanceModel")
 const Employee=require("../employee/employeeModel")
-
+const mongoose = require('mongoose');
 const addAttendance = async (req, res) => {
   try {
     const { employeeId, check_in, break_time_start,break_time_finish, check_out, work_done } = req.body;
@@ -231,6 +231,87 @@ const changeStatus = (req, res) => {
     }
   };
   
+  const getTodayAttendanceByEmployeeId = async (req, res) => {
+    try {
+      const { employeeId } = req.params;
+  
+      // Validate if employeeId is a valid ObjectId
+      if (!mongoose.Types.ObjectId.isValid(employeeId)) {
+        return res.status(400).json({ success: false, status: 400, message: 'Invalid Employee ID format' });
+      }
+  
+      const now = new Date();
+      const startOfDay = new Date(now.setHours(0, 0, 0, 0));
+      const endOfDay = new Date(now.setHours(23, 59, 59, 999));
+  
+      // Log Employee ID and Date range for debugging
+      console.log("Employee ID:", employeeId);
+      console.log("Start of Day:", startOfDay);
+      console.log("End of Day:", endOfDay);
+  
+      const pipeline = [
+        {
+          $match: {
+            _id: new mongoose.Types.ObjectId(employeeId)  // Cast employeeId to ObjectId if necessary
+          }
+        },
+        {
+          $lookup: {
+            from: 'attendances',
+            let: { empId: '$_id' },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $and: [
+                      { $eq: ['$employeeId', '$$empId'] }, // Ensure employeeId matches
+                      { $gte: ['$createdAt', startOfDay] }, // Check within today's range
+                      { $lte: ['$createdAt', endOfDay] }
+                    ]
+                  }
+                }
+              }
+            ],
+            as: 'attendances'
+          }
+        },
+        {
+          $addFields: {
+            attendance: { $arrayElemAt: ['$attendances', 0] }
+          }
+        },
+        {
+          $project: {
+            _id: 0,
+            employeeId: '$_id',
+            employeeName: '$name',
+            check_in: '$attendance.check_in',
+            break_time_start: '$attendance.break_time_start',
+            break_time_finish: '$attendance.break_time_finish',
+            check_out: '$attendance.check_out',
+            work_done: '$attendance.work_done',
+            status: '$attendance.status'
+          }
+        }
+      ];
+  
+      console.log("Pipeline:", JSON.stringify(pipeline, null, 2));  // Log the pipeline
+      const result = await Employee.aggregate(pipeline);
+  
+      if (result.length === 0) {
+        return res.status(404).json({ success: false, status: 404, message: "No attendance records found for today." });
+      }
+  
+      res.json({ success: true, status: 200, message: "Today's attendance loaded successfully", data: result });
+    } catch (err) {
+      console.error('Error:', err);  // Log the error details
+      res.status(500).json({ success: false, status: 500, message: 'Internal Server Error' });
+    }
+  };
+  
+
+  
+  
   const getAttendanceByDate = async (req, res) => {
     try {
       const { date } = req.query; // Get the date from the query parameters
@@ -329,4 +410,4 @@ const changeStatus = (req, res) => {
   
 
 
-module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance,getTodayAttendance,getAttendanceByDate}
+module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance,getTodayAttendance,getTodayAttendanceByEmployeeId,getAttendanceByDate}

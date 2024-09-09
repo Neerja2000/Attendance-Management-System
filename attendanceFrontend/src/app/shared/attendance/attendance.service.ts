@@ -31,7 +31,8 @@ export class AttendanceService {
       return this.http.get(this.globalbaseurl+'/attendance/today',{ headers: this.getHeaders() });
     }
 
-
+  
+    
     getAttendanceByDate(date: string): Observable<any> {
       const options = {
         headers: this.getHeaders(),
