@@ -55,18 +55,24 @@ const addProject = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        // Retrieve all projects from the database
         const projects = await project.find(); 
+
+        // Create URLs for the files
+        const projectsWithFileUrls = projects.map(project => {
+            return {
+                ...project._doc,
+                files: project.files.map(file => `http://localhost:3000/projectDocument/${file}`)
+
+            };
+        });
 
         res.json({
             success: true,
             status: 200,
             message: "Projects retrieved successfully",
-            data: projects
+            data: projectsWithFileUrls
         });
     } catch (err) {
-         // Log the error for debugging
-
         res.status(500).json({
             success: false,
             status: 500,
@@ -74,5 +80,6 @@ const getAll = async (req, res) => {
         });
     }
 };
+
 
 module.exports = { addProject, getAll };

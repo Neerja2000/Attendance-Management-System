@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/shared/project/project.service';
-import { EmployeeService } from 'src/app/shared/employee/employee.service'; // Import employee service
+import { EmployeeService } from 'src/app/shared/employee/employee.service';
 
 @Component({
   selector: 'app-view-project',
@@ -9,20 +9,20 @@ import { EmployeeService } from 'src/app/shared/employee/employee.service'; // I
 })
 export class ViewProjectComponent implements OnInit {
   projects: any[] = [];
-  employees: { [key: string]: string } = {}; // Object to map employee IDs to names
+  employees: { [key: string]: string } = {};
   globalbaseurl: string;
 
   constructor(
     private projectService: ProjectService,
-    private employeeService: EmployeeService // Inject employee service
+    private employeeService: EmployeeService
   ) {
-    this.globalbaseurl = ''; // Initialize with your base URL
+    this.globalbaseurl = 'http://your-server-url'; // Initialize with your base URL
   }
 
   ngOnInit(): void {
     console.log("Fetching projects and employees...");
     this.getProjectApi();
-    this.getEmployees(); // Fetch employee data
+    this.getEmployees();
   }
 
   getProjectApi() {
@@ -30,7 +30,6 @@ export class ViewProjectComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           this.projects = res.data;
-         
         } else {
           console.error('Error retrieving projects:', res.message);
         }
@@ -40,17 +39,15 @@ export class ViewProjectComponent implements OnInit {
       }
     );
   }
-  
+
   getEmployees() {
     this.employeeService.viewEmployeeapi().subscribe(
       (res: any) => {
         if (res.success) {
-          // Map _id to names
           this.employees = res.data.reduce((acc: any, emp: any) => {
-            acc[emp._id] = emp.name; // Use _id as key
+            acc[emp._id] = emp.name;
             return acc;
           }, {});
-          // Debug log
         } else {
           console.error('Error retrieving employees:', res.message);
         }
@@ -60,19 +57,17 @@ export class ViewProjectComponent implements OnInit {
       }
     );
   }
-  
-  
 
   fileUrl(fileName: string): string {
-    return `${this.globalbaseurl}/path/to/files/${fileName}`;
+    return `/server/public/projectDocument/${fileName}`;
   }
+  
 
   getEmployeeNames(employeeIds: string[]): string[] {
     return employeeIds.map(id => {
       const name = this.employees[id];
-      console.log(`ID: ${id}, Name: ${name}`); // Debug log
-      return name || id; // Fallback to ID if name is not found
+      console.log(`ID: ${id}, Name: ${name}`);
+      return name || id;
     });
   }
-  
 }

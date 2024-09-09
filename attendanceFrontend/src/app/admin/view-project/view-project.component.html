@@ -22,17 +22,15 @@
                 <td>{{ project.projectName }}</td>
                 <td>{{ project.projectDescription }}</td>
                 <td>
-                   
-                    <ol>
-                        <li *ngFor="let empId of project.employeeIds">
-                          {{ getEmployeeNames([empId])[0] }}
-                        </li>
-                    </ol>
-                      
-                  </td>
+                  <ol>
+                    <li *ngFor="let empId of project.employeeIds">
+                      {{ getEmployeeNames([empId])[0] }}
+                    </li>
+                  </ol>
+                </td>
                 <td>
                   <span *ngFor="let file of project.files">
-                    <a [href]="fileUrl(file)" target="_blank">{{ file }}</a>
+                    <a [href]="file" target="_blank">{{ file }}</a>
                   </span>
                 </td>
                 <td>
