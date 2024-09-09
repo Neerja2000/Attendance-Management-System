@@ -23,23 +23,40 @@
         </form>
   
         <!-- Task Cards Section -->
-        <div class="cards mt-5">
-          <div class="row" id="taskCards">
-            <div *ngFor="let task of tasks" class="col-md-4 mb-3">
-              <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                  <h6 class="card-title">{{ task.taskName }}</h6>
-                  <p class="card-text">Description: {{ task.description }}</p>
-                  <p class="card-text">Expected Time: {{ task.expectedTime }}</p>
-                  
-                </div>
-                <div class="card-footer text-end">
-                  <button class="btn btn-danger btn-sm delete-btn">🗑️ Delete</button>
-                </div>
-              </div>
-            </div>
+        <!-- Task Cards Section -->
+<div class="cards mt-5">
+    <div class="row" id="taskCards">
+      <div *ngFor="let task of tasks" class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h6 class="card-title">{{ task.taskName }}</h6>
+            <p class="card-text">Description: {{ task.description }}</p>
+            <p class="card-text">Expected Time: {{ task.expectedTime }}</p>
+            
+            <!-- File Display -->
+            <span *ngFor="let file of task.files">
+              <ng-container [ngSwitch]="getFileType(file)">
+                <a [href]="file" target="_blank" class="file-link">
+                  <div class="file-item">
+                    <ng-container [ngSwitch]="getFileType(file)">
+                      <img *ngSwitchCase="'image'" src="../../../assets/images/logos/photo.png" height="35px" alt="Image file">
+                      <img *ngSwitchCase="'pdf'" src="../../../assets/images/logos/pdf.png" height="35px" alt="PDF file">
+                      <img *ngSwitchDefault src="../../../assets/images/logos/zip.png" height="35px" alt="Other file">
+                    </ng-container>
+                    <span class="file-name">{{ getFileName(file) }}</span>
+                  </div>
+                </a>
+              </ng-container>
+            </span>
+          </div>
+          <div class="card-footer text-end">
+            <button class="btn btn-danger btn-sm delete-btn">🗑️ Delete</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  
       </div>
     </div>
   </div>

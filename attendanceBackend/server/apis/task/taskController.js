@@ -38,41 +38,49 @@ const addTask = async (req, res) => {
 
 const getAllTasks = async (req, res) => {
     try {
-        const projectId = req.query.projectId; // Use req.query for query parameters
-       
-
-        if (!projectId) {
-            return res.status(400).json({
-                success: false,
-                status: 400,
-                message: "Project ID is required"
-            });
-        }
-
-        const tasks = await task.find({ projectId });
-
-        if (tasks.length === 0) {
-            return res.status(404).json({
-                success: false,
-                status: 404,
-                message: "No tasks found for this project"
-            });
-        }
-
-        res.json({
-            success: true,
-            status: 200,
-            message: "Tasks retrieved successfully",
-            data: tasks
+      const projectId = req.query.projectId;
+  
+      if (!projectId) {
+        return res.status(400).json({
+          success: false,
+          status: 400,
+          message: "Project ID is required"
         });
+      }
+  
+      const tasks = await task.find({ projectId });
+  
+      // Create URLs for the files
+      const projectsWithFileUrls = tasks.map(task => {
+        return {
+          ...task._doc,
+          files: task.files.map(file => `http://localhost:3000/projectDocument/${file}`)
+        };
+      });
+  
+      if (tasks.length === 0) {
+        return res.status(404).json({
+          success: false,
+          status: 404,
+          message: "No tasks found for this project"
+        });
+      }
+  
+      res.json({
+        success: true,
+        status: 200,
+        message: "Tasks retrieved successfully",
+        data: projectsWithFileUrls
+      });
     } catch (err) {
-        res.status(500).json({
-            success: false,
-            status: 500,
-            message: err.message
-        });
+      res.status(500).json({
+        success: false,
+        status: 500,
+        message: err.message
+      });
     }
-};
+  };
+  
 
 
 module.exports = { addTask ,getAllTasks};
