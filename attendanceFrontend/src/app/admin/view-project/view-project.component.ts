@@ -30,6 +30,7 @@ export class ViewProjectComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           this.projects = res.data;
+          
         } else {
           console.error('Error retrieving projects:', res.message);
         }

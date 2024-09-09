@@ -10,13 +10,14 @@ const addTask = async (req, res) => {
         taskId: total + 1,
         projectId: req.body.projectId,
         taskName: req.body.taskName,
-        taskDescription: req.body.taskDescription,
+        description: req.body.description,
         expectedTime: req.body.expectedTime,
         files: files.length > 0 ? files : [] // Store the array of file paths
     });
 
     newTask.save()
         .then(result => {
+            console.log("result",result)
             res.json({
                 success: true,
                 status: 200,

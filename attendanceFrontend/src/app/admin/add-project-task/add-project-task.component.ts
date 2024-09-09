@@ -1,10 +1,72 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { ProjectService } from 'src/app/shared/project/project.service';
 
 @Component({
   selector: 'app-add-project-task',
   templateUrl: './add-project-task.component.html',
   styleUrls: ['./add-project-task.component.css']
 })
-export class AddProjectTaskComponent {
+export class AddProjectTaskComponent implements OnInit {
+  taskForm = new FormGroup({
+    'taskName': new FormControl(''),
+    'description': new FormControl(''),
+    'expectedTime': new FormControl('')
+  });
 
+  _id!: string;
+  uploadedFiles: File[] = []; // Property to store uploaded files
+  tasks: any[] = [];
+  constructor(
+    private taskService: ProjectService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this._id = this.route.snapshot.paramMap.get('id')!;
+    this.getAllTasks();
+  }
+
+  getAllTasks() {
+    this.taskService.getAllTaskProjectId(this._id).subscribe(
+      (response: any) => {
+        this.tasks = response.data; // Assuming your API returns tasks in `data`
+      },
+      error => {
+        console.error('Error fetching tasks', error);
+      }
+    );
+  }
+
+  uploadFiles(event: any) {
+    const files = event.target.files;
+    this.uploadedFiles = Array.from(files); // Convert FileList to array
+  }
+  
+  addTask() {
+    const formData = new FormData();
+    formData.append('taskName', this.taskForm.get('taskName')?.value || '');
+    formData.append('description', this.taskForm.get('description')?.value || '');
+    formData.append('expectedTime', this.taskForm.get('expectedTime')?.value || '');
+    formData.append('projectId', this._id);
+
+    // Append files to the formData with the field name 'files'
+    this.uploadedFiles.forEach((file: File) => {
+      formData.append('files', file, file.name); // Use 'files' to match Multer field name
+    });
+  
+    this.taskService.addTaskApi(formData).subscribe(
+      response => {
+        console.log('Task added successfully', response);
+        this.getAllTasks(); 
+        // Handle success, e.g., reset the form or navigate to another page
+      },
+      error => {
+        console.error('Error adding task', error);
+        // Optionally, display user-friendly error message
+      }
+    );
+  }
 }
+
