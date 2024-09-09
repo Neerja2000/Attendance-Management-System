@@ -58,8 +58,19 @@ export class ViewProjectComponent implements OnInit {
     );
   }
 
-  fileUrl(fileName: string): string {
-    return `/server/public/projectDocument/${fileName}`;
+  getFileType(file: string): string {
+    const extension = file.split('.').pop() || '';  // Provide a default empty string if undefined
+
+    if (['png', 'jpg', 'jpeg', 'gif'].includes(extension.toLowerCase())) {
+      return 'image';
+    } else if (['pdf'].includes(extension.toLowerCase())) {
+      return 'pdf';
+    } else {
+      return 'unknown';
+    }
+  }
+  getFileName(fileUrl: string): string {
+    return fileUrl.split('/').pop() || 'Unknown file';
   }
   
 

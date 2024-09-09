@@ -30,9 +30,22 @@
                 </td>
                 <td>
                   <span *ngFor="let file of project.files">
-                    <a [href]="file" target="_blank">{{ file }}</a>
+                    <ng-container [ngSwitch]="getFileType(file)">
+                      <a [href]="file" target="_blank" class="file-link">
+                        <div class="file-item">
+                          <ng-container [ngSwitch]="getFileType(file)">
+                            <img *ngSwitchCase="'image'" src="../../../assets/images/logos/photo.png" height="35px" alt="Image file">
+                            <img *ngSwitchCase="'pdf'" src="../../../assets/images/logos/pdf.png" height="35px" alt="PDF file">
+                            <img *ngSwitchDefault src="../../../assets/images/logos/zip.png" height="35px" alt="Other file">
+                          </ng-container>
+                          <span class="file-name">{{ getFileName(file) }}</span>
+                        </div>
+                      </a>
+                    </ng-container>
                   </span>
                 </td>
+                
+                
                 <td>
                   <div class="d-flex">
                     <!-- Add Task Button -->
