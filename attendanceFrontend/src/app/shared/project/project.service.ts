@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,11 @@ export class ProjectService {
         headers: this.getHeaders(),
         params: { projectId } // Pass the projectId as a query parameter
     });
+}
+
+
+
+deleteTask(taskId: string): Observable<any> {
+  return this.http.delete(`${this.globalbaseurl}/task/delete/${taskId}`, { headers: this.getHeaders() });
 }
 }

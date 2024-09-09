@@ -82,41 +82,40 @@ const getAllTasks = async (req, res) => {
   };
 
   
-  const deleteTask=async(req,res)=>{
+
+  
+  
+  const deleteTask = async (req, res) => {
     try {
-        const taskId = req.params.id;
-    
-        if (!taskId) {
-          return res.status(400).json({
-            success: false,
-            status: 400,
-            message: "Task ID is required"
-          });
+        const { taskId } = req.params; // Get projectId from request params
+
+        // Find the project by projectId and delete it
+        const deletedTask = await task.findOneAndDelete({ taskId });
+
+        if (!deletedTask) {
+            return res.status(404).json({
+                success: false,
+                status: 404,
+                message: "task not found"
+            });
         }
-    
-        const task = await Task.findByIdAndDelete(taskId);
-    
-        if (!task) {
-          return res.status(404).json({
-            success: false,
-            status: 404,
-            message: "Task not found"
-          });
-        }
-    
+
         res.json({
-          success: true,
-          status: 200,
-          message: "Task deleted successfully"
+            success: true,
+            status: 200,
+            message: "Task deleted successfully",
+            data: deletedProject
         });
-      } catch (err) {
+    } catch (err) {
+        console.error('Error in deletetask:', err);  // Log the error for debugging
+
         res.status(500).json({
-          success: false,
-          status: 500,
-          message: err.message
+            success: false,
+            status: 500,
+            message: err.message
         });
-      }
-  }
+    }
+};
 
 
 module.exports = { addTask ,getAllTasks,deleteTask};

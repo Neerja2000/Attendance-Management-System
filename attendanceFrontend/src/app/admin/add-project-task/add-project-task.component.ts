@@ -93,6 +93,21 @@ export class AddProjectTaskComponent implements OnInit {
   getFileName(fileUrl: string): string {
     return fileUrl.split('/').pop() || 'Unknown file';
   }
+
+
+
+
+  deleteTask(taskId: string) {
+    this.taskService.deleteTask(taskId).subscribe(
+      response => {
+        console.log('Task deleted successfully', response);
+        this.getAllTasks(); // Refresh the task list
+      },
+      error => {
+        console.error('Error deleting task', error);
+      }
+    );
+  }
 }
 
 

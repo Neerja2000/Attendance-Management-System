@@ -51,4 +51,6 @@ router.delete("/project/delete/:projectId",projectController.deleteProject)
 
 router.post("/task/add", upload.array('files', 5), taskController.addTask);
 router.get("/task/getAll",taskController.getAllTasks)
+router.delete("/task/delete/:taskId", taskController.deleteTask);
+
 module.exports=router
