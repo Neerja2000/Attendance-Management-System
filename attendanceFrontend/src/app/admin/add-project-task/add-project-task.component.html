@@ -13,7 +13,9 @@
                 <input type="text" class="form-control mb-3 project-input" placeholder="Task Name" required formControlName="taskName">
                 <textarea class="form-control mb-3 project-input" placeholder="Task Description" required formControlName="description"></textarea>
                 <input type="text" class="form-control mb-3 project-input" placeholder="Expected Time" required formControlName="expectedTime">
-                <input class="form-control" type="file" id="documentation" multiple (change)="uploadFiles($event)">
+                <input class="form-control" type="file" #fileInput multiple (change)="uploadFiles($event)">
+                <!-- <input type="file" multiple (change)="uploadFiles($event)" > -->
+
               </div>
               <button type="button" class="btn btn-primary mt-4" (click)="addTask()">Add Task</button>
             </div>
@@ -29,6 +31,7 @@
                   <h6 class="card-title">{{ task.taskName }}</h6>
                   <p class="card-text">Description: {{ task.description }}</p>
                   <p class="card-text">Expected Time: {{ task.expectedTime }}</p>
+                  
                 </div>
                 <div class="card-footer text-end">
                   <button class="btn btn-danger btn-sm delete-btn">🗑️ Delete</button>

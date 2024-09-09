@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from 'src/app/shared/project/project.service';
@@ -18,6 +18,10 @@ export class AddProjectTaskComponent implements OnInit {
   _id!: string;
   uploadedFiles: File[] = []; // Property to store uploaded files
   tasks: any[] = [];
+
+  // Reference to the file input element
+  @ViewChild('fileInput') fileInput!: ElementRef;
+
   constructor(
     private taskService: ProjectService,
     private route: ActivatedRoute
@@ -60,7 +64,13 @@ export class AddProjectTaskComponent implements OnInit {
       response => {
         console.log('Task added successfully', response);
         this.getAllTasks(); 
-        // Handle success, e.g., reset the form or navigate to another page
+        this.taskForm.reset(); // Reset form fields
+        this.uploadedFiles = []; // Clear uploaded files array
+
+        // Reset the file input element
+        if (this.fileInput) {
+          this.fileInput.nativeElement.value = '';
+        }
       },
       error => {
         console.error('Error adding task', error);
@@ -68,5 +78,8 @@ export class AddProjectTaskComponent implements OnInit {
       }
     );
   }
+
+  
 }
+
 
