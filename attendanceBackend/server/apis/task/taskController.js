@@ -80,7 +80,43 @@ const getAllTasks = async (req, res) => {
       });
     }
   };
+
   
+  const deleteTask=async(req,res)=>{
+    try {
+        const taskId = req.params.id;
+    
+        if (!taskId) {
+          return res.status(400).json({
+            success: false,
+            status: 400,
+            message: "Task ID is required"
+          });
+        }
+    
+        const task = await Task.findByIdAndDelete(taskId);
+    
+        if (!task) {
+          return res.status(404).json({
+            success: false,
+            status: 404,
+            message: "Task not found"
+          });
+        }
+    
+        res.json({
+          success: true,
+          status: 200,
+          message: "Task deleted successfully"
+        });
+      } catch (err) {
+        res.status(500).json({
+          success: false,
+          status: 500,
+          message: err.message
+        });
+      }
+  }
 
 
-module.exports = { addTask ,getAllTasks};
+module.exports = { addTask ,getAllTasks,deleteTask};
