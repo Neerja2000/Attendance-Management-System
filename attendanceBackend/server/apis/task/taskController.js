@@ -81,10 +81,7 @@ const getAllTasks = async (req, res) => {
     }
   };
 
-  
 
-  
-  
   const deleteTask = async (req, res) => {
     try {
         const { taskId } = req.params; // Get projectId from request params
