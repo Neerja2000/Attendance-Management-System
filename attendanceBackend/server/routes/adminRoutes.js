@@ -16,7 +16,7 @@ router.post("/adminLogin",adminController.adminLogin)
 
 
 //token
-// router.use(require("../MiddleWare/tokenChecker"))
+router.use(require("../MiddleWare/tokenChecker"))
 router.post("/admin/password",adminController.adminUpdatePassword)
 
 
