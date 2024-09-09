@@ -85,7 +85,7 @@ export class AddProjectComponent implements OnInit {
     }
   
     formData.forEach((value, key) => {
-      console.log(key, value);
+      // console.log(key, value);
     });
   
     this.projectService.addProjectApi(formData).subscribe(

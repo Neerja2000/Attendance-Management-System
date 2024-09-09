@@ -70,7 +70,7 @@ const routes: Routes = [
       path:'add-project',component:AddProjectComponent
     },
     {
-      path:'add-project-task',component:AddProjectTaskComponent
+      path:'add-project-task/:id',component:AddProjectTaskComponent
     },{
       path:'view-project',component:ViewProjectComponent
     }
