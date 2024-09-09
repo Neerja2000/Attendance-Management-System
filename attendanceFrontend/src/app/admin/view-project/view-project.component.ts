@@ -82,4 +82,23 @@ export class ViewProjectComponent implements OnInit {
       return name || id;
     });
   }
+
+  deleteProject(projectId: string) {
+    if (confirm("Are you sure you want to delete this project?")) {
+      this.projectService.deleteProjectApi(projectId).subscribe(
+        (response: any) => {
+          if (response.success) {
+            alert('Project deleted successfully.');
+            this.getProjectApi();  // Refresh the project list after deletion
+          } else {
+            alert(`Error: ${response.message}`);
+          }
+        },
+        (error) => {
+          console.error('Error deleting project:', error);
+          alert('Failed to delete the project.');
+        }
+      );
+    }
+  }
 }

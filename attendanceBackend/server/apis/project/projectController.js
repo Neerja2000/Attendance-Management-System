@@ -81,7 +81,36 @@ const getAll = async (req, res) => {
     }
 };
 
-const deleteproject=async(req,res)=>{
+const deleteProject = async (req, res) => {
+    try {
+        const { projectId } = req.params; // Get projectId from request params
 
-}
-module.exports = { addProject, getAll,deleteproject };
+        // Find the project by projectId and delete it
+        const deletedProject = await project.findOneAndDelete({ projectId });
+
+        if (!deletedProject) {
+            return res.status(404).json({
+                success: false,
+                status: 404,
+                message: "Project not found"
+            });
+        }
+
+        res.json({
+            success: true,
+            status: 200,
+            message: "Project deleted successfully",
+            data: deletedProject
+        });
+    } catch (err) {
+        console.error('Error in deleteProject:', err);  // Log the error for debugging
+
+        res.status(500).json({
+            success: false,
+            status: 500,
+            message: err.message
+        });
+    }
+};
+
+module.exports = { addProject, getAll,deleteProject };

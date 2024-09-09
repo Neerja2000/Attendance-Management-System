@@ -33,7 +33,12 @@ export class ProjectService {
   getAllProjectApi() {
     return this.http.get(this.globalbaseurl + "/project/getAll", { headers: this.getHeaders() });
   }
-
+  deleteProjectApi(projectId: string) {
+    return this.http.delete(`${this.globalbaseurl}/project/delete/${projectId}`, {
+      headers: this.getHeaders()
+    });
+  }
+  
   addTaskApi(formData: FormData) {
     return this.http.post(`${this.globalbaseurl}/task/add`, formData, { headers: this.getHeaders() });
   }

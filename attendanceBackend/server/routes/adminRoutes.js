@@ -46,7 +46,7 @@ router.get("/dailyRating/all",dailyRatingController.getDailyRatings)
 
 router.post("/project/add", upload.array('files',5), projectController.addProject);
 router.get("/project/getAll",projectController.getAll)
-
+router.delete("/project/delete/:projectId",projectController.deleteProject)
 
 
 router.post("/task/add", upload.array('files', 5), taskController.addTask);
