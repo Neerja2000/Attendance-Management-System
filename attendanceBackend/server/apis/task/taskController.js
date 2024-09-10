@@ -84,33 +84,18 @@ const getAllTasks = async (req, res) => {
 
   const deleteTask = async (req, res) => {
     try {
-        const { taskId } = req.params; // Get projectId from request params
-
-        // Find the project by projectId and delete it
-        const deletedTask = await task.findOneAndDelete({ taskId });
-
-        if (!deletedTask) {
-            return res.status(404).json({
-                success: false,
-                status: 404,
-                message: "task not found"
-            });
-        }
-
-        res.json({
-            success: true,
-            status: 200,
-            message: "Task deleted successfully",
-            data: deletedProject
-        });
-    } catch (err) {
-        console.error('Error in deletetask:', err);  // Log the error for debugging
-
-        res.status(500).json({
-            success: false,
-            status: 500,
-            message: err.message
-        });
+      const taskId = req.params.id;
+  
+      // Find and delete the task by _id
+      const deletedTask = await task.findByIdAndDelete(taskId);
+  
+      if (!deletedTask) {
+        return res.status(404).json({ message: 'Task not found' });
+      }
+  
+      res.status(200).json({ message: 'Task deleted successfully' });
+    } catch (error) {
+      res.status(500).json({ message: 'An error occurred while deleting the task', error });
     }
 };
 

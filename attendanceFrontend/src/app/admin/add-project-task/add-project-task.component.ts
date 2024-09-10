@@ -35,7 +35,7 @@ export class AddProjectTaskComponent implements OnInit {
   getAllTasks() {
     this.taskService.getAllTaskProjectId(this._id).subscribe(
       (response: any) => {
-        this.tasks =  response.data; // Assuming your API returns tasks in `data`
+        this.tasks = response.data; // Assuming your API returns tasks in `data`
       },
       error => {
         console.error('Error fetching tasks', error);
@@ -98,15 +98,18 @@ export class AddProjectTaskComponent implements OnInit {
 
 
   deleteTask(taskId: string) {
-    this.taskService.deleteTask(taskId).subscribe(
-      response => {
-        console.log('Task deleted successfully', response);
-        this.getAllTasks(); // Refresh the task list
-      },
-      error => {
-        console.error('Error deleting task', error);
-      }
-    );
+    if (confirm('Are you sure you want to delete this task?')) {
+      this.taskService.deleteTask(taskId).subscribe(
+        (response) => {
+          alert('Task deleted successfully');
+          this.tasks = this.tasks.filter(task => task._id !== taskId); // Update the tasks list after deletion
+        },
+        (error) => {
+          console.error('Error deleting task', error);
+          alert('Failed to delete task');
+        }
+      );
+    }
   }
 }
 
