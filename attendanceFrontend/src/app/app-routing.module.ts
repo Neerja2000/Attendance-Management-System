@@ -27,6 +27,7 @@ import { AddProjectTaskComponent } from './admin/add-project-task/add-project-ta
 import { ViewProjectComponent } from './admin/view-project/view-project.component';
 import { EmpViewTaskComponent } from './employee/emp-view-task/emp-view-task.component';
 import { EmpViewProjectComponent } from './employee/emp-view-project/emp-view-project.component';
+import { AssigntaskComponent } from './admin/assigntask/assigntask.component';
 
 const routes: Routes = [
 {
@@ -75,6 +76,9 @@ const routes: Routes = [
       path:'add-project-task/:id',component:AddProjectTaskComponent
     },{
       path:'view-project',component:ViewProjectComponent
+    },
+    {
+      path:'assign-task',component:AssigntaskComponent
     }
   ]
   },
