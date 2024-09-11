@@ -10,9 +10,12 @@
             <label class="form-label">Tasks</label>
             <div id="tasksContainer">
               <div class="task-item mb-3">
-                <input type="text" class="form-control mb-3 project-input" placeholder="Task Name" required formControlName="taskName">
-                <textarea class="form-control mb-3 project-input" placeholder="Task Description" required formControlName="description"></textarea>
-                <input type="text" class="form-control mb-3 project-input" placeholder="Expected Time" required formControlName="expectedTime">
+                <label for="">Task</label>
+                <input type="text" class="form-control mb-3 project-input" placeholder="Enter Task Name" required formControlName="taskName">
+                <label for="">Description Time</label>
+                <textarea class="form-control mb-3 project-input" placeholder="Enter Task Description" required formControlName="description"></textarea>
+                <label for="">Expected Time</label>
+                <input type="time" class="form-control mb-3 project-input" placeholder="Expected Time" required formControlName="expectedTime">
                 <input class="form-control" type="file" #fileInput multiple (change)="uploadFiles($event)">
                 <!-- <input type="file" multiple (change)="uploadFiles($event)" > -->
 
