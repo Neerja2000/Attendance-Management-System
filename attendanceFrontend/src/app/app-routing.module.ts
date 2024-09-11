@@ -108,7 +108,7 @@ const routes: Routes = [
       path:'emp-view-project',component:EmpViewProjectComponent,canActivate:[AuthGuard]
     },
     {
-      path:'emp-view-task',component:EmpViewTaskComponent,canActivate:[AuthGuard]
+      path:'emp-view-task/:id',component:EmpViewTaskComponent,canActivate:[AuthGuard]
     }
   ]
   }
