@@ -25,6 +25,7 @@
               <th>Work-Done</th>
               <th>Status</th>
               <th>View More Details</th>
+              <th>Assign Task</th>
             </tr>
           </thead>
           <tbody>
@@ -43,6 +44,7 @@
               <td>
                 <button class="btn btn-outline-success btn-sm" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeId]">View Details</button>
               </td>
+              <td><button class="btn btn-sm btn-outline-primary" routerLink="/admin/layout/assign-task">Assign</button></td>
             </tr>
           </tbody>
         </table>
