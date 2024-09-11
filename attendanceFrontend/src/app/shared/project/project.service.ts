@@ -9,10 +9,24 @@ import { Observable } from 'rxjs';
 export class ProjectService {
   globalbaseurl:any
   token:any
-  constructor(private http:HttpClient,@Inject("baseurl")_baseurl:any,private authService:AuthService) 
+  employeebaseurl:any
+  constructor(private http:HttpClient,@Inject("baseurl")_baseurl:any,private authService:AuthService, @Inject('embaseurl')_embaseurl: any) 
+  
   { 
     this.globalbaseurl=_baseurl
+    this.employeebaseurl = _embaseurl;
     this.token=this.authService.getToken()
+  }
+
+  private getEmpHeaders(): HttpHeaders {
+    const token = sessionStorage.getItem('token');
+    let headers = new HttpHeaders();
+
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+
+    return headers;
   }
   private getHeaders(): HttpHeaders {
     const token = sessionStorage.getItem('token');
@@ -39,6 +53,14 @@ export class ProjectService {
       headers: this.getHeaders()
     });
   }
+
+  getProjectsByEmployee(employeeId: string) {
+    return this.http.get(`${this.employeebaseurl}/getProjectsByEmployee/${employeeId}`, {
+      headers: this.getEmpHeaders()
+    });
+  }
+
+
   
   addTaskApi(formData: FormData) {
     return this.http.post(`${this.globalbaseurl}/task/add`, formData, { headers: this.getHeaders() });

@@ -1,68 +1,73 @@
 <div class="container mt-5">
-    <div class="card shadow-sm">
-      <div class="card-header">
-        <h5 class="card-title mb-0">Project Assignment Form</h5>
-      </div>
-      <div class="card-body">
-        <form [formGroup]="taskForm">
-          <!-- Tasks Section -->
-          <div class="mt-5">
-            <label class="form-label">Tasks</label>
-            <div id="tasksContainer">
-              <div class="task-item mb-3">
-                <label for="">Task</label>
-                <input type="text" class="form-control mb-3 project-input" placeholder="Enter Task Name" required formControlName="taskName">
-                <label for="">Description Time</label>
-                <textarea class="form-control mb-3 project-input" placeholder="Enter Task Description" required formControlName="description"></textarea>
-                <label for="">Due Date</label>
-                <input type="date" class="form-control mb-3 project-input" placeholder="Expected Time" required formControlName="expectedTime">
-                <input class="form-control" type="file" #fileInput multiple (change)="uploadFiles($event)">
-                <!-- <input type="file" multiple (change)="uploadFiles($event)" > -->
+  <div class="card shadow-sm">
+    <div class="card-header">
+      <h5 class="card-title mb-0">Project Assignment Form</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="taskForm">
+        <!-- Tasks Section -->
+        <div class="mt-5">
+          <label class="form-label">Tasks</label>
+          <div id="tasksContainer">
+            <div class="task-item mb-3">
+              <label for="">Task</label>
+              <input type="text" class="form-control mb-3 project-input" placeholder="Enter Task Name" required
+                formControlName="taskName">
+              <label for="">Description Time</label>
+              <textarea class="form-control mb-3 project-input" placeholder="Enter Task Description" required
+                formControlName="description"></textarea>
+              <label for="">Due Date</label>
+              <input type="date" class="form-control mb-3 project-input" placeholder="Expected Time" required
+                formControlName="expectedTime">
+              <input class="form-control" type="file" #fileInput multiple (change)="uploadFiles($event)">
+              <!-- <input type="file" multiple (change)="uploadFiles($event)" > -->
 
-              </div>
-              <button type="button" class="btn btn-primary mt-4" (click)="addTask()">Add Task</button>
             </div>
+            <button type="button" class="btn btn-primary mt-4" (click)="addTask()">Add Task</button>
           </div>
-        </form>
-  
-        <!-- Task Cards Section -->
-        <!-- Task Cards Section -->
-<div class="cards mt-5">
-    <div class="row" id="taskCards">
-      <div *ngFor="let task of tasks" class="col-md-4 mb-3">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h6 class="card-title">{{ task.taskName }}</h6>
-            <p class="card-text">Description: {{ task.description }}</p>
-            <p class="card-text">Due Date: {{ task.expectedTime }}</p>
-            
-            <!-- File Display -->
-            <span *ngFor="let file of task.files">
-              <ng-container [ngSwitch]="getFileType(file)">
-                <a [href]="file" target="_blank" class="file-link">
-                  <div class="file-item">
-                    <ng-container [ngSwitch]="getFileType(file)">
-                      <img *ngSwitchCase="'image'" src="../../../assets/images/logos/photo.png" height="35px" alt="Image file">
-                      <img *ngSwitchCase="'pdf'" src="../../../assets/images/logos/pdf.png" height="35px" alt="PDF file">
-                      <img *ngSwitchDefault src="../../../assets/images/logos/zip.png" height="35px" alt="Other file">
-                    </ng-container>
-                    <span class="file-name">{{ getFileName(file) }}</span>
-                  </div>
-                </a>
-              </ng-container>
-            </span>
-          </div>
-          <div class="card-footer text-end">
-            <button class="btn btn-danger btn-sm" title="Delete Task" (click)="deleteTask(task._id)">
-              <i class="bi bi-trash-fill"></i>
-            </button>
+        </div>
+      </form>
+
+
+      <!-- Task Cards Section -->
+      <div class="cards mt-5">
+        <div class="row" id="taskCards">
+          <div *ngFor="let task of tasks" class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h6 class="card-title">{{ task.taskName }}</h6>
+                <p class="card-text">Description: {{ task.description }}</p>
+                <p class="card-text">Due Date: {{ task.expectedTime }}</p>
+
+                <!-- File Display -->
+                <span *ngFor="let file of task.files">
+                  <ng-container [ngSwitch]="getFileType(file)">
+                    <a [href]="file" target="_blank" class="file-link">
+                      <div class="file-item">
+                        <ng-container [ngSwitch]="getFileType(file)">
+                          <img *ngSwitchCase="'image'" src="../../../assets/images/logos/photo.png" height="35px"
+                            alt="Image file">
+                          <img *ngSwitchCase="'pdf'" src="../../../assets/images/logos/pdf.png" height="35px"
+                            alt="PDF file">
+                          <img *ngSwitchDefault src="../../../assets/images/logos/zip.png" height="35px"
+                            alt="Other file">
+                        </ng-container>
+                        <span class="file-name">{{ getFileName(file) }}</span>
+                      </div>
+                    </a>
+                  </ng-container>
+                </span>
+              </div>
+              <div class="card-footer text-end">
+                <button class="btn btn-danger btn-sm" title="Delete Task" (click)="deleteTask(task._id)">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
-  
-      </div>
-    </div>
-  </div>
-  
+</div>

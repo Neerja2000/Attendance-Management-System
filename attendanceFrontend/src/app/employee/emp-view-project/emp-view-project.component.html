@@ -1,1 +1,61 @@
-<p>emp-view-project works!</p>
+<div class="container-fluid mt-5">
+    <section class="section">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">View Projects</h5>
+        </div>
+        <div class="card-body w-100">
+          <table class="table table-striped" id="table1">
+            <thead>
+              <tr>
+                <th>SrNo.</th>
+                <th>Project Name</th>
+                <th>Project Description</th>
+                <th>Employees Name</th>
+                <th>Documentation</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let project of projects; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ project.projectName }}</td>
+                <td>{{ project.projectDescription }}</td>
+                <td>
+                  <ol>
+                    <li *ngFor="let empId of project.employeeIds">
+                      {{ getEmployeeNames([empId])[0] }}
+                    </li>
+                  </ol>
+                </td>
+                <td>
+                  <span *ngFor="let file of project.files">
+                    <ng-container [ngSwitch]="getFileType(file)">
+                      <a [href]="file" target="_blank" class="file-link">
+                        <div class="file-item">
+                          <ng-container [ngSwitch]="getFileType(file)">
+                            <img *ngSwitchCase="'image'" src="../../../assets/images/logos/photo.png" height="35px" alt="Image file">
+                            <img *ngSwitchCase="'pdf'" src="../../../assets/images/logos/pdf.png" height="35px" alt="PDF file">
+                            <img *ngSwitchDefault src="../../../assets/images/logos/zip.png" height="35px" alt="Other file">
+                          </ng-container>
+                          <span class="file-name">{{ getFileName(file) }}</span>
+                        </div>
+                      </a>
+                    </ng-container>
+                  </span>
+                </td>
+                <td>
+                  
+                  <button [routerLink]="['/admin/layout/add-project-task',project._id]" class="btn btn-primary btn-sm me-2" title="Add Task">
+                    <i class="bi bi-eye fs-4"></i>
+                  </button>
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+  

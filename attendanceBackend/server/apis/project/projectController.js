@@ -113,4 +113,49 @@ const deleteProject = async (req, res) => {
     }
 };
 
-module.exports = { addProject, getAll,deleteProject };
+
+const getProjectsByEmployee = async (req, res) => {
+    try {
+        const employeeId = req.params.employeeId;
+
+        if (!mongoose.Types.ObjectId.isValid(employeeId)) {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: "Invalid employee ID format"
+            });
+        }
+
+        const projects = await project.find({ employeeIds: employeeId });
+
+        if (!projects || projects.length === 0) {
+            return res.status(404).json({
+                success: false,
+                status: 404,
+                message: "No projects found for the employee"
+            });
+        }
+
+        const projectsWithFileUrls = projects.map(proj => ({
+            ...proj._doc,
+            files: proj.files.map(file => `http://localhost:3000/projectDocument/${file}`)
+        }));
+
+        res.json({
+            success: true,
+            status: 200,
+            message: "Projects retrieved successfully",
+            data: projectsWithFileUrls
+        });
+    } catch (err) {
+        console.error('Error in getProjectsByEmployee:', err);
+
+        res.status(500).json({
+            success: false,
+            status: 500,
+            message: err.message
+        });
+    }
+};
+
+module.exports = { addProject, getAll,deleteProject,getProjectsByEmployee };

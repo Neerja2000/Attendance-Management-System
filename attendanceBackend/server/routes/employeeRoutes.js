@@ -4,6 +4,7 @@ const attendanceController=require("../apis/attendance/attendanceController")
 const empRatingController=require("../apis/employeeRating/empRatingController")
 const employeeController=require("../apis/employee/employeeController")
 const dailyRatingController=require("../apis/dailyRating/dailyRatingController")
+const projectController=require("../apis/project/projectController")
 
 
 // login
@@ -26,5 +27,8 @@ router.get('/rating/getSingle/:employeeId', empRatingController.getSingle);
 // daily
 router.post("/dailyRating/add",dailyRatingController.addDailyRating)
 router.get("/dailyRating/getSingle/:employeeId",dailyRatingController.getSingleEmployeeRating)
+
+
+router.get('/getProjectsByEmployee/:employeeId',projectController.getProjectsByEmployee)
 
 module.exports=router
