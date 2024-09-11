@@ -38,6 +38,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AddProjectComponent } from './admin/add-project/add-project.component';
 import { AddProjectTaskComponent } from './admin/add-project-task/add-project-task.component';
 import { ViewProjectComponent } from './admin/view-project/view-project.component';
+import { EmpViewProjectComponent } from './employee/emp-view-project/emp-view-project.component';
+import { EmpViewTaskComponent } from './employee/emp-view-task/emp-view-task.component';
 
 
 
@@ -73,7 +75,9 @@ import { ViewProjectComponent } from './admin/view-project/view-project.componen
     DailyRatingViewComponent,
     AddProjectComponent,
     AddProjectTaskComponent,
-    ViewProjectComponent
+    ViewProjectComponent,
+    EmpViewProjectComponent,
+    EmpViewTaskComponent
    
    
   ],

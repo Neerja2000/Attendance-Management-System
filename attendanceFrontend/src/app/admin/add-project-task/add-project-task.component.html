@@ -14,8 +14,8 @@
                 <input type="text" class="form-control mb-3 project-input" placeholder="Enter Task Name" required formControlName="taskName">
                 <label for="">Description Time</label>
                 <textarea class="form-control mb-3 project-input" placeholder="Enter Task Description" required formControlName="description"></textarea>
-                <label for="">Expected Time</label>
-                <input type="time" class="form-control mb-3 project-input" placeholder="Expected Time" required formControlName="expectedTime">
+                <label for="">Due Date</label>
+                <input type="date" class="form-control mb-3 project-input" placeholder="Expected Time" required formControlName="expectedTime">
                 <input class="form-control" type="file" #fileInput multiple (change)="uploadFiles($event)">
                 <!-- <input type="file" multiple (change)="uploadFiles($event)" > -->
 
@@ -34,7 +34,7 @@
           <div class="card-body">
             <h6 class="card-title">{{ task.taskName }}</h6>
             <p class="card-text">Description: {{ task.description }}</p>
-            <p class="card-text">Expected Time: {{ task.expectedTime }}</p>
+            <p class="card-text">Due Date: {{ task.expectedTime }}</p>
             
             <!-- File Display -->
             <span *ngFor="let file of task.files">

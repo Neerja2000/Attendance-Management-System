@@ -25,6 +25,8 @@ import { DailyRatingViewComponent } from './employee/daily-rating-view/daily-rat
 import { AddProjectComponent } from './admin/add-project/add-project.component';
 import { AddProjectTaskComponent } from './admin/add-project-task/add-project-task.component';
 import { ViewProjectComponent } from './admin/view-project/view-project.component';
+import { EmpViewTaskComponent } from './employee/emp-view-task/emp-view-task.component';
+import { EmpViewProjectComponent } from './employee/emp-view-project/emp-view-project.component';
 
 const routes: Routes = [
 {
@@ -101,6 +103,12 @@ const routes: Routes = [
     },
     {
       path:'daily-rating-view/:employeeId',component:DailyRatingViewComponent,canActivate:[AuthGuard]
+    },
+    {
+      path:'emp-view-project',component:EmpViewProjectComponent,canActivate:[AuthGuard]
+    },
+    {
+      path:'emp-view-task',component:EmpViewTaskComponent,canActivate:[AuthGuard]
     }
   ]
   }
