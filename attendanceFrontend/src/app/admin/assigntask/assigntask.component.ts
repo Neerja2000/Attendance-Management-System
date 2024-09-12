@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from 'src/app/shared/project/project.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { ProjectService } from 'src/app/shared/project/project.service';
 })
 export class AssigntaskComponent implements OnInit {
   projects: any[] = [];
+  employeeId: string | null = null;
+
   tasks: any[] = [];
   selectedProjectId: string = '';
   days: Record<string, boolean> = {
@@ -18,10 +21,35 @@ export class AssigntaskComponent implements OnInit {
     friday: false
   };
 
-  constructor(private projectService: ProjectService) {}
+  constructor(
+    private projectService: ProjectService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.getProjectApi();
+    this.route.queryParams.subscribe(params => {
+      this.employeeId = params['employeeId']; // Retrieving employeeId from query parameters
+      console.log("employeeID", this.employeeId);
+      if (this.employeeId) {
+        this.getProjectsForEmployee(this.employeeId); // Fetch projects for the given employeeId
+      }
+    });
+  }
+
+  getProjectsForEmployee(employeeId: string) {
+    this.projectService.getProjectsByEmployee(employeeId).subscribe(
+      (res: any) => {
+        if (res.success) {
+          this.projects = res.data;
+          console.log("projects", this.projects);
+        } else {
+          console.error('Error retrieving projects:', res.message);
+        }
+      },
+      (error: any) => {
+        console.error('Error:', error);
+      }
+    );
   }
 
   getProjectApi() {
@@ -29,7 +57,7 @@ export class AssigntaskComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           this.projects = res.data;
-          console.log("project",this.projects)
+          console.log("project", this.projects)
         } else {
           console.error('Error retrieving projects:', res.message);
         }
@@ -51,7 +79,7 @@ export class AssigntaskComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           this.tasks = res.data;
-          console.log("task",this.tasks)
+          console.log("task", this.tasks)
         } else {
           console.error('Error retrieving tasks:', res.message);
         }
@@ -63,14 +91,18 @@ export class AssigntaskComponent implements OnInit {
   }
 
   assignTask() {
-    const assignedDays = Object.keys(this.days).filter(day => this.days[day]);
+    const assignedDays = Object.keys(this.days)
+      .filter(day => this.days[day])
+      .map(day => day.charAt(0).toUpperCase() + day.slice(1).toLowerCase()); // Ensure correct format
   
     const taskAssignment = {
+      employeeId: this.employeeId,  
       projectId: this.selectedProjectId,
       taskId: (<HTMLSelectElement>document.getElementById('task')).value,
-      assignedDays: assignedDays  // Ensure this is an array of day names like ['monday', 'tuesday']
+      assignedDays: assignedDays
     };
   
+    // Call the service method to assign the task
     this.projectService.assignTask(taskAssignment).subscribe(
       (res: any) => {
         if (res.success) {
@@ -84,5 +116,6 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
+  
   
 }

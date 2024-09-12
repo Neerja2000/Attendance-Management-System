@@ -61,8 +61,13 @@ export class ProjectService {
   }
 
   assignTask(taskAssignment: any): Observable<any> {
-    console.log("tok",this.getHeaders())
-    return this.http.post(`${this.globalbaseurl}/assign-task`, taskAssignment,{ headers: this.getHeaders() } );
+    // Include employeeId in the URL
+    const url = `${this.globalbaseurl}/assign-task/${taskAssignment.employeeId}`;
+  
+    // Log the token for debugging purposes
+    console.log("tok", this.getHeaders());
+  
+    return this.http.post(url, taskAssignment, { headers: this.getHeaders() });
   }
 
   

@@ -32,6 +32,7 @@
             <tr *ngFor="let detail of attendance; let i = index">
               <td>{{ i + 1 }}</td>
               <td>{{ detail.employeeName }}</td>
+              
               <td>{{ detail.check_in }}</td>
               <td>{{ detail.break_time_start }}</td>
               <td>{{ detail.break_time_finish }}</td>
@@ -44,7 +45,14 @@
               <td>
                 <button class="btn btn-outline-success btn-sm" [routerLink]="['/admin/layout/view-attendance-details', detail.employeeId]">View Details</button>
               </td>
-              <td><button class="btn btn-sm btn-outline-primary" routerLink="/admin/layout/assign-task">Assign</button></td>
+              <td>
+                <button 
+                  class="btn btn-sm btn-outline-primary" 
+                  [routerLink]="['/admin/layout/assign-task']"
+                  [queryParams]="{ employeeId: detail.employeeId }">
+                  Assign
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>

@@ -2,11 +2,13 @@ const TaskAssignment = require('./AssignTaskModel');
 const mongoose = require('mongoose');
 const Task = require('../task/taskModel');
 const Project = require('../project/projectModel');
+const Employee=require("../employee/employeeModel")
 
 // Assign Task to Project with Days
 const assignTask = async (req, res) => {
     try {
         const { taskId, projectId } = req.body;
+        const { employeeId } = req.params; // Extract employeeId from URL parameters
         let { assignedDays } = req.body;
 
         // Handle both string and array for assignedDays
@@ -15,28 +17,29 @@ const assignTask = async (req, res) => {
         }
 
         // Validate ObjectId formats
-        if (!mongoose.Types.ObjectId.isValid(taskId) || !mongoose.Types.ObjectId.isValid(projectId)) {
+        if (!mongoose.Types.ObjectId.isValid(taskId) || !mongoose.Types.ObjectId.isValid(projectId) || !mongoose.Types.ObjectId.isValid(employeeId)) {
             return res.status(400).json({
                 success: false,
                 status: 400,
-                message: 'Invalid task ID or project ID format',
+                message: 'Invalid task ID, project ID, or employee ID format',
             });
         }
 
-        // Check if task and project exist
+        // Check if task, project, and employee exist
         const taskExists = await Task.findById(taskId);
         const projectExists = await Project.findById(projectId);
+        const employeeExists = await Employee.findById(employeeId);
 
-        if (!taskExists || !projectExists) {
+        if (!taskExists || !projectExists || !employeeExists) {
             return res.status(404).json({
                 success: false,
                 status: 404,
-                message: 'Task or project not found',
+                message: 'Task, project, or employee not found',
             });
         }
 
         // Validate assignedDays array
-        const allowedDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        const allowedDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
         const isValidDays = assignedDays.every(day => allowedDays.includes(day));
 
         if (!isValidDays) {
@@ -53,6 +56,7 @@ const assignTask = async (req, res) => {
             AssignId: total + 1,
             taskId: new mongoose.Types.ObjectId(taskId),
             projectId: new mongoose.Types.ObjectId(projectId),
+            EmployeeId: new mongoose.Types.ObjectId(employeeId),
             assignedDays
         });
 
@@ -72,6 +76,8 @@ const assignTask = async (req, res) => {
         });
     }
 };
+
+
 
 
 

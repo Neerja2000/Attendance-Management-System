@@ -1,118 +1,93 @@
 <div class="container mt-4">
-    <h2 class="text-center mb-4">Project-Based Task Assignment</h2>
-    <div class="card">
-        <div class="card-header">
-            <h5 class="card-title">Assign Tasks</h5>
-        </div>
-        <div class="card-body">
-            <form id="task-form" (ngSubmit)="assignTask()">
-                <div class="mb-3">
-                  <label for="project" class="form-label">Select Project</label>
-                  <select id="project" class="form-select" required (change)="onProjectChange($event)">
-                    <option value="" disabled selected>Select a project</option>
-                    <option *ngFor="let project of projects" [value]="project._id">{{ project.projectName }}</option>
-                  </select>
-                </div>
-              
-                <div class="mb-3">
-                  <label for="task" class="form-label">Select Task</label>
-                  <select id="task" class="form-select" required>
-                    <option value="" disabled selected>Select a task</option>
-                    <option *ngFor="let task of tasks" [value]="task._id">{{ task.taskName }}</option>
-                  </select>
-                </div>
-              
-                <div class="mb-3">
-                    <label class="form-label">Select Days</label>
-                    <div class="row">
-                      <div class="col">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="monday" [(ngModel)]="days['monday']" name="monday">
-                          <label class="form-check-label" for="monday">Monday</label>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="tuesday" [(ngModel)]="days['tuesday']" name="tuesday">
-                          <label class="form-check-label" for="tuesday">Tuesday</label>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="wednesday" [(ngModel)]="days['wednesday']" name="wednesday">
-                          <label class="form-check-label" for="wednesday">Wednesday</label>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="thursday" [(ngModel)]="days['thursday']" name="thursday">
-                          <label class="form-check-label" for="thursday">Thursday</label>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="friday" [(ngModel)]="days['friday']" name="friday">
-                          <label class="form-check-label" for="friday">Friday</label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                <button type="submit" class="btn btn-primary mt-5">Assign Task</button>
-              </form>
-              
-        </div>
+  <h2 class="text-center mb-4">Project-Based Task Assignment</h2>
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">Assign Tasks</h5>
     </div>
+    <div class="card-body">
+      <form id="task-form" (ngSubmit)="assignTask()">
+        <div class="mb-3">
+          <label for="project" class="form-label">Select Project</label>
+          <select id="project" class="form-select" required (change)="onProjectChange($event)">
+            <option value="" disabled selected>Select a project</option>
+            <option *ngFor="let project of projects" [value]="project._id">{{ project.projectName }}</option>
+          </select>
+        </div>
 
+        <div class="mb-3">
+          <label for="task" class="form-label">Select Task</label>
+          <select id="task" class="form-select" required>
+            <option value="" disabled selected>Select a task</option>
+            <option *ngFor="let task of tasks" [value]="task._id">{{ task.taskName }}</option>
+          </select>
+        </div>
 
-    <div class="card mt-5">
-        <div class="card-header">
-            <h5 class="card-title">Employee Task List</h5>
+        <div class="mb-3">
+          <label class="form-label">Select Days</label>
+          <div class="row">
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="monday" [(ngModel)]="days['monday']" name="monday">
+                <label class="form-check-label" for="monday">Monday</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="tuesday" [(ngModel)]="days['tuesday']" name="tuesday">
+                <label class="form-check-label" for="tuesday">Tuesday</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="wednesday" [(ngModel)]="days['wednesday']" name="wednesday">
+                <label class="form-check-label" for="wednesday">Wednesday</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="thursday" [(ngModel)]="days['thursday']" name="thursday">
+                <label class="form-check-label" for="thursday">Thursday</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="friday" [(ngModel)]="days['friday']" name="friday">
+                <label class="form-check-label" for="friday">Friday</label>
+              </div>
+            </div>
           </div>
-          <div class="card-body w-100">
-            <table class="table table-striped" id="table1">
-              <thead>
-                <tr>
-                  <th>Week</th>
-                  <th>Tasks</th>
-                  <th>Status</th>
-                  <th>Due Date</th>
-                 
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                 <td>Monday</td>
-                 <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum animi est voluptates assumenda accusantium possimus odio iure voluptate praesentium veritatis.</td>
-                 <td><div class="badge  text-bg-success">Completed</div></td>
-                 <td>02-01-2024</td>
-                </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum animi est voluptates assumenda accusantium possimus odio iure voluptate praesentium veritatis.</td>
-                    <td><div class="badge text-bg-danger">Pending</div></td>
-                    <td>02-01-2024</td>
-                   </tr>
-                   <tr>
-                    <td>Wednesday</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum animi est voluptates assumenda accusantium possimus odio iure voluptate praesentium veritatis.</td>
-                    <td><div class="badge  text-bg-success">Completed</div></td>
-                    <td>02-01-2024</td>
-                   </tr>
-                   <tr>
-                    <td>Thursday</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum animi est voluptates assumenda accusantium possimus odio iure voluptate praesentium veritatis.</td>
-                    <td><div class="badge text-bg-danger">Pending</div></td>
-                    <td>02-01-2024</td>
-                   </tr>
-                   <tr>
-                    <td>Friday</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum animi est voluptates assumenda accusantium possimus odio iure voluptate praesentium veritatis.</td>
-                    <td><div class="badge text-bg-danger">Pending</div></td>
-                    <td>02-01-2024</td>
-                   </tr>
-              </tbody>
-            </table>
-          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-5">Assign Task</button>
+      </form>
     </div>
+  </div>
+
+  <!-- Employee Task List section (optional) -->
+  <div class="card mt-5">
+    <div class="card-header">
+      <h5 class="card-title">Employee Task List</h5>
+    </div>
+    <div class="card-body w-100">
+      <table class="table table-striped" id="table1">
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>Tasks</th>
+            <th>Status</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum animi est voluptates assumenda accusantium possimus odio iure voluptate praesentium veritatis.</td>
+            <td><div class="badge text-bg-success">Completed</div></td>
+            <td>02-01-2024</td>
+          </tr>
+          <!-- More rows as needed -->
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

@@ -57,6 +57,6 @@ router.delete("/task/delete/:id", taskController.deleteTask);
 
 
 //Task Assign
-router.post('/assign-task',assignController.assignTask);
+router.post('/assign-task/:employeeId',assignController.assignTask);
 
 module.exports=router
