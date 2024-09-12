@@ -60,6 +60,10 @@ export class ProjectService {
     });
   }
 
+  assignTask(taskAssignment: any): Observable<any> {
+    console.log("tok",this.getHeaders())
+    return this.http.post(`${this.globalbaseurl}/assign-task`, taskAssignment,{ headers: this.getHeaders() } );
+  }
 
   
   addTaskApi(formData: FormData) {
@@ -71,6 +75,10 @@ export class ProjectService {
         headers: this.getHeaders(),
         params: { projectId } // Pass the projectId as a query parameter
     });
+
+
+
+   
 }
 
 

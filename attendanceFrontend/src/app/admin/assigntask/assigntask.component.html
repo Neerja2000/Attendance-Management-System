@@ -5,61 +5,62 @@
             <h5 class="card-title">Assign Tasks</h5>
         </div>
         <div class="card-body">
-            <form id="task-form">
+            <form id="task-form" (ngSubmit)="assignTask()">
                 <div class="mb-3">
-                    <label for="project" class="form-label">Select Project</label>
-                    <select id="project" class="form-select" onchange="loadTasks()" required>
-                        <option value="" disabled selected>Select a project</option>
-                        <option value="1">Project Alpha</option>
-                        <option value="2">Project Beta</option>
-                        <option value="3">Project Gamma</option>
-                    </select>
+                  <label for="project" class="form-label">Select Project</label>
+                  <select id="project" class="form-select" required (change)="onProjectChange($event)">
+                    <option value="" disabled selected>Select a project</option>
+                    <option *ngFor="let project of projects" [value]="project._id">{{ project.projectName }}</option>
+                  </select>
                 </div>
+              
                 <div class="mb-3">
-                    <label for="task" class="form-label">Select Task</label>
-                    <select id="task" class="form-select" required>
-                        <option value="" disabled selected>Select a task</option>
-                        <!-- Tasks will be loaded dynamically based on the selected project -->
-                    </select>
+                  <label for="task" class="form-label">Select Task</label>
+                  <select id="task" class="form-select" required>
+                    <option value="" disabled selected>Select a task</option>
+                    <option *ngFor="let task of tasks" [value]="task._id">{{ task.taskName }}</option>
+                  </select>
                 </div>
               
                 <div class="mb-3">
                     <label class="form-label">Select Days</label>
                     <div class="row">
-                        <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="monday">
-                                <label class="form-check-label" for="monday">Monday</label>
-                            </div>
+                      <div class="col">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="monday" [(ngModel)]="days['monday']" name="monday">
+                          <label class="form-check-label" for="monday">Monday</label>
                         </div>
-                        <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="tuesday">
-                                <label class="form-check-label" for="tuesday">Tuesday</label>
-                            </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="tuesday" [(ngModel)]="days['tuesday']" name="tuesday">
+                          <label class="form-check-label" for="tuesday">Tuesday</label>
                         </div>
-                        <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="wednesday">
-                                <label class="form-check-label" for="wednesday">Wednesday</label>
-                            </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="wednesday" [(ngModel)]="days['wednesday']" name="wednesday">
+                          <label class="form-check-label" for="wednesday">Wednesday</label>
                         </div>
-                        <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="thursday">
-                                <label class="form-check-label" for="thursday">Thursday</label>
-                            </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="thursday" [(ngModel)]="days['thursday']" name="thursday">
+                          <label class="form-check-label" for="thursday">Thursday</label>
                         </div>
-                        <div class="col">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="friday">
-                                <label class="form-check-label" for="friday">Friday</label>
-                            </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="friday" [(ngModel)]="days['friday']" name="friday">
+                          <label class="form-check-label" for="friday">Friday</label>
                         </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+                  
                 <button type="submit" class="btn btn-primary mt-5">Assign Task</button>
-            </form>
+              </form>
+              
         </div>
     </div>
 

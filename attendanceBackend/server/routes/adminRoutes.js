@@ -8,6 +8,7 @@ const adminController=require("../apis/admin/adminController")
 const dailyRatingController=require("../apis/dailyRating/dailyRatingController")
 const projectController=require("../apis/project/projectController")
 const taskController=require("../apis/task/taskController")
+const assignController=require("../apis/AssignTask/AssignTaskController")
 const upload = require('../config/multerconfig');
 
 
@@ -52,5 +53,10 @@ router.delete("/project/delete/:projectId",projectController.deleteProject)
 router.post("/task/add", upload.array('files', 5), taskController.addTask);
 router.get("/task/getAll",taskController.getAllTasks)
 router.delete("/task/delete/:id", taskController.deleteTask);
+
+
+
+//Task Assign
+router.post('/assign-task',assignController.assignTask);
 
 module.exports=router

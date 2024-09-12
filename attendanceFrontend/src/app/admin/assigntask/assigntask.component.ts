@@ -1,10 +1,88 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProjectService } from 'src/app/shared/project/project.service';
 
 @Component({
   selector: 'app-assigntask',
   templateUrl: './assigntask.component.html',
   styleUrls: ['./assigntask.component.css']
 })
-export class AssigntaskComponent {
+export class AssigntaskComponent implements OnInit {
+  projects: any[] = [];
+  tasks: any[] = [];
+  selectedProjectId: string = '';
+  days: Record<string, boolean> = {
+    monday: false,
+    tuesday: false,
+    wednesday: false,
+    thursday: false,
+    friday: false
+  };
 
+  constructor(private projectService: ProjectService) {}
+
+  ngOnInit(): void {
+    this.getProjectApi();
+  }
+
+  getProjectApi() {
+    this.projectService.getAllProjectApi().subscribe(
+      (res: any) => {
+        if (res.success) {
+          this.projects = res.data;
+          console.log("project",this.projects)
+        } else {
+          console.error('Error retrieving projects:', res.message);
+        }
+      },
+      (error: any) => {
+        console.error('Error:', error);
+      }
+    );
+  }
+
+  onProjectChange(event: Event) {
+    const projectId = (event.target as HTMLSelectElement).value;
+    this.selectedProjectId = projectId;
+    this.getTasksByProject(projectId);
+  }
+
+  getTasksByProject(projectId: string) {
+    this.projectService.getAllTaskProjectId(projectId).subscribe(
+      (res: any) => {
+        if (res.success) {
+          this.tasks = res.data;
+          console.log("task",this.tasks)
+        } else {
+          console.error('Error retrieving tasks:', res.message);
+        }
+      },
+      (error: any) => {
+        console.error('Error:', error);
+      }
+    );
+  }
+
+  assignTask() {
+    const assignedDays = Object.keys(this.days).filter(day => this.days[day]);
+  
+    const taskAssignment = {
+      projectId: this.selectedProjectId,
+      taskId: (<HTMLSelectElement>document.getElementById('task')).value,
+      assignedDays: assignedDays  // Ensure this is an array of day names like ['monday', 'tuesday']
+    };
+  
+    this.projectService.assignTask(taskAssignment).subscribe(
+      (res: any) => {
+        if (res.success) {
+          alert('Task assigned successfully');
+        } else {
+          alert('Failed to assign task');
+        }
+      },
+      (error: any) => {
+        console.error('Error:', error);
+      }
+    );
+  }
+  
 }
