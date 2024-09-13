@@ -102,8 +102,10 @@ const getAllWeekTasksForEmployee = async (req, res) => {
         const allowedDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
         const tasks = await TaskAssignment.find({
             EmployeeId: new mongoose.Types.ObjectId(employeeId),
-            assignedDays: { $in: allowedDays } // Check if assignedDays include any of the allowed days
-        }).populate('taskId projectId'); // Populate task and project details
+            'assignedDays.day': { $in: allowedDays } // Check if any assigned day matches the allowed days
+        })
+        .populate('taskId')  // Populate task details
+        .populate('projectId'); // Populate project details
 
         if (tasks.length === 0) {
             return res.status(404).json({
@@ -127,6 +129,8 @@ const getAllWeekTasksForEmployee = async (req, res) => {
         });
     }
 };
+
+
 
 
 

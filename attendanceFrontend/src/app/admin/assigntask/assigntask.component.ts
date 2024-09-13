@@ -35,6 +35,7 @@ export class AssigntaskComponent implements OnInit {
         this.getProjectsForEmployee(this.employeeId); // Fetch projects for the given employeeId
       }
     });
+    this.getAssignTask()
   }
 
   getProjectsForEmployee(employeeId: string) {
@@ -114,6 +115,7 @@ export class AssigntaskComponent implements OnInit {
     this.projectService.assignTask(taskAssignment).subscribe(
       (res: any) => {
         if (res.success) {
+          this.getAssignTask()
           console.log('Task assigned successfully:', res.data);
         } else {
           console.warn('Failed to assign task:', res.message);
@@ -147,4 +149,27 @@ export class AssigntaskComponent implements OnInit {
     
     return nextDate.toISOString().split('T')[0];  // Return the date in 'YYYY-MM-DD' format
   }
-}
+
+  getAssignTask() {
+    if (!this.employeeId) {  // Check if employeeId is null or undefined
+      console.error('Employee ID is not available. Cannot fetch assigned tasks.');
+      // Optionally, you could show an error message to the user or handle this case in some other way
+      return;  // Exit the function if employeeId is not available
+    }
+  
+    // Proceed with the API call if employeeId is valid
+    this.projectService.getAssignTaskApi(this.employeeId).subscribe(
+      (res: any) => {
+        if (res.success) {
+          this.assignTasks = res.data;  // Store the fetched tasks in `assignTasks`
+          console.log('Assigned Tasks:', this.assignTasks);
+        } else {
+          console.error('Failed to retrieve assigned tasks:', res.message);
+        }
+      },
+      (error: any) => {
+        console.error('Error fetching assigned tasks:', error);
+      }
+    );
+  }
+}  
