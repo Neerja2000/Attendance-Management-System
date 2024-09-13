@@ -21,6 +21,12 @@ export class AssigntaskComponent implements OnInit {
     thursday: false,
     friday: false
   };
+  filters = {
+    date: ''
+  };
+  selectedDates: { day: string, date: string }[] = [];
+  filteredTasks: any[] = [];
+  currentWeekDates: { day: string, date: string }[] = [];
 
   constructor(
     private projectService: ProjectService,
@@ -36,6 +42,7 @@ export class AssigntaskComponent implements OnInit {
       }
     });
     this.getAssignTask()
+    this.initializeWeekDates();
   }
 
   getProjectsForEmployee(employeeId: string) {
@@ -53,7 +60,21 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
-
+  initializeWeekDates() {
+    const today = new Date();
+    const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 1)); // Monday
+    const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  
+    this.currentWeekDates = weekDays.map((day, index) => {
+      const date = new Date(startOfWeek);
+      date.setDate(startOfWeek.getDate() + index);
+      return {
+        day: day,
+        date: date.toISOString().split('T')[0] // Format: YYYY-MM-DD
+      };
+    });
+  }
+  
   getProjectApi() {
     this.projectService.getAllProjectApi().subscribe(
       (res: any) => {
@@ -95,11 +116,11 @@ export class AssigntaskComponent implements OnInit {
   assignTask() {
     // Collect selected days
     const assignedDays = Object.keys(this.days)
-    .filter(day => this.days[day])  // Only include selected days
-    .map(day => ({
-      day: day.charAt(0).toUpperCase() + day.slice(1).toLowerCase(), // Capitalize day name
-      date: this.getNextDayDate(day)  // Get the next closest date for the selected day
-    }));
+      .filter(day => this.days[day])  // Only include selected days
+      .map(day => ({
+        day: day.charAt(0).toUpperCase() + day.slice(1).toLowerCase(), // Capitalize day name
+        date: this.getNextDayDate(day)  // Get the next closest date for the selected day
+      }));
   
     // Construct the task assignment object
     const taskAssignment = {
@@ -128,6 +149,7 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
+  
 
   resetForm() {
     // Clear selected project and task
@@ -142,7 +164,17 @@ export class AssigntaskComponent implements OnInit {
       'thursday': false,
       'friday': false
     };
+    
+    // Reset date filters or any date-related properties
+    this.filters.date = ''; // Clear the date filter if used for filtering tasks
+    
+    // Reset selectedDates if used to display selected dates
+    this.selectedDates = [];
+    
+    // Reset any other date-related properties if applicable
+    // For example, if you have other date fields, you should clear them as well.
   }
+  
 
   // Helper function to calculate the next occurrence of a specific day
   getNextDayDate(day: string): string {
@@ -157,28 +189,46 @@ export class AssigntaskComponent implements OnInit {
     const today = new Date();
     const todayDay = today.getDay();
     const targetDay = dayIndexMap[day.toLowerCase()];
+  
+    let daysUntilNext = (targetDay - todayDay + 7) % 7;
+    if (daysUntilNext === 0) { // If the target day is today
+      daysUntilNext = 0; // No need to move to the next week
+    }
     
-    // Calculate the number of days until the next occurrence
-    const daysUntilNext = (targetDay + 7 - todayDay) % 7 || 7;
     const nextDate = new Date(today);
     nextDate.setDate(today.getDate() + daysUntilNext);
     
     return nextDate.toISOString().split('T')[0];  // Return the date in 'YYYY-MM-DD' format
   }
+  
 
+
+
+  updateDates() {
+    this.selectedDates = this.currentWeekDates
+      .filter(day => this.days[day.day.toLowerCase()])
+      .map(day => ({
+        day: day.day,
+        date: day.date
+      }));
+  }
   getAssignTask() {
-    if (!this.employeeId) {  // Check if employeeId is null or undefined
+    if (!this.employeeId) {
       console.error('Employee ID is not available. Cannot fetch assigned tasks.');
-      // Optionally, you could show an error message to the user or handle this case in some other way
-      return;  // Exit the function if employeeId is not available
+      return;
     }
   
-    // Proceed with the API call if employeeId is valid
     this.projectService.getAssignTaskApi(this.employeeId).subscribe(
       (res: any) => {
         if (res.success) {
-          this.assignTasks = res.data;  // Store the fetched tasks in `assignTasks`
-          console.log('Assigned Tasks:', this.assignTasks);
+          this.assignTasks = res.data;
+          console.log('Assign Tasks:', this.assignTasks); // Log the raw data
+  
+          // Validate structure and type
+          console.log('Data Structure:', this.assignTasks.map(task => task.assignedDays));
+  
+          this.filteredTasks = [...this.assignTasks];
+          this.filterTasks();
         } else {
           console.error('Failed to retrieve assigned tasks:', res.message);
         }
@@ -188,4 +238,54 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
+  
+  
+  
+
+  filterTasks() {
+    const today = new Date();
+    const currentDate = today.toISOString().split('T')[0]; // Get today's date in 'YYYY-MM-DD' format
+  
+    // Calculate the start and end of the current week
+    const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 1)); // Monday
+    const endOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 7)); // Sunday
+  
+    const startOfWeekStr = startOfWeek.toISOString().split('T')[0];
+    const endOfWeekStr = endOfWeek.toISOString().split('T')[0];
+  
+    console.log('Current Date:', currentDate);
+    console.log('Selected Filter Date:', this.filters.date);
+    console.log('Start of Week:', startOfWeekStr);
+    console.log('End of Week:', endOfWeekStr);
+  
+    if (this.filters.date) {
+      console.log('Filtering by:', this.filters.date);
+  
+      // Filter based on the selected date if available
+      this.filteredTasks = this.assignTasks.filter((task) => {
+        console.log('Task:', task);
+        return task.assignedDays.some((day: { date: string }) => {
+          console.log('Checking day:', day.date, 'against filter date:', this.filters.date);
+          return day.date.trim() === this.filters.date.trim();
+        });
+      });
+    } else {
+      console.log('Filtering by current week:', startOfWeekStr, 'to', endOfWeekStr);
+  
+      // Filter based on the current week
+      this.filteredTasks = this.assignTasks.filter((task) => {
+        console.log('Task:', task);
+        return task.assignedDays.some((day: { date: string }) => {
+          console.log('Checking day:', day.date, 'within week range:', startOfWeekStr, 'to', endOfWeekStr);
+          return day.date >= startOfWeekStr && day.date <= endOfWeekStr;
+        });
+      });
+    }
+  
+    console.log('Filtered Tasks:', this.filteredTasks);
+  }
+  
+  
+  
+  
 }  

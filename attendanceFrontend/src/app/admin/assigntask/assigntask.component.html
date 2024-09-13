@@ -13,7 +13,7 @@
             <option *ngFor="let project of projects" [value]="project._id">{{ project.projectName }}</option>
           </select>
         </div>
-
+    
         <div class="mb-3">
           <label for="task" class="form-label">Select Task</label>
           <select id="task" class="form-select" required>
@@ -21,52 +21,72 @@
             <option *ngFor="let task of tasks" [value]="task._id">{{ task.taskName }}</option>
           </select>
         </div>
-
+    
         <div class="mb-3">
           <label class="form-label">Select Days</label>
           <div class="row">
             <div class="col">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="monday" [(ngModel)]="days['monday']" name="monday">
+                <input class="form-check-input" type="checkbox" id="monday" [(ngModel)]="days['monday']" name="monday" (change)="updateDates()">
                 <label class="form-check-label" for="monday">Monday</label>
               </div>
             </div>
             <div class="col">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="tuesday" [(ngModel)]="days['tuesday']" name="tuesday">
+                <input class="form-check-input" type="checkbox" id="tuesday" [(ngModel)]="days['tuesday']" name="tuesday" (change)="updateDates()">
                 <label class="form-check-label" for="tuesday">Tuesday</label>
               </div>
             </div>
             <div class="col">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="wednesday" [(ngModel)]="days['wednesday']" name="wednesday">
+                <input class="form-check-input" type="checkbox" id="wednesday" [(ngModel)]="days['wednesday']" name="wednesday" (change)="updateDates()">
                 <label class="form-check-label" for="wednesday">Wednesday</label>
               </div>
             </div>
             <div class="col">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="thursday" [(ngModel)]="days['thursday']" name="thursday">
+                <input class="form-check-input" type="checkbox" id="thursday" [(ngModel)]="days['thursday']" name="thursday" (change)="updateDates()">
                 <label class="form-check-label" for="thursday">Thursday</label>
               </div>
             </div>
             <div class="col">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="friday" [(ngModel)]="days['friday']" name="friday">
+                <input class="form-check-input" type="checkbox" id="friday" [(ngModel)]="days['friday']" name="friday" (change)="updateDates()">
                 <label class="form-check-label" for="friday">Friday</label>
               </div>
             </div>
           </div>
         </div>
-        
+    
+        <div class="mb-3">
+          <label class="form-label">Selected Dates</label>
+          <div *ngFor="let day of selectedDates">
+            <p>{{ day.day }} - {{ day.date | date}}</p>
+          </div>
+        </div>
+    
         <button type="submit" class="btn btn-primary mt-5">Assign Task</button>
       </form>
     </div>
+    
   </div>
   <div class="card mt-5">
     <div class="card-header">
       <h5 class="card-title">Assign Task List</h5>
     </div>
     <div class="card-body w-100">
+      <form (ngSubmit)="filterTasks()">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="dateFilter" class="form-label">Date</label>
+            <input type="date" id="dateFilter" class="form-control" [(ngModel)]="filters.date" name="date">
+          </div>
+          <div class="col-md-6 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary">Filter</button>
+          </div>
+        </div>
+      </form>
+      
       <table class="table table-striped" id="table1">
         <thead>
           <tr>
@@ -77,11 +97,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let detail of assignTasks">
+          <tr *ngFor="let detail of filteredTasks">
             <td>
-              <!-- Display assigned days -->
               <ng-container *ngFor="let day of detail.assignedDays">
-                {{ day.day }} ({{ day.date | date}})<br>
+                {{ day.day }} ({{ day.date | date }})<br>
               </ng-container>
             </td>
             <td>{{ detail.taskId.taskName }}</td>
@@ -92,8 +111,10 @@
           </tr>
         </tbody>
       </table>
+      
     </div>
   </div>
+  
   
   
 
