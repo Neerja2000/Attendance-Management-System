@@ -84,31 +84,29 @@ const assignTask = async (req, res) => {
 // Get All Assignments
 const getAllAssignments = async (req, res) => {
     try {
-        const assignments = await TaskAssignment.find()
-            .populate('taskId', 'taskName') // Get task name
-            .populate('projectId', 'projectName'); // Get project name
-
-        if (assignments.length === 0) {
-            return res.status(404).json({
-                success: false,
-                status: 404,
-                message: 'No assignments found'
-            });
-        }
-
-        res.json({
+        const employeeId = req.params.employeeId;
+        console.log("employeeId",employeeId)
+        // Fetch assigned tasks from the database
+        const assignments = await TaskAssignment.find({ employeeId: employeeId });
+    
+        if (assignments.length > 0) {
+          res.json({
             success: true,
-            status: 200,
-            message: 'Assignments retrieved successfully',
-            data: assignments
-        });
-    } catch (err) {
-        res.status(500).json({
+            assignments: assignments
+          });
+        } else {
+          res.json({
             success: false,
-            status: 500,
-            message: err.message
+            message: 'No assignments found'
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching assignments:', error);
+        res.status(500).json({
+          success: false,
+          message: 'Server error'
         });
-    }
+      }
 };
 
 module.exports = { assignTask, getAllAssignments };
