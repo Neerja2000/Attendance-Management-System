@@ -17,7 +17,7 @@ router.post("/adminLogin",adminController.adminLogin)
 
 
 //token
-router.use(require("../MiddleWare/tokenChecker"))
+// router.use(require("../MiddleWare/tokenChecker"))
 router.post("/admin/password",adminController.adminUpdatePassword)
 
 
@@ -58,6 +58,6 @@ router.delete("/task/delete/:id", taskController.deleteTask);
 
 //Task Assign
 router.post('/assign-task/:employeeId',assignController.assignTask);
-router.get('/assign-task/get-assignments/:employeeId', assignController.getAllAssignments);
+router.get('/assign-task/getAllWeekTasksForEmployee/:employeeId', assignController.getAllWeekTasksForEmployee);
 
 module.exports=router

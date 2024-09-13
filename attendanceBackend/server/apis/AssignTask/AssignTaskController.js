@@ -77,36 +77,62 @@ const assignTask = async (req, res) => {
     }
 };
 
-
-
-
-
-// Get All Assignments
-const getAllAssignments = async (req, res) => {
+const getAllWeekTasksForEmployee = async (req, res) => {
     try {
-        const employeeId = req.params.employeeId;
-        console.log("employeeId",employeeId)
-        // Fetch assigned tasks from the database
-        const assignments = await TaskAssignment.find({ employeeId: employeeId });
-    
-        if (assignments.length > 0) {
-          res.json({
-            success: true,
-            assignments: assignments
-          });
-        } else {
-          res.json({
-            success: false,
-            message: 'No assignments found'
-          });
+        const { employeeId } = req.params;
+
+        // Validate employeeId format
+        if (!mongoose.Types.ObjectId.isValid(employeeId)) {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: 'Invalid employee ID format',
+            });
         }
-      } catch (error) {
-        console.error('Error fetching assignments:', error);
-        res.status(500).json({
-          success: false,
-          message: 'Server error'
+
+        // Check if employee exists
+        const employeeExists = await Employee.findById(employeeId);
+        if (!employeeExists) {
+            return res.status(404).json({
+                success: false,
+                status: 404,
+                message: 'Employee not found',
+            });
+        }
+
+        // Get all tasks assigned to the employee for the week (Monday to Friday)
+        const allowedDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+        const tasks = await TaskAssignment.find({
+            EmployeeId: new mongoose.Types.ObjectId(employeeId),
+            assignedDays: { $in: allowedDays } // Check if assignedDays include any of the allowed days
+        }).populate('taskId projectId'); // Populate task and project details
+
+        if (tasks.length === 0) {
+            return res.status(404).json({
+                success: false,
+                status: 404,
+                message: 'No tasks found for the employee for the week',
+            });
+        }
+
+        res.json({
+            success: true,
+            status: 200,
+            message: 'Tasks retrieved successfully',
+            data: tasks
         });
-      }
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            status: 500,
+            message: err.message
+        });
+    }
 };
 
-module.exports = { assignTask, getAllAssignments };
+
+
+
+
+
+module.exports = { assignTask,getAllWeekTasksForEmployee };

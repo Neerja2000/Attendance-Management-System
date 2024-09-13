@@ -107,6 +107,7 @@ export class AssigntaskComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           alert('Task assigned successfully');
+          console.log(res.data)
         } else {
           alert('Failed to assign task');
         }
