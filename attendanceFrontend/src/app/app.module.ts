@@ -41,6 +41,7 @@ import { ViewProjectComponent } from './admin/view-project/view-project.componen
 import { EmpViewProjectComponent } from './employee/emp-view-project/emp-view-project.component';
 import { EmpViewTaskComponent } from './employee/emp-view-task/emp-view-task.component';
 import { AssigntaskComponent } from './admin/assigntask/assigntask.component';
+import { EmpAssignTaskComponent } from './employee/emp-assign-task/emp-assign-task.component';
 
 
 
@@ -79,7 +80,8 @@ import { AssigntaskComponent } from './admin/assigntask/assigntask.component';
     ViewProjectComponent,
     EmpViewProjectComponent,
     EmpViewTaskComponent,
-    AssigntaskComponent
+    AssigntaskComponent,
+    EmpAssignTaskComponent
    
    
   ],

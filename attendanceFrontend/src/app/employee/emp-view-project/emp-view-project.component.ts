@@ -11,10 +11,11 @@ import { ProjectService } from 'src/app/shared/project/project.service';
 export class EmpViewProjectComponent implements OnInit {
   projects: any[] = [];
   employees: { [key: string]: string } = {};
-
+  employeeId: string | null = null;
   constructor(private projectService: ProjectService, private authService: AuthService,private employeeService:EmployeeService) {}
 
   ngOnInit(): void {
+    this.employeeId = this.authService.getId(); 
     this.getProjectByEmployee();
     this.getEmployees()
   }
