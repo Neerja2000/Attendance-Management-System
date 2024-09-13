@@ -115,6 +115,7 @@ export class AssigntaskComponent implements OnInit {
     this.projectService.assignTask(taskAssignment).subscribe(
       (res: any) => {
         if (res.success) {
+          this.resetForm();
           this.getAssignTask()
           console.log('Task assigned successfully:', res.data);
         } else {
@@ -126,6 +127,21 @@ export class AssigntaskComponent implements OnInit {
         console.error('Error occurred while assigning task:', error);
       }
     );
+  }
+
+  resetForm() {
+    // Clear selected project and task
+    this.selectedProjectId = '';
+    (<HTMLSelectElement>document.getElementById('task')).value = '';
+    
+    // Reset days
+    this.days = {
+      'monday': false,
+      'tuesday': false,
+      'wednesday': false,
+      'thursday': false,
+      'friday': false
+    };
   }
 
   // Helper function to calculate the next occurrence of a specific day
