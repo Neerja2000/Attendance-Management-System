@@ -63,7 +63,6 @@
     </div>
   </div>
 
-  <!-- Employee Task List section (optional) -->
   <div class="card mt-5">
     <div class="card-header">
       <h5 class="card-title">Assign Task List</h5>
@@ -79,15 +78,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Monday</td>
-            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum animi est voluptates assumenda accusantium possimus odio iure voluptate praesentium veritatis.</td>
-            <td><div class="badge text-bg-success">Completed</div></td>
-            <td>02-01-2024</td>
+          <tr *ngFor="let detail of assignTasks">
+            <td>{{ detail.assignedDays.join(', ') }}</td> <!-- Display assigned days -->
+            <td>{{ detail.taskId.taskName }}</td> <!-- Assuming task object has a name property -->
+            <td>
+              <div class="badge text-bg-success">{{ detail.status }}</div>
+            </td>
+            <td>{{ detail.taskId.expectedTime | date }}</td> <!-- Format the date if needed -->
           </tr>
-          <!-- More rows as needed -->
         </tbody>
       </table>
     </div>
   </div>
+  
+
 </div>

@@ -93,4 +93,16 @@ export class ProjectService {
 deleteTask(taskId: string): Observable<any> {
   return this.http.delete(`${this.globalbaseurl}/task/delete/${taskId}`, { headers: this.getHeaders() });
 }
+
+
+getAssignTaskApi(EmployeeId: string) {
+  return this.http.get(`${this.globalbaseurl}/assign-task/getAllWeekTasksForEmployee/${EmployeeId}`, {
+      headers: this.getHeaders()
+    
+  });
+
+
+
+ 
+}
 }
