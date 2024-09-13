@@ -16,15 +16,19 @@ const taskAssignmentSchema = new mongoose.Schema({
         required: true,
         ref: 'Project'
     },
-    EmployeeId:{
+    EmployeeId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'employee' 
+        ref: 'employee'
     },
     assignedDays: {
-        type: [String],
-        required: true,
-        enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] // Allowed days
+        type: [
+            {
+                day: { type: String, required: true, enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] },
+                date: { type: String, required: true }
+            }
+        ],
+        required: true
     },
     createdAt: {
         type: Date,

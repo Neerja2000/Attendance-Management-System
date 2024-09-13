@@ -10,9 +10,10 @@ import { ProjectService } from 'src/app/shared/project/project.service';
 export class AssigntaskComponent implements OnInit {
   projects: any[] = [];
   employeeId: string | null = null;
-  assignTasks:any[]=[];
+  assignTasks: any[] = [];
   tasks: any[] = [];
   selectedProjectId: string = '';
+  selectedTaskId: string = ''; 
   days: Record<string, boolean> = {
     monday: false,
     tuesday: false,
@@ -34,8 +35,6 @@ export class AssigntaskComponent implements OnInit {
         this.getProjectsForEmployee(this.employeeId); // Fetch projects for the given employeeId
       }
     });
-
-    this.getAssignTasks() 
   }
 
   getProjectsForEmployee(employeeId: string) {
@@ -93,58 +92,59 @@ export class AssigntaskComponent implements OnInit {
   }
 
   assignTask() {
+    // Collect selected days
     const assignedDays = Object.keys(this.days)
-      .filter(day => this.days[day])
-      .map(day => day.charAt(0).toUpperCase() + day.slice(1).toLowerCase()); // Ensure correct format
+    .filter(day => this.days[day])  // Only include selected days
+    .map(day => ({
+      day: day.charAt(0).toUpperCase() + day.slice(1).toLowerCase(), // Capitalize day name
+      date: this.getNextDayDate(day)  // Get the next closest date for the selected day
+    }));
   
+    // Construct the task assignment object
     const taskAssignment = {
-      employeeId: this.employeeId,  
+      employeeId: this.employeeId,
       projectId: this.selectedProjectId,
-      taskId: (<HTMLSelectElement>document.getElementById('task')).value,
-      assignedDays: assignedDays
+      taskId: (<HTMLSelectElement>document.getElementById('task')).value,  // Using Angular's two-way binding
+      assignedDays: assignedDays  // Include day name and next closest date
     };
+  
+    console.log("Assigning task:", taskAssignment);
   
     // Call the service method to assign the task
     this.projectService.assignTask(taskAssignment).subscribe(
       (res: any) => {
         if (res.success) {
-
-          console.log(res.data)
-          this.getAssignTasks()
-
+          console.log('Task assigned successfully:', res.data);
         } else {
+          console.warn('Failed to assign task:', res.message);
           alert('Failed to assign task');
         }
       },
       (error: any) => {
-        console.error('Error:', error);
+        console.error('Error occurred while assigning task:', error);
       }
     );
   }
-  
-  
-  getAssignTasks() {
-    if (!this.employeeId) {
-      console.error('Employee ID is not available.');
-      return;
-    }
-  
-    this.projectService.getAssignTaskApi(this.employeeId).subscribe(
-      (res: any) => {
-        console.log("API Response:", res); // Log the full response for debugging
-  
-        if (res.success) {
-          this.assignTasks = res.data;  // Store the fetched tasks in `assignTasks`
-          console.log("Assigned Tasks", this.assignTasks);
-        } else {
-          console.error('Failed to retrieve assigned tasks:', res.message);
-        }
-      },
-      (error: any) => {
-        console.error('Error fetching assigned tasks:', error);
-      }
-    );
+
+  // Helper function to calculate the next occurrence of a specific day
+  getNextDayDate(day: string): string {
+    const dayIndexMap: Record<string, number> = {
+      'monday': 1,
+      'tuesday': 2,
+      'wednesday': 3,
+      'thursday': 4,
+      'friday': 5
+    };
+    
+    const today = new Date();
+    const todayDay = today.getDay();
+    const targetDay = dayIndexMap[day.toLowerCase()];
+    
+    // Calculate the number of days until the next occurrence
+    const daysUntilNext = (targetDay + 7 - todayDay) % 7 || 7;
+    const nextDate = new Date(today);
+    nextDate.setDate(today.getDate() + daysUntilNext);
+    
+    return nextDate.toISOString().split('T')[0];  // Return the date in 'YYYY-MM-DD' format
   }
-  
-  
 }

@@ -11,11 +11,6 @@ const assignTask = async (req, res) => {
         const { employeeId } = req.params; // Extract employeeId from URL parameters
         let { assignedDays } = req.body;
 
-        // Handle both string and array for assignedDays
-        if (typeof assignedDays === 'string') {
-            assignedDays = [assignedDays]; // Convert to array if it's a string
-        }
-
         // Validate ObjectId formats
         if (!mongoose.Types.ObjectId.isValid(taskId) || !mongoose.Types.ObjectId.isValid(projectId) || !mongoose.Types.ObjectId.isValid(employeeId)) {
             return res.status(400).json({
@@ -40,7 +35,9 @@ const assignTask = async (req, res) => {
 
         // Validate assignedDays array
         const allowedDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-        const isValidDays = assignedDays.every(day => allowedDays.includes(day));
+        const isValidDays = assignedDays.every(dayObj => {
+            return allowedDays.includes(dayObj.day) && dayObj.date;
+        });
 
         if (!isValidDays) {
             return res.status(400).json({
@@ -76,6 +73,7 @@ const assignTask = async (req, res) => {
         });
     }
 };
+
 
 const getAllWeekTasksForEmployee = async (req, res) => {
     try {
