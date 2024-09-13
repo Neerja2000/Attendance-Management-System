@@ -178,7 +178,7 @@ export class AssigntaskComponent implements OnInit {
 
   // Helper function to calculate the next occurrence of a specific day
   getNextDayDate(day: string): string {
-    const dayIndexMap: Record<string, number> = {
+    const dayIndexMap: Record<string, number> =  {
       'monday': 1,
       'tuesday': 2,
       'wednesday': 3,
