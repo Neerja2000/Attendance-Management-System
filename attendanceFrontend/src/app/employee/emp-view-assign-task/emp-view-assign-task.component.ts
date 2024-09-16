@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth/auth.service';
 import { ProjectService } from 'src/app/shared/project/project.service';
 
 @Component({
@@ -30,20 +31,16 @@ export class EmpViewAssignTaskComponent {
 
   constructor(
     private projectService: ProjectService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService:AuthService
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.employeeId = params.get('employeeId');
-      console.log("Employee ID:", this.employeeId);
-      if (this.employeeId) {
-        this.getProjectsForEmployee(this.employeeId);
-        this.getAssignTask();  // Ensure this call is made after employeeId is set
-      } else {
-        console.error('Employee ID is not available.');
-      }
-    });
+    this.employeeId = this.authService.getId(); // Assuming you have a method in AuthService to extract the employeeId
+    if (this.employeeId) {
+      this.getProjectsForEmployee(this.employeeId);
+      this.getAssignTask(); // Fetch assigned tasks as soon as employee ID is available
+    }
     this.initializeWeekDates();
   }
 
@@ -115,67 +112,9 @@ export class EmpViewAssignTaskComponent {
     );
   }
 
-  assignTask() {
-    // Collect selected days
-    const assignedDays = Object.keys(this.days)
-      .filter(day => this.days[day])  // Only include selected days
-      .map(day => ({
-        day: day.charAt(0).toUpperCase() + day.slice(1).toLowerCase(), // Capitalize day name
-        date: this.getNextDayDate(day)  // Get the next closest date for the selected day
-      }));
-  
-    // Construct the task assignment object
-    const taskAssignment = {
-      employeeId: this.employeeId,
-      projectId: this.selectedProjectId,
-      taskId: (<HTMLSelectElement>document.getElementById('task')).value,  // Using Angular's two-way binding
-      assignedDays: assignedDays  // Include day name and next closest date
-    };
-  
-    console.log("Assigning task:", taskAssignment);
-  
-    // Call the service method to assign the task
-    this.projectService.assignTask(taskAssignment).subscribe(
-      (res: any) => {
-        if (res.success) {
-          this.resetForm();
-          this.getAssignTask()
-          console.log('Task assigned successfully:', res.data);
-        } else {
-          console.warn('Failed to assign task:', res.message);
-          alert('Failed to assign task');
-        }
-      },
-      (error: any) => {
-        console.error('Error occurred while assigning task:', error);
-      }
-    );
-  }
-  
+ 
 
-  resetForm() {
-    // Clear selected project and task
-    this.selectedProjectId = '';
-    (<HTMLSelectElement>document.getElementById('task')).value = '';
-    
-    // Reset days
-    this.days = {
-      'monday': false,
-      'tuesday': false,
-      'wednesday': false,
-      'thursday': false,
-      'friday': false
-    };
-    
-    // Reset date filters or any date-related properties
-    this.filters.date = ''; // Clear the date filter if used for filtering tasks
-    
-    // Reset selectedDates if used to display selected dates
-    this.selectedDates = [];
-    
-    // Reset any other date-related properties if applicable
-    // For example, if you have other date fields, you should clear them as well.
-  }
+ 
   
 
   // Helper function to calculate the next occurrence of a specific day

@@ -29,6 +29,7 @@ import { EmpViewTaskComponent } from './employee/emp-view-task/emp-view-task.com
 import { EmpViewProjectComponent } from './employee/emp-view-project/emp-view-project.component';
 import { AssigntaskComponent } from './admin/assigntask/assigntask.component';
 import { EmpAssignTaskComponent } from './employee/emp-assign-task/emp-assign-task.component';
+import { EmpViewAssignTaskComponent } from './employee/emp-view-assign-task/emp-view-assign-task.component';
 
 const routes: Routes = [
 {
@@ -119,7 +120,7 @@ const routes: Routes = [
       path:'emp-assign-task/:employeeId',component:EmpAssignTaskComponent
     },
     {
-      path:'emp-view-assign-task/:employeeId',component:EmpViewAttendanceComponent
+      path:'emp-view-assign-task',component:EmpViewAssignTaskComponent
     }
   ]
   }
