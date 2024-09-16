@@ -36,7 +36,7 @@ const taskAssignmentSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['pending', 'waiting for approval', 'completed'],
+        enum: ['pending','started', 'waiting for approval', 'completed'],
         default: 'pending'
     }
 });

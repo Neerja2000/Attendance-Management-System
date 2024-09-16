@@ -5,14 +5,14 @@ const empRatingController=require("../apis/employeeRating/empRatingController")
 const employeeController=require("../apis/employee/employeeController")
 const dailyRatingController=require("../apis/dailyRating/dailyRatingController")
 const projectController=require("../apis/project/projectController")
-
+const assignController=require("../apis/AssignTask/AssignTaskController")
 
 // login
 router.post("/login",employeeController.employeeLogin)
 
 
 //token
-router.use(require("../MiddleWare/tokenChecker"))
+// router.use(require("../MiddleWare/tokenChecker"))
 router.post("/employee/password",employeeController.employeeUpdatePassword)
 
 // attendance 
@@ -31,4 +31,7 @@ router.get("/dailyRating/getSingle/:employeeId",dailyRatingController.getSingleE
 
 router.get('/getProjectsByEmployee/:employeeId',projectController.getProjectsByEmployee)
 
+
+// change status
+router.patch('/task-status/:id',assignController.updateTaskStatus);
 module.exports=router

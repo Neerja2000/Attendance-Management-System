@@ -130,6 +130,60 @@ const getAllWeekTasksForEmployee = async (req, res) => {
     }
 };
 
+// Update Task Assignment Status
+const updateTaskStatus = async (req, res) => {
+    try {
+        const { id } = req.params; // Extract TaskAssignment ID from URL parameters
+        const { status } = req.body; // Extract new status from the request body
+
+        // Validate ObjectId format
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: 'Invalid task assignment ID format',
+            });
+        }
+
+        // Validate status value
+        const allowedStatuses = ['pending', 'started', 'waiting for approval', 'completed'];
+        if (!allowedStatuses.includes(status)) {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: 'Invalid status value',
+            });
+        }
+
+        // Find and update the task assignment status
+        const updatedAssignment = await TaskAssignment.findByIdAndUpdate(
+            id,
+            { status },
+            { new: true } // Return the updated document
+        );
+
+        if (!updatedAssignment) {
+            return res.status(404).json({
+                success: false,
+                status: 404,
+                message: 'Task assignment not found',
+            });
+        }
+
+        res.json({
+            success: true,
+            status: 200,
+            message: 'Task assignment status updated successfully',
+            data: updatedAssignment
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            status: 500,
+            message: err.message
+        });
+    }
+};
 
 
 
@@ -137,4 +191,4 @@ const getAllWeekTasksForEmployee = async (req, res) => {
 
 
 
-module.exports = { assignTask,getAllWeekTasksForEmployee };
+module.exports = { assignTask,getAllWeekTasksForEmployee,updateTaskStatus };
