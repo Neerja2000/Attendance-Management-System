@@ -27,7 +27,7 @@ export class EmpAssignTaskComponent {
   selectedDates: { day: string, date: string }[] = [];
   filteredTasks: any[] = [];
   currentWeekDates: { day: string, date: string }[] = [];
-
+  currentDate: string = '';
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute
@@ -45,8 +45,12 @@ export class EmpAssignTaskComponent {
       }
     });
     this.initializeWeekDates();
+    this.setCurrentDate()
   }
-
+  setCurrentDate() {
+    const today = new Date();
+    this.currentDate = today.toISOString().split('T')[0]; // Set current date in 'YYYY-MM-DD' format
+  }
   getProjectsForEmployee(employeeId: string) {
     this.projectService.getProjectsByEmployee(employeeId).subscribe(
       (res: any) => {
