@@ -1,55 +1,56 @@
 <div class="container mt-4">
-
-   
-    <div class="card">
-  
-    <div class="card mt-5">
-      <div class="card-header">
-        <h5 class="card-title">Assign Task List</h5>
-      </div>
-      <div class="card-body w-100">
-        <form (ngSubmit)="filterTasks()">
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label for="dateFilter" class="form-label">Date</label>
-              <input type="date" id="dateFilter" class="form-control" [(ngModel)]="filters.date" name="date">
-            </div>
-            <div class="col-md-6 d-flex align-items-end">
-              <button type="submit" class="btn btn-primary">Filter</button>
-            </div>
-          </div>
-        </form>
-        
-        <table class="table table-striped" id="table1">
-          <thead>
-            <tr>
-              <th>Week</th>
-              <th>Tasks</th>
-              <th>Status</th>
-              <th>Due Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let detail of filteredTasks">
-              <td>
-                <ng-container *ngFor="let day of detail.assignedDays">
-                  {{ day.day }} ({{ day.date | date }})<br>
-                </ng-container>
-              </td>
-              <td>{{ detail.taskId.taskName }}</td>
-              <td>
-                <div class="badge text-bg-success">{{ detail.status }}</div>
-              </td>
-              <td>{{ detail.taskId.expectedTime | date }}</td>
-            </tr>
-          </tbody>
-        </table>
-        
-      </div>
+  <div class="card mt-5">
+    <div class="card-header">
+      <h5 class="card-title">Assign Task List</h5>
     </div>
-    
-    
-    
-  
+    <div class="card-body w-100">
+      <form (ngSubmit)="filterTasks()">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="dateFilter" class="form-label">Date</label>
+            <input type="date" id="dateFilter" class="form-control" [(ngModel)]="filters.date" name="date">
+          </div>
+          <div class="col-md-6 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary">Filter</button>
+          </div>
+        </div>
+      </form>
+      <table class="table table-striped" id="table1">
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>Tasks</th>
+            <th>Status</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detail of filteredTasks">
+            <td>
+              <ng-container *ngFor="let day of detail.assignedDays">
+                {{ day.day }} ({{ day.date | date }})<br>
+              </ng-container>
+            </td>
+            <td>{{ detail.taskId.taskName }}</td>
+            <td>
+              <button 
+                class="badge"
+                [ngClass]="{
+                  'text-bg-success': detail.status === 'completed',
+                  'text-bg-warning': detail.status === 'pending',
+                  'text-bg-info': detail.status === 'started',
+                  'text-bg-secondary': detail.status === 'waiting for approval'
+                }"
+                (click)="changeStatus(detail)"
+              >
+                {{ detail.status }}
+              </button>
+            </td>
+            <td>{{ detail.taskId.expectedTime | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
   </div>
-  
+</div>

@@ -130,14 +130,13 @@ const getAllWeekTasksForEmployee = async (req, res) => {
     }
 };
 
-// Update Task Assignment Status
 const updateTaskStatus = async (req, res) => {
     try {
-        const { id } = req.params; // Extract TaskAssignment ID from URL parameters
+        const taskId = req.params.id; // Extract TaskAssignment ID from URL parameters
         const { status } = req.body; // Extract new status from the request body
 
         // Validate ObjectId format
-        if (!mongoose.Types.ObjectId.isValid(id)) {
+        if (!mongoose.Types.ObjectId.isValid(taskId)) { // Use taskId instead of id
             return res.status(400).json({
                 success: false,
                 status: 400,
@@ -157,7 +156,7 @@ const updateTaskStatus = async (req, res) => {
 
         // Find and update the task assignment status
         const updatedAssignment = await TaskAssignment.findByIdAndUpdate(
-            id,
+            taskId, // Use taskId instead of id
             { status },
             { new: true } // Return the updated document
         );

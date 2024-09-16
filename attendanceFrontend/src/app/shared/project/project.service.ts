@@ -105,4 +105,8 @@ getAssignTaskApi(EmployeeId: string) {
 
  
 }
+
+updateTaskStatus(taskId: string, newStatus: string): Observable<any> {
+  return this.http.patch(`${this.employeebaseurl}/task-status/${taskId}`, { status: newStatus });
+}
 }

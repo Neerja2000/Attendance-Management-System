@@ -28,11 +28,13 @@ export class EmpViewAssignTaskComponent {
   selectedDates: { day: string, date: string }[] = [];
   filteredTasks: any[] = [];
   currentWeekDates: { day: string, date: string }[] = [];
+  
+  statusOptions = ['pending', 'started', 'waiting for approval', 'completed'];
 
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute,
-    private authService:AuthService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -59,11 +61,12 @@ export class EmpViewAssignTaskComponent {
       }
     );
   }
+
   initializeWeekDates() {
     const today = new Date();
     const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 1)); // Monday
     const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-  
+
     this.currentWeekDates = weekDays.map((day, index) => {
       const date = new Date(startOfWeek);
       date.setDate(startOfWeek.getDate() + index);
@@ -73,7 +76,7 @@ export class EmpViewAssignTaskComponent {
       };
     });
   }
-  
+
   getProjectApi() {
     this.projectService.getAllProjectApi().subscribe(
       (res: any) => {
@@ -112,12 +115,6 @@ export class EmpViewAssignTaskComponent {
     );
   }
 
- 
-
- 
-  
-
-  // Helper function to calculate the next occurrence of a specific day
   getNextDayDate(day: string): string {
     const dayIndexMap: Record<string, number> =  {
       'monday': 1,
@@ -141,9 +138,6 @@ export class EmpViewAssignTaskComponent {
     
     return nextDate.toISOString().split('T')[0];  // Return the date in 'YYYY-MM-DD' format
   }
-  
-
-
 
   updateDates() {
     this.selectedDates = this.currentWeekDates
@@ -153,6 +147,7 @@ export class EmpViewAssignTaskComponent {
         date: day.date
       }));
   }
+
   getAssignTask() {
     if (!this.employeeId) {
       console.error('Employee ID is not available. Cannot fetch assigned tasks.');
@@ -180,9 +175,6 @@ export class EmpViewAssignTaskComponent {
     );
   }
   
-  
-  
-
   filterTasks() {
     const today = new Date();
     const currentDate = today.toISOString().split('T')[0]; // Get today's date in 'YYYY-MM-DD' format
@@ -213,16 +205,31 @@ export class EmpViewAssignTaskComponent {
     } else {
       console.log('Filtering by current week:', startOfWeekStr, 'to', endOfWeekStr);
   
-      // Filter based on the current week
+      // Filter tasks for the current week
       this.filteredTasks = this.assignTasks.filter((task) => {
         console.log('Task:', task);
         return task.assignedDays.some((day: { date: string }) => {
-          console.log('Checking day:', day.date, 'within week range:', startOfWeekStr, 'to', endOfWeekStr);
           return day.date >= startOfWeekStr && day.date <= endOfWeekStr;
         });
       });
     }
-  
-    console.log('Filtered Tasks:', this.filteredTasks);
+  }
+  changeStatus(task: any) {
+    const currentStatus = task.status;
+    const currentIndex = this.statusOptions.indexOf(currentStatus);
+    const nextIndex = (currentIndex + 1) % this.statusOptions.length;
+    const newStatus = this.statusOptions[nextIndex];
+    
+    this.projectService.updateTaskStatus(task._id, newStatus).subscribe(
+      res => {
+        if (res.success) {
+          console.log('Status updated successfully:', res.data);
+          this.getAssignTask(); // Refresh the tasks list to show updated status
+        } else {
+          console.error('Error updating status:', res.message);
+        }
+      },
+      error => console.error('Error:', error)
+    );
   }
 }
