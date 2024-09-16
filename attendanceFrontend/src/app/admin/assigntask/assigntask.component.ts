@@ -27,7 +27,7 @@ export class AssigntaskComponent implements OnInit {
   selectedDates: { day: string, date: string }[] = [];
   filteredTasks: any[] = [];
   currentWeekDates: { day: string, date: string }[] = [];
-
+  currentDate: string = '';
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute
@@ -43,8 +43,12 @@ export class AssigntaskComponent implements OnInit {
     });
     this.getAssignTask()
     this.initializeWeekDates();
+    this. setCurrentDate()
   }
-
+  setCurrentDate() {
+    const today = new Date();
+    this.currentDate = today.toISOString().split('T')[0]; // Set current date in 'YYYY-MM-DD' format
+  }
   getProjectsForEmployee(employeeId: string) {
     this.projectService.getProjectsByEmployee(employeeId).subscribe(
       (res: any) => {
@@ -243,47 +247,25 @@ export class AssigntaskComponent implements OnInit {
   
 
   filterTasks() {
-    const today = new Date();
-    const currentDate = today.toISOString().split('T')[0]; // Get today's date in 'YYYY-MM-DD' format
-  
-    // Calculate the start and end of the current week
-    const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 1)); // Monday
-    const endOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 7)); // Sunday
-  
-    const startOfWeekStr = startOfWeek.toISOString().split('T')[0];
-    const endOfWeekStr = endOfWeek.toISOString().split('T')[0];
-  
-    console.log('Current Date:', currentDate);
-    console.log('Selected Filter Date:', this.filters.date);
-    console.log('Start of Week:', startOfWeekStr);
-    console.log('End of Week:', endOfWeekStr);
-  
     if (this.filters.date) {
-      console.log('Filtering by:', this.filters.date);
-  
       // Filter based on the selected date if available
       this.filteredTasks = this.assignTasks.filter((task) => {
-        console.log('Task:', task);
         return task.assignedDays.some((day: { date: string }) => {
-          console.log('Checking day:', day.date, 'against filter date:', this.filters.date);
           return day.date.trim() === this.filters.date.trim();
         });
       });
     } else {
-      console.log('Filtering by current week:', startOfWeekStr, 'to', endOfWeekStr);
-  
-      // Filter based on the current week
+      // Filter based on the current date
       this.filteredTasks = this.assignTasks.filter((task) => {
-        console.log('Task:', task);
         return task.assignedDays.some((day: { date: string }) => {
-          console.log('Checking day:', day.date, 'within week range:', startOfWeekStr, 'to', endOfWeekStr);
-          return day.date >= startOfWeekStr && day.date <= endOfWeekStr;
+          return day.date === this.currentDate;
         });
       });
     }
-  
+
     console.log('Filtered Tasks:', this.filteredTasks);
   }
+
   
   approveTask(taskId: string) {
     // Call the service to approve the task with only the taskId
