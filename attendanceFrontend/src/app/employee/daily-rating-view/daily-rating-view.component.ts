@@ -156,5 +156,5 @@ export class DailyRatingViewComponent implements OnInit {
     console.log('Filter changed. Updating weeks and reloading ratings.');
     this.updateWeeks();
     this.loadRatings();
-  }
+   }
 }
