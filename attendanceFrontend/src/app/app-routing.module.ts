@@ -117,6 +117,9 @@ const routes: Routes = [
     },
     {
       path:'emp-assign-task/:employeeId',component:EmpAssignTaskComponent
+    },
+    {
+      path:'emp-view-assign-task/:employeeId',component:EmpViewAttendanceComponent
     }
   ]
   }
