@@ -30,6 +30,7 @@ export class EmpViewAssignTaskComponent {
   currentWeekDates: { day: string, date: string }[] = [];
   
   statusOptions = ['pending', 'started', 'waiting for approval', 'completed'];
+  currentDate: string = '';
 
   constructor(
     private projectService: ProjectService,

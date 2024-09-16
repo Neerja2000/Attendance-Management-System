@@ -28,6 +28,7 @@ export class EmpAssignTaskComponent {
   filteredTasks: any[] = [];
   currentWeekDates: { day: string, date: string }[] = [];
   currentDate: string = '';
+
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute
@@ -45,7 +46,7 @@ export class EmpAssignTaskComponent {
       }
     });
     this.initializeWeekDates();
-    this.setCurrentDate()
+    this.setCurrentDate();
   }
   setCurrentDate() {
     const today = new Date();
