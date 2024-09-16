@@ -105,8 +105,23 @@
             </td>
             <td>{{ detail.taskId.taskName }}</td>
             <td>
-              <div class="badge text-bg-success">{{ detail.status }}</div>
+              <!-- Conditionally apply styles based on the status -->
+              <div
+                class="badge"
+                [ngClass]="{
+                  'text-bg-success': detail.status === 'completed',
+                  'text-bg-warning': detail.status === 'pending',
+                  'text-bg-primary': detail.status === 'waiting for approval'
+                }"
+                [ngStyle]="{ cursor: detail.status === 'waiting for approval' ? 'pointer' : 'default' }"
+                (click)="detail.status === 'waiting for approval' ? approveTask(detail._id) : null"
+              >
+                {{ detail.status }}
+              </div>
             </td>
+            
+            
+            
             <td>{{ detail.taskId.expectedTime | date }}</td>
           </tr>
         </tbody>

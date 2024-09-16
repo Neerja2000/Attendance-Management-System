@@ -59,5 +59,5 @@ router.delete("/task/delete/:id", taskController.deleteTask);
 //Task Assign
 router.post('/assign-task/:employeeId',assignController.assignTask);
 router.get('/assign-task/getAllWeekTasksForEmployee/:employeeId', assignController.getAllWeekTasksForEmployee);
-
+router.patch('/approve-task-status/:id',assignController.approveTaskStatus);
 module.exports=router

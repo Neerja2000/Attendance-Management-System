@@ -285,7 +285,22 @@ export class AssigntaskComponent implements OnInit {
     console.log('Filtered Tasks:', this.filteredTasks);
   }
   
-  
+  approveTask(taskId: string) {
+    // Call the service to approve the task with only the taskId
+    this.projectService.approveTaskApi(taskId).subscribe(
+      (response: any) => {
+        // Find the task and update its status
+        const task = this.filteredTasks.find(t => t._id === taskId);
+        if (task) {
+          task.status = 'completed'; // Update the task status in the UI
+        }
+        console.log('Task approved:', response);
+      },
+      (error: any) => {
+        console.error('Error approving task:', error);
+      }
+    );
+  }
   
   
 }  

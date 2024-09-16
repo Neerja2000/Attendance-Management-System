@@ -107,6 +107,12 @@ getAssignTaskApi(EmployeeId: string) {
 }
 
 updateTaskStatus(taskId: string, newStatus: string): Observable<any> {
-  return this.http.patch(`${this.employeebaseurl}/task-status/${taskId}`, { status: newStatus });
+  return this.http.patch(`${this.employeebaseurl}/task-status/${taskId}`, { status: newStatus },{headers: this.getHeaders()});
+}
+approveTaskApi(taskId: string): Observable<any> {
+  // Assuming the approve-task endpoint is defined in the backend
+  return this.http.patch(`${this.globalbaseurl}/approve-task-status/${taskId}`, {}, {
+    headers: this.getHeaders()
+  });
 }
 }

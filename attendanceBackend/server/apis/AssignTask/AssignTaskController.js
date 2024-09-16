@@ -136,7 +136,7 @@ const updateTaskStatus = async (req, res) => {
         const { status } = req.body; // Extract new status from the request body
 
         // Validate ObjectId format
-        if (!mongoose.Types.ObjectId.isValid(taskId)) { // Use taskId instead of id
+        if (!mongoose.Types.ObjectId.isValid(taskId)) {
             return res.status(400).json({
                 success: false,
                 status: 400,
@@ -145,7 +145,7 @@ const updateTaskStatus = async (req, res) => {
         }
 
         // Validate status value
-        const allowedStatuses = ['pending', 'started', 'waiting for approval', 'completed'];
+        const allowedStatuses = ['pending', 'started', 'waiting for approval'];
         if (!allowedStatuses.includes(status)) {
             return res.status(400).json({
                 success: false,
@@ -154,14 +154,9 @@ const updateTaskStatus = async (req, res) => {
             });
         }
 
-        // Find and update the task assignment status
-        const updatedAssignment = await TaskAssignment.findByIdAndUpdate(
-            taskId, // Use taskId instead of id
-            { status },
-            { new: true } // Return the updated document
-        );
-
-        if (!updatedAssignment) {
+        // Fetch the current task assignment
+        const currentAssignment = await TaskAssignment.findById(taskId);
+        if (!currentAssignment) {
             return res.status(404).json({
                 success: false,
                 status: 404,
@@ -169,17 +164,92 @@ const updateTaskStatus = async (req, res) => {
             });
         }
 
+        // Prevent status changes after it becomes "waiting for approval"
+        if (currentAssignment.status === 'completed') {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: 'Task is already completed and cannot be updated further',
+            });
+        }
+
+        // If task is already "waiting for approval", prevent any further changes by the user
+        if (currentAssignment.status === 'waiting for approval' && status !== 'completed') {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: 'Task is waiting for approval and cannot be updated by the user',
+            });
+        }
+
+        // Find and update the task assignment status
+        const updatedAssignment = await TaskAssignment.findByIdAndUpdate(
+            taskId,
+            { status },
+            { new: true } // Return the updated document
+        );
+
         res.json({
             success: true,
             status: 200,
             message: 'Task assignment status updated successfully',
-            data: updatedAssignment
+            data: updatedAssignment,
         });
     } catch (err) {
         res.status(500).json({
             success: false,
             status: 500,
-            message: err.message
+            message: err.message,
+        });
+    }
+};
+const approveTaskStatus = async (req, res) => {
+    try {
+        const taskId = req.params.id;
+
+        // Validate ObjectId format
+        if (!mongoose.Types.ObjectId.isValid(taskId)) {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: 'Invalid task assignment ID format',
+            });
+        }
+
+        // Fetch the current task assignment
+        const currentAssignment = await TaskAssignment.findById(taskId);
+        if (!currentAssignment) {
+            return res.status(404).json({
+                success: false,
+                status: 404,
+                message: 'Task assignment not found',
+            });
+        }
+
+        // Only allow the admin to approve tasks in "waiting for approval"
+        if (currentAssignment.status !== 'waiting for approval') {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: 'Task is not waiting for approval',
+            });
+        }
+
+        // Update status to "completed"
+        currentAssignment.status = 'completed';
+        await currentAssignment.save();
+
+        res.json({
+            success: true,
+            status: 200,
+            message: 'Task has been approved and marked as completed',
+            data: currentAssignment,
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            status: 500,
+            message: err.message,
         });
     }
 };
@@ -190,4 +260,5 @@ const updateTaskStatus = async (req, res) => {
 
 
 
-module.exports = { assignTask,getAllWeekTasksForEmployee,updateTaskStatus };
+
+module.exports = { assignTask,getAllWeekTasksForEmployee,updateTaskStatus,approveTaskStatus };
