@@ -13,27 +13,24 @@ export class DailyRatingViewComponent implements OnInit {
   selectedMonth: string = '';
   selectedWeek: string = '';
   weeks: string[] = [];
-  employeeId: string = ''; // Ensure this is set to the ID you want to fetch ratings for
+  employeeId: string = '';
 
-  constructor(private ratingService: EmpRatingService,private route:ActivatedRoute) {}
+  constructor(private ratingService: EmpRatingService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    // Get employee ID from route params
     this.route.paramMap.subscribe(params => {
       this.employeeId = params.get('employeeId') || '';
       if (this.employeeId) {
+        // Set default month and week filters
+        this.selectedMonth = this.getCurrentMonthForFilter();
+        this.selectedWeek = this.getCurrentWeek();
+        
         this.loadRatings();
       } else {
         console.error('Employee ID is not provided');
       }
     });
-    this.updateWeeks();
-  }
-
-  getCurrentMonth(): string {
-    const date = new Date();
-    const month = date.toLocaleString('en-US', { month: 'long' });
-    const year = date.getFullYear();
-    return `${month} ${year}`;
   }
 
   getCurrentMonthForFilter(): string {
@@ -71,14 +68,23 @@ export class DailyRatingViewComponent implements OnInit {
       return;
     }
 
+    console.log('Selected Month:', this.selectedMonth);
+    console.log('Selected Week:', this.selectedWeek);
+
     this.ratingService.getSingleEmployeeRating(this.employeeId).subscribe(
       (response: any) => {
         if (response.success) {
+          // Debug to check response data
+          console.log('Response Data:', response.data);
+
           // Filter ratings based on selected month and week
           const filteredRatings = response.data.filter((rating: any) => {
             const ratingDate = new Date(rating.createdAt);
             const ratingYearMonth = `${ratingDate.getFullYear()}-${(ratingDate.getMonth() + 1).toString().padStart(2, '0')}`;
             const ratingWeek = `week${Math.ceil(ratingDate.getDate() / 7)}`;
+
+            // Debug to check each rating's date
+            console.log('Rating Date:', ratingDate, 'Month:', ratingYearMonth, 'Week:', ratingWeek);
 
             // Filter by selected month and week
             const matchesMonth = this.selectedMonth ? ratingYearMonth === this.selectedMonth : true;
@@ -86,6 +92,8 @@ export class DailyRatingViewComponent implements OnInit {
 
             return matchesMonth && matchesWeek;
           });
+
+          console.log('Filtered Ratings:', filteredRatings);
 
           this.ratings = filteredRatings;
           this.processRatings();
@@ -145,6 +153,7 @@ export class DailyRatingViewComponent implements OnInit {
   }
 
   onFilterChange() {
+    console.log('Filter changed. Updating weeks and reloading ratings.');
     this.updateWeeks();
     this.loadRatings();
   }
