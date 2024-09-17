@@ -82,21 +82,29 @@ export class EmpViewAttendanceComponent implements OnInit {
     this.updatePagination();
   }
 
-  calculateTotalWorkHours(checkIn: string, checkOut: string, breakStart: string, breakFinish: string): string {
+  calculateTotalWorkHours(checkIn: string, checkOut: string, breakStart?: string, breakFinish?: string): string {
     const checkInTime = new Date(`1970-01-01T${checkIn}:00`);
     const checkOutTime = new Date(`1970-01-01T${checkOut}:00`);
-    const breakStartTime = new Date(`1970-01-01T${breakStart}:00`);
-    const breakFinishTime = new Date(`1970-01-01T${breakFinish}:00`);
-
-    if (checkInTime && checkOutTime && breakStartTime && breakFinishTime) {
-      const breakDuration = (breakFinishTime.getTime() - breakStartTime.getTime()) / 60000; // break duration in minutes
+  
+    let breakDuration = 0;
+  
+    // Only calculate break duration if both breakStart and breakFinish are provided
+    if (breakStart && breakFinish) {
+      const breakStartTime = new Date(`1970-01-01T${breakStart}:00`);
+      const breakFinishTime = new Date(`1970-01-01T${breakFinish}:00`);
+      breakDuration = (breakFinishTime.getTime() - breakStartTime.getTime()) / 60000; // break duration in minutes
+    }
+  
+    if (checkInTime && checkOutTime) {
       const workDuration = (checkOutTime.getTime() - checkInTime.getTime()) / 60000 - breakDuration; // work duration in minutes
       const hours = Math.floor(workDuration / 60);
       const minutes = workDuration % 60;
       return `${hours}h ${minutes}m`;
     }
+  
     return 'Null';
   }
+  
 }
 
 
