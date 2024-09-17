@@ -82,8 +82,8 @@ const getDailyRatings = (req, res) => {
 };
 
 const getSingleEmployeeRating = (req, res) => {
-    // Extract employee ID from request parameters or query parameters
-    const { employeeId } = req.params; // Or use req.query.employeeId if it's passed as a query parameter
+    // Extract employee ID from request parameters
+    const { employeeId } = req.params; // Or use req.query.employeeId if passed as a query parameter
     
     if (!employeeId) {
         return res.json({
@@ -93,33 +93,16 @@ const getSingleEmployeeRating = (req, res) => {
         });
     }
 
-    // Get the current date
-    const currentDate = new Date();
-    
-    // Find the Monday of the current week
-    const startOfWeek = new Date(currentDate.getTime());
-    startOfWeek.setDate(currentDate.getDate() - currentDate.getDay() + 1);
-    startOfWeek.setHours(0, 0, 0, 0); // Set to the start of the day
-    
-    // Find the Friday of the current week
-    const endOfWeek = new Date(startOfWeek.getTime());
-    endOfWeek.setDate(startOfWeek.getDate() + 4);
-    endOfWeek.setHours(23, 59, 59, 999); // Set to the end of the day
-
-    // Query the ratings for the specific employee within the current week from Monday to Friday
+    // Query the ratings for the specific employee (no date filter)
     rating.find({
-        employeeId: employeeId,
-        createdAt: {
-            $gte: startOfWeek,
-            $lte: endOfWeek
-        }
+        employeeId: employeeId
     })
     .populate('employeeId', 'name') // Populate 'employeeId' field with 'name' only
     .then((result) => {
         res.json({
             success: true,
             status: 200,
-            message: "Ratings Loaded Successfully",
+            message: "Employee Ratings Loaded Successfully",
             data: result
         });
     })
@@ -131,5 +114,6 @@ const getSingleEmployeeRating = (req, res) => {
         });
     });
 };
+
 
   module.exports={addDailyRating, getDailyRatings,getSingleEmployeeRating}
