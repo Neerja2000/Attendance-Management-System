@@ -7,6 +7,7 @@ import { EmpRatingService } from 'src/app/shared/empRating/emp-rating.service';
   templateUrl: './daily-rating-view.component.html',
   styleUrls: ['./daily-rating-view.component.css']
 })
+
 export class DailyRatingViewComponent implements OnInit {
   ratings: any[] = [];
   employees: any[] = [];
@@ -15,18 +16,21 @@ export class DailyRatingViewComponent implements OnInit {
   weeks: string[] = [];
   employeeId: string = ''; // Ensure this is set to the ID you want to fetch ratings for
 
-  constructor(private ratingService: EmpRatingService,private route:ActivatedRoute) {}
+  constructor(private ratingService: EmpRatingService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.employeeId = params.get('employeeId') || '';
       if (this.employeeId) {
+        // Set default selected month and week
+        this.selectedMonth = this.getCurrentMonthForFilter();
+        this.selectedWeek = this.getCurrentWeek();
+        this.updateWeeks();
         this.loadRatings();
       } else {
         console.error('Employee ID is not provided');
       }
     });
-    this.updateWeeks();
   }
 
   getCurrentMonth(): string {
@@ -50,6 +54,10 @@ export class DailyRatingViewComponent implements OnInit {
   }
 
   updateWeeks() {
+    if (!this.selectedMonth) {
+      this.selectedMonth = this.getCurrentMonthForFilter();
+    }
+
     const [year, month] = this.selectedMonth.split('-').map(Number);
     const firstDay = new Date(year, month - 1, 1);
     const lastDay = new Date(year, month, 0);
@@ -149,3 +157,4 @@ export class DailyRatingViewComponent implements OnInit {
     this.loadRatings();
   }
 }
+
