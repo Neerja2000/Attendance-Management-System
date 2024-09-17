@@ -9,24 +9,22 @@ import { RatingService } from 'src/app/shared/rating/rating.service';
 export class ViewDailyRatingComponent implements OnInit {
   ratings: any[] = [];
   employees: any[] = [];
-  selectedMonth: string='';
-  selectedWeek: string='';
+  selectedMonth: string = '';
+  selectedWeek: string = '';
   weeks: string[] = [];
 
   constructor(private ratingService: RatingService) {}
 
   ngOnInit(): void {
-    this.loadRatings();
+    // Set default month and week on load
+    this.selectedMonth = this.getCurrentMonthForFilter();
     this.updateWeeks();
+    this.loadRatings();
   }
 
-  getCurrentMonth(): string {
-    const date = new Date();
-    const month = date.toLocaleString('en-US', { month: 'long' });
-    const year = date.getFullYear();
-    return `${month} ${year}`;
-  }
-
+  /**
+   * Returns the current month in 'YYYY-MM' format.
+   */
   getCurrentMonthForFilter(): string {
     const date = new Date();
     const year = date.getFullYear();
@@ -34,44 +32,70 @@ export class ViewDailyRatingComponent implements OnInit {
     return `${year}-${month}`;
   }
 
-  getCurrentWeek(): string {
+  /**
+   * Updates the weeks array based on the selected month.
+   */
+  updateWeeks() {
+    if (this.selectedMonth) {
+      const [year, month] = this.selectedMonth.split('-').map(Number);
+      const firstDay = new Date(year, month - 1, 1);
+      const lastDay = new Date(year, month, 0);
+      const totalDays = lastDay.getDate();
+      const weeksCount = Math.ceil(totalDays / 7);
+
+      this.weeks = [];
+      for (let i = 1; i <= weeksCount; i++) {
+        this.weeks.push(`week${i}`);
+      }
+
+      // Set default week if not already selected
+      if (this.weeks.length > 0 && !this.selectedWeek) {
+        this.selectedWeek = this.getCurrentWeek(weeksCount);
+      }
+    }
+  }
+
+  /**
+   * Determines the current week based on the current date.
+   * @param weeksCount Total number of weeks in the month.
+   */
+  getCurrentWeek(weeksCount: number): string {
     const date = new Date();
     const day = date.getDate();
-    return `week${Math.ceil(day / 7)}`;
+    const weekNumber = Math.ceil(day / 7);
+    // Ensure the week number does not exceed the total weeks in the month
+    return `week${weekNumber > weeksCount ? weeksCount : weekNumber}`;
   }
 
-  updateWeeks() {
-    const [year, month] = this.selectedMonth.split('-').map(Number);
-    const firstDay = new Date(year, month - 1, 1);
-    const lastDay = new Date(year, month, 0);
-    const totalDays = lastDay.getDate();
-    const weeksCount = Math.ceil(totalDays / 7);
-
-    this.weeks = [];
-    for (let i = 1; i <= weeksCount; i++) {
-      this.weeks.push(`week${i}`);
-    }
-    if (this.weeks.length > 0 && !this.selectedWeek) {
-      this.selectedWeek = this.weeks[0];
-    }
-  }
-
+  /**
+   * Loads ratings based on the selected month and week.
+   */
   loadRatings(): void {
     this.ratingService.getDailyRating().subscribe(
       (response: any) => {
         if (response.success) {
-          // Filter ratings based on selected month and week
+          // Log the entire data response from the API
+          console.log('All empDailyRating Data:', response.data);
+  
+          // Now filter the data based on selected month and week
           const filteredRatings = response.data.filter((rating: any) => {
             const ratingDate = new Date(rating.createdAt);
+  
+            // Get the year and month for comparison with the selectedMonth
             const ratingYearMonth = `${ratingDate.getFullYear()}-${(ratingDate.getMonth() + 1).toString().padStart(2, '0')}`;
+            
+            // Calculate the week of the month for the rating's date
             const ratingWeek = `week${Math.ceil(ratingDate.getDate() / 7)}`;
   
-            // Filter by selected month and week
+            // Ensure both month and week filters are applied
             const matchesMonth = this.selectedMonth ? ratingYearMonth === this.selectedMonth : true;
             const matchesWeek = this.selectedWeek ? ratingWeek === this.selectedWeek : true;
   
             return matchesMonth && matchesWeek;
           });
+  
+          // Log filtered ratings
+          console.log('Filtered Ratings:', filteredRatings);
   
           this.ratings = filteredRatings;
           this.processRatings();
@@ -86,6 +110,9 @@ export class ViewDailyRatingComponent implements OnInit {
   }
   
 
+  /**
+   * Processes the filtered ratings to structure data for the table.
+   */
   processRatings(): void {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     const employeeMap = new Map<string, any>();
@@ -93,8 +120,16 @@ export class ViewDailyRatingComponent implements OnInit {
     this.ratings.forEach(rating => {
       if (rating.employeeId && rating.employeeId._id) {
         const date = new Date(rating.createdAt);
-        const dayOfWeek = date.getDay();
-        const dayName = days[dayOfWeek - 1];
+        const dayOfWeek = date.getDay(); // 0 (Sunday) to 6 (Saturday)
+        // Adjust to make Monday = 0, ..., Friday = 4
+        const adjustedDayIndex = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+        const dayName = days[adjustedDayIndex];
+
+        if (!dayName) {
+          // Skip if the day is Saturday or Sunday
+          return;
+        }
+
         const employeeId = rating.employeeId._id;
 
         if (!employeeMap.has(employeeId)) {
@@ -120,9 +155,9 @@ export class ViewDailyRatingComponent implements OnInit {
     });
 
     this.employees = Array.from(employeeMap.values()).map(employee => {
-      const averageRating = employee.ratingCount > 0 
-        ? (employee.totalRating / employee.ratingCount).toFixed(2) 
-        : '0.00'; 
+      const averageRating = employee.ratingCount > 0
+        ? (employee.totalRating / employee.ratingCount).toFixed(2)
+        : '0.00';
 
       return {
         ...employee,
@@ -131,8 +166,13 @@ export class ViewDailyRatingComponent implements OnInit {
     });
   }
 
+  /**
+   * Handler for when either the month or week filter changes.
+   */
   onFilterChange() {
+    // Update week options and reload ratings
     this.updateWeeks();
     this.loadRatings();
   }
 }
+
