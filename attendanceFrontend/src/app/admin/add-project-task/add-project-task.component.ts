@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms'; // Import FormBuilder
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from 'src/app/shared/project/project.service';
 
@@ -9,20 +9,22 @@ import { ProjectService } from 'src/app/shared/project/project.service';
   styleUrls: ['./add-project-task.component.css']
 })
 export class AddProjectTaskComponent implements OnInit {
-  taskForm = new FormGroup({
-    'taskName': new FormControl(''),
-    'description': new FormControl(''),
-    'expectedTime': new FormControl('')
-  });
-
+  taskForm!: FormGroup;// Use FormGroup
   _id!: string;
   uploadedFiles: File[] = []; // Property to store uploaded files
   tasks: any[] = [];
+  expectedTime: string = '';
+
+  daysArray: number[] = Array.from({ length: 30 }, (_, i) => i); // 0 to 29 days
+  hoursArray: number[] = Array.from({ length: 24 }, (_, i) => i); // 0 to 23 hours
+  minutesArray: number[] = [0, 10, 20, 30, 40, 50]; // Minutes options
+  
 
   // Reference to the file input element
   @ViewChild('fileInput') fileInput!: ElementRef;
 
   constructor(
+    private fb: FormBuilder,  // Inject FormBuilder here
     private taskService: ProjectService,
     private route: ActivatedRoute
   ) {}
@@ -30,8 +32,31 @@ export class AddProjectTaskComponent implements OnInit {
   ngOnInit(): void {
     this._id = this.route.snapshot.paramMap.get('id')!;
     this.getAllTasks();
+
+    // Initialize the form using FormBuilder
+    this.taskForm = this.fb.group({
+      taskName: [''],
+      description: [''],
+      hours: [''],      // Add form controls for hours and minutes
+      minutes: [''],
+      expectedTime: ['']
+    });
+  
+    // Watch for changes in the time selection
+    this.taskForm.valueChanges.subscribe(() => {
+      this.onTimeChange();
+    });
   }
 
+  // Handle time changes to show formatted time like '4 hours 20 min'
+  onTimeChange() {
+    const days = this.taskForm.get('days')?.value;
+    const hours = this.taskForm.get('hours')?.value;
+    const minutes = this.taskForm.get('minutes')?.value;
+  
+    this.expectedTime = `${days ? days + ' days ' : ''}${hours ? hours + ' hours ' : ''}${minutes ? minutes + ' min' : ''}`;
+  }
+  
   getAllTasks() {
     this.taskService.getAllTaskProjectId(this._id).subscribe(
       (response: any) => {
@@ -47,23 +72,23 @@ export class AddProjectTaskComponent implements OnInit {
     const files = event.target.files;
     this.uploadedFiles = Array.from(files); // Convert FileList to array
   }
-  
+
   addTask() {
     const formData = new FormData();
     formData.append('taskName', this.taskForm.get('taskName')?.value || '');
     formData.append('description', this.taskForm.get('description')?.value || '');
-    formData.append('expectedTime', this.taskForm.get('expectedTime')?.value || '');
+    formData.append('expectedTime', this.expectedTime); // Use formatted expected time
     formData.append('projectId', this._id);
 
     // Append files to the formData with the field name 'files'
     this.uploadedFiles.forEach((file: File) => {
       formData.append('files', file, file.name); // Use 'files' to match Multer field name
     });
-  
+
     this.taskService.addTaskApi(formData).subscribe(
       response => {
         console.log('Task added successfully', response);
-        this.getAllTasks(); 
+        this.getAllTasks();
         this.taskForm.reset(); // Reset form fields
         this.uploadedFiles = []; // Clear uploaded files array
 
@@ -90,12 +115,10 @@ export class AddProjectTaskComponent implements OnInit {
       return 'unknown';
     }
   }
+
   getFileName(fileUrl: string): string {
     return fileUrl.split('/').pop() || 'Unknown file';
   }
-
-
-
 
   deleteTask(taskId: string) {
     if (confirm('Are you sure you want to delete this task?')) {
@@ -112,5 +135,3 @@ export class AddProjectTaskComponent implements OnInit {
     }
   }
 }
-
-

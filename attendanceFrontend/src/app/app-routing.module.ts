@@ -117,10 +117,10 @@ const routes: Routes = [
       path:'emp-view-task/:id',component:EmpViewTaskComponent,canActivate:[AuthGuard]
     },
     {
-      path:'emp-assign-task/:employeeId',component:EmpAssignTaskComponent
+      path:'emp-assign-task/:employeeId',component:EmpAssignTaskComponent,canActivate:[AuthGuard]
     },
     {
-      path:'emp-view-assign-task',component:EmpViewAssignTaskComponent
+      path:'emp-view-assign-task',component:EmpViewAssignTaskComponent,canActivate:[AuthGuard]
     }
   ]
   }

@@ -13,12 +13,37 @@
               <label for="">Task</label>
               <input type="text" class="form-control mb-3 project-input" placeholder="Enter Task Name" required
                 formControlName="taskName">
-              <label for="">Description Time</label>
+              <label for="">Description</label>
               <textarea class="form-control mb-3 project-input" placeholder="Enter Task Description" required
                 formControlName="description"></textarea>
-              <label for="">Due Date</label>
-              <input type="date" class="form-control mb-3 project-input" placeholder="Expected Time" required
-                formControlName="expectedTime">
+                <div class="form-group">
+                  <label for="expectedTime">Expected Time</label>
+                  <div class="d-flex">
+                    <!-- Hours Dropdown -->
+                    <div class="form-group ms-3">
+                      <label for="days">Days:</label>
+                      <select id="days" formControlName="days" class="form-control mb-3 project-input">
+                        <option *ngFor="let day of daysArray" [value]="day">{{day}}</option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group ms-3">
+                      <label for="hours">Hours:</label>
+                      <select id="hours" formControlName="hours" class="form-control mb-3 project-input">
+                        <option *ngFor="let hour of hoursArray" [value]="hour">{{hour}}</option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group ms-3">
+                      <label for="minutes">Minutes:</label>
+                      <select id="minutes" formControlName="minutes" class="form-control mb-3 ">
+                        <option *ngFor="let minute of minutesArray" [value]="minute">{{minute}}</option>
+                      </select>
+                    </div>
+                    
+                  </div>
+                </div>
+                
               <input class="form-control" type="file" #fileInput multiple (change)="uploadFiles($event)">
               <!-- <input type="file" multiple (change)="uploadFiles($event)" > -->
 
