@@ -14,21 +14,13 @@
           </select>
         </div>
     
-       <!-- Task Selection Dropdown -->
-<div class="mb-3">
-  <label for="task" class="form-label">Select Task</label>
-  <select id="task" class="form-select" required>
-    <option value="" disabled selected>Select a task</option>
-    <option *ngFor="let task of tasks" 
-      [value]="task._id" 
-      [disabled]="task.status === 'completed'">
-      {{ task.taskName }}
-      <span *ngIf="task.status === 'completed'"> (Completed)</span>
-    </option>
-  </select>
-</div>
-
-        
+        <div class="mb-3">
+          <label for="task" class="form-label">Select Task</label>
+          <select id="task" class="form-select" required>
+            <option value="" disabled selected>Select a task</option>
+            <option *ngFor="let task of tasks" [value]="task._id">{{ task.taskName }}</option>
+          </select>
+        </div>
     
         <div class="mb-3">
           <label class="form-label">Select Days</label>
