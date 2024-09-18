@@ -182,27 +182,28 @@ export class AssigntaskComponent implements OnInit {
 
   // Helper function to calculate the next occurrence of a specific day
   getNextDayDate(day: string): string {
-    const dayIndexMap: Record<string, number> =  {
+    const dayIndexMap: Record<string, number> = {
       'monday': 1,
       'tuesday': 2,
       'wednesday': 3,
       'thursday': 4,
       'friday': 5
     };
-    
+  
     const today = new Date();
-    const todayDay = today.getDay();
+    const todayDay = today.getDay() === 0 ? 7 : today.getDay(); // Adjust for Sunday
     const targetDay = dayIndexMap[day.toLowerCase()];
   
-    let daysUntilNext = (targetDay - todayDay + 7) % 7;
-    if (daysUntilNext === 0) { // If the target day is today
-      daysUntilNext = 0; // No need to move to the next week
+    // Calculate the number of days until the target day
+    let daysUntilNext = targetDay - todayDay;
+  
+    // If the target day is today or in the future this week
+    if (daysUntilNext < 0) {
+      daysUntilNext += 7; // Move to next week
     }
-    
-    const nextDate = new Date(today);
-    nextDate.setDate(today.getDate() + daysUntilNext);
-    
-    return nextDate.toISOString().split('T')[0];  // Return the date in 'YYYY-MM-DD' format
+  
+    today.setDate(today.getDate() + daysUntilNext);
+    return today.toISOString().split('T')[0];
   }
   
 

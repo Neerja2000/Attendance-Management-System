@@ -44,7 +44,14 @@ export class EmpViewAssignTaskComponent {
       this.getProjectsForEmployee(this.employeeId);
       this.getAssignTask(); // Fetch assigned tasks as soon as employee ID is available
     }
+    this.setCurrentDate();
     this.initializeWeekDates();
+  }
+
+  setCurrentDate() {
+    const today = new Date();
+    this.currentDate = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+    this.filters.date = this.currentDate; // Set the default filter to today's date
   }
 
   getProjectsForEmployee(employeeId: string) {
@@ -83,7 +90,7 @@ export class EmpViewAssignTaskComponent {
       (res: any) => {
         if (res.success) {
           this.projects = res.data;
-          console.log("project", this.projects)
+          console.log("project", this.projects);
         } else {
           console.error('Error retrieving projects:', res.message);
         }
@@ -105,7 +112,7 @@ export class EmpViewAssignTaskComponent {
       (res: any) => {
         if (res.success) {
           this.tasks = res.data;
-          console.log("task", this.tasks)
+          console.log('Tasks:', res.data); // Debugging line
         } else {
           console.error('Error retrieving tasks:', res.message);
         }
@@ -114,39 +121,6 @@ export class EmpViewAssignTaskComponent {
         console.error('Error:', error);
       }
     );
-  }
-
-  getNextDayDate(day: string): string {
-    const dayIndexMap: Record<string, number> =  {
-      'monday': 1,
-      'tuesday': 2,
-      'wednesday': 3,
-      'thursday': 4,
-      'friday': 5
-    };
-    
-    const today = new Date();
-    const todayDay = today.getDay();
-    const targetDay = dayIndexMap[day.toLowerCase()];
-  
-    let daysUntilNext = (targetDay - todayDay + 7) % 7;
-    if (daysUntilNext === 0) { // If the target day is today
-      daysUntilNext = 0; // No need to move to the next week
-    }
-    
-    const nextDate = new Date(today);
-    nextDate.setDate(today.getDate() + daysUntilNext);
-    
-    return nextDate.toISOString().split('T')[0];  // Return the date in 'YYYY-MM-DD' format
-  }
-
-  updateDates() {
-    this.selectedDates = this.currentWeekDates
-      .filter(day => this.days[day.day.toLowerCase()])
-      .map(day => ({
-        day: day.day,
-        date: day.date
-      }));
   }
 
   getAssignTask() {
@@ -161,11 +135,8 @@ export class EmpViewAssignTaskComponent {
           this.assignTasks = res.data;
           console.log('Assign Tasks:', this.assignTasks); // Log the raw data
   
-          // Validate structure and type
-          console.log('Data Structure:', this.assignTasks.map(task => task.assignedDays));
-  
           this.filteredTasks = [...this.assignTasks];
-          this.filterTasks();
+          this.filterTasks(); // Automatically filter for the current date
         } else {
           console.error('Failed to retrieve assigned tasks:', res.message);
         }

@@ -69,18 +69,18 @@ const routes: Routes = [
       path:'view-rating',component:ViewRatingComponent,canActivate: [AuthGuard]
     },
     {
-      path:'view-daily-rating',component:ViewDailyRatingComponent
+      path:'view-daily-rating',component:ViewDailyRatingComponent,canActivate: [AuthGuard]
     },
     {
-      path:'add-project',component:AddProjectComponent
+      path:'add-project',component:AddProjectComponent,canActivate: [AuthGuard]
     },
     {
-      path:'add-project-task/:id',component:AddProjectTaskComponent
+      path:'add-project-task/:id',component:AddProjectTaskComponent,canActivate: [AuthGuard]
     },{
-      path:'view-project',component:ViewProjectComponent
+      path:'view-project',component:ViewProjectComponent,canActivate: [AuthGuard]
     },
     {
-      path:'assign-task',component:AssigntaskComponent
+      path:'assign-task',component:AssigntaskComponent,canActivate: [AuthGuard]
     }
   ]
   },
