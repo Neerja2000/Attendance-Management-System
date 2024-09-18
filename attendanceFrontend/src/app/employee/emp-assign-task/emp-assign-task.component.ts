@@ -61,6 +61,8 @@ export class EmpAssignTaskComponent {
     );
   }
 
+  
+
   initializeWeekDates() {
     const today = new Date();
     const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 1));
@@ -82,11 +84,13 @@ export class EmpAssignTaskComponent {
     this.getTasksByProject(projectId);
   }
 
+  
   getTasksByProject(projectId: string) {
     this.projectService.getAllTaskProjectId(projectId).subscribe(
       (res: any) => {
         if (res.success) {
-          this.tasks = res.data;
+          // Filter tasks based on status being true
+          this.tasks = res.data.filter((task: any) => task.status === true);
         } else {
           console.error('Error retrieving tasks:', res.message);
         }
