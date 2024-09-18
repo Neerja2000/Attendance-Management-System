@@ -100,4 +100,51 @@ const getAllTasks = async (req, res) => {
 };
 
 
-module.exports = { addTask ,getAllTasks,deleteTask};
+const changeTaskStatus = async (req, res) => {
+  try {
+    console.log("stats", req.body);
+    const taskId = req.params.taskId;
+    const newStatus = req.body.status;
+
+    // Validate the status: specifically check for undefined or null, not falsy values like false
+    if (newStatus === undefined || newStatus === null) {
+      return res.status(400).json({
+        success: false,
+        status: 400,
+        message: "Status is required",
+      });
+    }
+
+    // Find the task by ID and update the status
+    const updatedTask = await task.findByIdAndUpdate(
+      taskId,
+      { status: newStatus },
+      { new: true } // Return the updated task
+    );
+
+    if (!updatedTask) {
+      return res.status(404).json({
+        success: false,
+        status: 404,
+        message: "Task not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      status: 200,
+      message: "Task status updated successfully",
+      data: updatedTask,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      status: 500,
+      message: "An error occurred while updating the task status",
+      error: error.message,
+    });
+  }
+};
+
+
+module.exports = { addTask ,getAllTasks,deleteTask,changeTaskStatus};

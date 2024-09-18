@@ -53,6 +53,7 @@ router.delete("/project/delete/:projectId",projectController.deleteProject)
 router.post("/task/add", upload.array('files', 5), taskController.addTask);
 router.get("/task/getAll",taskController.getAllTasks)
 router.delete("/task/delete/:id", taskController.deleteTask);
+router.post("/task/status/:taskId", taskController.changeTaskStatus);
 
 
 
@@ -60,4 +61,5 @@ router.delete("/task/delete/:id", taskController.deleteTask);
 router.post('/assign-task/:employeeId',assignController.assignTask);
 router.get('/assign-task/getAllWeekTasksForEmployee/:employeeId', assignController.getAllWeekTasksForEmployee);
 router.patch('/approve-task-status/:id',assignController.approveTaskStatus);
+
 module.exports=router

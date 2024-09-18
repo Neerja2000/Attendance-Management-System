@@ -105,8 +105,8 @@ export class AssigntaskComponent implements OnInit {
     this.projectService.getAllTaskProjectId(projectId).subscribe(
       (res: any) => {
         if (res.success) {
-          this.tasks = res.data;
-          console.log("task", this.tasks)
+          // Filter tasks based on status being true
+          this.tasks = res.data.filter((task: any) => task.status === true);
         } else {
           console.error('Error retrieving tasks:', res.message);
         }
@@ -116,6 +116,7 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
+  
 
   assignTask() {
     // Collect selected days
@@ -134,7 +135,7 @@ export class AssigntaskComponent implements OnInit {
       assignedDays: assignedDays  // Include day name and next closest date
     };
   
-    console.log("Assigning task:", taskAssignment);
+   
   
     // Call the service method to assign the task
     this.projectService.assignTask(taskAssignment).subscribe(
@@ -227,10 +228,8 @@ export class AssigntaskComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           this.assignTasks = res.data;
-          console.log('Assign Tasks:', this.assignTasks); // Log the raw data
-  
-          // Validate structure and type
-          console.log('Data Structure:', this.assignTasks.map(task => task.assignedDays));
+        // Validate structure and type
+        
   
           this.filteredTasks = [...this.assignTasks];
           this.filterTasks();
@@ -268,22 +267,38 @@ export class AssigntaskComponent implements OnInit {
   }
 
   
-  approveTask(taskId: string) {
+
+  
+  approveTask(taskId: string, task_id: string) {
+  
+  
     // Call the service to approve the task with only the taskId
     this.projectService.approveTaskApi(taskId).subscribe(
       (response: any) => {
-        // Find the task and update its status
+        // Find the task and update its status in the UI
         const task = this.filteredTasks.find(t => t._id === taskId);
         if (task) {
           task.status = 'completed'; // Update the task status in the UI
         }
         console.log('Task approved:', response);
+  
+        // Now change the task status to false using changeTaskStatus API
+        this.projectService.changeTaskStatus(task_id, false).subscribe(
+          (res: any) => {
+            console.log('Task status changed successfully:', res);
+          },
+          (error: any) => {
+            console.error('Error changing task status:', error);
+          }
+        );
       },
       (error: any) => {
         console.error('Error approving task:', error);
       }
     );
   }
+  
+  
   
   
 }  

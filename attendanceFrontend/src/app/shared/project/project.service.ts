@@ -74,6 +74,17 @@ export class ProjectService {
   addTaskApi(formData: FormData) {
     return this.http.post(`${this.globalbaseurl}/task/add`, formData, { headers: this.getHeaders() });
   }
+  changeTaskStatus(taskId: string, status: boolean) {
+    console.log(taskId)
+    console.log("status",status)
+    const body = { status }; // Pass the status in the request body
+    return this.http.post(
+      `${this.globalbaseurl}/task/status/${taskId}`,
+      body, // Include the status in the body
+      { headers: this.getHeaders() } // Attach the headers
+    );
+  }
+  
  
   getAllTaskProjectId(projectId: string) {
     return this.http.get(`${this.globalbaseurl}/task/getAll`, {
