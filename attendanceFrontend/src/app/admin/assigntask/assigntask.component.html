@@ -106,18 +106,20 @@
             <td>{{ detail.taskId.taskName }}</td>
             <td>
               <div
-                class="badge"
-                [ngClass]="{
-                  'text-bg-success': detail.status === 'completed',
-                  'text-bg-warning': detail.status === 'pending',
-                  'text-bg-primary': detail.status === 'waiting for approval',
-                  'text-bg-danger':  detail.status === 'under rivision'
-                }"
-                [ngStyle]="{ cursor: detail.status === 'waiting for approval' ? 'pointer' : 'default' }"
-                (click)="detail.status === 'waiting for approval' ? approveTask(detail._id, detail.taskId._id) : null"
-              >
-                {{ detail.status }}
-              </div>
+              class="badge"
+              [ngClass]="{
+                'text-bg-success': detail.status === 'completed',
+                'text-bg-warning': detail.status === 'pending',
+                'text-bg-primary': detail.status === 'waiting for approval',
+                'text-bg-danger': detail.status === 'under rivision',
+                'text-bg-secondary': detail.status === 'Under Revision: Approval Pending' 
+              }"
+              [ngStyle]="{ cursor: detail.status === 'waiting for approval' || detail.status === 'Under Revision: Approval Pending' ? 'pointer' : 'default' }"  
+              (click)="detail.status === 'waiting for approval' ? approveTask(detail._id, detail.taskId._id) : (detail.status === 'Under Revision: Approval Pending' ? approveTask(detail._id, detail.taskId._id) : null)"
+          >
+              {{ detail.status }}
+          </div>
+          
             </td>
             <td>
               <ng-container *ngIf="isDate(detail.taskId.expectedTime); else notADate">

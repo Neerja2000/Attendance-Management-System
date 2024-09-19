@@ -145,7 +145,7 @@ const updateTaskStatus = async (req, res) => {
         }
 
         // Validate status value
-        const allowedStatuses = ['pending', 'started', 'waiting for approval'];
+        const allowedStatuses = ['pending', 'started', 'waiting for approval','Under Revision: Approval Pending'];
         if (!allowedStatuses.includes(status)) {
             return res.status(400).json({
                 success: false,
@@ -174,7 +174,7 @@ const updateTaskStatus = async (req, res) => {
         }
 
         // If task is already "waiting for approval", prevent any further changes by the user
-        if (currentAssignment.status === 'waiting for approval' && status !== 'completed') {
+        if (currentAssignment.status === 'waiting for approval'|| currentAssignment.status === 'Under Revision: Approval Pending' && status !== 'completed') {
             return res.status(400).json({
                 success: false,
                 status: 400,

@@ -172,10 +172,25 @@ export class EmpViewAssignTaskComponent {
 
   changeStatus(task: any) {
     const currentStatus = task.status;
-    const currentIndex = this.statusOptions.indexOf(currentStatus);
-    const nextIndex = (currentIndex + 1) % this.statusOptions.length;
-    const newStatus = this.statusOptions[nextIndex];
+    let newStatus: string;
     
+    if (currentStatus === 'under rivision') {
+      newStatus = 'Under Revision: Approval Pending';
+    } else if (currentStatus === 'Under Revision: Approval Pending') {
+      // Do not change the status if it is "Under Revision: Approval Pending"
+      return;
+    } else {
+      const currentIndex = this.statusOptions.indexOf(currentStatus);
+      const nextIndex = (currentIndex + 1) % this.statusOptions.length;
+      newStatus = this.statusOptions[nextIndex];
+    }
+  
+    console.log('Updating Status:', {
+      taskId: task._id,
+      currentStatus: currentStatus,
+      newStatus: newStatus
+    });
+  
     this.projectService.updateTaskStatus(task._id, newStatus).subscribe(
       res => {
         if (res.success) {
@@ -188,4 +203,5 @@ export class EmpViewAssignTaskComponent {
       error => console.error('Error:', error)
     );
   }
+
 }

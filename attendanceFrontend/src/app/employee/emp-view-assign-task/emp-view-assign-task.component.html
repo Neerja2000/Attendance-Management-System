@@ -48,13 +48,15 @@
                   'text-bg-warning': detail.status === 'pending',
                   'text-bg-info': detail.status === 'started',
                   'text-bg-secondary': detail.status === 'waiting for approval',
-                  'text-bg-danger':  detail.status === 'under rivision'
+                  'text-bg-danger': detail.status === 'under rivision',
+                  'text-bg-dark': detail.status === 'Under Revision: Approval Pending'
                 }"
                 (click)="changeStatus(detail)"
               >
                 {{ detail.status }}
               </button>
             </td>
+            
             <td>
               <ng-container *ngIf="isDate(detail.taskId.expectedTime); else notADate">
                 {{ detail.taskId.expectedTime | date }}
