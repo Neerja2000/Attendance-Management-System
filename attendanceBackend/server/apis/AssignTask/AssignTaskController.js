@@ -313,7 +313,7 @@ const requestChanges = async (req, res) => {
 
         const updatedTask = await TaskAssignment.findOneAndUpdate(
             { _id: new mongoose.Types.ObjectId(taskId) },
-            { feedback, status: 'pending' },
+            { feedback, status: 'under rivision' },
             { new: true }
         );
 

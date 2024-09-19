@@ -110,7 +110,8 @@
                 [ngClass]="{
                   'text-bg-success': detail.status === 'completed',
                   'text-bg-warning': detail.status === 'pending',
-                  'text-bg-primary': detail.status === 'waiting for approval'
+                  'text-bg-primary': detail.status === 'waiting for approval',
+                  'text-bg-danger':  detail.status === 'under rivision'
                 }"
                 [ngStyle]="{ cursor: detail.status === 'waiting for approval' ? 'pointer' : 'default' }"
                 (click)="detail.status === 'waiting for approval' ? approveTask(detail._id, detail.taskId._id) : null"

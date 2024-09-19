@@ -47,7 +47,8 @@
                   'text-bg-success': detail.status === 'completed',
                   'text-bg-warning': detail.status === 'pending',
                   'text-bg-info': detail.status === 'started',
-                  'text-bg-secondary': detail.status === 'waiting for approval'
+                  'text-bg-secondary': detail.status === 'waiting for approval',
+                  'text-bg-danger':  detail.status === 'under rivision'
                 }"
                 (click)="changeStatus(detail)"
               >
