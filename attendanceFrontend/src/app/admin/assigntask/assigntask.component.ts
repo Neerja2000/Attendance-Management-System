@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from 'src/app/shared/project/project.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-assigntask',
@@ -13,7 +14,7 @@ export class AssigntaskComponent implements OnInit {
   assignTasks: any[] = [];
   tasks: any[] = [];
   selectedProjectId: string = '';
-  selectedTaskId: string = ''; 
+  selectedTaskId: string = '';
   days: Record<string, boolean> = {
     monday: false,
     tuesday: false,
@@ -28,6 +29,7 @@ export class AssigntaskComponent implements OnInit {
   filteredTasks: any[] = [];
   currentWeekDates: { day: string, date: string }[] = [];
   currentDate: string = '';
+
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute
@@ -35,20 +37,22 @@ export class AssigntaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.employeeId = params['employeeId']; // Retrieving employeeId from query parameters
+      this.employeeId = params['employeeId'];
       console.log("employeeID", this.employeeId);
       if (this.employeeId) {
-        this.getProjectsForEmployee(this.employeeId); // Fetch projects for the given employeeId
+        this.getProjectsForEmployee(this.employeeId);
       }
     });
-    this.getAssignTask()
+    this.getAssignTask();
     this.initializeWeekDates();
-    this. setCurrentDate()
+    this.setCurrentDate();
   }
+
   setCurrentDate() {
     const today = new Date();
-    this.currentDate = today.toISOString().split('T')[0]; // Set current date in 'YYYY-MM-DD' format
+    this.currentDate = today.toISOString().split('T')[0];
   }
+
   getProjectsForEmployee(employeeId: string) {
     this.projectService.getProjectsByEmployee(employeeId).subscribe(
       (res: any) => {
@@ -64,27 +68,28 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
+
   initializeWeekDates() {
     const today = new Date();
     const startOfWeek = new Date(today.setDate(today.getDate() - today.getDay() + 1)); // Monday
     const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-  
+
     this.currentWeekDates = weekDays.map((day, index) => {
       const date = new Date(startOfWeek);
       date.setDate(startOfWeek.getDate() + index);
       return {
         day: day,
-        date: date.toISOString().split('T')[0] // Format: YYYY-MM-DD
+        date: date.toISOString().split('T')[0]
       };
     });
   }
-  
+
   getProjectApi() {
     this.projectService.getAllProjectApi().subscribe(
       (res: any) => {
         if (res.success) {
           this.projects = res.data;
-          console.log("project", this.projects)
+          console.log("project", this.projects);
         } else {
           console.error('Error retrieving projects:', res.message);
         }
@@ -105,7 +110,6 @@ export class AssigntaskComponent implements OnInit {
     this.projectService.getAllTaskProjectId(projectId).subscribe(
       (res: any) => {
         if (res.success) {
-          // Filter tasks based on status being true
           this.tasks = res.data.filter((task: any) => task.status === true);
         } else {
           console.error('Error retrieving tasks:', res.message);
@@ -116,33 +120,27 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
-  
 
   assignTask() {
-    // Collect selected days
     const assignedDays = Object.keys(this.days)
-      .filter(day => this.days[day])  // Only include selected days
+      .filter(day => this.days[day])
       .map(day => ({
-        day: day.charAt(0).toUpperCase() + day.slice(1).toLowerCase(), // Capitalize day name
-        date: this.getNextDayDate(day)  // Get the next closest date for the selected day
+        day: day.charAt(0).toUpperCase() + day.slice(1).toLowerCase(),
+        date: this.getNextDayDate(day)
       }));
-  
-    // Construct the task assignment object
+
     const taskAssignment = {
       employeeId: this.employeeId,
       projectId: this.selectedProjectId,
-      taskId: (<HTMLSelectElement>document.getElementById('task')).value,  // Using Angular's two-way binding
-      assignedDays: assignedDays  // Include day name and next closest date
+      taskId: (<HTMLSelectElement>document.getElementById('task')).value,
+      assignedDays: assignedDays
     };
-  
-   
-  
-    // Call the service method to assign the task
+
     this.projectService.assignTask(taskAssignment).subscribe(
       (res: any) => {
         if (res.success) {
           this.resetForm();
-          this.getAssignTask()
+          this.getAssignTask();
           console.log('Task assigned successfully:', res.data);
         } else {
           console.warn('Failed to assign task:', res.message);
@@ -154,14 +152,10 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
-  
 
   resetForm() {
-    // Clear selected project and task
     this.selectedProjectId = '';
     (<HTMLSelectElement>document.getElementById('task')).value = '';
-    
-    // Reset days
     this.days = {
       'monday': false,
       'tuesday': false,
@@ -169,19 +163,10 @@ export class AssigntaskComponent implements OnInit {
       'thursday': false,
       'friday': false
     };
-    
-    // Reset date filters or any date-related properties
-    this.filters.date = ''; // Clear the date filter if used for filtering tasks
-    
-    // Reset selectedDates if used to display selected dates
+    this.filters.date = '';
     this.selectedDates = [];
-    
-    // Reset any other date-related properties if applicable
-    // For example, if you have other date fields, you should clear them as well.
   }
-  
 
-  // Helper function to calculate the next occurrence of a specific day
   getNextDayDate(day: string): string {
     const dayIndexMap: Record<string, number> = {
       'monday': 1,
@@ -190,25 +175,20 @@ export class AssigntaskComponent implements OnInit {
       'thursday': 4,
       'friday': 5
     };
-  
+
     const today = new Date();
-    const todayDay = today.getDay() === 0 ? 7 : today.getDay(); // Adjust for Sunday
+    const todayDay = today.getDay() === 0 ? 7 : today.getDay();
     const targetDay = dayIndexMap[day.toLowerCase()];
-  
-    // Calculate the number of days until the target day
+
     let daysUntilNext = targetDay - todayDay;
-  
-    // If the target day is today or in the future this week
+
     if (daysUntilNext < 0) {
-      daysUntilNext += 7; // Move to next week
+      daysUntilNext += 7;
     }
-  
+
     today.setDate(today.getDate() + daysUntilNext);
     return today.toISOString().split('T')[0];
   }
-  
-
-
 
   updateDates() {
     this.selectedDates = this.currentWeekDates
@@ -218,19 +198,17 @@ export class AssigntaskComponent implements OnInit {
         date: day.date
       }));
   }
+
   getAssignTask() {
     if (!this.employeeId) {
       console.error('Employee ID is not available. Cannot fetch assigned tasks.');
       return;
     }
-  
+
     this.projectService.getAssignTaskApi(this.employeeId).subscribe(
       (res: any) => {
         if (res.success) {
           this.assignTasks = res.data;
-        // Validate structure and type
-        
-  
           this.filteredTasks = [...this.assignTasks];
           this.filterTasks();
         } else {
@@ -242,20 +220,15 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
-  
-  
-  
 
   filterTasks() {
     if (this.filters.date) {
-      // Filter based on the selected date if available
       this.filteredTasks = this.assignTasks.filter((task) => {
         return task.assignedDays.some((day: { date: string }) => {
           return day.date.trim() === this.filters.date.trim();
         });
       });
     } else {
-      // Filter based on the current date
       this.filteredTasks = this.assignTasks.filter((task) => {
         return task.assignedDays.some((day: { date: string }) => {
           return day.date === this.currentDate;
@@ -266,39 +239,73 @@ export class AssigntaskComponent implements OnInit {
     console.log('Filtered Tasks:', this.filteredTasks);
   }
 
-  
-
-  
   approveTask(taskId: string, task_id: string) {
-  
-  
-    // Call the service to approve the task with only the taskId
-    this.projectService.approveTaskApi(taskId).subscribe(
-      (response: any) => {
-        // Find the task and update its status in the UI
-        const task = this.filteredTasks.find(t => t._id === taskId);
-        if (task) {
-          task.status = 'completed'; // Update the task status in the UI
-        }
-        console.log('Task approved:', response);
-  
-        // Now change the task status to false using changeTaskStatus API
-        this.projectService.changeTaskStatus(task_id, false).subscribe(
-          (res: any) => {
-            console.log('Task status changed successfully:', res);
+    Swal.fire({
+      title: 'Confirm Task Status',
+      text: "Do you want to complete the task or request some changes?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Complete',
+      cancelButtonText: 'Request Changes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.completeTask(taskId, task_id);
+      } else if (result.isDismissed) {
+        this.requestChanges(taskId);
+      }
+    });
+  }
+
+  completeTask(taskId: string, task_id: string) {
+    Swal.fire({
+      title: 'Rate the Task (0 to 10)',
+      input: 'range',
+      inputValue: 0,
+      showCancelButton: true,
+      confirmButtonText: 'Submit Rating'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const rating = result.value as number; // Ensure it's treated as a number
+        this.projectService.completeTaskApi(taskId, rating).subscribe(
+          (response: any) => {
+            console.log('Task completed:', response);
+            this.projectService.changeTaskStatus(task_id, false).subscribe(
+              (res: any) => {
+                console.log('Task status changed successfully:', res);
+              },
+              (error: any) => {
+                console.error('Error changing task status:', error);
+              }
+            );
           },
           (error: any) => {
-            console.error('Error changing task status:', error);
+            console.error('Error completing task:', error);
           }
         );
-      },
-      (error: any) => {
-        console.error('Error approving task:', error);
       }
-    );
+    });
   }
-  
-  
-  
-  
-}  
+
+  requestChanges(taskId: string) {
+    Swal.fire({
+      title: 'Request Changes',
+      input: 'textarea',
+      inputLabel: 'Provide feedback for the required changes',
+      inputPlaceholder: 'Enter your feedback...',
+      showCancelButton: true,
+      confirmButtonText: 'Submit Feedback'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const feedback = result.value as string; // Ensure it's treated as a string
+        this.projectService.requestChangesApi(taskId, feedback).subscribe(
+          (response: any) => {
+            console.log('Changes requested:', response);
+          },
+          (error: any) => {
+            console.error('Error requesting changes:', error);
+          }
+        );
+      }
+    });
+  }
+}
