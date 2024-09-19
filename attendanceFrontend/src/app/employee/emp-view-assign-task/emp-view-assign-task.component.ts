@@ -47,6 +47,9 @@ export class EmpViewAssignTaskComponent {
     this.setCurrentDate();
     this.initializeWeekDates();
   }
+  isDate(value: any): boolean {
+    return !isNaN(Date.parse(value));
+  }
 
   setCurrentDate() {
     const today = new Date();

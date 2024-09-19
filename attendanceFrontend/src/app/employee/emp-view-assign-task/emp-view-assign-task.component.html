@@ -54,7 +54,14 @@
                 {{ detail.status }}
               </button>
             </td>
-            <td>{{ detail.taskId.expectedTime | date }}</td>
+            <td>
+              <ng-container *ngIf="isDate(detail.taskId.expectedTime); else notADate">
+                {{ detail.taskId.expectedTime | date }}
+              </ng-container>
+              <ng-template #notADate>
+                {{ detail.taskId.expectedTime }}
+              </ng-template>
+            </td>
           </tr>
         </tbody>
       </table>

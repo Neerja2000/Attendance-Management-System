@@ -62,4 +62,9 @@ router.post('/assign-task/:employeeId',assignController.assignTask);
 router.get('/assign-task/getAllWeekTasksForEmployee/:employeeId', assignController.getAllWeekTasksForEmployee);
 router.patch('/approve-task-status/:id',assignController.approveTaskStatus);
 
+
+// 
+
+router.post('/complete-task',assignController.completeTask);
+router.post('/request-changes',assignController.requestChanges);
 module.exports=router

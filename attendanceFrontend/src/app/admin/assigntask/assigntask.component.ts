@@ -47,7 +47,9 @@ export class AssigntaskComponent implements OnInit {
     this.initializeWeekDates();
     this.setCurrentDate();
   }
-
+  isDate(value: any): boolean {
+    return !isNaN(Date.parse(value));
+  }
   setCurrentDate() {
     const today = new Date();
     this.currentDate = today.toISOString().split('T')[0];
@@ -191,14 +193,39 @@ export class AssigntaskComponent implements OnInit {
   }
 
   updateDates() {
+    const today = new Date();
+    const todayDayIndex = today.getDay() === 0 ? 7 : today.getDay(); // 1 for Monday, 2 for Tuesday, etc.
+    const dayIndexMap: Record<string, number> = {
+      'monday': 1,
+      'tuesday': 2,
+      'wednesday': 3,
+      'thursday': 4,
+      'friday': 5
+    };
+  
     this.selectedDates = this.currentWeekDates
       .filter(day => this.days[day.day.toLowerCase()])
-      .map(day => ({
-        day: day.day,
-        date: day.date
-      }));
+      .map(day => {
+        const targetDayIndex = dayIndexMap[day.day.toLowerCase()];
+        let targetDate = new Date(day.date);
+  
+        // Move earlier days to the next week, but not today
+        if (targetDayIndex < todayDayIndex) {
+          targetDate.setDate(targetDate.getDate() + 7); // Move earlier days to the next week
+        }
+  
+        // Keep today as today's date
+        if (targetDayIndex === todayDayIndex) {
+          targetDate = today; // Ensure today's date remains as today
+        }
+  
+        return {
+          day: day.day,
+          date: targetDate.toISOString().split('T')[0]
+        };
+      });
   }
-
+  
   getAssignTask() {
     if (!this.employeeId) {
       console.error('Employee ID is not available. Cannot fetch assigned tasks.');
@@ -255,57 +282,85 @@ export class AssigntaskComponent implements OnInit {
       }
     });
   }
+completeTask(taskId: string, task_id: string) {
+  Swal.fire({
+    title: 'Rate the Task (0 to 10)',
+    input: 'range',
+    inputValue: 0,
+    showCancelButton: true,
+    confirmButtonText: 'Submit Rating'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const rating = result.value as number; // Ensure it's treated as a number
+      this.projectService.completeTaskApi(taskId, rating).subscribe(
+        (response: any) => {
+          console.log('Task completed:', response);
+          // Update the task status in the UI
+          this.assignTasks = this.assignTasks.map(task => {
+            if (task._id === taskId) {
+              return { ...task, status: 'completed' };
+            }
+            return task;
+          });
+          this.filteredTasks = [...this.assignTasks]; // Refresh filtered tasks
+          this.getAssignTask(); // Optionally, refetch assigned tasks
 
-  completeTask(taskId: string, task_id: string) {
-    Swal.fire({
-      title: 'Rate the Task (0 to 10)',
-      input: 'range',
-      inputValue: 0,
-      showCancelButton: true,
-      confirmButtonText: 'Submit Rating'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const rating = result.value as number; // Ensure it's treated as a number
-        this.projectService.completeTaskApi(taskId, rating).subscribe(
-          (response: any) => {
-            console.log('Task completed:', response);
-            this.projectService.changeTaskStatus(task_id, false).subscribe(
-              (res: any) => {
-                console.log('Task status changed successfully:', res);
-              },
-              (error: any) => {
-                console.error('Error changing task status:', error);
-              }
-            );
-          },
-          (error: any) => {
-            console.error('Error completing task:', error);
-          }
-        );
-      }
-    });
-  }
+          // Change the task status
+          this.projectService.changeTaskStatus(task_id, false).subscribe(
+            (res: any) => {
+              console.log('Task status changed successfully:', res);
+              // Update UI based on status change
+              this.assignTasks = this.assignTasks.map(task => {
+                if (task._id === task_id) {
+                  return { ...task, status: 'completed' };
+                }
+                return task;
+              });
 
-  requestChanges(taskId: string) {
-    Swal.fire({
+            },
+            (error: any) => {
+              console.error('Error changing task status:', error);
+            }
+          );
+        },
+        (error: any) => {
+          console.error('Error completing task:', error);
+        }
+      );
+    }
+  });
+}
+
+// In your component.ts
+requestChanges(taskId: string) {
+  Swal.fire({
       title: 'Request Changes',
       input: 'textarea',
       inputLabel: 'Provide feedback for the required changes',
       inputPlaceholder: 'Enter your feedback...',
       showCancelButton: true,
       confirmButtonText: 'Submit Feedback'
-    }).then((result) => {
+  }).then((result) => {
       if (result.isConfirmed) {
-        const feedback = result.value as string; // Ensure it's treated as a string
-        this.projectService.requestChangesApi(taskId, feedback).subscribe(
-          (response: any) => {
-            console.log('Changes requested:', response);
-          },
-          (error: any) => {
-            console.error('Error requesting changes:', error);
-          }
-        );
+          const feedback = result.value as string; // Ensure it's treated as a string
+          this.projectService.requestChangesApi(taskId, feedback).subscribe(
+              (response: any) => {
+                  console.log('Changes requested:', response);
+                  // Update tasks array with the latest data
+                  this.tasks = this.tasks.map(task => 
+                      task._id === response.data._id ? response.data : task
+                  );
+                  // Optionally show a success message
+                  Swal.fire('Success', response.message, 'success');
+                  this. getAssignTask()
+              },
+              (error: any) => {
+                  console.error('Error requesting changes:', error);
+                  Swal.fire('Error', 'Failed to request changes.', 'error');
+              }
+          );
       }
-    });
-  }
+  });
+}
+
 }

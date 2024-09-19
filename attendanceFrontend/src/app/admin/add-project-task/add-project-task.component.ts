@@ -37,6 +37,7 @@ export class AddProjectTaskComponent implements OnInit {
     this.taskForm = this.fb.group({
       taskName: [''],
       description: [''],
+      days:[''],
       hours: [''],      // Add form controls for hours and minutes
       minutes: [''],
       expectedTime: ['']
@@ -47,7 +48,8 @@ export class AddProjectTaskComponent implements OnInit {
       this.onTimeChange();
     });
   }
-
+ 
+  
   // Handle time changes to show formatted time like '4 hours 20 min'
   onTimeChange() {
     const days = this.taskForm.get('days')?.value;

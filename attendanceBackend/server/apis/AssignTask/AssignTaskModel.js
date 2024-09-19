@@ -21,6 +21,12 @@ const taskAssignmentSchema = new mongoose.Schema({
         required: true,
         ref: 'employee'
     },
+    rating:{
+        type:Number
+    },
+    feedback: {
+        type:String
+    },
     assignedDays: {
         type: [
             {
@@ -30,6 +36,7 @@ const taskAssignmentSchema = new mongoose.Schema({
         ],
         required: true
     },
+    
     createdAt: {
         type: Date,
         default: Date.now

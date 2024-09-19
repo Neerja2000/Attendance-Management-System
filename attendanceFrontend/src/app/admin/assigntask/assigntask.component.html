@@ -92,7 +92,6 @@
           <tr>
             <th>Week</th>
             <th>Tasks</th>
-           
             <th>Status</th>
             <th>Due Date</th>
           </tr>
@@ -105,9 +104,7 @@
               </ng-container>
             </td>
             <td>{{ detail.taskId.taskName }}</td>
-           
             <td>
-              <!-- Conditionally apply styles based on the status -->
               <div
                 class="badge"
                 [ngClass]="{
@@ -121,14 +118,18 @@
                 {{ detail.status }}
               </div>
             </td>
-            
-            
-            
-            
-            <td>{{ detail.taskId.expectedTime | date }}</td>
+            <td>
+              <ng-container *ngIf="isDate(detail.taskId.expectedTime); else notADate">
+                {{ detail.taskId.expectedTime | date }}
+              </ng-container>
+              <ng-template #notADate>
+                {{ detail.taskId.expectedTime }}
+              </ng-template>
+            </td>
           </tr>
         </tbody>
       </table>
+      
       
     </div>
   </div>
