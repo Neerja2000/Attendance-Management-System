@@ -3,14 +3,13 @@ const mongoose = require('mongoose');
 
 const addProject = async (req, res) => {
     try {
-        console.log('Request Body:', req.body); // Log the request body
-        console.log('Uploaded Files:', req.files); // Log the uploaded files
+    
 
         // Parse employeeIds string into array if needed
         const employeeIds = typeof req.body.employeeIds === 'string' ? JSON.parse(req.body.employeeIds) : req.body.employeeIds;
         console.log('Parsed Employee IDs:', employeeIds);
 
-        const { projectName, projectDescription } = req.body;
+        const { projectName, projectDescription, projectBudget } = req.body;  // Add projectBudget to destructuring
         const files = req.files ? req.files.map(file => file.filename) : []; 
 
         // Convert employeeIds to ObjectId array, handle invalid ObjectId format
@@ -23,6 +22,15 @@ const addProject = async (req, res) => {
             })
             : [];
 
+        // Ensure projectBudget is provided and is a valid number
+        if (!projectBudget || isNaN(projectBudget)) {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: "Invalid or missing project budget"
+            });
+        }
+
         let total = await project.countDocuments();  // Count the total projects
 
         // Create the new project document
@@ -31,6 +39,7 @@ const addProject = async (req, res) => {
             employeeIds: employeeIdArray,
             projectName,
             projectDescription,
+            projectBudget: parseFloat(projectBudget),  // Save projectBudget as a number
             files: files.length > 0 ? files : []  // Save file names if any are uploaded
         });
 
@@ -52,6 +61,7 @@ const addProject = async (req, res) => {
         });
     }
 };
+
 
 const getAll = async (req, res) => {
     try {

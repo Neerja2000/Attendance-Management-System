@@ -20,6 +20,10 @@ const projectSchema = new mongoose.Schema({
     default: null,
     required: true
   },
+  projectBudget: {
+    type: Number,  // Define the new field as a number
+    required: true  // Make this field required
+  },
   files: [{
     type: String,
     default: []
