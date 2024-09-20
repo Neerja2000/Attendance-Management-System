@@ -145,7 +145,7 @@ const updateTaskStatus = async (req, res) => {
         }
 
         // Validate status value
-        const allowedStatuses = ['pending', 'started', 'waiting for approval','Under Revision: Approval Pending'];
+        const allowedStatuses = ['pending', 'started', 'waiting for approval', 'Under Revision: Approval Pending', 'under revision'];
         if (!allowedStatuses.includes(status)) {
             return res.status(400).json({
                 success: false,
@@ -174,7 +174,7 @@ const updateTaskStatus = async (req, res) => {
         }
 
         // If task is already "waiting for approval", prevent any further changes by the user
-        if (currentAssignment.status === 'waiting for approval'|| currentAssignment.status === 'Under Revision: Approval Pending' && status !== 'completed') {
+        if ((currentAssignment.status === 'waiting for approval' || currentAssignment.status === 'Under Revision: Approval Pending') && status !== 'completed') {
             return res.status(400).json({
                 success: false,
                 status: 400,
@@ -182,10 +182,16 @@ const updateTaskStatus = async (req, res) => {
             });
         }
 
+        // Determine if we need to increment the revision count
+        let updateData = { status };
+        if (status === 'under revision' || currentAssignment.status === 'Under Revision: Approval Pending') {
+            updateData.revisionCount = (currentAssignment.revisionCount || 0) + 1; // Increment revisionCount
+        }
+
         // Find and update the task assignment status
         const updatedAssignment = await TaskAssignment.findByIdAndUpdate(
             taskId,
-            { status },
+            updateData,
             { new: true } // Return the updated document
         );
 
@@ -203,6 +209,7 @@ const updateTaskStatus = async (req, res) => {
         });
     }
 };
+
 const approveTaskStatus = async (req, res) => {
     try {
         const taskId = req.params.id;
@@ -297,12 +304,11 @@ const completeTask = async (req, res) => {
 };
 
 
-// Request Changes API
-// Request Changes API
 const requestChanges = async (req, res) => {
     try {
         const { taskId, feedback } = req.body;
 
+        // Validate taskId
         if (!mongoose.Types.ObjectId.isValid(taskId)) {
             return res.status(400).json({
                 success: false,
@@ -311,19 +317,33 @@ const requestChanges = async (req, res) => {
             });
         }
 
-        const updatedTask = await TaskAssignment.findOneAndUpdate(
-            { _id: new mongoose.Types.ObjectId(taskId) },
-            { feedback, status: 'under rivision' },
-            { new: true }
-        );
-
-        if (!updatedTask) {
+        // Find the task assignment
+        const currentAssignment = await TaskAssignment.findById(taskId);
+        if (!currentAssignment) {
             return res.status(404).json({
                 success: false,
                 status: 404,
                 message: 'Task assignment not found',
             });
         }
+
+        // Ensure feedback is an array
+        currentAssignment.feedback = currentAssignment.feedback || []; // Initialize if undefined
+        if (!Array.isArray(currentAssignment.feedback)) {
+            return res.status(500).json({
+                success: false,
+                status: 500,
+                message: 'Feedback field must be an array.',
+            });
+        }
+
+        // Update feedback and increment revision count
+        currentAssignment.feedback.push(...feedback); // Spread the feedback array
+        currentAssignment.revisionCount += 1; // Increment revision count
+        currentAssignment.status = 'under revision'; // Set status to under revision
+
+        // Save the updated assignment
+        const updatedTask = await currentAssignment.save();
 
         res.json({
             success: true,
@@ -332,10 +352,12 @@ const requestChanges = async (req, res) => {
             data: updatedTask,
         });
     } catch (err) {
+        console.error('Error in requestChanges:', err);
         res.status(500).json({
             success: false,
             status: 500,
-            message: err.message,
+            message: 'Internal server error',
+            error: err.message,
         });
     }
 };

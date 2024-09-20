@@ -282,56 +282,59 @@ export class AssigntaskComponent implements OnInit {
       }
     });
   }
-completeTask(taskId: string, task_id: string) {
-  Swal.fire({
-    title: 'Rate the Task (0 to 10)',
-    input: 'range',
-    inputValue: 0,
-    showCancelButton: true,
-    confirmButtonText: 'Submit Rating'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      const rating = result.value as number; // Ensure it's treated as a number
-      this.projectService.completeTaskApi(taskId, rating).subscribe(
-        (response: any) => {
-          console.log('Task completed:', response);
-          // Update the task status in the UI
-          this.assignTasks = this.assignTasks.map(task => {
-            if (task._id === taskId) {
-              return { ...task, status: 'completed' };
-            }
-            return task;
-          });
-          this.filteredTasks = [...this.assignTasks]; // Refresh filtered tasks
-          this.getAssignTask(); // Optionally, refetch assigned tasks
-
-          // Change the task status
-          this.projectService.changeTaskStatus(task_id, false).subscribe(
-            (res: any) => {
-              console.log('Task status changed successfully:', res);
-              // Update UI based on status change
-              this.assignTasks = this.assignTasks.map(task => {
-                if (task._id === task_id) {
-                  return { ...task, status: 'completed' };
-                }
-                return task;
-              });
-
-            },
-            (error: any) => {
-              console.error('Error changing task status:', error);
-            }
-          );
-        },
-        (error: any) => {
-          console.error('Error completing task:', error);
-        }
-      );
-    }
-  });
-}
-
-// In your component.ts
+  completeTask(taskId: string, task_id: string) {
+    Swal.fire({
+      title: 'Rate the Task (0 to 10)',
+      html: ` <div>
+        <input type="range" id="ratingSlider" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.value = this.value">
+        <output style="font-weight: bold; display: block; text-align: center;">0</output>
+      </div>`,
+      showCancelButton: true,
+      confirmButtonText: 'Submit Rating',
+      preConfirm: () => {
+        const rating = (document.getElementById('ratingSlider') as HTMLInputElement).value;
+        return rating;
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const rating = parseInt(result.value as string, 10); // Convert rating to a number
+  
+        this.projectService.completeTaskApi(taskId, rating).subscribe(
+          (response: any) => {
+            console.log('Task completed:', response);
+            this.assignTasks = this.assignTasks.map(task => {
+              if (task._id === taskId) {
+                return { ...task, status: 'completed' };
+              }
+              return task;
+            });
+            this.filteredTasks = [...this.assignTasks];
+            this.getAssignTask();
+  
+            this.projectService.changeTaskStatus(task_id, false).subscribe(
+              (res: any) => {
+                console.log('Task status changed successfully:', res);
+                this.assignTasks = this.assignTasks.map(task => {
+                  if (task._id === task_id) {
+                    return { ...task, status: 'completed' };
+                  }
+                  return task;
+                });
+              },
+              (error: any) => {
+                console.error('Error changing task status:', error);
+              }
+            );
+          },
+          (error: any) => {
+            console.error('Error completing task:', error);
+          }
+        );
+      }
+    });
+  }
+  
+  
 requestChanges(taskId: string) {
   Swal.fire({
       title: 'Request Changes',
@@ -341,18 +344,22 @@ requestChanges(taskId: string) {
       showCancelButton: true,
       confirmButtonText: 'Submit Feedback'
   }).then((result) => {
-      if (result.isConfirmed) {
-          const feedback = result.value as string; // Ensure it's treated as a string
-          this.projectService.requestChangesApi(taskId, feedback).subscribe(
+      if (result.isConfirmed && result.value) {
+          const feedback = result.value as string;
+
+          // Split the feedback by new lines into an array
+          const feedbackArray = feedback.split('\n').filter(f => f.trim() !== '');
+          console.log('Received feedback:', feedbackArray);
+
+          // Send feedback as an array
+          this.projectService.requestChangesApi(taskId, feedbackArray).subscribe(
               (response: any) => {
                   console.log('Changes requested:', response);
-                  // Update tasks array with the latest data
                   this.tasks = this.tasks.map(task => 
                       task._id === response.data._id ? response.data : task
                   );
-                  // Optionally show a success message
                   Swal.fire('Success', response.message, 'success');
-                  this. getAssignTask()
+                  this.getAssignTask();
               },
               (error: any) => {
                   console.error('Error requesting changes:', error);
@@ -362,5 +369,34 @@ requestChanges(taskId: string) {
       }
   });
 }
+
+
+
+
+
+
+
+
+updateTaskStatus(task: { id: string; status: string; revisionCount?: number }) {
+  // Increment the revision count if the current status is "under revision"
+  if (task.status === 'under revision') {
+    task.revisionCount = (task.revisionCount || 0) + 1; // Increment count for "under revision"
+  }
+
+  // Update the task status
+  this.projectService.updateTaskStatus(task.id, task.status).subscribe((updatedTask) => {
+    // Update the revision count if the new status is "Under Revision: Approval Pending"
+    if (updatedTask.status === 'Under Revision: Approval Pending') {
+      updatedTask.revisionCount = (updatedTask.revisionCount || 0) + 1; // Increment count for "Under Revision: Approval Pending"
+    }
+    
+    console.log('Task updated:', updatedTask);
+    this.getAssignTask(); // Refresh tasks list to show updated status
+  });
+}
+
+
+
+
 
 }

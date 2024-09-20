@@ -134,7 +134,7 @@ completeTaskApi(taskId: string, rating: number): Observable<any> {
   return this.http.post<any>(`${this.globalbaseurl}/complete-task`, { taskId, rating });
 }
 
-requestChangesApi(taskId: string, feedback: string): Observable<any> {
+requestChangesApi(taskId: string, feedback: string[]): Observable<any> {
   return this.http.post<any>(`${this.globalbaseurl}/request-changes`, { taskId, feedback });
 }
 

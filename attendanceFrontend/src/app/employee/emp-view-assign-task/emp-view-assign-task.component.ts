@@ -32,6 +32,10 @@ export class EmpViewAssignTaskComponent {
   statusOptions = ['pending', 'started', 'waiting for approval', 'completed'];
   currentDate: string = '';
 
+  isModalOpen = false;
+  feedbackList: string[] = [];
+  selectedTask: any = null;  // For modal task handling
+
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute,
@@ -47,10 +51,12 @@ export class EmpViewAssignTaskComponent {
     this.setCurrentDate();
     this.initializeWeekDates();
   }
+
+
   isDate(value: any): boolean {
     return !isNaN(Date.parse(value));
   }
-
+  
   setCurrentDate() {
     const today = new Date();
     this.currentDate = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
@@ -172,25 +178,41 @@ export class EmpViewAssignTaskComponent {
 
   changeStatus(task: any) {
     const currentStatus = task.status;
-    let newStatus: string;
-    
-    if (currentStatus === 'under rivision') {
-      newStatus = 'Under Revision: Approval Pending';
+  
+    if (currentStatus === 'under revision') {
+      this.feedbackList = task.feedback || []; // Load feedback list if available
+      this.selectedTask = task;
+      this.isModalOpen = true;  // Open the modal
     } else if (currentStatus === 'Under Revision: Approval Pending') {
-      // Do not change the status if it is "Under Revision: Approval Pending"
-      return;
+      return; // No changes if already pending approval
     } else {
       const currentIndex = this.statusOptions.indexOf(currentStatus);
       const nextIndex = (currentIndex + 1) % this.statusOptions.length;
-      newStatus = this.statusOptions[nextIndex];
+      this.updateTaskStatus(task, this.statusOptions[nextIndex]);
     }
-  
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  done() {
+    if (this.selectedTask) {
+      this.selectedTask.status = 'Under Revision: Approval Pending';
+      this.selectedTask.revisionCount = (this.selectedTask.revisionCount || 0) + 1;
+      this.updateTaskStatus(this.selectedTask, 'Under Revision: Approval Pending');
+    }
+    this.closeModal();
+  }
+
+  updateTaskStatus(task: any, newStatus: string) {
     console.log('Updating Status:', {
       taskId: task._id,
-      currentStatus: currentStatus,
-      newStatus: newStatus
+      currentStatus: task.status,
+      newStatus: newStatus,
+      revisionCount: task.revisionCount
     });
-  
+
     this.projectService.updateTaskStatus(task._id, newStatus).subscribe(
       res => {
         if (res.success) {
@@ -204,4 +226,5 @@ export class EmpViewAssignTaskComponent {
     );
   }
 
+ 
 }

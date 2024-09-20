@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 // Task Assignment Schema
 const taskAssignmentSchema = new mongoose.Schema({
+
     AssignId: {
         type: Number,
         required: true
@@ -24,9 +25,7 @@ const taskAssignmentSchema = new mongoose.Schema({
     rating:{
         type:Number
     },
-    feedback: {
-        type:String
-    },
+    feedback: { type: [String], default: [] }, 
     assignedDays: {
         type: [
             {
@@ -43,9 +42,11 @@ const taskAssignmentSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['pending', 'started', 'waiting for approval', 'completed', 'under rivision', 'Under Revision: Approval Pending'],
+        enum: ['pending', 'started', 'waiting for approval', 'completed', 'under revision', 'Under Revision: Approval Pending'],
         default: 'pending'
-    }
+    },
+    revisionCount: { type: Number, default: 0 }
+
     
 });
 
