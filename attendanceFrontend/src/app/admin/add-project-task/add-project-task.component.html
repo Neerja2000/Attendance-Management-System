@@ -2,6 +2,15 @@
   <div class="card shadow-sm">
     <div class="card-header">
       <h5 class="card-title mb-0">Project Assignment Form</h5>
+      <h5>Project Budget: ₹{{ projectBudget | number:'1.2-2' }}</h5>
+<h5>Total Employee Cost: ₹{{ totalEmployeeCost | number:'1.2-2' }}</h5>
+
+
+      <h5>Remaining Budget: 
+        <span [ngClass]="{'text-success': status === 'positive', 'text-danger': status === 'negative'}">
+          ₹{{ remainingBudget | number:'1.2-2' }}
+        </span>
+      </h5>
     </div>
     <div class="card-body">
       <form [formGroup]="taskForm">

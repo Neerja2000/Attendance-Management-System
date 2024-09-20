@@ -16,6 +16,7 @@ export class AddProjectComponent implements OnInit {
   addProject = new FormGroup({
     projectName: new FormControl('', Validators.required),
     projectDescription: new FormControl('', Validators.required),
+    projectBudget: new FormControl('', [Validators.required, Validators.min(0)]),  // Add projectBudget field with validation
     employees: new FormArray([]),
     files: new FormControl<File[]>([])
   });
@@ -72,22 +73,19 @@ export class AddProjectComponent implements OnInit {
     const formData = new FormData();
     formData.append('projectName', this.addProject.value.projectName || '');
     formData.append('projectDescription', this.addProject.value.projectDescription || '');
-  
+    formData.append('projectBudget', this.addProject.value.projectBudget || '');  // Add projectBudget to form data
+
     const employeesArray = this.addProject.get('employees') as FormArray;
     employeesArray.controls.forEach(control => {
       formData.append('employeeIds[]', control.value);
     });
-  
+
     if (this.addProject.value.files) {
       this.addProject.value.files.forEach((file: File) => {
         formData.append('files', file, file.name);
       });
     }
-  
-    formData.forEach((value, key) => {
-      // console.log(key, value);
-    });
-  
+
     this.projectService.addProjectApi(formData).subscribe(
       (res: any) => {
         console.log('Project added successfully', res);

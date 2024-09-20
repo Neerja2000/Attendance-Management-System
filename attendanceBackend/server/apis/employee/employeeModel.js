@@ -29,6 +29,9 @@ const employeeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  perHourSalary: {
+    type: Number
+  },
   experience: {
     type: String,
     required: true

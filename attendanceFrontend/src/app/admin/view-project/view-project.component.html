@@ -11,6 +11,7 @@
                 <th>SrNo.</th>
                 <th>Project Name</th>
                 <th>Project Description</th>
+                <th>Project Budget</th>
                 <th>Assigned Employee</th>
                 <th>Documentation</th>
                 <th>Action</th>
@@ -21,6 +22,7 @@
                 <td>{{ i + 1 }}</td>
                 <td>{{ project.projectName }}</td>
                 <td>{{ project.projectDescription }}</td>
+                <td>{{project.projectBudget}}</td>
                 <td>
                   <ol>
                     <li *ngFor="let empId of project.employeeIds">
