@@ -1,4 +1,5 @@
 const project = require("./projectModel");
+const TaskModel = require('../task/taskModel');
 const mongoose = require('mongoose');
 
 const addProject = async (req, res) => {
@@ -168,4 +169,69 @@ const getProjectsByEmployee = async (req, res) => {
     }
 };
 
-module.exports = { addProject, getAll,deleteProject,getProjectsByEmployee };
+const calculateProjectBudget = async (req, res) => {
+    try {
+      const projectId = req.params.projectId;
+  
+      // Fetch the project by ID and populate tasks and employees
+      const projectData = await project.findById(projectId).populate('employeeIds');
+      if (!projectData) {
+        return res.status(404).json({ message: 'Project not found' });
+      }
+  
+      const projectBudget = projectData.projectBudget;
+      let totalEmployeeCost = 0;
+  
+      // Fetch all tasks for the project
+      const tasks = await TaskModel.find({ projectId });
+  
+      // Iterate over each task in the project
+      for (const task of tasks) {
+        let taskEmployeeCost = 0;
+  
+        for (const employee of projectData.employeeIds) {
+          const taskDuration = convertExpectedTimeToHours(task.expectedTime);
+          const employeeCostForTask = employee.perHourSalary * taskDuration;
+          taskEmployeeCost += employeeCostForTask; 
+        }
+  
+        totalEmployeeCost += taskEmployeeCost;
+  
+        // Update the TotalProjectBudgets field for the task with its individual cost
+        await TaskModel.findByIdAndUpdate(task._id, { TotalProjectBudgets: taskEmployeeCost });
+      }
+  
+      // Calculate remaining budget and budget status
+      const remainingBudget = projectBudget - totalEmployeeCost;
+      const budgetStatus = remainingBudget >= 0 ? 'positive' : 'negative';
+  
+      // Update the Project model with TotalProjectBudgets and RemainingBudget
+      await project.findByIdAndUpdate(projectId, {
+        TotalProjectBudgets: totalEmployeeCost,
+        RemainingBudget: remainingBudget,  // Update this field to store the remaining budget
+      });
+  
+      // Send the response with the calculated values
+      res.status(200).json({
+        success: true,
+        projectBudget,
+        totalEmployeeCost,
+        remainingBudget,
+        status: budgetStatus,
+      });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  
+  // Helper function to convert 'expectedTime' to hours
+  const convertExpectedTimeToHours = (expectedTime) => {
+    const [days, hours, minutes] = expectedTime.split(' ').map(str => parseInt(str));
+    const totalHours = (days || 0) * 24 + (hours || 0) + (minutes || 0) / 60;
+    return totalHours;
+  };
+  
+  
+  
+
+module.exports = { addProject, getAll,deleteProject,getProjectsByEmployee,calculateProjectBudget };

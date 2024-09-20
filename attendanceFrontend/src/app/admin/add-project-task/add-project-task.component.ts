@@ -14,6 +14,10 @@ export class AddProjectTaskComponent implements OnInit {
   uploadedFiles: File[] = []; // Property to store uploaded files
   tasks: any[] = [];
   expectedTime: string = '';
+  projectBudget!: number; // To store the project budget
+  totalEmployeeCost!: number; // To store the total employee cost
+  remainingBudget!: number; // To store the remaining budget
+  status!: string; // To store the budget status ('positive' or 'negative')
 
   daysArray: number[] = Array.from({ length: 30 }, (_, i) => i); // 0 to 29 days
   hoursArray: number[] = Array.from({ length: 24 }, (_, i) => i); // 0 to 23 hours
@@ -47,9 +51,21 @@ export class AddProjectTaskComponent implements OnInit {
     this.taskForm.valueChanges.subscribe(() => {
       this.onTimeChange();
     });
+    this.getProjectBudget()
   }
- 
-  
+  getProjectBudget() {
+    this.taskService.getProjectBudgets(this._id).subscribe((res: any) => {
+      if (res.success) {
+        console.log("result",res)
+        this.projectBudget = res.projectBudget;
+        this.totalEmployeeCost = res.totalEmployeeCost;
+        this.remainingBudget = res.remainingBudget;
+        this.status = res.status; // 'positive' or 'negative'
+      }
+    }, (error) => {
+      console.error('Error fetching project budget:', error);
+    });
+  }
   // Handle time changes to show formatted time like '4 hours 20 min'
   onTimeChange() {
     const days = this.taskForm.get('days')?.value;

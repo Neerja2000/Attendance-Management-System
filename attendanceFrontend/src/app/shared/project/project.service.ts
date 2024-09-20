@@ -53,12 +53,20 @@ export class ProjectService {
       headers: this.getHeaders()
     });
   }
+  getProjectBudgets(projectId: string) {
+    return this.http.get(`${this.globalbaseurl}/task/projectsbudget/${projectId}`, {
+      headers: this.getHeaders()
+    });
+  }
 
   getProjectsByEmployee(employeeId: string) {
     return this.http.get(`${this.employeebaseurl}/getProjectsByEmployee/${employeeId}`, {
       headers: this.getEmpHeaders()
     });
   }
+
+   
+  
 
   assignTask(taskAssignment: any): Observable<any> {
     // Include employeeId in the URL

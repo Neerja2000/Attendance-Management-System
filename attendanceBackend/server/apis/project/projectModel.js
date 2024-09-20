@@ -35,7 +35,15 @@ const projectSchema = new mongoose.Schema({
   status: {
     type: Boolean,
     default: true
-  }
+  },
+  TotalProjectBudgets: {
+    type: Number,
+    default: 0 // Set default to 0
+},
+RemainingBudget: {
+  type: Number,  // Add this field to store the remaining budget
+  default: 0,
+}
 });
 
 const Project = mongoose.model('Project', projectSchema);
