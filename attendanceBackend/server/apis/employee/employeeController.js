@@ -73,26 +73,60 @@ const addEmployee = async (req, res) => {
     }
 };
 
-module.exports = addEmployee;
 
-const getAll = (req, res) => {
-    Employee.find({ status: true })  // Filter for employees with status set to true
-        .then((result) => {
-            res.json({
-                success: true,
-                status: 200,
-                message: "Get All Active Employees",
-                data: result
-            });
-        })
-        .catch((err) => {
-            res.status(500).json({
-                success: false,
-                status: 500,
-                message: err.message
-            });
+const getAll = async (req, res) => {
+    try {
+        // Fetch all active employees
+        const employees = await Employee.find({ status: true });
+
+        // Get the current date's month and year
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth();
+        const currentYear = currentDate.getFullYear();
+
+        // Calculate the per-hour salary for each employee based on the current month
+        for (const employee of employees) {
+            const workingDaysInMonth = calculateWorkingDays(currentMonth, currentYear);
+            const totalWorkingHours = workingDaysInMonth * 8; // assuming 8 working hours per day
+            const perHourSalary = Math.round(parseFloat(employee.salary) / totalWorkingHours); // Round to nearest whole number
+
+            // Update the employee's perHourSalary in the database
+            employee.perHourSalary = perHourSalary;
+            await employee.save();
+        }
+
+        // Return the updated employee list
+        res.json({
+            success: true,
+            status: 200,
+            message: "Get All Active Employees with Updated Per Hour Salary for Current Month",
+            data: employees
         });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            status: 500,
+            message: err.message
+        });
+    }
 };
+
+// Function to calculate the number of working days (excluding weekends) for a given month and year
+function calculateWorkingDays(month, year) {
+    const totalDaysInMonth = new Date(year, month + 1, 0).getDate(); // Get total days in the given month
+    let workingDays = 0;
+
+    for (let i = 1; i <= totalDaysInMonth; i++) {
+        const day = new Date(year, month, i).getDay();
+        if (day !== 0 && day !== 6) { // Exclude Sundays (0) and Saturdays (6)
+            workingDays++;
+        }
+    }
+
+    return workingDays;
+}
+
+
 
 const getSingle = (req, res) => {
     const employeeId = req.query.id;
