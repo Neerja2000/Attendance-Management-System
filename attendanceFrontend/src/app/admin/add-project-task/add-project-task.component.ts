@@ -78,7 +78,8 @@ export class AddProjectTaskComponent implements OnInit {
   getAllTasks() {
     this.taskService.getAllTaskProjectId(this._id).subscribe(
       (response: any) => {
-        this.tasks = response.data; // Assuming your API returns tasks in `data`
+        this.tasks = response.data;
+        this.getProjectBudget() // Assuming your API returns tasks in `data`
       },
       error => {
         console.error('Error fetching tasks', error);
