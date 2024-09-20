@@ -19,6 +19,7 @@
                 <th>Address</th>
                 <th>Experience</th>
                 <th>Salary</th>
+                <th>Per Hour Salary</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -34,6 +35,7 @@
                 <td>{{ detail.address }}</td>
                 <td>{{ detail.experience }}</td>
                 <td>{{ detail.salary }}</td>
+                <td>{{detail.perHourSalary}}</td>
                 <td>
                   <div class="d-flex">
                     <button class="btn btn-primary btn-sm me-2" [routerLink]="['/admin/layout/update-employee', detail._id]">
