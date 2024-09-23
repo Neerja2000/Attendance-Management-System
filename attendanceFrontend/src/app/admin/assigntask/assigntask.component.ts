@@ -250,7 +250,7 @@ export class AssigntaskComponent implements OnInit {
 
   filterTasks() {
     // Create a set of valid statuses to check against
-    const validStatuses = ['pending', 'started', 'under revision'];
+    const validStatuses = ['pending', 'started', 'under revision','waiting for approval', 'Under Revision: Approval Pending'];
   
     // Filter tasks that either match the current date or have a valid status
     this.filteredTasks = this.assignTasks.filter((task) => {
@@ -276,7 +276,7 @@ export class AssigntaskComponent implements OnInit {
 
     // Helper method to validate task status
     isValidStatus(status: string): boolean {
-      const validStatuses = ['pending', 'started', 'under revision'];
+      const validStatuses = ['pending', 'started', 'under revision','waiting for approval', 'Under Revision: Approval Pending'];
       return validStatuses.includes(status);
          }
   approveTask(taskId: string, task_id: string) {
