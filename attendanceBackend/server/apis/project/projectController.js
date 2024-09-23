@@ -190,9 +190,22 @@ const calculateProjectBudget = async (req, res) => {
         let taskEmployeeCost = 0;
   
         for (const employee of projectData.employeeIds) {
+          console.log("expectedTime", task.expectedTime);
+  
+          // Correctly parse and calculate task duration in hours
           const taskDuration = convertExpectedTimeToHours(task.expectedTime);
+          console.log("taskDuration (hours)", taskDuration);
+  
+          if (!taskDuration || isNaN(taskDuration)) {
+            console.error("Invalid taskDuration, skipping this task");
+            continue;
+          }
+  
+          // Calculate employee cost for the task
           const employeeCostForTask = employee.perHourSalary * taskDuration;
-          taskEmployeeCost += employeeCostForTask; 
+          console.log("employeeCostForTask", employeeCostForTask);
+  
+          taskEmployeeCost += employeeCostForTask;
         }
   
         totalEmployeeCost += taskEmployeeCost;
@@ -226,8 +239,13 @@ const calculateProjectBudget = async (req, res) => {
   
   // Helper function to convert 'expectedTime' to hours
   const convertExpectedTimeToHours = (expectedTime) => {
-    const [days, hours, minutes] = expectedTime.split(' ').map(str => parseInt(str));
-    const totalHours = (days || 0) * 24 + (hours || 0) + (minutes || 0) / 60;
+    // Handle expectedTime format: '0 days 1 hours 0 min'
+    const [daysStr, hoursStr, minutesStr] = expectedTime.match(/(\d+) days (\d+) hours (\d+) min/).slice(1);
+    const days = parseInt(daysStr, 10);
+    const hours = parseInt(hoursStr, 10);
+    const minutes = parseInt(minutesStr, 10);
+  
+    const totalHours = (days * 24) + hours + (minutes / 60);
     return totalHours;
   };
   
