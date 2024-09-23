@@ -6,7 +6,7 @@
 <h5>Total Employee Cost: ₹{{ totalEmployeeCost | number:'1.2-2' }}</h5>
 
 
-      <h5>Remaining Budget: 
+      <h5>Profit: 
         <span [ngClass]="{'text-success': status === 'positive', 'text-danger': status === 'negative'}">
           ₹{{ remainingBudget | number:'1.2-2' }}
         </span>
