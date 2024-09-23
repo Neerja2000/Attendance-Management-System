@@ -285,21 +285,26 @@ export class AssigntaskComponent implements OnInit {
   completeTask(taskId: string, task_id: string) {
     Swal.fire({
       title: 'Rate the Task (0 to 10)',
-      html: ` <div>
-        <input type="range" id="ratingSlider" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.value = this.value">
-        <output style="font-weight: bold; display: block; text-align: center;">0</output>
-      </div>`,
+      html: `
+        <div>
+          <input type="range" id="ratingSlider" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.value = this.value">
+          <output style="font-weight: bold; display: block; text-align: center;">0</output>
+        </div>
+        <textarea id="reviewText" placeholder="Enter your review..." style="width: 100%; margin-top: 10px; padding:5%"></textarea>
+      `,
       showCancelButton: true,
-      confirmButtonText: 'Submit Rating',
+      confirmButtonText: 'Submit Rating & Review',
       preConfirm: () => {
         const rating = (document.getElementById('ratingSlider') as HTMLInputElement).value;
-        return rating;
+        const review = (document.getElementById('reviewText') as HTMLTextAreaElement).value;
+        return { rating, review };
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        const rating = parseInt(result.value as string, 10); // Convert rating to a number
+        const rating = parseInt(result.value.rating, 10); // Convert rating to a number
+        const review = result.value.review; // Capture the review input
   
-        this.projectService.completeTaskApi(taskId, rating).subscribe(
+        this.projectService.completeTaskApi(taskId, rating, review).subscribe(
           (response: any) => {
             console.log('Task completed:', response);
             this.assignTasks = this.assignTasks.map(task => {
@@ -333,6 +338,7 @@ export class AssigntaskComponent implements OnInit {
       }
     });
   }
+  
   
   
 requestChanges(taskId: string) {

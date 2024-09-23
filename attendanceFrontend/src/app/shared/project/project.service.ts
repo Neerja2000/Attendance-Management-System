@@ -138,8 +138,8 @@ approveTaskApi(taskId: string): Observable<any> {
 
 
 
-completeTaskApi(taskId: string, rating: number): Observable<any> {
-  return this.http.post<any>(`${this.globalbaseurl}/complete-task`, { taskId, rating });
+completeTaskApi(taskId: string, rating: number, review:string): Observable<any> {
+  return this.http.post<any>(`${this.globalbaseurl}/complete-task`, { taskId, rating,review });
 }
 
 requestChangesApi(taskId: string, feedback: string[]): Observable<any> {

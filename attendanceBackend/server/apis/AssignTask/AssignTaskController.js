@@ -264,45 +264,46 @@ const approveTaskStatus = async (req, res) => {
 
 const completeTask = async (req, res) => {
     try {
-        const { taskId, rating } = req.body;
-        if (!mongoose.Types.ObjectId.isValid(taskId)) {
-            return res.status(400).json({
-                success: false,
-                status: 400,
-                message: 'Invalid task ID format',
-            });
-        }
-
-        // Find and update the task assignment with the rating
-        const updatedTask = await TaskAssignment.findOneAndUpdate(
-            { _id: new mongoose.Types.ObjectId(taskId) }, // Use `_id` for the find query
-            { rating, status: 'completed' }, // Update status to 'completed'
-            { new: true }
-        );
-
-        if (!updatedTask) {
-            return res.status(404).json({
-                success: false,
-                status: 404,
-                message: 'Task assignment not found',
-            });
-        }
-
-        res.json({
-            success: true,
-            status: 200,
-            message: 'Task completed and rated successfully',
-            data: updatedTask,
+      const { taskId, rating, review } = req.body;
+      
+      if (!mongoose.Types.ObjectId.isValid(taskId)) {
+        return res.status(400).json({
+          success: false,
+          status: 400,
+          message: 'Invalid task ID format',
         });
+      }
+  
+      // Find and update the task assignment with the rating and review
+      const updatedTask = await TaskAssignment.findOneAndUpdate(
+        { _id: new mongoose.Types.ObjectId(taskId) }, // Use `_id` for the find query
+        { rating, review, status: 'completed' }, // Update status to 'completed' and store review
+        { new: true }
+      );
+  
+      if (!updatedTask) {
+        return res.status(404).json({
+          success: false,
+          status: 404,
+          message: 'Task assignment not found',
+        });
+      }
+  
+      res.json({
+        success: true,
+        status: 200,
+        message: 'Task completed, rated, and reviewed successfully',
+        data: updatedTask,
+      });
     } catch (err) {
-        res.status(500).json({
-            success: false,
-            status: 500,
-            message: err.message,
-        });
+      res.status(500).json({
+        success: false,
+        status: 500,
+        message: err.message,
+      });
     }
-};
-
+  };
+  
 
 const requestChanges = async (req, res) => {
     try {

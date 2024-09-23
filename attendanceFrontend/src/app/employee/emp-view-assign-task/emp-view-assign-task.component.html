@@ -32,6 +32,7 @@
             <th>Tasks</th>
             <th>Status</th>
             <th>Due Date</th>
+            <th>Reviews</th>
             <th>Points</th>
           </tr>
         </thead>
@@ -73,12 +74,10 @@
                 {{ detail.taskId.expectedTime }}
               </ng-template>
             </td>
+          
+            <td style="word-wrap: break-word; word-break: break-word;">{{detail.review}}</td>
             <td>
-              
-               
-                        
-                       {{detail.rating || 0}} 
-              
+              {{detail.rating || 0}}
             </td>
           </tr>
         </tbody>
