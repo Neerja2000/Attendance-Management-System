@@ -22,9 +22,13 @@ const taskAssignmentSchema = new mongoose.Schema({
         required: true,
         ref: 'employee'
     },
-    rating:{
-        type:Number
-    },
+    rating: {
+        type: Number,
+        required: true,
+      },
+      review: {
+        type: String, // Allows admins to add a review
+      },
     feedback: { type: [String], default: [] }, 
     assignedDays: {
         type: [
