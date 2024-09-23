@@ -278,7 +278,7 @@ export class AssigntaskComponent implements OnInit {
     isValidStatus(status: string): boolean {
       const validStatuses = ['pending', 'started', 'under revision'];
       return validStatuses.includes(status);
-    }
+         }
   approveTask(taskId: string, task_id: string) {
     Swal.fire({
       title: 'Confirm Task Status',
