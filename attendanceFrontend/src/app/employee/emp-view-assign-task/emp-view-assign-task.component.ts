@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { ProjectService } from 'src/app/shared/project/project.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-emp-view-assign-task',
@@ -155,42 +156,64 @@ export class EmpViewAssignTaskComponent {
       }
     );
   }
-
   filterTasks() {
-    if (this.filters.date) {
-      // Filter based on the selected date if available
-      this.filteredTasks = this.assignTasks.filter((task) => {
-        return task.assignedDays.some((day: { date: string }) => {
-          return day.date.trim() === this.filters.date.trim();
-        });
+    // Create a set of valid statuses to check against
+    const validStatuses = ['pending', 'started', 'under revision'];
+  
+    // Filter tasks that either match the current date or have a valid status
+    this.filteredTasks = this.assignTasks.filter((task) => {
+      // Check if the task has assigned days
+      const hasAssignedDays = task.assignedDays && task.assignedDays.length > 0;
+  
+      // Check if the task is for the current day or has a valid status
+      const isCurrentDateTask = hasAssignedDays && task.assignedDays.some((day: { date: string }) => {
+        return day.date === this.currentDate;
       });
-    } else {
-      // Filter based on the current date
-      this.filteredTasks = this.assignTasks.filter((task) => {
-        return task.assignedDays.some((day: { date: string }) => {
-          return day.date === this.currentDate;
-        });
-      });
-    }
-
+  
+      const hasValidStatus = validStatuses.includes(task.status);
+  
+      // Return tasks that match either condition
+      return isCurrentDateTask || hasValidStatus;
+    });
+  
     console.log('Filtered Tasks:', this.filteredTasks);
   }
-
-  changeStatus(task: any) {
-    const currentStatus = task.status;
   
-    if (currentStatus === 'under revision') {
-      this.feedbackList = task.feedback || []; // Load feedback list if available
-      this.selectedTask = task;
-      this.isModalOpen = true;  // Open the modal
-    } else if (currentStatus === 'Under Revision: Approval Pending') {
-      return; // No changes if already pending approval
-    } else {
-      const currentIndex = this.statusOptions.indexOf(currentStatus);
-      const nextIndex = (currentIndex + 1) % this.statusOptions.length;
-      this.updateTaskStatus(task, this.statusOptions[nextIndex]);
-    }
+  
+  // Helper method to validate task status
+  isValidStatus(status: string): boolean {
+    const validStatuses = ['pending', 'started', 'under revision'];
+    return validStatuses.includes(status);
   }
+  
+  changeStatus(task: any) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you want to change the status?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, change it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Proceed with status change only if user clicks "Yes"
+        const currentStatus = task.status;
+  
+        if (currentStatus === 'under revision') {
+          this.feedbackList = task.feedback || []; // Load feedback list if available
+          this.selectedTask = task;
+          this.isModalOpen = true;  // Open the modal
+        } else if (currentStatus === 'Under Revision: Approval Pending') {
+          return; // No changes if already pending approval
+        } else {
+          const currentIndex = this.statusOptions.indexOf(currentStatus);
+          const nextIndex = (currentIndex + 1) % this.statusOptions.length;
+          this.updateTaskStatus(task, this.statusOptions[nextIndex]);
+        }
+      }
+    });
+  }
+  
 
   closeModal() {
     this.isModalOpen = false;

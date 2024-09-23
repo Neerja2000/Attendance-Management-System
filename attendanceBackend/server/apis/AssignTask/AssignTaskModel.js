@@ -24,7 +24,7 @@ const taskAssignmentSchema = new mongoose.Schema({
     },
     rating: {
         type: Number,
-        required: true,
+      
       },
       review: {
         type: String, // Allows admins to add a review

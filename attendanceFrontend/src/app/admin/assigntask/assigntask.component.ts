@@ -249,23 +249,36 @@ export class AssigntaskComponent implements OnInit {
   }
 
   filterTasks() {
-    if (this.filters.date) {
-      this.filteredTasks = this.assignTasks.filter((task) => {
-        return task.assignedDays.some((day: { date: string }) => {
-          return day.date.trim() === this.filters.date.trim();
-        });
+    // Create a set of valid statuses to check against
+    const validStatuses = ['pending', 'started', 'under revision'];
+  
+    // Filter tasks that either match the current date or have a valid status
+    this.filteredTasks = this.assignTasks.filter((task) => {
+      // Check if the task has assigned days
+      const hasAssignedDays = task.assignedDays && task.assignedDays.length > 0;
+  
+      // Check if the task is for the current day or has a valid status
+      const isCurrentDateTask = hasAssignedDays && task.assignedDays.some((day: { date: string }) => {
+        return day.date === this.currentDate;
       });
-    } else {
-      this.filteredTasks = this.assignTasks.filter((task) => {
-        return task.assignedDays.some((day: { date: string }) => {
-          return day.date === this.currentDate;
-        });
-      });
-    }
-
+  
+      const hasValidStatus = validStatuses.includes(task.status);
+  
+      // Return tasks that match either condition
+      return isCurrentDateTask || hasValidStatus;
+    });
+  
     console.log('Filtered Tasks:', this.filteredTasks);
   }
 
+
+
+
+    // Helper method to validate task status
+    isValidStatus(status: string): boolean {
+      const validStatuses = ['pending', 'started', 'under revision'];
+      return validStatuses.includes(status);
+    }
   approveTask(taskId: string, task_id: string) {
     Swal.fire({
       title: 'Confirm Task Status',
