@@ -187,6 +187,21 @@ export class EmpViewAssignTaskComponent {
   }
   
   changeStatus(task: any) {
+    // List of statuses that should not be changeable
+    const restrictedStatuses = ['waiting for approval', 'under revision: approval pending', 'completed'];
+  
+    // Check if the task's current status is one of the restricted statuses
+    if (restrictedStatuses.includes(task.status.toLowerCase())) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Status Change Not Allowed',
+        text: `You can't change the status of tasks that are ${task.status}.`,
+        confirmButtonText: 'OK'
+      });
+      return; // Stop further execution
+    }
+  
+    // If not restricted, proceed with the status change
     Swal.fire({
       title: 'Are you sure?',
       text: 'Do you want to change the status?',
@@ -196,15 +211,12 @@ export class EmpViewAssignTaskComponent {
       cancelButtonText: 'No, keep it',
     }).then((result) => {
       if (result.isConfirmed) {
-        // Proceed with status change only if user clicks "Yes"
         const currentStatus = task.status;
   
         if (currentStatus === 'under revision') {
           this.feedbackList = task.feedback || []; // Load feedback list if available
           this.selectedTask = task;
           this.isModalOpen = true;  // Open the modal
-        } else if (currentStatus === 'Under Revision: Approval Pending') {
-          return; // No changes if already pending approval
         } else {
           const currentIndex = this.statusOptions.indexOf(currentStatus);
           const nextIndex = (currentIndex + 1) % this.statusOptions.length;
@@ -214,7 +226,6 @@ export class EmpViewAssignTaskComponent {
     });
   }
   
-
   closeModal() {
     this.isModalOpen = false;
   }
