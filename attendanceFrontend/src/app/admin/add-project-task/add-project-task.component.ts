@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms'; // Import FormBuilder
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'; // Import FormBuilder
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from 'src/app/shared/project/project.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-project-task',
@@ -41,9 +42,9 @@ export class AddProjectTaskComponent implements OnInit {
     this.taskForm = this.fb.group({
       taskName: [''],
       description: [''],
-      days:[''],
-      hours: [''],      // Add form controls for hours and minutes
-      minutes: [''],
+      days: [null, Validators.required],    // Required days
+      hours: [null, Validators.required],    // Required hours
+      minutes: [null, Validators.required],  // Required minutes
       expectedTime: ['']
     });
   
@@ -52,6 +53,7 @@ export class AddProjectTaskComponent implements OnInit {
       this.onTimeChange();
     });
     this.getProjectBudget()
+   
   }
   getProjectBudget() {
     this.taskService.getProjectBudgets(this._id).subscribe((res: any) => {
@@ -92,36 +94,66 @@ export class AddProjectTaskComponent implements OnInit {
     this.uploadedFiles = Array.from(files); // Convert FileList to array
   }
 
-  addTask() {
+  validateTaskForm(): boolean {
+    const days = this.taskForm.get('days')?.value;
+    const hours = this.taskForm.get('hours')?.value;
+    const minutes = this.taskForm.get('minutes')?.value;
+  
+    // Check if all required fields are selected
+    if (days === null || hours === null || minutes === null) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Incomplete Time Selection',
+        text: 'Please select days, hours, and minutes before submitting the task.',
+        confirmButtonColor: '#51a992' // Use the main color for consistency
+      });
+      return false; // Validation failed
+    }
+    return true; // Validation passed
+  }
+  
+  async addTask() {
+    // Validate the form before proceeding
+    if (!this.validateTaskForm()) {
+        return; // Stop if validation fails
+    }
+
+    // Prepare the FormData for the task
     const formData = new FormData();
     formData.append('taskName', this.taskForm.get('taskName')?.value || '');
     formData.append('description', this.taskForm.get('description')?.value || '');
     formData.append('expectedTime', this.expectedTime); // Use formatted expected time
     formData.append('projectId', this._id);
 
-    // Append files to the formData with the field name 'files'
+    // Append uploaded files
     this.uploadedFiles.forEach((file: File) => {
-      formData.append('files', file, file.name); // Use 'files' to match Multer field name
+        formData.append('files', file, file.name);
     });
 
-    this.taskService.addTaskApi(formData).subscribe(
-      response => {
+    // Call the API to add the task
+    try {
+        const response = await this.taskService.addTaskApi(formData).toPromise(); // Use toPromise() for async/await
         console.log('Task added successfully', response);
-        this.getAllTasks();
-        this.taskForm.reset(); // Reset form fields
-        this.uploadedFiles = []; // Clear uploaded files array
+        
+        // Fetch updated task list
+        await this.getAllTasks();
+        this.taskForm.reset(); // Reset the form
+        this.uploadedFiles = []; // Clear the uploaded files
 
         // Reset the file input element
         if (this.fileInput) {
-          this.fileInput.nativeElement.value = '';
+            this.fileInput.nativeElement.value = '';
         }
-      },
-      error => {
+    } catch (error) {
         console.error('Error adding task', error);
-        // Optionally, display user-friendly error message
-      }
-    );
-  }
+        await Swal.fire({
+            icon: 'error',
+            title: 'Error Adding Task',
+            text: 'There was an error adding the task. Please try again.',
+            confirmButtonColor: '#51a992' // Use the main color for consistency
+        });
+    }
+}
 
   getFileType(file: string): string {
     const extension = file.split('.').pop() || '';  // Provide a default empty string if undefined
