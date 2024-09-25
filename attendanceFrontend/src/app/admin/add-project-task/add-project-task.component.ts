@@ -94,13 +94,14 @@ export class AddProjectTaskComponent implements OnInit {
     this.uploadedFiles = Array.from(files); // Convert FileList to array
   }
 
+ 
   validateTaskForm(): boolean {
     const days = this.taskForm.get('days')?.value;
     const hours = this.taskForm.get('hours')?.value;
     const minutes = this.taskForm.get('minutes')?.value;
   
-    // Check if all required fields are selected
-    if (days === null || hours === null || minutes === null) {
+    // Check if all required fields are filled
+    if (!days && days !== 0 || !hours && hours !== 0 || !minutes && minutes !== 0) {
       Swal.fire({
         icon: 'warning',
         title: 'Incomplete Time Selection',
@@ -111,6 +112,7 @@ export class AddProjectTaskComponent implements OnInit {
     }
     return true; // Validation passed
   }
+  
   
   async addTask() {
     // Validate the form before proceeding
