@@ -129,7 +129,7 @@ export class AssigntaskComponent implements OnInit {
       .map(day => ({
         day: day.charAt(0).toUpperCase() + day.slice(1).toLowerCase(),
         date: this.getNextDayDate(day)
-      }));
+      }) );
 
     const taskAssignment = {
       employeeId: this.employeeId,
