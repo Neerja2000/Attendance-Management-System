@@ -106,6 +106,15 @@ export class ProjectService {
 }
 
 
+calculatedProjectBudget(employeeId: string, projectId: string, taskId: string) {
+  const payload = { projectId, taskId };
+  return this.http.post(`${this.globalbaseurl}/calculate-budget/${employeeId}`, payload, {
+    headers: this.getHeaders()
+  });
+}
+
+
+
 
 
 

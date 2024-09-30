@@ -9,12 +9,19 @@ import Swal from 'sweetalert2';
   styleUrls: ['./assigntask.component.css']
 })
 export class AssigntaskComponent implements OnInit {
+
   projects: any[] = [];
   employeeId: string | null = null;
   assignTasks: any[] = [];
   tasks: any[] = [];
   selectedProjectId: string = '';
   selectedTaskId: string = '';
+  projectBudget: number = 0;
+  remainingBudget: number = 0;
+  employeeCost:number=0;
+  assignedHours:number=0;
+  pendingBudget: number=0;
+
   days: Record<string, boolean> = {
     monday: false,
     tuesday: false,
@@ -33,7 +40,7 @@ export class AssigntaskComponent implements OnInit {
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -43,10 +50,18 @@ export class AssigntaskComponent implements OnInit {
         this.getProjectsForEmployee(this.employeeId);
       }
     });
+
     this.getAssignTask();
     this.initializeWeekDates();
     this.setCurrentDate();
   }
+
+
+
+
+
+
+
   isDate(value: any): boolean {
     return !isNaN(Date.parse(value));
   }
@@ -129,7 +144,7 @@ export class AssigntaskComponent implements OnInit {
       .map(day => ({
         day: day.charAt(0).toUpperCase() + day.slice(1).toLowerCase(),
         date: this.getNextDayDate(day)
-      }) );
+      }));
 
     const taskAssignment = {
       employeeId: this.employeeId,
@@ -141,8 +156,10 @@ export class AssigntaskComponent implements OnInit {
     this.projectService.assignTask(taskAssignment).subscribe(
       (res: any) => {
         if (res.success) {
+          this.calculateBudget()
           this.resetForm();
           this.getAssignTask();
+
           console.log('Task assigned successfully:', res.data);
         } else {
           console.warn('Failed to assign task:', res.message);
@@ -154,6 +171,34 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
+  calculateBudget() {
+    console.log("hello");
+    console.log("Project ID:", this.selectedProjectId);
+   
+    console.log("Employee ID:", this.employeeId);
+    
+    const selectemployeeId = this.employeeId; // Use const or let to declare the variable.
+    const selectprojectId = this.selectedProjectId; // Use const or let.
+    const selecttaskId = (<HTMLSelectElement>document.getElementById('task')).value; // This is fine.
+    
+    console.log("Task ID:", selecttaskId);
+    
+    // Calculate budget when both project and task are selected
+    if (selectprojectId && selecttaskId && selectemployeeId) {
+        this.projectService.calculatedProjectBudget(selectemployeeId, selectprojectId, selecttaskId)
+            .subscribe((response: any) => {
+                console.log("Budget Response:", response);
+                this.projectBudget = response.projectBudget;
+                this.pendingBudget=response.pendingBudget
+                this.remainingBudget = response.remainingBudget;
+                this.assignedHours=response.assignedHours;
+                this.employeeCost=response.employeeCost
+            }, error => {
+                console.error("Error calculating budget:", error);
+            });
+    }
+}
+
 
   resetForm() {
     this.selectedProjectId = '';
@@ -202,30 +247,30 @@ export class AssigntaskComponent implements OnInit {
       'thursday': 4,
       'friday': 5
     };
-  
+
     this.selectedDates = this.currentWeekDates
       .filter(day => this.days[day.day.toLowerCase()])
       .map(day => {
         const targetDayIndex = dayIndexMap[day.day.toLowerCase()];
         let targetDate = new Date(day.date);
-  
+
         // Move earlier days to the next week, but not today
         if (targetDayIndex < todayDayIndex) {
           targetDate.setDate(targetDate.getDate() + 7); // Move earlier days to the next week
         }
-  
+
         // Keep today as today's date
         if (targetDayIndex === todayDayIndex) {
           targetDate = today; // Ensure today's date remains as today
         }
-  
+
         return {
           day: day.day,
           date: targetDate.toISOString().split('T')[0]
         };
       });
   }
-  
+
   getAssignTask() {
     if (!this.employeeId) {
       console.error('Employee ID is not available. Cannot fetch assigned tasks.');
@@ -250,35 +295,35 @@ export class AssigntaskComponent implements OnInit {
 
   filterTasks() {
     // Create a set of valid statuses to check against
-    const validStatuses = ['pending', 'started', 'under revision','waiting for approval', 'Under Revision: Approval Pending'];
-  
+    const validStatuses = ['pending', 'started', 'under revision', 'waiting for approval', 'Under Revision: Approval Pending'];
+
     // Filter tasks that either match the current date or have a valid status
     this.filteredTasks = this.assignTasks.filter((task) => {
       // Check if the task has assigned days
       const hasAssignedDays = task.assignedDays && task.assignedDays.length > 0;
-  
+
       // Check if the task is for the current day or has a valid status
       const isCurrentDateTask = hasAssignedDays && task.assignedDays.some((day: { date: string }) => {
         return day.date === this.currentDate;
       });
-  
+
       const hasValidStatus = validStatuses.includes(task.status);
-  
+
       // Return tasks that match either condition
       return isCurrentDateTask || hasValidStatus;
     });
-  
+
     console.log('Filtered Tasks:', this.filteredTasks);
   }
 
 
 
 
-    // Helper method to validate task status
-    isValidStatus(status: string): boolean {
-      const validStatuses = ['pending', 'started', 'under revision','waiting for approval', 'Under Revision: Approval Pending'];
-      return validStatuses.includes(status);
-         }
+  // Helper method to validate task status
+  isValidStatus(status: string): boolean {
+    const validStatuses = ['pending', 'started', 'under revision', 'waiting for approval', 'Under Revision: Approval Pending'];
+    return validStatuses.includes(status);
+  }
   approveTask(taskId: string, task_id: string) {
     Swal.fire({
       title: 'Confirm Task Status',
@@ -316,7 +361,7 @@ export class AssigntaskComponent implements OnInit {
       if (result.isConfirmed) {
         const rating = parseInt(result.value.rating, 10); // Convert rating to a number
         const review = result.value.review; // Capture the review input
-  
+
         this.projectService.completeTaskApi(taskId, rating, review).subscribe(
           (response: any) => {
             console.log('Task completed:', response);
@@ -328,7 +373,7 @@ export class AssigntaskComponent implements OnInit {
             });
             this.filteredTasks = [...this.assignTasks];
             this.getAssignTask();
-  
+
             this.projectService.changeTaskStatus(task_id, false).subscribe(
               (res: any) => {
                 console.log('Task status changed successfully:', res);
@@ -351,68 +396,68 @@ export class AssigntaskComponent implements OnInit {
       }
     });
   }
-  
-  
-  
-requestChanges(taskId: string) {
-  Swal.fire({
+
+
+
+  requestChanges(taskId: string) {
+    Swal.fire({
       title: 'Request Changes',
       input: 'textarea',
       inputLabel: 'Provide feedback for the required changes',
       inputPlaceholder: 'Enter your feedback...',
       showCancelButton: true,
       confirmButtonText: 'Submit Feedback'
-  }).then((result) => {
+    }).then((result) => {
       if (result.isConfirmed && result.value) {
-          const feedback = result.value as string;
+        const feedback = result.value as string;
 
-          // Split the feedback by new lines into an array
-          const feedbackArray = feedback.split('\n').filter(f => f.trim() !== '');
-          console.log('Received feedback:', feedbackArray);
+        // Split the feedback by new lines into an array
+        const feedbackArray = feedback.split('\n').filter(f => f.trim() !== '');
+        console.log('Received feedback:', feedbackArray);
 
-          // Send feedback as an array
-          this.projectService.requestChangesApi(taskId, feedbackArray).subscribe(
-              (response: any) => {
-                  console.log('Changes requested:', response);
-                  this.tasks = this.tasks.map(task => 
-                      task._id === response.data._id ? response.data : task
-                  );
-                  Swal.fire('Success', response.message, 'success');
-                  this.getAssignTask();
-              },
-              (error: any) => {
-                  console.error('Error requesting changes:', error);
-                  Swal.fire('Error', 'Failed to request changes.', 'error');
-              }
-          );
+        // Send feedback as an array
+        this.projectService.requestChangesApi(taskId, feedbackArray).subscribe(
+          (response: any) => {
+            console.log('Changes requested:', response);
+            this.tasks = this.tasks.map(task =>
+              task._id === response.data._id ? response.data : task
+            );
+            Swal.fire('Success', response.message, 'success');
+            this.getAssignTask();
+          },
+          (error: any) => {
+            console.error('Error requesting changes:', error);
+            Swal.fire('Error', 'Failed to request changes.', 'error');
+          }
+        );
       }
-  });
-}
-
-
-
-
-
-
-
-
-updateTaskStatus(task: { id: string; status: string; revisionCount?: number }) {
-  // Increment the revision count if the current status is "under revision"
-  if (task.status === 'under revision') {
-    task.revisionCount = (task.revisionCount || 0) + 1; // Increment count for "under revision"
+    });
   }
 
-  // Update the task status
-  this.projectService.updateTaskStatus(task.id, task.status).subscribe((updatedTask) => {
-    // Update the revision count if the new status is "Under Revision: Approval Pending"
-    if (updatedTask.status === 'Under Revision: Approval Pending') {
-      updatedTask.revisionCount = (updatedTask.revisionCount || 0) + 1; // Increment count for "Under Revision: Approval Pending"
+
+
+
+
+
+
+
+  updateTaskStatus(task: { id: string; status: string; revisionCount?: number }) {
+    // Increment the revision count if the current status is "under revision"
+    if (task.status === 'under revision') {
+      task.revisionCount = (task.revisionCount || 0) + 1; // Increment count for "under revision"
     }
-    
-    console.log('Task updated:', updatedTask);
-    this.getAssignTask(); // Refresh tasks list to show updated status
-  });
-}
+
+    // Update the task status
+    this.projectService.updateTaskStatus(task.id, task.status).subscribe((updatedTask) => {
+      // Update the revision count if the new status is "Under Revision: Approval Pending"
+      if (updatedTask.status === 'Under Revision: Approval Pending') {
+        updatedTask.revisionCount = (updatedTask.revisionCount || 0) + 1; // Increment count for "Under Revision: Approval Pending"
+      }
+
+      console.log('Task updated:', updatedTask);
+      this.getAssignTask(); // Refresh tasks list to show updated status
+    });
+  }
 
 
 

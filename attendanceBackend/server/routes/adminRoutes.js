@@ -48,7 +48,7 @@ router.get("/dailyRating/all",dailyRatingController.getDailyRatings)
 router.post("/project/add", upload.array('files',5), projectController.addProject);
 router.get("/project/getAll",projectController.getAll)
 router.delete("/project/delete/:projectId",projectController.deleteProject)
-router.get('/task/projectsbudget/:projectId',projectController.calculateProjectBudget);
+
 
 router.post("/task/add", upload.array('files', 5), taskController.addTask);
 router.get("/task/getAll",taskController.getAllTasks)
@@ -62,6 +62,8 @@ router.post("/task/status/:taskId", taskController.changeTaskStatus);
 router.post('/assign-task/:employeeId',assignController.assignTask);
 router.get('/assign-task/getAllWeekTasksForEmployee/:employeeId', assignController.getAllWeekTasksForEmployee);
 router.patch('/approve-task-status/:id',assignController.approveTaskStatus);
+router.post('/calculate-budget/:employeeId', assignController.calculateBudgetAndEmployeeCost);
+
 
 
 // 

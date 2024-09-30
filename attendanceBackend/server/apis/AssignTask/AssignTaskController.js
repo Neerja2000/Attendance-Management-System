@@ -74,7 +74,6 @@ const assignTask = async (req, res) => {
     }
 };
 
-
 const getAllWeekTasksForEmployee = async (req, res) => {
     try {
         const { employeeId } = req.params;
@@ -363,9 +362,135 @@ const requestChanges = async (req, res) => {
     }
 };
 
+const parseExpectedTime = (expectedTime) => {
+    const daysMatch = expectedTime.match(/(\d+)\s*days?/);
+    const hoursMatch = expectedTime.match(/(\d+)\s*hours?/);
+    const minutesMatch = expectedTime.match(/(\d+)\s*min/);
 
+    const days = daysMatch ? parseInt(daysMatch[1], 10) : 0;
+    const hours = hoursMatch ? parseInt(hoursMatch[1], 10) : 0;
+    const minutes = minutesMatch ? parseInt(minutesMatch[1], 10) : 0;
 
+    const totalHours = (days * 24) + hours + (minutes / 60);
+    return totalHours;
+};
 
+const calculateBudgetAndEmployeeCost = async (req, res) => {
+    try {
+        const { employeeId } = req.params;
+        const { projectId, taskId } = req.body;
 
+        // Validate IDs
+        if (
+            !mongoose.Types.ObjectId.isValid(projectId) ||
+            !mongoose.Types.ObjectId.isValid(taskId) ||
+            !mongoose.Types.ObjectId.isValid(employeeId)
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid project, task, or employee ID format',
+            });
+        }
 
-module.exports = { assignTask,getAllWeekTasksForEmployee,updateTaskStatus,approveTaskStatus,completeTask,requestChanges };
+        // Fetch the project
+        const project = await Project.findById(projectId);
+        if (!project) {
+            return res.status(404).json({
+                success: false,
+                message: 'Project not found',
+            });
+        }
+
+        // Validate project budget is a valid number
+        if (isNaN(project.projectBudget) || project.projectBudget == null) {
+            return res.status(400).json({
+                success: false,
+                message: 'Project budget is invalid or not a number',
+            });
+        }
+
+        // Fetch employee details for hourly rate
+        const employee = await Employee.findById(employeeId);
+        if (!employee) {
+            return res.status(404).json({
+                success: false,
+                message: 'Employee not found',
+            });
+        }
+
+        // Fetch task details
+        const task = await Task.findById(taskId);
+        if (!task) {
+            return res.status(404).json({
+                success: false,
+                message: 'Task not found',
+            });
+        }
+
+        // Find task assignment
+        const taskAssignment = await TaskAssignment.findOne({
+            taskId: new mongoose.Types.ObjectId(taskId),
+            projectId: new mongoose.Types.ObjectId(projectId),
+            EmployeeId: new mongoose.Types.ObjectId(employeeId),
+        });
+        if (!taskAssignment) {
+            return res.status(404).json({
+                success: false,
+                message: 'Task assignment not found',
+            });
+        }
+
+        // Parse the expected time (use your existing parse function)
+        const assignedHours = parseExpectedTime(task.expectedTime);
+        if (isNaN(assignedHours) || assignedHours <= 0) {
+            return res.status(400).json({
+                success: false,
+                message: 'Expected time is invalid or cannot be parsed',
+            });
+        }
+
+        // Calculate the employee cost based on hourly rate
+        const employeeCost = assignedHours * employee.perHourSalary;
+        const pendingBudget=project.RemainingBudget;
+        // Calculate remaining budget after the new employee cost
+        const remainingBudget = project.RemainingBudget - employeeCost;
+        console.log(remainingBudget)
+        // Update the project model with the new remaining budget
+        if (remainingBudget < 0) {
+            return res.status(400).json({
+                success: false,
+                message: 'Not enough budget to assign this task to the employee',
+            });
+        }
+
+        project.RemainingBudget = remainingBudget; // Update remaining budget
+        await project.save(); // Save the updated project
+
+        // Update the task assignment with calculated employee cost
+        taskAssignment.employeeCost = employeeCost;
+        await taskAssignment.save();
+
+        res.json({
+            success: true,
+            project: projectId,
+            projectBudget:project.projectBudget,
+            employee: employeeId,
+            task: taskId,
+            assignedHours,
+            hourlyRate: employee.perHourSalary,
+            pendingBudget,
+            employeeCost,
+            remainingBudget,
+            message: 'Remaining budget and employee cost calculated successfully',
+        });
+    } catch (err) {
+        console.error('Error:', err.message);
+        res.status(500).json({
+            success: false,
+            message: 'Error calculating budget and employee cost',
+            error: err.message,
+        });
+    }
+};
+
+module.exports = { assignTask,getAllWeekTasksForEmployee,updateTaskStatus,approveTaskStatus,completeTask,requestChanges,calculateBudgetAndEmployeeCost };

@@ -3,7 +3,21 @@
   <div class="card">
     <div class="card-header">
       <h5 class="card-title">Assign Tasks</h5>
-    </div>
+      <h5>Project Budget: {{ projectBudget }}</h5>
+      <h5>Pending Budget:{{ pendingBudget}}</h5>
+      
+      <h5>Assigned Hours: {{ assignedHours }}</h5>
+      <h5>Employee Cost: {{ employeeCost }}</h5>
+      <h5>Remaining Budget: 
+        <span [ngClass]="{
+            'text-success': remainingBudget >= projectBudget, 
+            'text-danger': remainingBudget < projectBudget
+        }">
+            ₹{{ remainingBudget | number:'1.2-2' }}
+        </span>
+    </h5>
+      
+   </div>
     <div class="card-body">
       <form id="task-form" (ngSubmit)="assignTask()">
         <div class="mb-3">
@@ -65,7 +79,7 @@
           </div>
         </div>
     
-        <button type="submit" class="btn btn-primary mt-5">Assign Task</button>
+        <button type="submit" class="btn btn-primary mt-5" >Assign Task</button>
       </form>
     </div>
     

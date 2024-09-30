@@ -40,7 +40,8 @@ const addProject = async (req, res) => {
             employeeIds: employeeIdArray,
             projectName,
             projectDescription,
-            projectBudget: parseFloat(projectBudget),  // Save projectBudget as a number
+            projectBudget: parseFloat(projectBudget),
+            RemainingBudget:parseFloat(projectBudget),  // Save projectBudget as a number
             files: files.length > 0 ? files : []  // Save file names if any are uploaded
         });
 
@@ -169,87 +170,9 @@ const getProjectsByEmployee = async (req, res) => {
     }
 };
 
-const calculateProjectBudget = async (req, res) => {
-    try {
-      const projectId = req.params.projectId;
-  
-      // Fetch the project by ID and populate tasks and employees
-      const projectData = await project.findById(projectId).populate('employeeIds');
-      if (!projectData) {
-        return res.status(404).json({ message: 'Project not found' });
-      }
-  
-      const projectBudget = projectData.projectBudget;
-      let totalEmployeeCost = 0;
-  
-      // Fetch all tasks for the project
-      const tasks = await TaskModel.find({ projectId });
-  
-      // Iterate over each task in the project
-      for (const task of tasks) {
-        let taskEmployeeCost = 0;
-  
-        for (const employee of projectData.employeeIds) {
-          console.log("expectedTime", task.expectedTime);
-  
-          // Correctly parse and calculate task duration in hours
-          const taskDuration = convertExpectedTimeToHours(task.expectedTime);
-          console.log("taskDuration (hours)", taskDuration);
-  
-          if (!taskDuration || isNaN(taskDuration)) {
-            console.error("Invalid taskDuration, skipping this task");
-            continue;
-          }
-  
-          // Calculate employee cost for the task
-          const employeeCostForTask = employee.perHourSalary * taskDuration;
-          console.log("employeeCostForTask", employeeCostForTask);
-  
-          taskEmployeeCost += employeeCostForTask;
-        }
-  
-        totalEmployeeCost += taskEmployeeCost;
-  
-        // Update the TotalProjectBudgets field for the task with its individual cost
-        await TaskModel.findByIdAndUpdate(task._id, { TotalProjectBudgets: taskEmployeeCost });
-      }
-  
-      // Calculate remaining budget and budget status
-      const remainingBudget = projectBudget - totalEmployeeCost;
-      const budgetStatus = remainingBudget >= 0 ? 'positive' : 'negative';
-  
-      // Update the Project model with TotalProjectBudgets and RemainingBudget
-      await project.findByIdAndUpdate(projectId, {
-        TotalProjectBudgets: totalEmployeeCost,
-        RemainingBudget: remainingBudget,  // Update this field to store the remaining budget
-      });
-  
-      // Send the response with the calculated values
-      res.status(200).json({
-        success: true,
-        projectBudget,
-        totalEmployeeCost,
-        remainingBudget,
-        status: budgetStatus,
-      });
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  };
-  
-  // Helper function to convert 'expectedTime' to hours
-  const convertExpectedTimeToHours = (expectedTime) => {
-    // Handle expectedTime format: '0 days 1 hours 0 min'
-    const [daysStr, hoursStr, minutesStr] = expectedTime.match(/(\d+) days (\d+) hours (\d+) min/).slice(1);
-    const days = parseInt(daysStr, 10);
-    const hours = parseInt(hoursStr, 10);
-    const minutes = parseInt(minutesStr, 10);
-  
-    const totalHours = (days * 24) + hours + (minutes / 60);
-    return totalHours;
-  };
+
   
   
   
 
-module.exports = { addProject, getAll,deleteProject,getProjectsByEmployee,calculateProjectBudget };
+module.exports = { addProject, getAll,deleteProject,getProjectsByEmployee };

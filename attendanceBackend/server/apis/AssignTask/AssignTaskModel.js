@@ -49,8 +49,8 @@ const taskAssignmentSchema = new mongoose.Schema({
         enum: ['pending', 'started', 'waiting for approval', 'completed', 'under revision', 'Under Revision: Approval Pending'],
         default: 'pending'
     },
-    revisionCount: { type: Number, default: 0 }
-
+    revisionCount: { type: Number, default: 0 },
+    
     
 });
 
