@@ -47,6 +47,7 @@ const adminLogin = (req, res) => {
           const token = jwt.sign({ id: admin._id, email: admin.email }, SECRET_KEY, { expiresIn: '1h' });
           res.status(200).json({
             message: 'Admin logged in successfully',
+            id: admin._id, 
             token
           });
         })

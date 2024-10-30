@@ -9,6 +9,8 @@ const dailyRatingController=require("../apis/dailyRating/dailyRatingController")
 const projectController=require("../apis/project/projectController")
 const taskController=require("../apis/task/taskController")
 const assignController=require("../apis/AssignTask/AssignTaskController")
+const contentController=require("../apis/saveImportant/saveimpController")
+const announcementController=require("../apis/announcement/announcementController")
 const upload = require('../config/multerconfig');
 
 
@@ -47,7 +49,9 @@ router.get("/dailyRating/all",dailyRatingController.getDailyRatings)
 
 router.post("/project/add", upload.array('files',5), projectController.addProject);
 router.get("/project/getAll",projectController.getAll)
+router.get('/project/single/:projectId',projectController.getSingleProject)
 router.delete("/project/delete/:projectId",projectController.deleteProject)
+router.put('/project/update/:projectId',upload.array('files',10), projectController.updateProject);
 
 
 router.post("/task/add", upload.array('files', 5), taskController.addTask);
@@ -70,4 +74,18 @@ router.post('/calculate-budget/:employeeId', assignController.calculateBudgetAnd
 
 router.post('/complete-task',assignController.completeTask);
 router.post('/request-changes',assignController.requestChanges);
+
+
+// save important 
+
+router.post('/importantContent/add',upload.array('files',5),contentController.addContent)
+router.get('/importantContent/get',contentController.getContent)
+
+// announcement
+router.post("/announcement/add",upload.single('media'),announcementController.addAnnouncement)
+
+router.get('/announcements/get',announcementController.getAnnouncements)
+
+router.post('/announcements/likes/:announcementId',announcementController.addLike)
+router.post('/announcements/comments/:announcementId',announcementController.addComment)
 module.exports=router

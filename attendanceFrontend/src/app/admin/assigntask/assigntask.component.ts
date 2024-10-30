@@ -21,7 +21,7 @@ export class AssigntaskComponent implements OnInit {
   employeeCost:number=0;
   assignedHours:number=0;
   pendingBudget: number=0;
-
+  isUrgent: boolean = false;
   days: Record<string, boolean> = {
     monday: false,
     tuesday: false,
@@ -121,6 +121,7 @@ export class AssigntaskComponent implements OnInit {
     const projectId = (event.target as HTMLSelectElement).value;
     this.selectedProjectId = projectId;
     this.getTasksByProject(projectId);
+
   }
 
   getTasksByProject(projectId: string) {
@@ -137,7 +138,9 @@ export class AssigntaskComponent implements OnInit {
       }
     );
   }
-
+  toggleUrgent(event: any) {
+    this.isUrgent = event.target.checked;
+  }
   assignTask() {
     const assignedDays = Object.keys(this.days)
       .filter(day => this.days[day])
@@ -150,7 +153,8 @@ export class AssigntaskComponent implements OnInit {
       employeeId: this.employeeId,
       projectId: this.selectedProjectId,
       taskId: (<HTMLSelectElement>document.getElementById('task')).value,
-      assignedDays: assignedDays
+      assignedDays: assignedDays,
+      urgent: this.isUrgent
     };
 
     this.projectService.assignTask(taskAssignment).subscribe(
@@ -201,7 +205,8 @@ export class AssigntaskComponent implements OnInit {
 
 
   resetForm() {
-    this.selectedProjectId = '';
+    
+    
     (<HTMLSelectElement>document.getElementById('task')).value = '';
     this.days = {
       'monday': false,
@@ -458,6 +463,12 @@ export class AssigntaskComponent implements OnInit {
       this.getAssignTask(); // Refresh tasks list to show updated status
     });
   }
+
+
+
+
+
+
 
 
 

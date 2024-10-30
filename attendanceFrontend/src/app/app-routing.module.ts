@@ -30,6 +30,11 @@ import { EmpViewProjectComponent } from './employee/emp-view-project/emp-view-pr
 import { AssigntaskComponent } from './admin/assigntask/assigntask.component';
 import { EmpAssignTaskComponent } from './employee/emp-assign-task/emp-assign-task.component';
 import { EmpViewAssignTaskComponent } from './employee/emp-view-assign-task/emp-view-assign-task.component';
+import { UpdateProjectComponent } from './admin/update-project/update-project.component';
+import { SaveImpWorkComponent } from './admin/save-imp-work/save-imp-work.component';
+import { ViewImpWorkComponent } from './employee/view-imp-work/view-imp-work.component';
+import { AnnouncementComponent } from './admin/announcement/announcement.component';
+import { ViewAnnouncementComponent } from './employee/view-announcement/view-announcement.component';
 
 const routes: Routes = [
 {
@@ -80,7 +85,19 @@ const routes: Routes = [
       path:'view-project',component:ViewProjectComponent,canActivate: [AuthGuard]
     },
     {
+      path:'update-project/:id',component:UpdateProjectComponent,canActivate: [AuthGuard]
+    },
+    {
+      path:'save-imp-work',component:SaveImpWorkComponent,canActivate: [AuthGuard]
+    },
+    {
       path:'assign-task',component:AssigntaskComponent,canActivate: [AuthGuard]
+    },
+    {
+      path:'announcement',component:AnnouncementComponent,canActivate: [AuthGuard]
+    },
+    {
+      path:'view-announcement',component:ViewAnnouncementComponent,canActivate:[AuthGuard]
     }
   ]
   },
@@ -121,6 +138,12 @@ const routes: Routes = [
     },
     {
       path:'emp-view-assign-task',component:EmpViewAssignTaskComponent,canActivate:[AuthGuard]
+    },
+    {
+      path:'view-imp-work',component:ViewImpWorkComponent,canActivate:[AuthGuard]
+    },
+    {
+      path:'view-announcement',component:ViewAnnouncementComponent,canActivate:[AuthGuard]
     }
   ]
   }

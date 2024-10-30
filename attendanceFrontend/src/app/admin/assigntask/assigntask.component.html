@@ -2,9 +2,9 @@
   <h2 class="text-center mb-4">Project-Based Task Assignment</h2>
   <div class="card">
     <div class="card-header">
-      <h5 class="card-title">Assign Tasks</h5>
+   
       <h5>Project Budget: {{ projectBudget }}</h5>
-      <h5>Pending Budget:{{ pendingBudget}}</h5>
+      <!-- <h5>Pending Budget:{{ pendingBudget}}</h5> -->
       
       <h5>Assigned Hours: {{ assignedHours }}</h5>
       <h5>Employee Cost: {{ employeeCost }}</h5>
@@ -22,16 +22,17 @@
       <form id="task-form" (ngSubmit)="assignTask()">
         <div class="mb-3">
           <label for="project" class="form-label">Select Project</label>
-          <select id="project" class="form-select" required (change)="onProjectChange($event)">
-            <option value="" disabled selected>Select a project</option>
+          <select id="project" class="form-select" required [(ngModel)]="selectedProjectId" (change)="onProjectChange($event)">
+            <option value="" selected disabled>Select a project</option>
             <option *ngFor="let project of projects" [value]="project._id">{{ project.projectName }}</option>
-          </select>
+        </select>
+        
         </div>
     
         <div class="mb-3">
           <label for="task" class="form-label">Select Task</label>
           <select id="task" class="form-select" required>
-            <option value="" disabled selected>Select a task</option>
+            <option value=""  selected>Select a task</option>
             <option *ngFor="let task of tasks" [value]="task._id">{{ task.taskName }}</option>
           </select>
         </div>
@@ -78,7 +79,15 @@
             <p>{{ day.day }} - {{ day.date | date}}</p>
           </div>
         </div>
-    
+      <div class="mb-3 mt-5">
+    <div class="form-check">
+      <input type="checkbox" (change)="toggleUrgent($event)" /> Urgent
+
+        <label class="form-check-label" for="urgentCheckbox">Select if task is urgent</label>
+    </div>
+</div>
+
+        
         <button type="submit" class="btn btn-primary mt-5" >Assign Task</button>
       </form>
     </div>
@@ -117,7 +126,13 @@
                 {{ day.day }} ({{ day.date | date }})<br>
               </ng-container>
             </td>
-            <td>{{ detail.taskId.taskName }}</td>
+            <td>
+              {{ detail.taskId.taskName }} <br>
+              <span *ngIf="detail.urgent" style="color: red;"> (Urgently Needed)</span>
+            </td>
+            
+            
+        
             <td>
               
               <div

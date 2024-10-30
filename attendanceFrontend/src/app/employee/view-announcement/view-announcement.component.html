@@ -1,0 +1,73 @@
+<div class="container my-4 p-5"> 
+  <div class="card" *ngFor="let viewAnnouncement of announcements">
+    <div class="media-container">
+      <ng-container *ngIf="isImage(viewAnnouncement.media); else videoTemplate">
+        <img [src]="viewAnnouncement.media" class="card-img-top img-fluid" alt="Post Image">
+      </ng-container>
+      <ng-template #videoTemplate>
+        <video controls class="card-img-top img-fluid">
+          <source [src]="viewAnnouncement.media" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </ng-template>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title">{{ viewAnnouncement.title }}</h5>
+      <p class="card-text">{{ viewAnnouncement.description }}</p>
+
+      <!-- Like and Comment Section -->
+      <div class="d-flex mt-3">
+        <i 
+          (click)="toggleLike(viewAnnouncement)"
+          [ngClass]="{
+            'bi-heart-fill': viewAnnouncement.liked,
+            'bi-heart': !viewAnnouncement.liked
+          }"
+          class="fs-4 ms-2 text-danger">
+        </i>
+
+        <i class="bi bi-chat fs-4 ms-2 text-primary" (click)="toggleCommentInput(viewAnnouncement)"></i>
+      </div>
+      <span class="ms-2">{{ viewAnnouncement.likes }} likes</span>
+
+      <!-- Comment Input with Send Icon -->
+      <div *ngIf="viewAnnouncement.showCommentInput" class="mt-3 d-flex align-items-center">
+        <input 
+          type="text" 
+          [(ngModel)]="viewAnnouncement.newCommentText" 
+          placeholder="Add a comment..." 
+          class="form-control me-2" 
+          style="width: auto; display: inline-block;">
+        <i 
+          class="bi bi-send text-primary" 
+          (click)="addComment(viewAnnouncement._id, viewAnnouncement.newCommentText)"
+          style="cursor: pointer;">
+        </i>
+      </div>
+
+      <div class="mt-3">
+        <h6>Comments</h6>
+        <div *ngIf="viewAnnouncement.comments.length > 0">
+          <div *ngIf="viewAnnouncement.showAllComments; else hiddenComments" class="comment-container">
+            <div *ngFor="let comment of viewAnnouncement.comments" class="border-bottom pb-2">
+              <strong style="color: black;">{{ comment.name }}:</strong> {{ comment.text }} <!-- Use comment.name instead of comment.user -->
+            </div>
+          </div>
+          <ng-template #hiddenComments>
+            <div class="comment-container">
+              <div *ngFor="let comment of viewAnnouncement.comments.slice(0, 3)" class="border-bottom pb-2">
+                <strong style="color: black;">{{ comment.name }}:</strong> {{ comment.text }} <!-- Use comment.name here as well -->
+              </div>
+              <a (click)="viewAnnouncement.showAllComments = true" style="cursor: pointer;">View All Comments</a>
+            </div>
+          </ng-template>
+        </div>
+        <div *ngIf="viewAnnouncement.comments.length === 0">
+          No comments yet.
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

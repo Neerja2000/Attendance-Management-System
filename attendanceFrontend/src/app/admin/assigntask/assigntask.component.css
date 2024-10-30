@@ -17,3 +17,8 @@
     border-radius: 0.5rem;
 }
 
+.urgent-task {
+    color: red;
+    font-weight: bold; /* Optional: Make urgent tasks stand out more */
+  }
+  

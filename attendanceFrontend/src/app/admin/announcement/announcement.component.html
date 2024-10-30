@@ -1,0 +1,30 @@
+<div class="container announcement-container">
+  <h2 class="text-center mb-4">Create New Announcement</h2>
+
+  <!-- Form Group Binding -->
+  <form [formGroup]="announcementForm">
+    <!-- Announcement Title -->
+    <div class="mb-3">
+      <label for="announcementTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" id="announcementTitle" formControlName="title" placeholder="Enter announcement title">
+    </div>
+
+    <!-- Announcement Description -->
+    <div class="mb-3">
+      <label for="announcementDescription" class="form-label">Description</label>
+      <textarea class="form-control" id="announcementDescription" formControlName="description" rows="4" placeholder="Enter announcement description"></textarea>
+    </div>
+
+    <!-- Upload Section (Image/Video) -->
+    <div class="mb-3">
+      <label for="uploadMedia" class="form-label">Upload Image or Video</label>
+      <input type="file" class="form-control" #uploadMedia formControlName="media" (change)="onFileSelected($event)" accept="image/*,video/*">
+
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button class="btn btn-primary mt-4" type="submit" (click)="onSubmit()">Submit Announcement</button>
+    </div>
+  </form>
+</div>

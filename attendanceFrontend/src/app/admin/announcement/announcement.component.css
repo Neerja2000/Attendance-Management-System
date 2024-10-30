@@ -1,0 +1,22 @@
+.announcement-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  .btn-upload {
+    margin-top: 10px;
+  }
+  .preview-section {
+    margin-top: 20px;
+  }
+  .preview img,
+  .preview video {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+  }

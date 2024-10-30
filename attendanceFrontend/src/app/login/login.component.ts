@@ -64,11 +64,7 @@ export class LoginComponent {
         console.log('Admin login response:', response); // Debugging response
         if (response.token) { // Check if token exists in response
           this.authService.storedata(response); // Store token and ID
-          console.log('Stored data:', {
-            _id: this.authService.getId(),
-            token: this.authService.getToken()
-          });
-
+          console.log('Stored data:', { _id: response.id, token: response.token });
           this.router.navigate(['/admin/layout/dashboard']).then((navigated) => {
             if (navigated) {
               console.log('Navigation to dashboard successful');

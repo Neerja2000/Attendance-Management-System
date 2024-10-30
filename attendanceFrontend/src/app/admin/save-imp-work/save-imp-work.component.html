@@ -1,0 +1,63 @@
+<h2>Upload Important Files</h2>
+<div class="upload-container">
+  <form class="upload-form" (submit)="onSubmit()">
+    <!-- Title input -->
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" [(ngModel)]="title" name="title" placeholder="Enter title for the content" required>
+    </div>
+
+    <!-- Description input -->
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" [(ngModel)]="description" name="description" placeholder="Describe the content..."></textarea>
+    </div>
+
+    <!-- Link input -->
+    <div class="form-group">
+      <label for="link">Link</label>
+      <input type="url" id="link" [(ngModel)]="link" name="link" placeholder="Url">
+    </div>
+
+    <!-- File upload inputs -->
+    <div class="form-group">
+      <label for="files">Upload Files</label>
+      <div class="file-upload-section">
+        <input type="file" (change)="onFileSelected($event)" multiple>
+      </div>
+    </div>
+
+    <!-- Upload button -->
+    <button type="submit" class="upload-btn">Upload Content</button>
+  </form>
+</div>
+
+<!-- Section to display uploaded content -->
+<div class="uploaded-content-section mt-4 px-3"> 
+  <h3 class="section-title">Uploaded Content</h3>
+  <div *ngFor="let content of uploadedContent; let i = index" class="content-item mt-3">
+    <h4 class="content-title">{{ i + 1 }}. {{ content.title }}</h4>
+    <p class="content-description">{{ content.description }}</p>
+    
+    <div *ngIf="content.link" class="content-link">
+      <strong>Related URL: </strong>
+      <a [href]="content.link" target="_blank">{{ content.link }}</a>
+    </div>
+
+    <div *ngFor="let file of content.files" class="file-container m-2">
+      <ng-container [ngSwitch]="getFileType(file)">
+        <a [href]="file" target="_blank" class="file-link">
+          <div class="file-item">
+            <img *ngSwitchCase="'image'" src="../../../assets/images/logos/photo.png" height="35px" alt="Image file">
+            <img *ngSwitchCase="'pdf'" src="../../../assets/images/logos/pdf.png" height="35px" alt="PDF file">
+            <img *ngSwitchDefault src="../../../assets/images/logos/zip.png" height="35px" alt="Other file">
+            <span class="file-name">{{ getFileName(file) }}</span>
+          </div>
+        </a>
+      </ng-container>
+    </div>
+    <hr class="divider"/>
+  </div>
+</div>
+
+  

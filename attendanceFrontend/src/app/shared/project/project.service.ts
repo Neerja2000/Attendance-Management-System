@@ -41,18 +41,29 @@ export class ProjectService {
   addProjectApi(formData:FormData)
   {
 
-    return this.http.post(this.globalbaseurl+"/project/add",formData,{ headers: this.getHeaders() })
+    return this.http.post(this.globalbaseurl+"/project/add",formData,{ headers: this.getHeaders() });
   }
-
-
   getAllProjectApi() {
     return this.http.get(this.globalbaseurl + "/project/getAll", { headers: this.getHeaders() });
   }
+getSingleProjectApi(projectId: string){
+return this.http.get(`${this.globalbaseurl}/project/single/${projectId}`, {headers:this.getHeaders()});
+
+}
+
+
   deleteProjectApi(projectId: string) {
     return this.http.delete(`${this.globalbaseurl}/project/delete/${projectId}`, {
       headers: this.getHeaders()
     });
   }
+
+  updateProjectApi(projectId: string, formData: FormData) {
+    return this.http.put(`${this.globalbaseurl}/project/update/${projectId}`, formData, {
+      headers: this.getHeaders()
+    });
+  }
+  
   getProjectBudgets(projectId: string) {
     return this.http.get(`${this.globalbaseurl}/task/projectsbudget/${projectId}`, {
       headers: this.getHeaders()
@@ -134,9 +145,11 @@ getAssignTaskApi(EmployeeId: string) {
  
 }
 
-updateTaskStatus(taskId: string, newStatus: string): Observable<any> {
+updateTaskStatus(taskId: string, newStatus: string): Observable <any> {
   return this.http.patch(`${this.employeebaseurl}/task-status/${taskId}`, { status: newStatus },{headers: this.getHeaders()});
 }
+
+
 approveTaskApi(taskId: string): Observable<any> {
   // Assuming the approve-task endpoint is defined in the backend
   return this.http.patch(`${this.globalbaseurl}/approve-task-status/${taskId}`, {}, {
@@ -148,11 +161,59 @@ approveTaskApi(taskId: string): Observable<any> {
 
 
 completeTaskApi(taskId: string, rating: number, review:string): Observable<any> {
-  return this.http.post<any>(`${this.globalbaseurl}/complete-task`, { taskId, rating,review });
+  return this.http.post <any>(`${this.globalbaseurl}/complete-task`, { taskId, rating,review });
 }
 
 requestChangesApi(taskId: string, feedback: string[]): Observable<any> {
-  return this.http.post<any>(`${this.globalbaseurl}/request-changes`, { taskId, feedback });
+  return this.http.post <any>(`${this.globalbaseurl}/request-changes`, { taskId, feedback });
 }
 
+
+
+
+
+
+uploadContent(formData: FormData): Observable<any> {
+  return this.http.post(`${this.globalbaseurl}/importantContent/add`, formData);
+}
+
+// Get all uploaded content
+getAllContent(): Observable<any> {
+  return this.http.get(`${this.globalbaseurl}/importantContent/get`);
+}
+
+
+getPendingTasksCount(employeeId: string,month:string): Observable<any> {
+  return this.http.get<any>(`${this.employeebaseurl}/dashboard/pending-tasks/${employeeId}?month=${month}`,{headers: this.getHeaders()});
+}
+
+
+// announcement
+addAnnouncement(formData: FormData): Observable<any> {
+  return this.http.post(`${this.globalbaseurl}/announcement/add`,formData, { headers: this.getHeaders() });
+}
+viewAnnouncement(): Observable<any> {
+  return this.http.get(`${this.employeebaseurl}/announcements/get`, { headers: this.getHeaders() });
+}
+likeapi(announcementId: string, userId: string): Observable<any> {
+  // Choose either employeebaseurl or globalbaseurl as your primary base URL
+  const commonUrl = this.employeebaseurl || this.globalbaseurl; // Set a default base URL if one is undefined
+  
+  return this.http.post(
+    `${commonUrl}/announcements/likes/${announcementId}`, 
+    { userId }, 
+    { headers: this.getHeaders() }
+  );
+}
+addComment(announcementId: string, commentData: { user: string, text: string }): Observable<any> {
+  const commonUrl = this.employeebaseurl || this.globalbaseurl;
+
+  return this.http.post(`${commonUrl}/announcements/comments/${announcementId}`, commentData,{ headers: this.getHeaders() });
+}
+
+
+
+updateTask(taskId: string, updateData: any): Observable<any> {
+  return this.http.patch(`${this.globalbaseurl}/tasks/urgent${taskId}`, updateData);
+}
 }

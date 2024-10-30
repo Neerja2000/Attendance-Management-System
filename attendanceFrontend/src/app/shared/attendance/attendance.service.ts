@@ -17,9 +17,11 @@ export class AttendanceService {
     return headers;
   }
   globalbaseurl:any
-  constructor(private http:HttpClient,@Inject('baseurl')_baseurl:any)
+  embaseurl:any
+  constructor(private http:HttpClient,@Inject('baseurl')_baseurl:any,@Inject('embaseurl')_embaseurl: any)
    {
-    this.globalbaseurl=_baseurl
+    this.globalbaseurl=_baseurl,
+    this.embaseurl=_embaseurl
     }
     // getAttendance(){
     //   return this.http.get(this.globalbaseurl+'/attendance/getAll')
@@ -40,6 +42,17 @@ export class AttendanceService {
       };
       return this.http.get(`${this.globalbaseurl}/attendance/day`, options);
     }
+
+
+    getHolidays(employeeId:string,month: string): Observable<any> {
+      return this.http.get<any>(`${this.embaseurl}/dashboard/getholidays/${employeeId}?month=${month}`, { headers: this.getHeaders() });
+    }
+    
+
+    getLateArrivalsCount(employeeId: string, month: string): Observable<any> {
+      return this.http.get<any>(`${this.embaseurl}/attendence/late-arrivals/${employeeId}?month=${month}`);
+    }
+  
   }
    
 

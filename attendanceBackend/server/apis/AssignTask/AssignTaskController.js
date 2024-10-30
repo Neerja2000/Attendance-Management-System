@@ -7,12 +7,17 @@ const Employee=require("../employee/employeeModel")
 // Assign Task to Project with Days
 const assignTask = async (req, res) => {
     try {
-        const { taskId, projectId } = req.body;
+        const { taskId, projectId, urgent = false, assignedDays } = req.body;
         const { employeeId } = req.params; // Extract employeeId from URL parameters
-        let { assignedDays } = req.body;
+
+        console.log('Received taskId:', taskId);
+        console.log('Received projectId:', projectId);
+        console.log('Received employeeId:', employeeId);
 
         // Validate ObjectId formats
-        if (!mongoose.Types.ObjectId.isValid(taskId) || !mongoose.Types.ObjectId.isValid(projectId) || !mongoose.Types.ObjectId.isValid(employeeId)) {
+        if (!mongoose.Types.ObjectId.isValid(taskId) || 
+            !mongoose.Types.ObjectId.isValid(projectId) || 
+            !mongoose.Types.ObjectId.isValid(employeeId)) {
             return res.status(400).json({
                 success: false,
                 status: 400,
@@ -25,11 +30,27 @@ const assignTask = async (req, res) => {
         const projectExists = await Project.findById(projectId);
         const employeeExists = await Employee.findById(employeeId);
 
+        console.log('Task Exists:', taskExists);
+        console.log('Project Exists:', projectExists);
+        console.log('Employee Exists:', employeeExists);
+
         if (!taskExists || !projectExists || !employeeExists) {
             return res.status(404).json({
                 success: false,
                 status: 404,
                 message: 'Task, project, or employee not found',
+            });
+        }
+
+        // Log assignedDays
+        console.log('Assigned Days:', assignedDays);
+        
+        // Check if assignedDays is an array
+        if (!Array.isArray(assignedDays)) {
+            return res.status(400).json({
+                success: false,
+                status: 400,
+                message: 'assignedDays must be an array',
             });
         }
 
@@ -54,7 +75,8 @@ const assignTask = async (req, res) => {
             taskId: new mongoose.Types.ObjectId(taskId),
             projectId: new mongoose.Types.ObjectId(projectId),
             EmployeeId: new mongoose.Types.ObjectId(employeeId),
-            assignedDays
+            assignedDays,
+            urgent // Include the urgent field
         });
 
         const result = await newAssignment.save();
@@ -66,6 +88,7 @@ const assignTask = async (req, res) => {
             data: result
         });
     } catch (err) {
+        console.error('Error:', err); // Log the error for debugging
         res.status(500).json({
             success: false,
             status: 500,
@@ -73,6 +96,8 @@ const assignTask = async (req, res) => {
         });
     }
 };
+
+
 
 const getAllWeekTasksForEmployee = async (req, res) => {
     try {
@@ -493,4 +518,81 @@ const calculateBudgetAndEmployeeCost = async (req, res) => {
     }
 };
 
-module.exports = { assignTask,getAllWeekTasksForEmployee,updateTaskStatus,approveTaskStatus,completeTask,requestChanges,calculateBudgetAndEmployeeCost };
+const getPendingTasksCount = async (req, res) => {
+    try {
+      const { employeeId } = req.params;
+      const { month } = req.query; // Get month from query params
+  
+      // Validate employeeId format
+      if (!mongoose.Types.ObjectId.isValid(employeeId)) {
+        return res.status(400).json({
+          success: false,
+          status: 400,
+          message: 'Invalid employee ID format',
+        });
+      }
+  
+      // Check if employee exists
+      const employeeExists = await Employee.findById(employeeId);
+      if (!employeeExists) {
+        return res.status(404).json({
+          success: false,
+          status: 404,
+          message: 'Employee not found',
+        });
+      }
+  
+      // If no month is provided, default to the current month
+      let selectedMonth = month;
+      if (!selectedMonth) {
+        const currentDate = new Date();
+        selectedMonth = `${currentDate.getUTCFullYear()}-${String(currentDate.getUTCMonth() + 1).padStart(2, '0')}`;
+      }
+  
+      // Extract year and month from the selected month parameter (format: YYYY-MM)
+      const [year, monthIndex] = selectedMonth.split('-');
+      if (!year || !monthIndex || isNaN(year) || isNaN(monthIndex)) {
+        return res.status(400).json({
+          success: false,
+          status: 400,
+          message: 'Invalid month format (expected YYYY-MM)',
+        });
+      }
+  
+      // Generate the start and end dates for the selected month (in UTC)
+      const startDate = new Date(Date.UTC(year, monthIndex - 1, 1)); // Start of the month
+      const endDate = new Date(Date.UTC(year, monthIndex, 0, 23, 59, 59)); // End of the month
+  
+      console.log("Year:", year);
+      console.log("Month Index:", monthIndex);
+      console.log("Start Date:", startDate.toISOString());
+      console.log("End Date:", endDate.toISOString());
+  
+      // Count pending tasks for the employee within the specified month
+      const pendingTasksCount = await TaskAssignment.countDocuments({
+        EmployeeId: new mongoose.Types.ObjectId(employeeId),
+        status: 'pending',
+        createdAt: { $gte: startDate, $lte: endDate } // Filter by createdAt date range
+      });
+  
+      res.json({
+        success: true,
+        status: 200,
+        message: 'Pending tasks count retrieved successfully',
+        data: { pendingTasksCount },
+      });
+    } catch (err) {
+      console.error("Error:", err);
+      res.status(500).json({
+        success: false,
+        status: 500,
+        message: err.message,
+      });
+    }
+  };
+  
+
+
+
+
+module.exports = { assignTask,getAllWeekTasksForEmployee,updateTaskStatus,approveTaskStatus,completeTask,requestChanges,calculateBudgetAndEmployeeCost ,getPendingTasksCount};

@@ -43,6 +43,11 @@ import { EmpViewTaskComponent } from './employee/emp-view-task/emp-view-task.com
 import { AssigntaskComponent } from './admin/assigntask/assigntask.component';
 import { EmpAssignTaskComponent } from './employee/emp-assign-task/emp-assign-task.component';
 import { EmpViewAssignTaskComponent } from './employee/emp-view-assign-task/emp-view-assign-task.component';
+import { UpdateProjectComponent } from './admin/update-project/update-project.component';
+import { SaveImpWorkComponent } from './admin/save-imp-work/save-imp-work.component';
+import { ViewImpWorkComponent } from './employee/view-imp-work/view-imp-work.component';
+import { AnnouncementComponent } from './admin/announcement/announcement.component';
+import { ViewAnnouncementComponent } from './employee/view-announcement/view-announcement.component';
 
 
 
@@ -83,7 +88,12 @@ import { EmpViewAssignTaskComponent } from './employee/emp-view-assign-task/emp-
     EmpViewTaskComponent,
     AssigntaskComponent,
     EmpAssignTaskComponent,
-    EmpViewAssignTaskComponent
+    EmpViewAssignTaskComponent,
+    UpdateProjectComponent,
+    SaveImpWorkComponent,
+    ViewImpWorkComponent,
+    AnnouncementComponent,
+    ViewAnnouncementComponent
    
    
   ],

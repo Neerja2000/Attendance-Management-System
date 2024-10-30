@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
+
   constructor() { }
   storedata(res: any) {
     // Check if response is for employee or admin login
@@ -16,7 +17,7 @@ export class AuthService {
     } else if (res.token) {
      
       // Handling admin login response
-      sessionStorage.setItem('_id', ''); // Admin login response doesn't include `_id`
+      sessionStorage.setItem('_id',res.id ||''); // Admin login response doesn't include `_id`
       sessionStorage.setItem('token', res.token || '');
       
     } else {

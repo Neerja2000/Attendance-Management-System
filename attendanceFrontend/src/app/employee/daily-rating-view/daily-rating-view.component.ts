@@ -47,12 +47,17 @@ export class DailyRatingViewComponent implements OnInit {
     return `${year}-${month}`;
   }
 
+  // Calculate the current week based on the start of the month
+
   getCurrentWeek(): string {
     const date = new Date();
-    const day = date.getDate();
-    return `week${Math.ceil(day / 7)}`;
-  }
+    const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+    const dayOfMonth = date.getDate();
+    const daysFromStartOfMonth = (date.getTime() - firstDayOfMonth.getTime()) / (1000 * 60 * 60 * 24);
 
+    return `week${Math.ceil((daysFromStartOfMonth + firstDayOfMonth.getDay()) / 7)}`;
+  }
+  
   updateWeeks() {
     if (!this.selectedMonth) {
       this.selectedMonth = this.getCurrentMonthForFilter();
@@ -62,7 +67,7 @@ export class DailyRatingViewComponent implements OnInit {
     const firstDay = new Date(year, month - 1, 1);
     const lastDay = new Date(year, month, 0);
     const totalDays = lastDay.getDate();
-    const weeksCount = Math.ceil(totalDays / 7);
+    const weeksCount = Math.ceil((totalDays + firstDay.getDay()) / 7);
 
     this.weeks = [];
     for (let i = 1; i <= weeksCount; i++) {
@@ -86,7 +91,7 @@ export class DailyRatingViewComponent implements OnInit {
           const filteredRatings = response.data.filter((rating: any) => {
             const ratingDate = new Date(rating.createdAt);
             const ratingYearMonth = `${ratingDate.getFullYear()}-${(ratingDate.getMonth() + 1).toString().padStart(2, '0')}`;
-            const ratingWeek = `week${Math.ceil(ratingDate.getDate() / 7)}`;
+            const ratingWeek = this.getWeekOfMonth(ratingDate);
 
             // Filter by selected month and week
             const matchesMonth = this.selectedMonth ? ratingYearMonth === this.selectedMonth : true;
@@ -107,17 +112,23 @@ export class DailyRatingViewComponent implements OnInit {
     );
   }
 
+  getWeekOfMonth(date: Date): string {
+    const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+    const daysSinceFirst = Math.floor((date.getTime() - firstDayOfMonth.getTime()) / (1000 * 60 * 60 * 24));
+    return `week${Math.ceil((daysSinceFirst + firstDayOfMonth.getDay() + 1) / 7)}`;
+  }
+
   processRatings(): void {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     const employeeMap = new Map<string, any>();
-
+  
     this.ratings.forEach(rating => {
       if (rating.employeeId && rating.employeeId._id) {
         const date = new Date(rating.createdAt);
         const dayOfWeek = date.getDay();
-        const dayName = days[dayOfWeek - 1];
+        const dayName = days[dayOfWeek - 1]; // Adjust the index for correct day names
         const employeeId = rating.employeeId._id;
-
+  
         if (!employeeMap.has(employeeId)) {
           employeeMap.set(employeeId, {
             name: rating.employeeId.name,
@@ -126,35 +137,39 @@ export class DailyRatingViewComponent implements OnInit {
             ratingCount: 0
           });
         }
-
+  
         const employeeData = employeeMap.get(employeeId);
         employeeData.ratings[dayName] = {
           rating: rating.rating,
-          remarks: rating.remarks
+          remarks: rating.remarks,
+          date: date.toDateString() // Store the date in a readable format
         };
-
+  
         employeeData.totalRating += rating.rating;
         employeeData.ratingCount++;
       } else {
         console.warn('Missing employeeId in rating:', rating);
       }
     });
-
+  
     this.employees = Array.from(employeeMap.values()).map(employee => {
       const averageRating = employee.ratingCount > 0 
         ? (employee.totalRating / employee.ratingCount).toFixed(2) 
         : '0.00'; 
-
+  
       return {
         ...employee,
         averageRating
       };
     });
   }
+  
 
   onFilterChange() {
     this.updateWeeks();
     this.loadRatings();
   }
-}
 
+
+  
+}

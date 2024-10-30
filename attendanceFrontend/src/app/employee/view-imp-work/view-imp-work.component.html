@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Important Content</h2>
+
+    <div class="work-item" *ngFor="let content of uploadedContent,let i = index">
+        <div class="work-title">{{i+1}}. {{content.title}}</div>
+        <div class="work-description">{{content.description}}</div>
+        <div *ngIf="content.link">
+            <strong>Related URL: </strong>
+            <a [href]="content.link" target="_blank">{{ content.link }}</a>
+          </div>
+
+          <div *ngFor="let file of content.files" class="m-2">
+            <ng-container [ngSwitch]="getFileType(file)">
+                <a [href]="file" target="_blank" class="file-link">
+                  <div class="file-item">
+                    <ng-container [ngSwitch]="getFileType(file)">
+                      <img *ngSwitchCase="'image'" src="../../../assets/images/logos/photo.png" height="35px" alt="Image file">
+                      <img *ngSwitchCase="'pdf'" src="../../../assets/images/logos/pdf.png" height="35px" alt="PDF file">
+                      <img *ngSwitchDefault src="../../../assets/images/logos/zip.png" height="35px" alt="Other file">
+                    </ng-container>
+                    <span class="file-name">{{ getFileName(file) }}</span>
+                  </div>
+                </a>
+              </ng-container>
+      </div>
+      <hr>
+    </div>
+   
+
+    
+
+    <!-- Add more work-item divs as needed -->
+</div>

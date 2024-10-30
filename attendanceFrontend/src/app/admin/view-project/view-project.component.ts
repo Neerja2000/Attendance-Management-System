@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/shared/project/project.service';
 import { EmployeeService } from 'src/app/shared/employee/employee.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-project',
@@ -30,6 +31,7 @@ export class ViewProjectComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           this.projects = res.data;
+          console.log(res.data)
           
         } else {
           console.error('Error retrieving projects:', res.message);
@@ -84,21 +86,44 @@ export class ViewProjectComponent implements OnInit {
   }
 
   deleteProject(projectId: string) {
-    if (confirm("Are you sure you want to delete this project?")) {
-      this.projectService.deleteProjectApi(projectId).subscribe(
-        (response: any) => {
-          if (response.success) {
-            alert('Project deleted successfully.');
-            this.getProjectApi();  // Refresh the project list after deletion
-          } else {
-            alert(`Error: ${response.message}`);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.projectService.deleteProjectApi(projectId).subscribe(
+          (response: any) => {
+            if (response.success) {
+              Swal.fire(
+                'Deleted!',
+                'Project deleted successfully.',
+                'success'
+              );
+              this.getProjectApi();  // Refresh the project list after deletion
+            } else {
+              Swal.fire(
+                'Error!',
+                response.message,
+                'error'
+              );
+            }
+          },
+          (error) => {
+            console.error('Error deleting project:', error);
+            Swal.fire(
+              'Failed!',
+              'Failed to delete the project.',
+              'error'
+            );
           }
-        },
-        (error) => {
-          console.error('Error deleting project:', error);
-          alert('Failed to delete the project.');
-        }
-      );
-    }
+        );
+      }
+    });
   }
+  
 }

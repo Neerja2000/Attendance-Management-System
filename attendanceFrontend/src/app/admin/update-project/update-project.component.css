@@ -1,0 +1,78 @@
+.project-input {
+    font-size: 14px; /* Same font size for all input fields */
+    color: black; /* Color for text */
+    border: 1px solid #ccc; /* Light border */
+    padding: 10px;
+}
+
+/* Label styling */
+.form-label {
+    font-size: 14px; /* Larger font size for labels */
+    color: black; /* Slightly darker color for labels */
+}
+
+
+
+.employee-list label {
+    font-size: 16px; /* Matching font size to inputs */
+    color: #333; /* Same color as other form elements */
+}
+
+.employee-list input[type="checkbox"] {
+    margin-right: 10px; /* Spacing between checkbox and label */
+}
+
+/* Styling for buttons */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* Task cards styling */
+.cards .card {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.card-title {
+    font-size: 12px;
+    /* font-weight: 600; */
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    font-size: 12px;
+}
+
+/* Overall card style */
+.card {
+    border: none;
+    border-radius: 8px;
+}
+
+
+.card-title {
+    font-size: 20px; /* Title font size */
+    font-weight: 600; /* Bold title */
+}
+
+
+
+
+.employee-list {
+    max-height: 200px; /* Set your desired height */
+    overflow-y: auto; 
+    border: 1px solid rgb(232, 230, 230);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  

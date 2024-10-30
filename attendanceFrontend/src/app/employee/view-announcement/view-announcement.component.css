@@ -1,0 +1,45 @@
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-img-top {
+    object-fit: cover;
+    height: 400px; /* Adjust height as necessary */
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-weight: bold;
+  }
+  
+  .card-text {
+    margin-bottom: 1rem;
+  }
+  
+  .btn-light {
+    border: none;
+    color: #007bff;
+  }
+  
+  .btn-light:hover {
+    color: #0056b3;
+  }
+  
+  .border-bottom {
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .text-muted {
+    font-size: 0.85rem;
+  }
+  .comment-container {
+  max-height: 150px; /* Set a maximum height for the comments section */
+  overflow-y: auto;  /* Allow vertical scrolling */
+  margin-bottom: 1rem; /* Space below the comments section */
+}

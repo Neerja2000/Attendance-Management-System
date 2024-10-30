@@ -43,7 +43,10 @@
                 {{ day.day }} ({{ day.date | date }})<br>
               </ng-container>
             </td>
-            <td>{{ detail.taskId.taskName }}</td>
+            <td>
+              {{ detail.taskId.taskName }}<br>
+              <span *ngIf="detail.urgent" style="color: red;"> (Urgently Needed)</span>
+            </td>
             <td>
               <button 
                 class="badge btn"

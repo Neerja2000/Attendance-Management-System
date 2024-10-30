@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 // Task Assignment Schema
 const taskAssignmentSchema = new mongoose.Schema({
-
     AssignId: {
         type: Number,
         required: true
@@ -24,11 +23,10 @@ const taskAssignmentSchema = new mongoose.Schema({
     },
     rating: {
         type: Number,
-      
-      },
-      review: {
+    },
+    review: {
         type: String, // Allows admins to add a review
-      },
+    },
     feedback: { type: [String], default: [] }, 
     assignedDays: {
         type: [
@@ -39,7 +37,6 @@ const taskAssignmentSchema = new mongoose.Schema({
         ],
         required: true
     },
-    
     createdAt: {
         type: Date,
         default: Date.now
@@ -50,8 +47,10 @@ const taskAssignmentSchema = new mongoose.Schema({
         default: 'pending'
     },
     revisionCount: { type: Number, default: 0 },
-    
-    
+    urgent: { 
+        type: Boolean, 
+        default: false // Default to not urgent 
+    }
 });
 
 const TaskAssignment = mongoose.model('TaskAssignment', taskAssignmentSchema);

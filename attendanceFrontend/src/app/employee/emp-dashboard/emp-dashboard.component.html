@@ -1,1 +1,114 @@
-<h1>Dashboard</h1>
+<div class="container">
+   <div class="row">
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+          <label for="date-picker">Select Month:</label>
+          <input type="month" class="form-control-sm ms-5" id="date-picker" [(ngModel)]="selectedMonth" (change)="filterByMonth()" />
+
+        </div>
+      </div>
+   </div>
+
+   <div class="div d-flex  flex-wrap mt-5 ">
+    <div class="dashboard-card">
+    <div class="card-icon">
+      <img src="../../../assets/images/calendar.png" alt="Working Days Icon">
+    </div>
+    <div class="card-content">
+      <h3>Total Working Days</h3>
+      <span style="font-size: 12px; color:rgb(65, 65, 172);">This Month</span>
+      <p>{{ totalWorkingDays }}</p>
+    </div>
+  </div>
+
+  <!-- Card 2: Total Holidays -->
+  <div class="dashboard-card">
+    <div class="card-icon">
+      <img src="../../../assets/images/leave.png" alt="Holidays Icon">
+    </div>
+    <div class="card-content">
+      <h3>Total Leaves</h3>
+      <span style="font-size: 12px; color:rgb(65, 65, 172);">This Month</span>
+      <p>{{ totalHolidays }}</p>
+    </div>
+  </div>
+
+  <!-- Card 3: Today's Working Day -->
+  <div class="dashboard-card">
+    <div class="card-icon">
+      <img src="../../../assets/images/project-management.png" alt="Today Icon">
+    </div>
+    <div class="card-content">
+      <h3>Pending Tasks</h3>
+      <span style="font-size: 12px; color:rgb(65, 65, 172);">This Month</span>
+      <p>{{pendingTasksCount}}</p>
+    </div>
+  </div>
+  <div class="dashboard-card">
+    <div class="card-icon">
+      <img src="../../../assets/images/important.png" alt="Attendance Icon">
+    </div>
+    <div class="card-content">
+      <h3>Urgently Needed Tasks</h3> <!-- Display the urgent task count -->
+      <span style="font-size: 12px; color:rgb(65, 65, 172);">Total</span>
+      <p>{{ UrgentlyNeededCount }}</p>
+    </div>
+  </div>
+  
+</div>
+<div class="div d-flex flex-wrap mt-5 ">
+  <div class="dashboard-card">
+    <div class="card-icon">
+      <img src="../../../assets/images/late.png" alt="Working Days Icon">
+    </div>
+    <div class="card-content">
+      <h3>Late Arrival</h3>
+      <span style="font-size: 12px; color:rgb(65, 65, 172);">This Month</span>
+      <p>{{ lateArrivalsCount }}</p> <!-- Display the count here -->
+    </div>
+  </div>
+
+
+
+<!-- Card 2: Total Holidays -->
+<div class="dashboard-card">
+  <div class="card-icon">
+    <img src="../../../assets/images/leave.png" alt="Holidays Icon">
+  </div>
+  <div class="card-content">
+    <h3>Total Leaves</h3>
+    <span style="font-size: 12px; color:rgb(65, 65, 172);">This Month</span>
+    <p>{{ totalHolidays }}</p>
+  </div>
+</div>
+
+<!-- Card 3: Today's Working Day -->
+<div class="dashboard-card">
+  <div class="card-icon">
+    <img src="../../../assets/images/project-management.png" alt="Today Icon">
+  </div>
+  <div class="card-content">
+    <h3>Pending Tasks</h3>
+    <span style="font-size: 12px; color:rgb(65, 65, 172);">This Month</span>
+    <p>{{pendingTasksCount}}</p>
+  </div>
+</div>
+<div class="dashboard-card">
+  <div class="card-icon">
+    <img src="../../../assets/images/important.png" alt="Attendance Icon">
+  </div>
+  <div class="card-content">
+    <h3>Urgently Needed Tasks</h3> <!-- Display the urgent task count -->
+    <span style="font-size: 12px; color:rgb(65, 65, 172);">Total</span>
+    <p>{{ UrgentlyNeededCount }}</p>
+  </div>
+</div>
+
+</div>
+</div> 
+    
+
+  
