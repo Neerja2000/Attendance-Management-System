@@ -42,7 +42,7 @@ export class ViewAnnouncementComponent implements OnInit {
   
   
   isImage(mediaUrl: string): boolean {
-    return /\.(jpg|jpeg|png|gif|webp)$/i.test(mediaUrl);
+    return /\.(jpg|jpeg|png|gif|webp|avif)$/i.test(mediaUrl);
   }
 
   toggleLike(viewAnnouncement: any) {
