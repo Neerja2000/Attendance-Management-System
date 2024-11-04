@@ -100,7 +100,10 @@ const getAll = async (req, res) => {
             success: true,
             status: 200,
             message: "Get All Active Employees with Updated Per Hour Salary for Current Month",
-            data: employees
+            data: {
+                employees,
+                totalEmployees: employees.length
+            }
         });
     } catch (err) {
         res.status(500).json({
@@ -165,7 +168,7 @@ const getSingle = (req, res) => {
         });
 };
 
-module.exports = getSingle;
+
 
 
 const update=(req,res)=>{
