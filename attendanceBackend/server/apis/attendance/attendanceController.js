@@ -344,7 +344,7 @@ const changeStatus = (req, res) => {
       const results = await attendance.find({
         createdAt: { $gte: startOfDay, $lte: endOfDay },
       }).populate('employeeId');
-  
+      const presentCount = results.length;
       const pipeline = [
         {
           $lookup: {
@@ -393,6 +393,7 @@ const changeStatus = (req, res) => {
         status: 200,
         message: "Attendance for the selected date loaded successfully",
         data: result,
+        presentCount: presentCount
       });
     } catch (err) {
       res.status(500).json({
