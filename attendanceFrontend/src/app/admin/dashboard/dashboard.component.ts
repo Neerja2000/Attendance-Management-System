@@ -10,6 +10,7 @@ import { EmployeeService } from 'src/app/shared/employee/employee.service';
 export class DashboardComponent implements OnInit {
   totalEmployees: number = 0;
   presentCount: number = 0;
+  absentCount: number = 0;
   attendanceRecords: any[] = [];
   selectedDate: string = '';
   ngOnInit(): void {
@@ -37,6 +38,7 @@ export class DashboardComponent implements OnInit {
     this.attendanceService.getAttendanceByDate(date || '').subscribe(response => {
       if (response.success) {
         this.presentCount = response.presentCount;
+        this.absentCount = response.absentCount; // This should now work correctly
         this.attendanceRecords = response.data;
       } else {
         console.error('Failed to fetch attendance');

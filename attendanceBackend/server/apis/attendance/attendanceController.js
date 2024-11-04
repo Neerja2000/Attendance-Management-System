@@ -312,7 +312,6 @@ const changeStatus = (req, res) => {
   
 
   
-  
   const getAttendanceByDate = async (req, res) => {
     try {
       const { date } = req.query; // Get the date from the query parameters
@@ -340,11 +339,17 @@ const changeStatus = (req, res) => {
       const startOfDay = new Date(selectedDate.setHours(0, 0, 0, 0));
       const endOfDay = new Date(selectedDate.setHours(23, 59, 59, 999));
   
+      // Fetch total employees count
+      const totalEmployees = await Employee.countDocuments(); // Make sure to import the Employee model
+  
       // Query the database for attendance records on the selected date
       const results = await attendance.find({
         createdAt: { $gte: startOfDay, $lte: endOfDay },
       }).populate('employeeId');
+      
       const presentCount = results.length;
+      const absentCount = totalEmployees - presentCount; // Calculate absent count
+  
       const pipeline = [
         {
           $lookup: {
@@ -384,18 +389,19 @@ const changeStatus = (req, res) => {
             status: '$attendance.status'
           }
         },
-       
       ];
   
-      const result = await Employee.aggregate(pipeline) ;
+      const result = await Employee.aggregate(pipeline);
       res.json({
         success: true,
         status: 200,
         message: "Attendance for the selected date loaded successfully",
         data: result,
-        presentCount: presentCount
+        presentCount: presentCount,
+        absentCount: absentCount // Include absentCount in the response
       });
     } catch (err) {
+      console.error("Error fetching attendance by date:", err.message);
       res.status(500).json({
         success: false,
         status: 500,
@@ -403,6 +409,7 @@ const changeStatus = (req, res) => {
       });
     }
   };
+  
   const getHolidaysByMonth = async (req, res) => {
     try {
       const { employeeId } = req.params;
