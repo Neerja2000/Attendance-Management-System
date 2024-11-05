@@ -1,0 +1,8 @@
+.current-week {
+    font-weight: bold; /* Style for the current week */
+  }
+  
+  .upcoming-week {
+ 
+    color: #b0b0b0; /* Dark red text */
+  }
