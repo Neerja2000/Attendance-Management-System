@@ -12,8 +12,8 @@ export class DailyRatingViewComponent implements OnInit {
   ratings: any[] = [];
   employees: any[] = [];
   selectedWeek: string = '';
-  weeks: string[] = Array.from({ length: 54 }, (_, i) => `week${i + 1}`);
-  employeeId: string = ''; // Ensure this is set to the ID you want to fetch ratings for
+  weeks: { value: string; label: string; disabled: boolean }[] = [];
+  employeeId: string = '';
 
   constructor(private ratingService: EmpRatingService, private route: ActivatedRoute) {}
 
@@ -21,7 +21,7 @@ export class DailyRatingViewComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.employeeId = params.get('employeeId') || '';
       if (this.employeeId) {
-        this.selectedWeek = this.getCurrentWeek();
+        this.updateWeeks();
         this.loadRatings();
       } else {
         console.error('Employee ID is not provided');
@@ -29,12 +29,28 @@ export class DailyRatingViewComponent implements OnInit {
     });
   }
 
-  // Calculate the current week of the year
-  getCurrentWeek(): string {
-    const date = new Date();
-    const start = new Date(date.getFullYear(), 0, 1);
-    const diff = (date.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
-    return `week${Math.ceil((diff + start.getDay() + 1) / 7)}`;
+  updateWeeks() {
+    const currentWeekOfYear = this.getCurrentWeekOfYear();
+    this.weeks = [];
+
+    for (let i = 1; i <= 54; i++) {
+      this.weeks.push({
+        value: `week${i}`,
+        label: `Week ${i}`,
+        disabled: i > currentWeekOfYear
+      });
+    }
+
+    if (!this.selectedWeek) {
+      this.selectedWeek = `week${currentWeekOfYear}`;
+    }
+  }
+
+  getCurrentWeekOfYear(): number {
+    const today = new Date();
+    const startOfYear = new Date(today.getFullYear(), 0, 1);
+    const daysElapsed = Math.floor((today.getTime() - startOfYear.getTime()) / (1000 * 60 * 60 * 24));
+    return Math.ceil((daysElapsed + startOfYear.getDay()) / 7);
   }
 
   loadRatings(): void {
@@ -46,12 +62,9 @@ export class DailyRatingViewComponent implements OnInit {
     this.ratingService.getSingleEmployeeRating(this.employeeId).subscribe(
       (response: any) => {
         if (response.success) {
-          // Filter ratings based on the selected week of the year
           const filteredRatings = response.data.filter((rating: any) => {
             const ratingDate = new Date(rating.createdAt);
             const ratingWeek = this.getWeekOfYear(ratingDate);
-
-            // Filter by selected week
             return this.selectedWeek ? ratingWeek === this.selectedWeek : true;
           });
 
@@ -67,22 +80,21 @@ export class DailyRatingViewComponent implements OnInit {
     );
   }
 
-  // Calculate the week number for a specific date within the year
   getWeekOfYear(date: Date): string {
-    const start = new Date(date.getFullYear(), 0, 1);
-    const diff = (date.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
-    return `week${Math.ceil((diff + start.getDay() + 1) / 7)}`;
+    const startOfYear = new Date(date.getFullYear(), 0, 1);
+    const daysSinceStart = Math.floor((date.getTime() - startOfYear.getTime()) / (1000 * 60 * 60 * 24));
+    return `week${Math.ceil((daysSinceStart + startOfYear.getDay()) / 7)}`;
   }
 
   processRatings(): void {
-    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const employeeMap = new Map<string, any>();
   
     this.ratings.forEach(rating => {
       if (rating.employeeId && rating.employeeId._id) {
         const date = new Date(rating.createdAt);
         const dayOfWeek = date.getDay();
-        const dayName = days[dayOfWeek - 1];
+        const dayName = days[dayOfWeek - 1] || 'Sunday'; // Ensure Sunday is handled correctly
         const employeeId = rating.employeeId._id;
   
         if (!employeeMap.has(employeeId)) {
@@ -98,7 +110,7 @@ export class DailyRatingViewComponent implements OnInit {
         employeeData.ratings[dayName] = {
           rating: rating.rating,
           remarks: rating.remarks,
-          date: date.toDateString()
+          date: date.toDateString() // Store the date in a readable format
         };
   
         employeeData.totalRating += rating.rating;
@@ -119,6 +131,7 @@ export class DailyRatingViewComponent implements OnInit {
       };
     });
   }
+  
 
   onFilterChange() {
     this.loadRatings();

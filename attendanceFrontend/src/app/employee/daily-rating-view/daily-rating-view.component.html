@@ -10,7 +10,13 @@
             <div class="form-group">
               <label for="weekFilter">Filter by Week:</label>
               <select id="weekSelect" [(ngModel)]="selectedWeek" (change)="onFilterChange()" class="form-control">
-                <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
+                <option 
+                  *ngFor="let week of weeks" 
+                  [value]="week.value" 
+                  [disabled]="week.disabled"
+                  [ngClass]="{ 'upcoming-week': week.disabled }">
+                  {{ week.label }}
+                </option>
               </select>
             </div>
           </div>
@@ -26,17 +32,19 @@
               <th>Wednesday</th>
               <th>Thursday</th>
               <th>Friday</th>
+              <th>Saturday</th>
+              <th>Sunday</th>
               <th>Average</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let employee of employees">
               <td>{{ employee.name }}</td>
-              <td *ngFor="let day of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']">
+              <td *ngFor="let day of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']">
                 <div *ngIf="employee.ratings[day]">
                   <div style="font-weight: bold; font-size: 18px;">{{ employee.ratings[day].rating }}</div>
                   <p>{{ employee.ratings[day].remarks }}</p>
-                  <small>{{ employee.ratings[day].date }}</small>
+                  <small>{{ employee.ratings[day].date }}</small> <!-- Display the date here -->
                 </div>
                 <div *ngIf="!employee.ratings[day]" class="text-center">---</div>
               </td>
