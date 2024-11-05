@@ -21,6 +21,7 @@ export class ViewEmployeesComponent implements OnInit {
     this.employeeService.viewEmployeeapi().subscribe(
       (res: any) => {
         this.employees = res.data;
+        console.log('employees',this.employees)
       },
       (error: any) => {
         console.error('Error:', error);

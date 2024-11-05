@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Observable } from 'rxjs';
@@ -215,5 +215,12 @@ addComment(announcementId: string, commentData: { user: string, text: string }):
 
 updateTask(taskId: string, updateData: any): Observable<any> {
   return this.http.patch(`${this.globalbaseurl}/tasks/urgent${taskId}`, updateData);
+}
+
+
+getTasksCountByDate(date: string): Observable<any> {
+  console.log('Requesting task count for date:', date); // Log the date before the API call
+  let params = new HttpParams().set('date', date);
+  return this.http.get(`${this.globalbaseurl}/task-count`, { params });
 }
 }

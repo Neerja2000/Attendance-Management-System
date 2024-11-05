@@ -591,8 +591,48 @@ const getPendingTasksCount = async (req, res) => {
     }
   };
   
+  const getTasksCountByDate = async (req, res) => {
+    try {
+        const { date } = req.query;
+        console.log('Query date:', date); // Log the query date for debugging
+        
+        const tasksCount = await TaskAssignment.aggregate([
+            { 
+                $match: { 
+                    'assignedDays.date': date 
+                } 
+            },
+            {
+                $group: {
+                    _id: '$status', // Group by task status
+                    count: { $sum: 1 } // Count the number of tasks per status
+                }
+            }
+        ]);
+        
+        // Prepare counts for pending and completed tasks
+        const pendingCount = tasksCount.find(task => task._id === 'pending')?.count || 0;
+        const completedCount = tasksCount.find(task => task._id === 'completed')?.count || 0;
+
+        console.log('Tasks found:', tasksCount); // Log tasks to inspect
+        res.json({
+            success: true,
+            count: {
+                total: pendingCount + completedCount,
+                pending: pendingCount,
+                completed: completedCount
+            }
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
 
 
 
 
-module.exports = { assignTask,getAllWeekTasksForEmployee,updateTaskStatus,approveTaskStatus,completeTask,requestChanges,calculateBudgetAndEmployeeCost ,getPendingTasksCount};
+
+module.exports = { assignTask,getAllWeekTasksForEmployee,updateTaskStatus,approveTaskStatus,completeTask,requestChanges,calculateBudgetAndEmployeeCost ,getPendingTasksCount,getTasksCountByDate};

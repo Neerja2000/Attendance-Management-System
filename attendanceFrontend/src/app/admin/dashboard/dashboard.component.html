@@ -48,16 +48,17 @@
     </div>
   </div>
   
-  <div class="dashboard-card">
-    <div class="card-icon">
-      <img src="../../../assets/images/done.png" alt="Attendance Icon">
-    </div>
-    <div class="card-content">
-      <h3>Tasks</h3> 
-      <span style="font-size: 12px; color:rgb(65, 65, 172);">Today</span>
-      <p>6</p>
-    </div>
+
+<div class="dashboard-card">
+  <div class="card-icon">
+    <img src="../../../assets/images/done.png" alt="Attendance Icon">
   </div>
+  <div class="card-content">
+    <h3>Tasks</h3> 
+    <span style="font-size: 12px; color: rgb(65, 65, 172);">Today</span>
+    <p>{{ taskCountToday }}</p>
+  </div>
+</div>
 
 </div>  
 <div class="div d-flex flex-wrap mt-5 ">
@@ -70,7 +71,7 @@
         <div class="card-content">
           <h3>Tasks Completed</h3> 
           <span style="font-size: 12px; color:rgb(65, 65, 172);">Today</span>
-          <p>6</p>
+          <p>{{completedCount}}</p>
         </div>
       </div>
       <div class="dashboard-card">
@@ -80,7 +81,7 @@
         <div class="card-content">
           <h3>Tasks Pending</h3>
           <span style="font-size: 12px; color:rgb(65, 65, 172);">Today</span>
-          <p>6</p>
+          <p>{{pendingCount}}</p>
         </div>
       </div>
     </div>  

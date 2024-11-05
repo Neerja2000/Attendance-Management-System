@@ -67,7 +67,7 @@ router.post('/assign-task/:employeeId',assignController.assignTask);
 router.get('/assign-task/getAllWeekTasksForEmployee/:employeeId', assignController.getAllWeekTasksForEmployee);
 router.patch('/approve-task-status/:id',assignController.approveTaskStatus);
 router.post('/calculate-budget/:employeeId', assignController.calculateBudgetAndEmployeeCost);
-
+router.get('/task-count',assignController.getTasksCountByDate);
 
 
 // 
