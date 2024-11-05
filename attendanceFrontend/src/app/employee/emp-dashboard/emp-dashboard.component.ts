@@ -79,18 +79,28 @@ export class EmpDashboardComponent implements OnInit {
 
   getAssignTask() {
     if (!this.employeeId) return;
+    
     this.taskService.getAssignTaskApi(this.employeeId).subscribe(
-      (res: any) => {
-        if (res.success) {
-          this.assignTasks = res.data;
-          this.UrgentlyNeededCount = this.assignTasks.filter((task: any) => task.urgent).length;
-        } else {
-          console.error('Failed to retrieve assigned tasks:', res.message);
+        (res: any) => {
+            if (res.success) {
+                this.assignTasks = res.data;
+
+                // Filter out tasks that are urgent and not completed
+                this.UrgentlyNeededCount = this.assignTasks.filter((task: any) => 
+                  task.urgent && task.status !== 'completed' // Ensure you're checking for a string match
+              ).length;
+              // Closing parenthesis added here
+
+                console.log('Assigned Tasks:', res.data);
+                console.log('Urgently Needed Count:', this.UrgentlyNeededCount);
+            } else {
+                console.error('Failed to retrieve assigned tasks:', res.message);
+            }
+        },
+        (error: any) => {
+            console.error('Error fetching assigned tasks:', error);
         }
-      },
-      (error: any) => {
-        console.error('Error fetching assigned tasks:', error);
-      }
     );
-  }
+}
+
 }
