@@ -1,48 +1,54 @@
 <div class="container-fluid mt-5">
-    <section class="section">
-      <div class="card">
-        <div class="card-header">
-            <div class="row"> <div class="col-md-9">
-                <h5 class="card-title">Add Today's Rating</h5>
-            </div>
-            <div class="col-md">
-                <button class="btn btn-primary"  [routerLink]="['/employee/layout/daily-rating-view', employeeId]" >View<i class="bi bi-arrow-right ms-2"></i>  </button>
-            </div>
-           </div>
-           
-         
-        </div>
-        <div class="card-body">
-          <form [formGroup]="dailyRating" (ngSubmit)="submit()">
-            <table class="table table-striped" id="table1">
-              <thead>
-                <tr>
-                  <th>Rating</th>
-                  <th>Remarks</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <select formControlName="rating" class="form-control" required>
-                        <option value="" disabled>Select Rating</option>
-                        <option *ngFor="let rating of ratings" [value]="rating">{{ rating }}</option>
-                      </select>
-                  </td>
-                  <td>
-                    <input type="text" formControlName="remarks"  class="form-control" required>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="d-flex">
-            <button type="submit" class="btn btn-primary mt-2">Add Rating</button>
-           
-              <button class="btn btn-primary mt-2 offset-md-8"  [routerLink]="['/employee/layout/emp-add-attendance']" ><i class="bi bi-arrow-left"></i>  Back</button>
+  <section class="section">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-9">
+            <h5 class="card-title">Add Rating</h5>
           </div>
-          </form>
+          <div class="col-md">
+            <button class="btn btn-primary" [routerLink]="['/employee/layout/daily-rating-view', employeeId]">
+              View<i class="bi bi-arrow-right ms-2"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </section>
-  </div>
-  
+      <div class="card-body">
+        <form [formGroup]="dailyRating" (ngSubmit)="submit()">
+          <div class="form-group">
+            <label for="dateSelection">Select Date:</label>
+            <select formControlName="selectedDate" class="form-control">
+              <option value="today">Today</option>
+              <option value="yesterday">Yesterday</option>
+            </select>
+          </div>
+
+          <table class="table table-striped" id="table1">
+            <thead>
+              <tr>
+                <th>Rating</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <select formControlName="rating" class="form-control" required>
+                    <option value="" disabled>Select Rating</option>
+                    <option *ngFor="let rating of ratings" [value]="rating">{{ rating }}</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="text" formControlName="remarks" class="form-control" required>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="d-flex">
+            <button type="submit" class="btn btn-primary mt-2">Add Rating</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,64 +1,64 @@
 const rating = require('./dailyRatingModel');
 const Employee=require("../employee/employeeModel")
 const addDailyRating = (req, res) => {
-    const { rating: newRatingValue, remarks, employeeId } = req.body;
-
-    // Ensure employeeId is not null
+    const { rating: newRatingValue, remarks, employeeId, date } = req.body;
+  
     if (!employeeId) {
-        return res.status(400).json({
-            success: false,
-            message: "Employee ID is required."
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Employee ID is required."
+      });
     }
-
-    // Get the current date and time
-    const currentDate = new Date();
-    // Get the start of the day for the current date
-    const startOfDay = new Date(currentDate.setHours(0, 0, 0, 0));
-
-    // Check if there's already a rating from the same employee today
-    rating.findOne({ employeeId, createdAt: { $gte: startOfDay } })
-        .then(existingRating => {
-            if (existingRating) {
-                return res.status(400).json({
-                    success: false,
-                    message: "You can only add one rating per day."
-                });
-            }
-
-            // Get the total number of ratings and create a new rating
-            return rating.countDocuments()
-                .then(total => {
-                    const newRating = new rating({
-                        ratingId: total + 1,
-                        rating: newRatingValue,
-                        remarks,
-                        employeeId,  // Make sure employeeId is set
-                        status: true
-                    });
-
-                    // Save the new rating
-                    return newRating.save();
-                });
-        })
-        .then(result => {
-            if (!res.headersSent) {
-                res.status(200).json({
-                    success: true,
-                    message: "Rating Added Successfully",
-                    data: result
-                });
-            }
-        })
-        .catch(err => {
-            if (!res.headersSent) {
-                res.status(400).json({
-                    success: false,
-                    message: err.message
-                });
-            }
-        });
-};
+  
+    // Ensure the date is in the correct format (YYYY-MM-DD)
+    const ratingDate = new Date(date);
+    const startOfDay = new Date(ratingDate.setHours(0, 0, 0, 0));
+    const endOfDay = new Date(ratingDate.setHours(23, 59, 59, 999));
+  
+    // Check if there's already a rating from the same employee on the selected date
+    rating.findOne({ employeeId, createdAt: { $gte: startOfDay, $lte: endOfDay } })
+      .then(existingRating => {
+        if (existingRating) {
+          return res.status(400).json({
+            success: false,
+            message: "You can only add one rating per day."
+          });
+        }
+  
+        return rating.countDocuments()
+          .then(total => {
+            const newRating = new rating({
+              ratingId: total + 1,
+              rating: newRatingValue,
+              remarks,
+              employeeId,
+              status: true,
+              createdAt: ratingDate,  // Use the correct date
+            });
+  
+            return newRating.save();
+          });
+      })
+      .then(result => {
+        if (!res.headersSent) {
+          res.status(200).json({
+            success: true,
+            message: "Rating Added Successfully",
+            data: result
+          });
+        }
+      })
+      .catch(err => {
+        if (!res.headersSent) {
+          res.status(400).json({
+            success: false,
+            message: err.message
+          });
+        }
+      });
+  };
+  
+  
 
 const getDailyRatings = (req, res) => {
     // Query the database for all ratings without any date filters
