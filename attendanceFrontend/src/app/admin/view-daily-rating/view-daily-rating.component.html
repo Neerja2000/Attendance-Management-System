@@ -32,13 +32,15 @@
               <th>Wednesday</th>
               <th>Thursday</th>
               <th>Friday</th>
+              <th>Saturday</th>
+              <th>Sunday</th>
               <th>Average</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let employee of employees">
               <td>{{ employee.name }}</td>
-              <td *ngFor="let day of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']">
+              <td *ngFor="let day of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']">
                 <div *ngIf="employee.ratings[day]">
                   <div style="font-weight: bold; font-size: 18px;">{{ employee.ratings[day].rating }}</div>
                   <p>{{ employee.ratings[day].remarks }}</p>

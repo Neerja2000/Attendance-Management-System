@@ -83,54 +83,49 @@ export class ViewDailyRatingComponent implements OnInit {
   }
 
   processRatings(): void {
-    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const employeeMap = new Map<string, any>();
-
-    this.ratings.forEach((rating) => {
+  
+    this.ratings.forEach(rating => {
       if (rating.employeeId && rating.employeeId._id) {
         const date = new Date(rating.createdAt);
-        const dayOfWeek = date.getDay(); // 0 (Sunday) to 6 (Saturday)
-        const adjustedDayIndex = dayOfWeek === 0 ? 6 : dayOfWeek - 1; // Adjust to make Monday = 0, ..., Friday = 4
-        const dayName = days[adjustedDayIndex];
-
-        if (!dayName) {
-          return; // Skip if the day is Saturday or Sunday
-        }
-
+        const dayOfWeek = date.getDay();
+        const dayName = days[dayOfWeek - 1] || 'Sunday'; // Ensure Sunday is handled correctly
         const employeeId = rating.employeeId._id;
-
+  
         if (!employeeMap.has(employeeId)) {
           employeeMap.set(employeeId, {
             name: rating.employeeId.name,
             ratings: {},
             totalRating: 0,
-            ratingCount: 0,
+            ratingCount: 0
           });
         }
-
+  
         const employeeData = employeeMap.get(employeeId);
         employeeData.ratings[dayName] = {
           rating: rating.rating,
           remarks: rating.remarks,
+          date: date.toDateString() // Store the date in a readable format
         };
-
+  
         employeeData.totalRating += rating.rating;
         employeeData.ratingCount++;
       } else {
         console.warn('Missing employeeId in rating:', rating);
       }
     });
-
-    this.employees = Array.from(employeeMap.values()).map((employee) => {
-      const averageRating =
-        employee.ratingCount > 0
-          ? (employee.totalRating / employee.ratingCount).toFixed(2)
-          : '0.00';
-
+  
+    this.employees = Array.from(employeeMap.values()).map(employee => {
+      const averageRating = employee.ratingCount > 0 
+        ? (employee.totalRating / employee.ratingCount).toFixed(2) 
+        : '0.00'; 
+  
       return {
         ...employee,
-        averageRating,
+        averageRating
       };
     });
   }
+  
 }
