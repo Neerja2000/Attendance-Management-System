@@ -5,6 +5,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { EmpAttendanceService } from 'src/app/shared/empAttendance/emp-attendance.service';
 declare var bootstrap: any;
+
 @Component({
   selector: 'app-emp-add-attendance',
   templateUrl: './emp-add-attendance.component.html',
@@ -25,7 +26,6 @@ export class EmpAddAttendanceComponent implements OnInit {
     private authService: AuthService,
     private snackbar: MatSnackBar
   ) {
-    // Initialize form with today’s date as default
     this.attendanceForm = this.formBuilder.group({
       date: [new Date().toISOString().substring(0, 10)], // Default to today’s date in 'YYYY-MM-DD' format
       check_in: [''],
@@ -44,7 +44,7 @@ export class EmpAddAttendanceComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchEmployeeId().then(() => {
-      this.loadAttendance(this.today); // Load attendance for today by default
+      this.loadAttendance(this.today); // Load today's attendance by default
     });
   }
 
@@ -112,7 +112,7 @@ export class EmpAddAttendanceComponent implements OnInit {
     this.attendanceForm.patchValue({ work_done: this.workDoneContent });
     const modal = bootstrap.Modal.getInstance(document.getElementById('workDoneModal'));
     modal.hide();
-    this.submitAttendance(); 
+    this.submitAttendance();
   }
 
   submitAttendance() {
@@ -146,4 +146,3 @@ export class EmpAddAttendanceComponent implements OnInit {
     );
   }
 }
-
