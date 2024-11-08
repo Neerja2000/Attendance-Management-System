@@ -6,6 +6,7 @@
           <div class="col-md-8">
             <h5 class="card-title">Add Attendance</h5>
           </div>
+        
           <div class="col-md-4">
             <button class="btn btn-primary" [routerLink]="['/employee/layout/add-daily-rating']">+ Add Today's Rating</button>
           </div>
@@ -15,8 +16,8 @@
         <form [formGroup]="attendanceForm" (ngSubmit)="submitAttendance()">
           <!-- Date Picker Input -->
           <div class="form-group mb-3">
-            <label for="attendanceDate">Date</label>
-            <select id="attendanceDate" formControlName="date" (change)="onDateChange()" class="form-control" required>
+            <label for="attendanceDate">Select</label>
+            <select id="attendanceDate" formControlName="date" (change)="onDateChange()" class="form-control-sm ms-2" required>
               <option [value]="today">Today ({{ today }})</option>
               <option [value]="previousDay">Previous Day ({{ previousDay }})</option>
             </select>
