@@ -363,6 +363,7 @@ const changeStatus = (req, res) => {
         {
           $unwind: { path: '$attendances', preserveNullAndEmptyArrays: true }
         },
+        
         {
           $project: {
             _id: 0,
