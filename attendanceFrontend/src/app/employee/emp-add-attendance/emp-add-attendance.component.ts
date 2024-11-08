@@ -26,6 +26,7 @@ export class EmpAddAttendanceComponent implements OnInit {
     private authService: AuthService,
     private snackbar: MatSnackBar
   ) {
+    // Initialize form with today’s date as default
     this.attendanceForm = this.formBuilder.group({
       date: [new Date().toISOString().substring(0, 10)], // Default to today’s date in 'YYYY-MM-DD' format
       check_in: [''],
@@ -44,7 +45,7 @@ export class EmpAddAttendanceComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchEmployeeId().then(() => {
-      this.loadAttendance(this.today); // Load today's attendance by default
+      this.loadAttendance(this.today); // Load attendance for today by default
     });
   }
 
@@ -65,15 +66,42 @@ export class EmpAddAttendanceComponent implements OnInit {
     }
   }
 
+  onDateChange() {
+    
+    const selectedDate = this.attendanceForm.get('date')?.value;
+    
+    console.log('Selected date:', selectedDate);
+    this.loadAttendance(selectedDate); // Load attendance data for the selected date
+  }
+
   loadAttendance(date: string) {
     if (this.employeeId && date) {
+      console.log('Loading attendance for date:', date);
+      
+      // Clear form values initially to avoid previous data persisting
+      this.attendanceForm.patchValue({
+        date: date,
+        check_in: '',
+        break_time_start: '',
+        break_time_finish: '',
+        check_out: '',
+        work_done: ''
+      });
+      this.isWorkDoneAdded = false;
+      this.workDoneContent = '';
+  
       this.attendanceService.getAttendanceByDateAndEmployeeId(this.employeeId, date).subscribe(
         (response: any) => {
-          const attendance = response.data.find((att: any) => att.employeeId === this.employeeId);
+          console.log('Attendance data response:', response);
+  
+          // Check if data exists for the selected date
+          const attendance = response.data.find((att: any) => att.date.startsWith(date));
+  
           if (attendance) {
+            // Populate the form fields with data for the selected date
             this.attendanceForm.patchValue({
-              date: attendance.date ? this.formatDate(new Date(attendance.date)) : '',
-              check_in: attendance.check_in || '',
+              date: this.formatDate(new Date(attendance.date)),
+              check_in: attendance.check_in || '',  // Empty if no check-in time
               break_time_start: attendance.break_time_start || '',
               break_time_finish: attendance.break_time_finish || '',
               check_out: attendance.check_out || '',
@@ -81,8 +109,6 @@ export class EmpAddAttendanceComponent implements OnInit {
             });
             this.isWorkDoneAdded = !!attendance.work_done;
             this.workDoneContent = attendance.work_done || '';
-          } else {
-            this.attendanceForm.reset({ date: date });
           }
         },
         (error: any) => {
@@ -96,11 +122,8 @@ export class EmpAddAttendanceComponent implements OnInit {
       );
     }
   }
-
-  onDateChange() {
-    const selectedDate = this.attendanceForm.get('date')?.value;
-    this.loadAttendance(selectedDate);
-  }
+  
+  
 
   openWorkDoneModal() {
     this.workDoneContent = this.attendanceForm.get('work_done')?.value || '';
@@ -112,7 +135,7 @@ export class EmpAddAttendanceComponent implements OnInit {
     this.attendanceForm.patchValue({ work_done: this.workDoneContent });
     const modal = bootstrap.Modal.getInstance(document.getElementById('workDoneModal'));
     modal.hide();
-    this.submitAttendance();
+    this.submitAttendance(); 
   }
 
   submitAttendance() {
@@ -141,7 +164,7 @@ export class EmpAddAttendanceComponent implements OnInit {
         this.loadAttendance(formData.date);
       },
       (error: any) => {
-        console.error('Error adding  attendance', error);
+        console.error('Error adding attendance', error);
       }
     );
   }
