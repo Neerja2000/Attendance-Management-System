@@ -141,7 +141,7 @@ export class EmpAddAttendanceComponent implements OnInit {
         this.loadAttendance(formData.date);
       },
       (error: any) => {
-        console.error('Error adding attendance', error);
+        console.error('Error adding  attendance', error);
       }
     );
   }
