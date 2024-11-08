@@ -22,6 +22,8 @@ router.post("/attendance/add",attendanceController.addAttendance)
 router.get("/attendance/single",attendanceController.getSingle)
 router.post("/attendance/status",attendanceController.changeStatus)
 router.get('/attendance/today/:employeeId', attendanceController.getTodayAttendanceByEmployeeId);
+router.get('/attendance/:employeeId/date', attendanceController.getAttendanceByEmployeeIdAndDate);
+
 //rating
 router.post("/rating/add",empRatingController.addRating)
 

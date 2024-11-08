@@ -4,19 +4,20 @@ const mongoose = require('mongoose');
 
 const addAttendance = async (req, res) => {
   try {
-    const { employeeId, check_in, break_time_start,break_time_finish, check_out, work_done } = req.body;
+    const { employeeId, check_in, break_time_start, break_time_finish, check_out, work_done, date } = req.body;
 
-    // Get today's date in YYYY-MM-DD format
-    const today = new Date().toISOString().split('T')[0];
+    // Parse the provided date or default to today
+    const attendanceDate = date ? new Date(date) : new Date();
+    attendanceDate.setUTCHours(0, 0, 0, 0); // Set to UTC start of the day for consistency
 
-    // Find existing attendance for the same user on the same day
+    // Find existing attendance for the same user on the specified date
     const existingAttendance = await attendance.findOne({
       employeeId: employeeId,
-      createdAt: { $gte: new Date(today), $lt: new Date(new Date(today).getTime() + 24 * 60 * 60 * 1000) }
+      date: attendanceDate
     });
 
     if (existingAttendance) {
-      // Update existing attendance record with partial updates
+      // Update existing attendance record
       if (check_in) existingAttendance.check_in = check_in;
       if (break_time_start) existingAttendance.break_time_start = break_time_start;
       if (break_time_finish) existingAttendance.break_time_finish = break_time_finish;
@@ -35,12 +36,13 @@ const addAttendance = async (req, res) => {
       let total = await attendance.countDocuments();
       let newAttendance = new attendance({
         AttendanceId: total + 1,
+        employeeId: employeeId,
         check_in: check_in,
         break_time_start: break_time_start,
-        break_time_finish:break_time_finish,
+        break_time_finish: break_time_finish,
         check_out: check_out,
         work_done: work_done,
-        employeeId: employeeId
+        date: attendanceDate // Save the specified date
       });
 
       const result = await newAttendance.save();
@@ -59,6 +61,7 @@ const addAttendance = async (req, res) => {
     });
   }
 };
+
 
 
 
@@ -102,7 +105,7 @@ const getSingle=(req,res)=>{
 const getEmployeeAttendance = (req, res) => {
   const { id: employeeId } = req.query; 
 
-  console.log('Fetching attendance for employeeId:', employeeId);
+ 
 
   attendance.find({ employeeId })
     .populate('employeeId') // Populate employee details if needed
@@ -245,10 +248,7 @@ const changeStatus = (req, res) => {
       const startOfDay = new Date(now.setHours(0, 0, 0, 0));
       const endOfDay = new Date(now.setHours(23, 59, 59, 999));
   
-      // Log Employee ID and Date range for debugging
-      console.log("Employee ID:", employeeId);
-      console.log("Start of Day:", startOfDay);
-      console.log("End of Day:", endOfDay);
+     
   
       const pipeline = [
         {
@@ -309,6 +309,96 @@ const changeStatus = (req, res) => {
       res.status(500).json({ success: false, status: 500, message: 'Internal Server Error' });
     }
   };
+  
+
+  const getAttendanceByEmployeeIdAndDate = async (req, res) => {
+    try {
+      const { employeeId } = req.params;
+      const { date } = req.query;
+  
+      // Validate if employeeId is a valid ObjectId
+      if (!mongoose.Types.ObjectId.isValid(employeeId)) {
+        return res.status(400).json({ success: false, status: 400, message: 'Invalid Employee ID format' });
+      }
+  
+      // Parse the date or default to today
+      const selectedDate = date ? new Date(date) : new Date();
+  
+      // Format the date as 'YYYY-MM-DD' to ensure it matches the stored date format
+      const formattedDate = selectedDate.toISOString().split('T')[0];
+  
+      // Adjust the start of the day (00:00:00) and end of the day (23:59:59)
+      const startOfDay = new Date(`${formattedDate}T00:00:00Z`);
+      const endOfDay = new Date(`${formattedDate}T23:59:59Z`);
+  
+      console.log('Start of Day:', startOfDay);
+      console.log('End of Day:', endOfDay);
+  
+      const pipeline = [
+        {
+          $match: {
+            _id: new mongoose.Types.ObjectId(employeeId)
+          }
+        },
+        {
+          $lookup: {
+            from: 'attendances',
+            let: { empId: '$_id' },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $and: [
+                      { $eq: ['$employeeId', '$$empId'] },
+                      { $gte: ['$date', startOfDay] },
+                      { $lte: ['$date', endOfDay] }
+                    ]
+                  }
+                }
+              }
+            ],
+            as: 'attendances'
+          }
+        },
+        {
+          $unwind: { path: '$attendances', preserveNullAndEmptyArrays: true }
+        },
+        {
+          $project: {
+            _id: 0,
+            employeeId: '$_id',
+            employeeName: '$name',
+            check_in: '$attendances.check_in',
+            check_out: '$attendances.check_out',
+            date: '$attendances.date',
+            status: '$attendances.status',
+            break_time_start: '$attendances.break_time_start',
+            break_time_finish: '$attendances.break_time_finish',
+            work_done: '$attendances.work_done' // Include this field
+          }
+        }
+      ];
+  
+      // Run the aggregation pipeline
+      const result = await Employee.aggregate(pipeline);
+  
+      console.log('Aggregation result:', result);
+  
+      // Check if no data was returned
+      if (result.length === 0) {
+        return res.status(404).json({ success: false, status: 404, message: "No attendance records found for the specified date." });
+      }
+  
+      // Return the successful response with attendance data
+      res.json({ success: true, status: 200, message: "Attendance data loaded successfully", data: result });
+    } catch (err) {
+      console.error('Error:', err);
+      res.status(500).json({ success: false, status: 500, message: 'Internal Server Error' });
+    }
+  };
+  
+  
+  
   
 
   
@@ -570,4 +660,4 @@ const changeStatus = (req, res) => {
   
 
 
-module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance,getTodayAttendance,getTodayAttendanceByEmployeeId,getAttendanceByDate,getHolidaysByMonth,getLateArrivalsByMonth}
+module.exports={addAttendance,getAll,getSingle,changeStatus,getEmployeeAttendance,getTodayAttendance,getTodayAttendanceByEmployeeId,getAttendanceByDate,getHolidaysByMonth,getLateArrivalsByMonth,getAttendanceByEmployeeIdAndDate}

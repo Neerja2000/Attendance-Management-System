@@ -12,11 +12,12 @@ declare var bootstrap: any;
 })
 export class EmpAddAttendanceComponent implements OnInit {
   public Editor = ClassicEditor;
-
   attendanceForm: FormGroup;
   employeeId: string | null = null;
-  isWorkDoneAdded: boolean = false; // Flag to check if work has been added
-  workDoneContent: string = ''; // Store work done content for modal
+  isWorkDoneAdded: boolean = false;
+  workDoneContent: string = '';
+  today: string;
+  previousDay: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,19 +25,31 @@ export class EmpAddAttendanceComponent implements OnInit {
     private authService: AuthService,
     private snackbar: MatSnackBar
   ) {
+    // Initialize form with today’s date as default
     this.attendanceForm = this.formBuilder.group({
+      date: [new Date().toISOString().substring(0, 10)], // Default to today’s date in 'YYYY-MM-DD' format
       check_in: [''],
       break_time_start: [''],
       break_time_finish: [''],
       check_out: [''],
       work_done: ['']
     });
+
+    const currentDate = new Date();
+    this.today = this.formatDate(currentDate);
+    const yesterday = new Date(currentDate);
+    yesterday.setDate(yesterday.getDate() - 1);
+    this.previousDay = this.formatDate(yesterday);
   }
 
   ngOnInit(): void {
     this.fetchEmployeeId().then(() => {
-      this.loadAttendance();
+      this.loadAttendance(this.today); // Load attendance for today by default
     });
+  }
+
+  formatDate(date: Date): string {
+    return date.toISOString().substring(0, 10); // Returns 'YYYY-MM-DD' format
   }
 
   async fetchEmployeeId() {
@@ -52,25 +65,24 @@ export class EmpAddAttendanceComponent implements OnInit {
     }
   }
 
-  loadAttendance() {
-    if (this.employeeId) {
-      this.attendanceService.getTodayAttendanceByEmployeeId(this.employeeId).subscribe(
+  loadAttendance(date: string) {
+    if (this.employeeId && date) {
+      this.attendanceService.getAttendanceByDateAndEmployeeId(this.employeeId, date).subscribe(
         (response: any) => {
-          console.log('Attendance Response:', response);
           const attendance = response.data.find((att: any) => att.employeeId === this.employeeId);
           if (attendance) {
             this.attendanceForm.patchValue({
+              date: attendance.date ? this.formatDate(new Date(attendance.date)) : '',
               check_in: attendance.check_in || '',
               break_time_start: attendance.break_time_start || '',
               break_time_finish: attendance.break_time_finish || '',
               check_out: attendance.check_out || '',
               work_done: attendance.work_done || ''
             });
-  
-            if (attendance.work_done) {
-              this.isWorkDoneAdded = true;
-              this.workDoneContent = attendance.work_done;
-            }
+            this.isWorkDoneAdded = !!attendance.work_done;
+            this.workDoneContent = attendance.work_done || '';
+          } else {
+            this.attendanceForm.reset({ date: date });
           }
         },
         (error: any) => {
@@ -84,26 +96,23 @@ export class EmpAddAttendanceComponent implements OnInit {
       );
     }
   }
-  
+
+  onDateChange() {
+    const selectedDate = this.attendanceForm.get('date')?.value;
+    this.loadAttendance(selectedDate);
+  }
 
   openWorkDoneModal() {
-    // Set the modal textarea with existing work content (if available)
     this.workDoneContent = this.attendanceForm.get('work_done')?.value || '';
-    
     const modal = new bootstrap.Modal(document.getElementById('workDoneModal'));
     modal.show();
   }
 
   saveWorkDone() {
-    // Update the form control with the new work done data
     this.attendanceForm.patchValue({ work_done: this.workDoneContent });
-
-    // Close the modal
     const modal = bootstrap.Modal.getInstance(document.getElementById('workDoneModal'));
     modal.hide();
-
-    // Optionally, you can call the backend API to save the work done data
-    this.submitAttendance(); // Call this method if you want to save the changes immediately
+    this.submitAttendance(); 
   }
 
   submitAttendance() {
@@ -114,6 +123,7 @@ export class EmpAddAttendanceComponent implements OnInit {
 
     const formData = {
       employeeId: this.employeeId,
+      date: this.attendanceForm.get('date')?.value,
       check_in: this.attendanceForm.get('check_in')?.value,
       break_time_start: this.attendanceForm.get('break_time_start')?.value,
       break_time_finish: this.attendanceForm.get('break_time_finish')?.value,
@@ -124,11 +134,11 @@ export class EmpAddAttendanceComponent implements OnInit {
     this.attendanceService.addEmpAttendanceapi(formData).subscribe(
       (response: any) => {
         this.snackbar.open('Changes Saved', 'Close', {
-          duration: 3000, // Duration in milliseconds
+          duration: 3000,
           panelClass: ['success-snackbar'],
           verticalPosition: 'top',
         });
-        this.loadAttendance(); // Refresh the attendance data
+        this.loadAttendance(formData.date);
       },
       (error: any) => {
         console.error('Error adding attendance', error);
@@ -136,3 +146,4 @@ export class EmpAddAttendanceComponent implements OnInit {
     );
   }
 }
+

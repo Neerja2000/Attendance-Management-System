@@ -30,6 +30,10 @@ const attendanceSchema = new mongoose.Schema({
     type: String,
    
   },
+  date: {  // New field to store the date of the attendance
+    type: Date,
+    required: true
+  },
   createdAt: {
     type: Date,
     default: Date.now

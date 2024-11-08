@@ -4,7 +4,7 @@
       <div class="card-header">
         <div class="row">
           <div class="col-md-8">
-            <h5 class="card-title">Add Today's Attendance</h5>
+            <h5 class="card-title">Add Attendance</h5>
           </div>
           <div class="col-md-4">
             <button class="btn btn-primary" [routerLink]="['/employee/layout/add-daily-rating']">+ Add Today's Rating</button>
@@ -13,6 +13,17 @@
       </div>
       <div class="card-body">
         <form [formGroup]="attendanceForm" (ngSubmit)="submitAttendance()">
+          <!-- Date Picker Input -->
+          <div class="form-group mb-3">
+            <label for="attendanceDate">Date</label>
+            <select id="attendanceDate" formControlName="date" (change)="onDateChange()" class="form-control" required>
+              <option [value]="today">Today ({{ today }})</option>
+              <option [value]="previousDay">Previous Day ({{ previousDay }})</option>
+            </select>
+          </div>
+          
+          
+          
           <table class="table table-striped" id="table1">
             <thead>
               <tr>
@@ -37,12 +48,15 @@
               </tr>
             </tbody>
           </table>
+      
           <button type="submit" class="btn btn-primary mt-2">Save Changes</button>
         </form>
       </div>
+      
     </div>
   </section>
 </div>
+
 
 <!-- Work Done Modal -->
 <div class="modal fade" id="workDoneModal" tabindex="-1" aria-labelledby="workDoneModalLabel" aria-hidden="true">
