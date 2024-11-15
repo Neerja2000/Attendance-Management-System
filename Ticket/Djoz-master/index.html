@@ -11,7 +11,7 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+   
+
 </head>
 
 <body>
@@ -78,18 +80,18 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="hero__text">
-                        <span>New single</span>
-                        <h1>Feel the heart beats</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br />tempor
-                            incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="https://www.youtube.com/watch?v=K4DyBUG242c" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                        <span class="tagline">Book Your Tickets</span>
+                        <h1 class="main-title">Feel the Excitement</h1>
+                        <p class="description">
+                            Discover thrilling events and unforgettable experiences. From car shows to music concerts and vibrant festivals, 
+                            book your tickets now and be part of the magic!
+                        </p>
+                        
                     </div>
                 </div>
             </div>
         </div>
-        <div class="linear__icon">
-            <i class="fa fa-angle-double-down"></i>
-        </div>
+       
     </section>
     <!-- Hero Section End -->
 
@@ -98,8 +100,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-title">
+                    <div class="section-title d-flex justify-content-between align-items-center">
                         <h2>Upcoming Events</h2>
+                        <!-- View All Button -->
+                        <a href="./upcoming-Events.html" class="btn btn-primary">View All</a>
                     </div>
                 </div>
             </div>
@@ -200,292 +204,52 @@
     </section>
     <!-- About Section End -->
 
-    <!-- Services Section Begin -->
-    <section class="services">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 p-0">
-                    <div class="services__left set-bg" data-setbg="img/services/service-left.jpg">
-                        <a href="https://www.youtube.com/watch?v=JGwWNGJdvx8" class="play-btn video-popup"><i class="fa fa-play"></i></a>
-                    </div>
+<!-- Services Section Begin -->
+<section class="services">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                <div class="services__left set-bg" data-setbg="img/images/carrshow.jpg">
+                
                 </div>
-                <div class="col-lg-6 p-0">
-                    <div class="row services__list">
-                        <div class="col-lg-6 p-0 order-lg-1 col-md-6 order-md-1">
-                            <div class="service__item deep-bg">
-                                <img src="img/services/service-1.png" alt="">
-                                <h4>Wedding</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                            </div>
+            </div>
+            <div class="col-lg-6 p-0">
+                <div class="row services__list">
+                    <div class="col-lg-6 p-0 order-lg-1 col-md-6 order-md-1">
+                        <div class="service__item deep-bg">
+                            <i class="fa fa-calendar fa-4x" style="color: white;"></i>  <!-- Event icon with white color -->
+                            <h4>Select Your Event</h4>
+                            <p>Browse through a wide variety of events and choose the one that excites you the most.</p>
                         </div>
-                        <div class="col-lg-6 p-0 order-lg-2 col-md-6 order-md-2">
-                            <div class="service__item">
-                                <img src="img/services/service-2.png" alt="">
-                                <h4>Clubs and bar</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                            </div>
+                    </div>
+                    <div class="col-lg-6 p-0 order-lg-2 col-md-6 order-md-2">
+                        <div class="service__item">
+                            <i class="fa fa-credit-card fa-4x" style="color: white;"></i>  <!-- Payment icon with white color -->
+                            <h4>Make the Payment</h4>
+                            <p>Enjoy secure and seamless payment options for a hassle-free booking experience.</p>
                         </div>
-                        <div class="col-lg-6 p-0 order-lg-4 col-md-6 order-md-4">
-                            <div class="service__item deep-bg">
-                                <img src="img/services/service-4.png" alt="">
-                                <h4>DJ lessons</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                            </div>
+                    </div>
+                    <div class="col-lg-6 p-0 order-lg-4 col-md-6 order-md-4">
+                        <div class="service__item deep-bg">
+                            <i class="fa fa-ticket fa-4x" style="color: white;"></i> <!-- Corrected Ticket icon with white color -->
+                            <h4>Present Your Ticket</h4>
+                            <p>Get your digital ticket instantly and present it at the event for entry.</p>
                         </div>
-                        <div class="col-lg-6 p-0 order-lg-3 col-md-6 order-md-3">
-                            <div class="service__item">
-                                <img src="img/services/service-3.png" alt="">
-                                <h4>Corporate events</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                            </div>
+                    </div>
+                    <div class="col-lg-6 p-0 order-lg-3 col-md-6 order-md-3">
+                        <div class="service__item">
+                            <i class="fa fa-tag fa-4x" style="color: white;"></i>  <!-- Cost-effective icon with white color -->
+                            <h4>Cost-Effective & Reliable</h4>
+                            <p>Enjoy affordable ticketing solutions with guaranteed access to your favorite events.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Services Section End -->
+    </div>
+</section>
+<!-- Services Section End -->
 
-    <!-- Track Section Begin -->
-    <section class="track spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="section-title">
-                        <h2>Latest tracks</h2>
-                        <h1>Music podcast</h1>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="track__all">
-                        <a href="#" class="primary-btn border-btn">View all tracks</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-7 p-0">
-                    <div class="track__content nice-scroll">
-                        <div class="single_player_container">
-                            <h4>David Guetta Miami Ultra</h4>
-                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_1"
-                                data-url="music-files/1.mp3"></div>
-                            <div class="jp-audio jp_container_1" role="application" aria-label="media player">
-                                <div class="jp-gui jp-interface">
-                                    <!-- Player Controls -->
-                                    <div class="player_controls_box">
-                                        <button class="jp-play player_button" tabindex="0"></button>
-                                    </div>
-                                    <!-- Progress Bar -->
-                                    <div class="player_bars">
-                                        <div class="jp-progress">
-                                            <div class="jp-seek-bar">
-                                                <div>
-                                                    <div class="jp-play-bar">
-                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
-                                    </div>
-                                    <!-- Volume Controls -->
-                                    <div class="jp-volume-controls">
-                                        <button class="jp-mute" tabindex="0"><i
-                                                class="fa fa-volume-down"></i></button>
-                                        <div class="jp-volume-bar">
-                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_player_container">
-                            <h4>David Guetta Miami Ultra</h4>
-                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_2"
-                                data-url="music-files/2.mp3"></div>
-                            <div class="jp-audio jp_container_2" role="application" aria-label="media player">
-                                <div class="jp-gui jp-interface">
-                                    <!-- Player Controls -->
-                                    <div class="player_controls_box">
-                                        <button class="jp-play player_button" tabindex="0"></button>
-                                    </div>
-                                    <!-- Progress Bar -->
-                                    <div class="player_bars">
-                                        <div class="jp-progress">
-                                            <div class="jp-seek-bar">
-                                                <div>
-                                                    <div class="jp-play-bar">
-                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
-                                    </div>
-                                    <!-- Volume Controls -->
-                                    <div class="jp-volume-controls">
-                                        <button class="jp-mute" tabindex="0"><i
-                                                class="fa fa-volume-down"></i></button>
-                                        <div class="jp-volume-bar">
-                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_player_container">
-                            <h4>David Guetta Miami Ultra</h4>
-                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_3"
-                                data-url="music-files/3.mp3"></div>
-                            <div class="jp-audio jp_container_3" role="application" aria-label="media player">
-                                <div class="jp-gui jp-interface">
-                                    <!-- Player Controls -->
-                                    <div class="player_controls_box">
-                                        <button class="jp-play player_button" tabindex="0"></button>
-                                    </div>
-                                    <!-- Progress Bar -->
-                                    <div class="player_bars">
-                                        <div class="jp-progress">
-                                            <div class="jp-seek-bar">
-                                                <div>
-                                                    <div class="jp-play-bar">
-                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
-                                    </div>
-                                    <!-- Volume Controls -->
-                                    <div class="jp-volume-controls">
-                                        <button class="jp-mute" tabindex="0"><i
-                                                class="fa fa-volume-down"></i></button>
-                                        <div class="jp-volume-bar">
-                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_player_container">
-                            <h4>David Guetta Miami Ultra</h4>
-                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_4"
-                                data-url="music-files/4.mp3"></div>
-                            <div class="jp-audio jp_container_4" role="application" aria-label="media player">
-                                <div class="jp-gui jp-interface">
-                                    <!-- Player Controls -->
-                                    <div class="player_controls_box">
-                                        <button class="jp-play player_button" tabindex="0"></button>
-                                    </div>
-                                    <!-- Progress Bar -->
-                                    <div class="player_bars">
-                                        <div class="jp-progress">
-                                            <div class="jp-seek-bar">
-                                                <div>
-                                                    <div class="jp-play-bar">
-                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
-                                    </div>
-                                    <!-- Volume Controls -->
-                                    <div class="jp-volume-controls">
-                                        <button class="jp-mute" tabindex="0"><i
-                                                class="fa fa-volume-down"></i></button>
-                                        <div class="jp-volume-bar">
-                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_player_container">
-                            <h4>David Guetta Miami Ultra</h4>
-                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_5"
-                                data-url="music-files/5.mp3"></div>
-                            <div class="jp-audio jp_container_5" role="application" aria-label="media player">
-                                <div class="jp-gui jp-interface">
-                                    <!-- Player Controls -->
-                                    <div class="player_controls_box">
-                                        <button class="jp-play player_button" tabindex="0"></button>
-                                    </div>
-                                    <!-- Progress Bar -->
-                                    <div class="player_bars">
-                                        <div class="jp-progress">
-                                            <div class="jp-seek-bar">
-                                                <div>
-                                                    <div class="jp-play-bar">
-                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
-                                    </div>
-                                    <!-- Volume Controls -->
-                                    <div class="jp-volume-controls">
-                                        <button class="jp-mute" tabindex="0"><i
-                                                class="fa fa-volume-down"></i></button>
-                                        <div class="jp-volume-bar">
-                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_player_container">
-                            <h4>David Guetta Miami Ultra</h4>
-                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_6"
-                                data-url="music-files/6.mp3"></div>
-                            <div class="jp-audio jp_container_6" role="application" aria-label="media player">
-                                <div class="jp-gui jp-interface">
-                                    <!-- Player Controls -->
-                                    <div class="player_controls_box">
-                                        <button class="jp-play player_button" tabindex="0"></button>
-                                    </div>
-                                    <!-- Progress Bar -->
-                                    <div class="player_bars">
-                                        <div class="jp-progress">
-                                            <div class="jp-seek-bar">
-                                                <div>
-                                                    <div class="jp-play-bar">
-                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
-                                    </div>
-                                    <!-- Volume Controls -->
-                                    <div class="jp-volume-controls">
-                                        <button class="jp-mute" tabindex="0"><i
-                                                class="fa fa-volume-down"></i></button>
-                                        <div class="jp-volume-bar">
-                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 p-0">
-                    <div class="track__pic">
-                        <img src="img/track-right.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Track Section End -->
 
     <!-- Youtube Section Begin -->
     <section class="youtube spad">
@@ -534,6 +298,61 @@
     </section>
     <!-- Youtube Section End -->
 
+
+    <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="contact__address">
+                        <div class="section-title">
+                            <h2>Contact info</h2>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore.</p>
+                        <ul>
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                <h5>Address</h5>
+                                <p>Los Angeles Gournadi, 1230 Bariasl</p>
+                            </li>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <h5>Phone Number</h5>
+                                <p>8765908653</p>
+                                <p>8754329087</p>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i>
+                                <h5>Email</h5>
+                                <p>Support@gmail.com</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="contact__form">
+                        <div class="section-title">
+                            <h2>Get in touch</h2>
+                        </div>
+                        <p>Eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
+                            gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                        <form action="#">
+                            <div class="input__list">
+                                <input type="text" placeholder="Name">
+                                <input type="text" placeholder="Email">
+                                <input type="text" placeholder="Website">
+                            </div>
+                            <textarea placeholder="Comment"></textarea>
+                            <button type="submit" class="site-btn">SEND MESSAGE</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
     <!-- Countdown Section Begin -->
     <section class="countdown spad set-bg" data-setbg="img/countdown-bg.jpg">
         <div class="container">
@@ -570,23 +389,21 @@
     </section>
     <!-- Countdown Section End -->
 
+    
+
     <!-- Footer Section Begin -->
     <footer class="footer spad set-bg" data-setbg="img/footer-bg.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
+                    <h2 style="color: white; font-weight: bold;" >Quick Links</h2>
                     <div class="footer__address">
-                        <ul>
-                            <li>
-                                <i class="fa fa-phone"></i>
-                                <p>Phone</p>
-                                <h6>1-677-124-44227</h6>
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope"></i>
-                                <p>Email</p>
-                                <h6>DJ.Music@gmail.com</h6>
-                            </li>
+                        <ul >
+                            <li ><a href="#" style="color: white;">Home</a></li>
+                            <li ><a href="#" style="color: white;">About Us</a></li>
+                            
+                            <li ><a href="#" style="color: white;">Privacy Policy</a></li>
+                            <li ><a href="#" style="color: white;">Terms and Conditions</a></li>
                         </ul>
                     </div>
                 </div>
@@ -613,7 +430,7 @@
             </div>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 			<div class="footer__copyright__text">
-				<p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+				<p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved </p>
 			</div>
 			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         </div>

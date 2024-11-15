@@ -506,10 +506,10 @@ ol {
 
 .event .section-title:after {
 	position: absolute;
-	right: 46px;
+	right: 130px;
 	top: 25px;
 	height: 2px;
-	width: 775px;
+	width: 800px;
 	background: rgba(225, 225, 225, 0.3);
 	content: "";
 	z-index: -1;
@@ -526,7 +526,7 @@ ol {
 
 .event__slider.owl-carousel .owl-nav {
 	position: absolute;
-	right: 15px;
+	right: 110px;
 	top: -50px;
 }
 
@@ -1031,7 +1031,7 @@ ol {
 
 .footer__address ul li {
 	list-style: none;
-	padding-left: 70px;
+	
 	position: relative;
 	margin-bottom: 30px;
 }
@@ -2658,7 +2658,7 @@ ol {
 		margin-right: 15px;
 	}
 	.event .section-title:after {
-		width: 560px;
+		width: 250px;
 	}
 	.track__all {
 		text-align: left;
