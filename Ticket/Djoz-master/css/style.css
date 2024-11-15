@@ -1,6 +1,6 @@
 /******************************************************************
-  Template Name: DJoz
-  Description:  DJoz Music HTML Template
+  Template Name: Ticket
+  Description:  Ticket Music HTML Template
   Author: Colorlib
   Author URI: https://colorlib.com
   Version: 1.0
@@ -947,6 +947,7 @@ ol {
 
 .discography__item__pic img {
 	min-width: 100%;
+	height: 300px;
 }
 
 .discography__item__text {

@@ -1,6 +1,6 @@
 /*  ---------------------------------------------------
-  Template Name: DJoz
-  Description:  DJoz Music HTML Template
+  Template Name: Ticket
+  Description:  Ticket Music HTML Template
   Author: Colorlib
   Author URI: https://colorlib.com
   Version: 1.0
