@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EmpRatingService } from 'src/app/shared/empRating/emp-rating.service';
-import { AuthService } from 'src/app/shared/auth/auth.service';  
+import { AuthService } from 'src/app/shared/auth/auth.service';
 
 @Component({
   selector: 'app-add-daily-rating',
@@ -45,24 +45,26 @@ export class AddDailyRatingComponent implements OnInit {
   submit() {
     if (this.dailyRating.valid) {
       const selectedDate = this.dailyRating.get('selectedDate')?.value;
-
+  
       // Set the date for yesterday or today
       let dateToSend: string;
       const currentDate = new Date();
-      
+  
       if (selectedDate === 'yesterday') {
         const yesterday = new Date(currentDate);
         yesterday.setDate(currentDate.getDate() - 1);
-        dateToSend = yesterday.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+        // Convert date to UTC (standardized format) before sending to the backend
+        dateToSend = yesterday.toISOString().split('T')[0];  // Format date as YYYY-MM-DD
       } else {
+        // Convert current date to UTC before sending
         dateToSend = currentDate.toISOString().split('T')[0]; // Format today as YYYY-MM-DD
       }
-
+  
       // Set the actual date on the form
       this.dailyRating.get('date')?.setValue(dateToSend);
-
+  
       const ratingData = this.dailyRating.value;
-
+  
       this.ratingService.addEmpDailyRatingapi(ratingData).subscribe({
         next: (response) => {
           this.snackbar.open('Rating Submitted Successfully', 'Close', { duration: 3000 });
@@ -74,6 +76,5 @@ export class AddDailyRatingComponent implements OnInit {
       });
     }
   }
+  
 }
-
-

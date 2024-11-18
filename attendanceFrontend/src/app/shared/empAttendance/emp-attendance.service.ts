@@ -32,7 +32,7 @@ export class EmpAttendanceService {
   }
   
   getAttendanceByDateAndEmployeeId(employeeId: string, date: string): Observable<any> {
-    return this.http.get<any>(`${this.employeebaseurl}/attendance/${employeeId}/date?date=${date}`);
+    return this.http.get<any>(`${this.employeebaseurl}/attendance/${employeeId}/date?date=${date}`,{ headers: this.getHeaders() });
   }
  
 }

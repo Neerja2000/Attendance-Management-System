@@ -10,13 +10,23 @@ const addDailyRating = (req, res) => {
       });
     }
   
-    // Ensure the date is in the correct format (YYYY-MM-DD)
-    const ratingDate = new Date(date);
-    const startOfDay = new Date(ratingDate.setHours(0, 0, 0, 0));
-    const endOfDay = new Date(ratingDate.setHours(23, 59, 59, 999));
+    // Parse the date sent by frontend (ensure it's in the format YYYY-MM-DD)
+    let ratingDate = new Date(date);
+  
+    // Adjust to UTC to avoid local time zone issues
+    ratingDate = new Date(Date.UTC(ratingDate.getFullYear(), ratingDate.getMonth(), ratingDate.getDate()));
+  
+    const startOfDay = new Date(ratingDate);
+    startOfDay.setHours(0, 0, 0, 0); // Start of the day in UTC
+  
+    const endOfDay = new Date(ratingDate);
+    endOfDay.setHours(23, 59, 59, 999); // End of the day in UTC
   
     // Check if there's already a rating from the same employee on the selected date
-    rating.findOne({ employeeId, createdAt: { $gte: startOfDay, $lte: endOfDay } })
+    rating.findOne({
+      employeeId,
+      createdAt: { $gte: startOfDay, $lte: endOfDay }
+    })
       .then(existingRating => {
         if (existingRating) {
           return res.status(400).json({
@@ -33,7 +43,7 @@ const addDailyRating = (req, res) => {
               remarks,
               employeeId,
               status: true,
-              createdAt: ratingDate,  // Use the correct date
+              createdAt: ratingDate,  // Store UTC date
             });
   
             return newRating.save();
@@ -58,6 +68,7 @@ const addDailyRating = (req, res) => {
       });
   };
   
+
   
 
 const getDailyRatings = (req, res) => {
