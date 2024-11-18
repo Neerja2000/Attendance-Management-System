@@ -175,10 +175,12 @@ body {
     margin: 10px auto;
     cursor: pointer;
     border-radius: 10px;
+    height: 400px;
 }
 
 .profile-card-2 img {
     transition: all linear 0.25s;
+    height: 400px;
 }
 
 .profile-card-2 .profile-name {
@@ -700,6 +702,24 @@ body {
 .profile-card-10:hover img {
     transform: scale(1.1);
 }
+/* Styling for the username link */
+.profile-container {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.profile-username {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #3498db;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.profile-username:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
     </style>
 </head>
 
@@ -759,19 +779,25 @@ body {
             <div class="col-md-4">
         
       
-        <div class="profile-card-2"><img src="./img/Images/developers-testing.jpg" class="img img-responsive">
-            <div class="profile-name">JOHN DOE</div>
-            <div class="profile-username">@johndoesurname</div>
-            <div class="profile-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+        <div class="profile-card-2"><img src="./img/Images/theatre-day-.jpg" class="img img-responsive img-fluid">
+            <div class="profile-name">Theatre</div>
+            
+                 <div class="profile-container">
+    <a href="#" class="profile-username" >View Events</a>
+  </div>
+            
+            <!-- <div class="profile-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div> -->
         </div>
     </div>
     <div class="col-md-4">
         
       
-        <div class="profile-card-2"><img src="./img/Images/developers-testing.jpg" class="img img-responsive">
-            <div class="profile-name">JOHN DOE</div>
-            <div class="profile-username">@johndoesurname</div>
-            <div class="profile-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+        <div class="profile-card-2"><img src="./img/Images/back-view-crowd.jpg" class="img img-responsive">
+            <div class="profile-name">Concert</div>
+            <div class="profile-container">
+                <a href="#" class="profile-username" >View Events</a>
+              </div>
+            <!-- <div class="profile-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div> -->
         </div>
     </div>    <div class="col-md-4">
         
