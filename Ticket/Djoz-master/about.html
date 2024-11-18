@@ -22,6 +22,36 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+         @media (max-width: 768px) {
+        #about-us-section {
+            height: 400px !important
+        }
+
+        #about-us-section h1 {
+            margin-top: 20% !important
+        }
+    }
+
+    @media (max-width: 576px) {
+        #about-us-section {
+            height: 300px !important
+        }
+
+        #about-us-section h1 {
+            margin-top: 20% !important
+        }
+    }
+    @media (max-width: 320px) and (max-height: 498px) {
+        #about-us-section {
+            height: 300px !important
+        }
+
+        #about-us-section h1 {
+            margin-top: 25% !important
+        }
+    }
+    </style>
 </head>
 
 <body>
@@ -73,67 +103,16 @@
     <!-- Header Section End -->
 
     <!-- Breadcrumb Begin -->
-    <div class="breadcrumb-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__links">
-                        <a href="#"><i class="fa fa-home"></i> Home</a>
-                        <span>About</span>
-                    </div>
-                </div>
+   
+    <div class="container-fluid" style="background: url(./img/about/about-us.avif); background-repeat: no-repeat; background-size: cover; height: 500px;" id="about-us-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="text-align: center; color: white; margin-top: 17%; font-weight: bolder;">About Us</h1>
             </div>
         </div>
     </div>
     <!-- Breadcrumb End -->
-
-    <!-- Skills Section Begin -->
-    <section class="skills spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 p-0">
-                    <div class="skills__content">
-                        <div class="section-title">
-                            <h2>DJ Alexandra Rud</h2>
-                            <h1>DJ’s skill</h1>
-                        </div>
-                        <p>DJ Rainflow knows how to move your mind, body and soul by delivering tracks that stand out
-                            from the norm.</p>
-                        <div class="skill__bar__item">
-                            <p>Perform</p>
-                            <div id="bar1" class="barfiller">
-                                <span class="tip"></span>
-                                <span class="fill" data-percentage="95"></span>
-                            </div>
-                        </div>
-                        <div class="skill__bar__item">
-                            <p>Use Midi</p>
-                            <div id="bar2" class="barfiller">
-                                <span class="tip"></span>
-                                <span class="fill" data-percentage="85"></span>
-                            </div>
-                        </div>
-                        <div class="skill__bar__item">
-                            <p>Remix and mash up</p>
-                            <div id="bar3" class="barfiller">
-                                <span class="tip"></span>
-                                <span class="fill" data-percentage="98"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 p-0">
-                    <div class="skills__video set-bg" data-setbg="img/skill-video.jpg">
-                        <a href="https://www.youtube.com/watch?v=S19UcWdOA-I?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Skills Section End -->
-
-    <!-- About Section Begin -->
-    <section class="about about--page spad">
+    <section class="about spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -144,19 +123,78 @@
                 <div class="col-lg-6">
                     <div class="about__text">
                         <div class="section-title">
-                            <h2>He heard something that he knew to be music</h2>
+                            <h2>Who We Are</h2>
+                            <h1>About Us</h1>
                         </div>
-                        <p>At vero eos et accusamus et iusto odi odgnissimos ducimus qui blanditiis praesentium volup
-                            tatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
-                            cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi quod
-                            justo pro an.</p>
-                        <img src="img/about/signature.png" alt="">
+                        <p>We make booking tickets for exciting events simple and hassle-free. From thrilling car shows and electrifying music concerts to vibrant festivals and unforgettable live performances, we bring the best experiences to your fingertips. With an easy-to-use platform and a wide range of events, we’re here to ensure your moments are unforgettable. Explore, book, and enjoy—all in one place!</p>
+                        <a href="#" class="primary-btn">CONTACT ME</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+               
+                <div class="col-lg-6">
+                    <div class="about__text">
+                        <div class="section-title">
+                            <h2>Our Vision</h2>
+                            <h1>About Us</h1>
+                        </div>
+                        <p>We envision a world where people come together to celebrate life’s moments through shared experiences. Whether it’s the thrill of seeing your favorite artist live or the joy of a family outing to a comedy show, [Your Website Name] is here to make it happen.</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__pic">
+                        <img src="img/about/about2.jpg" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- About Section End -->
+    <!-- Skills Section Begin -->
+    <section class="skills spad">
+        <div class="container">
+            <div class="row">
+                <!-- Text Content -->
+                <div class="col-lg-6 p-0">
+                    <div class="skills__content">
+                        <h2 style="color: white;">What We Offer</h2>
+                        <ul>
+                            <li style="color: white;" class="mt-3">
+                                <span class="icon">🎟</span>
+                                <strong style="color: white;">Concerts:</strong> Discover and book tickets to performances by your favorite artists and bands.
+                            </li>
+                            <li style="color: white;" class="mt-3">
+                                <span class="icon">🎭</span>
+                                <strong>Live Shows:</strong> From comedy acts to theater productions, find entertainment that inspires and delights.
+                            </li>
+                            <li style="color: white;" class="mt-3">
+                                <span class="icon">🎤</span>
+                                <strong>Festivals:</strong> Explore multi-day festivals and unique cultural celebrations happening near you.
+                            </li>
+                            <li style="color: white;" class="mt-3">
+                                <span class="icon">🎧</span>
+                                <strong>Special Events:</strong> Be the first to know about exclusive events and limited-time performances.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Video Section -->
+                <div class="col-lg-6 p-0">
+                    <div class="skills__video set-bg" data-setbg="img/skill-video.jpg">
+                        <a href="https://www.youtube.com/watch?v=S19UcWdOA-I?autoplay=1" class="play-btn video-popup">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section End -->
+
+    
 
     <!-- About Pic Begin -->
     <div class="about-pic">
@@ -200,54 +238,62 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title center-title">
-                        <h2>WHERE DO I PLAY</h2>
-                        <h1>Best service</h1>
+                        <h2>WHY CHOOSE US?</h2>
+                        <h1>Best Service</h1>
                     </div>
                 </div>
             </div>
             <div class="row">
+                <!-- Ease of Booking -->
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="about__services__item">
-                        <div class="about__services__item__pic set-bg" data-setbg="img/services/as-1.jpg">
+                        <div class="about__services__item__pic set-bg" data-setbg="https://img.freepik.com/free-photo/guitarist-recording-studio-music-hd-photo_53876-132110.jpg?t=st=1731912406~exp=1731916006~hmac=8e4abc9a7c363dec36fc16274c817517ac47810f0f62c5843882287061c1550b&w=826">
                             <div class="icon">
-                                <img src="img/services/as-icon-1.png" alt="">
+                                <img src="img/services/booking.png" alt="">
                             </div>
                         </div>
                         <div class="about__services__item__text">
-                            <h4>Wedding</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <h4>Ease of Booking</h4>
+                            <p>Our user-friendly platform lets you book tickets in just a few clicks.</p>
                         </div>
                     </div>
                 </div>
+    
+                <!-- Wide Range of Events -->
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="about__services__item">
-                        <div class="about__services__item__pic set-bg" data-setbg="img/services/as-2.jpg">
+                        <div class="about__services__item__pic set-bg" data-setbg="https://img.freepik.com/free-photo/students-rehashing-theater-class_23-2150960292.jpg?t=st=1731912510~exp=1731916110~hmac=757db13aabf3adaadc92eeaeba014520f5f01b516943e59bf9a377242d51f5f3&w=826">
                             <div class="icon">
                                 <img src="img/services/as-icon-2.png" alt="">
                             </div>
                         </div>
                         <div class="about__services__item__text">
-                            <h4>Clubs and bar</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <h4>Wide Range of Events</h4>
+                            <p>We partner with top organizers to bring you diverse entertainment options.</p>
                         </div>
                     </div>
                 </div>
+    
+             
+    
+                <!-- Real-Time Updates -->
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="about__services__item">
-                        <div class="about__services__item__pic set-bg" data-setbg="img/services/as-3.jpg">
+                        <div class="about__services__item__pic set-bg" data-setbg="https://img.freepik.com/free-photo/man-playing-electric-guitar-live-concert_23-2149188054.jpg?t=st=1731914097~exp=1731917697~hmac=a9e0125f9fd04296c228b210439a0d848c10bb0f204c7d20763aa7ea6d7ccf57&w=826">
                             <div class="icon">
-                                <img src="img/services/as-icon-3.png" alt="">
+                                <img src="img/services/system-update.png" alt="">
                             </div>
                         </div>
                         <div class="about__services__item__text">
-                            <h4>Corporate events</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <h4>Real-Time Updates</h4>
+                            <p>Stay informed about event schedules, ticket availability, and promotions.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
     <!-- About Services Section End -->
 
     <!-- Footer Section Begin -->
