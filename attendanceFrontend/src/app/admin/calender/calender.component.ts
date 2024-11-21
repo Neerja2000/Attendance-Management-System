@@ -65,10 +65,23 @@ export class CalenderComponent {
   selectDate(dayIndex: number) {
     const day = this.daysInMonth[dayIndex];
     if (day !== 0) {
-      // Use `toLocaleDateString` for proper timezone handling
       const date = new Date(this.currentYear, this.currentMonth, day);
-      this.selectedDate = date.toLocaleDateString('en-CA'); // Format: YYYY-MM-DD
+
+      // Prevent selection of past dates
+      const today = new Date();
+      if (date >= new Date(today.getFullYear(), today.getMonth(), today.getDate())) {
+        this.selectedDate = date.toLocaleDateString('en-CA'); // Format: YYYY-MM-DD
+      }
     }
+  }
+
+  isPastDate(day: number): boolean {
+    if (day === 0) return true;
+
+    const date = new Date(this.currentYear, this.currentMonth, day);
+    const today = new Date();
+
+    return date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
   }
 
   addEvent() {

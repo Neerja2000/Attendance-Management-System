@@ -14,9 +14,10 @@
   <div class="calendar-days">
     <div
       *ngFor="let day of daysInMonth; let i = index"
+      [class.disabled]="isPastDate(day)"
       [class.selected]="day === getSelectedDay()"
       class="calendar-day"
-      (click)="selectDate(i)"
+      (click)="!isPastDate(day) && selectDate(i)"
     >
       {{ day || '' }}
     </div>
