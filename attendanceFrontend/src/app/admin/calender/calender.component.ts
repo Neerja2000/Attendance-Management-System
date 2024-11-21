@@ -43,6 +43,7 @@ export class CalenderComponent implements OnInit {
         alert('Failed to load employee list. Please try again later.');
       }
     });
+    
   }
   get currentMonthName(): string {
     return new Date(this.currentYear, this.currentMonth, 1).toLocaleString('default', { month: 'long' });
