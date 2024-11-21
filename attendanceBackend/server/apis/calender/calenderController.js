@@ -47,7 +47,34 @@ const addCalender = async (req, res) => {
     }
   };
   
+ 
+  
+  const viewCalendarByDate = async (req, res) => {
+    try {
+      const { date } = req.query;
+  
+      // Validate the date parameter
+      if (!date) {
+        return res.status(400).json({ message: 'Date parameter is required' });
+      }
+  
+      // Fetch events for the specified date
+      const events = await calender.find({ date });
+  
+      // Check if events exist for the date
+      if (events.length === 0) {
+        return res.status(404).json({ message: 'No events found for the specified date' });
+      }
+  
+      return res.status(200).json({ message: 'Events fetched successfully', events });
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      res.status(500).json({ message: 'Internal Server Error', error });
+    }
+  };
   
   module.exports = {
-    addCalender
+    addCalender,
+    viewCalendarByDate,
   };
+  
