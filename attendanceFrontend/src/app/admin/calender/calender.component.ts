@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CalenderService } from 'src/app/shared/calender/calender.service';
 
 @Component({
   selector: 'app-calender',
   templateUrl: './calender.component.html',
   styleUrls: ['./calender.component.css']
 })
-export class CalenderComponent {
+export class CalenderComponent implements OnInit {
   currentDate = new Date();
   currentYear = this.currentDate.getFullYear();
   currentMonth = this.currentDate.getMonth();
@@ -22,10 +23,12 @@ export class CalenderComponent {
   selectedEmployee = '';
   employeeList = ['John Doe', 'Jane Smith', 'Michael Brown']; // Example employees
 
-  constructor() {
+  constructor(private calenderService: CalenderService) {
     this.generateCalendar();
   }
-
+ngOnInit(): void {
+  
+}
   get currentMonthName(): string {
     return new Date(this.currentYear, this.currentMonth, 1).toLocaleString('default', { month: 'long' });
   }
@@ -85,27 +88,39 @@ export class CalenderComponent {
   }
 
   addEvent() {
-    if (!this.newEvent.trim() || !this.selectedDate || !this.newStartTime || !this.newEndTime || !this.selectedEmployee) {
-      alert('Please fill all fields before adding an event.');
-      return;
-    }
+    
 
-    const dateKey = this.selectedDate;
-    if (!this.events[dateKey]) {
-      this.events[dateKey] = [];
-    }
-
-    this.events[dateKey].push({
-      event: this.newEvent.trim(),
+    const eventData = {
+      date: this.selectedDate,
+      eventTitle: this.newEvent.trim(),
       startTime: this.newStartTime,
       endTime: this.newEndTime,
-      employee: this.selectedEmployee,
-    });
+      employeeIds: [this.selectedEmployee], // Assuming you pass IDs; adapt as needed
+    };
 
-    this.newEvent = '';
-    this.newStartTime = '';
-    this.newEndTime = '';
-    this.selectedEmployee = '';
+    this.calenderService.addCalenderApi(eventData).subscribe({
+      next: (response) => {
+       
+        if (!this.events[this.selectedDate!]) {
+          this.events[this.selectedDate!] = [];
+        }
+        this.events[this.selectedDate!].push({
+          event: this.newEvent.trim(),
+          startTime: this.newStartTime,
+          endTime: this.newEndTime,
+          employee: this.selectedEmployee,
+        });
+
+        this.newEvent = '';
+        this.newStartTime = '';
+        this.newEndTime = '';
+        this.selectedEmployee = '';
+      },
+      error: (err) => {
+        console.error('Error adding event:', err);
+        alert('Failed to add event. Please try again.');
+      }
+    });
   }
 
   getSelectedDay(): number | null {
