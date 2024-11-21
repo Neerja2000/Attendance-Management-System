@@ -23,13 +23,17 @@ export class ViewAnnouncementComponent implements OnInit {
     this.announcementService.viewAnnouncement().subscribe(
       (res: any) => {
         if (res && res.announcements) {
-          this.announcements = res.announcements.map((announcement: any) => ({
-            ...announcement,
-            liked: announcement.likedBy.includes(this.authService.getId()), // Check if the user has liked
-            showAllComments: false, // Initialize property for showing all comments
-            showCommentInput: false // Ensure comment input visibility is handled
-          }));
-          console.log(this.announcements); 
+          // Sort announcements by 'createdAt' in descending order
+          this.announcements = res.announcements
+            .map((announcement: any) => ({
+              ...announcement,
+              liked: announcement.likedBy.includes(this.authService.getId()), // Check if the user has liked
+              showAllComments: false, // Initialize property for showing all comments
+              showCommentInput: false // Ensure comment input visibility is handled
+            }))
+            .sort((a: { createdAt: string | number | Date; }, b: { createdAt: string | number | Date; }) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()); // Sorting logic
+  
+          console.log(this.announcements);
         } else {
           console.error('No announcements found');
         }
@@ -39,6 +43,7 @@ export class ViewAnnouncementComponent implements OnInit {
       }
     );
   }
+  
   
   
   isImage(mediaUrl: string): boolean {
