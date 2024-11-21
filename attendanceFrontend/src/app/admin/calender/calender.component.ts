@@ -22,12 +22,12 @@ export class CalenderComponent {
   selectedEmployee = '';
   employeeList = ['John Doe', 'Jane Smith', 'Michael Brown']; // Example employees
 
-  get currentMonthName(): string {
-    return this.currentDate.toLocaleString('default', { month: 'long' });
-  }
-
   constructor() {
     this.generateCalendar();
+  }
+
+  get currentMonthName(): string {
+    return new Date(this.currentYear, this.currentMonth, 1).toLocaleString('default', { month: 'long' });
   }
 
   generateCalendar() {
@@ -38,24 +38,26 @@ export class CalenderComponent {
       .fill(0)
       .concat(Array.from({ length: daysInMonth }, (_, i) => i + 1));
 
-    // Update the currentDate to match the displayed month and year
+    // Sync currentDate with currentMonth and currentYear
     this.currentDate = new Date(this.currentYear, this.currentMonth, 1);
   }
 
   prevMonth() {
-    this.currentMonth--;
-    if (this.currentMonth < 0) {
+    if (this.currentMonth === 0) {
       this.currentMonth = 11;
       this.currentYear--;
+    } else {
+      this.currentMonth--;
     }
     this.generateCalendar();
   }
 
   nextMonth() {
-    this.currentMonth++;
-    if (this.currentMonth > 11) {
+    if (this.currentMonth === 11) {
       this.currentMonth = 0;
       this.currentYear++;
+    } else {
+      this.currentMonth++;
     }
     this.generateCalendar();
   }
@@ -63,9 +65,9 @@ export class CalenderComponent {
   selectDate(dayIndex: number) {
     const day = this.daysInMonth[dayIndex];
     if (day !== 0) {
-      // Correctly construct the selected date
+      // Use `toLocaleDateString` for proper timezone handling
       const date = new Date(this.currentYear, this.currentMonth, day);
-      this.selectedDate = date.toISOString().split('T')[0]; // Safe ISO string (YYYY-MM-DD)
+      this.selectedDate = date.toLocaleDateString('en-CA'); // Format: YYYY-MM-DD
     }
   }
 
@@ -87,7 +89,6 @@ export class CalenderComponent {
       employee: this.selectedEmployee,
     });
 
-    // Clear inputs after adding the event
     this.newEvent = '';
     this.newStartTime = '';
     this.newEndTime = '';
