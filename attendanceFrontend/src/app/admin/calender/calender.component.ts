@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalenderService } from 'src/app/shared/calender/calender.service';
+import { EmployeeService } from 'src/app/shared/employee/employee.service';
 
 @Component({
   selector: 'app-calender',
@@ -21,14 +22,28 @@ export class CalenderComponent implements OnInit {
   newStartTime = '';
   newEndTime = '';
   selectedEmployee = '';
-  employeeList = ['John Doe', 'Jane Smith', 'Michael Brown']; // Example employees
+  employeeList: { _id: string, name: string, employeeId: number }[] = []; 
 
-  constructor(private calenderService: CalenderService) {
+  constructor(private calenderService: CalenderService ,private employeeService:EmployeeService) {
     this.generateCalendar();
   }
-ngOnInit(): void {
-  
-}
+  ngOnInit(): void {
+    // Fetch employees dynamically on component load
+    this.employeeService.viewEmployeeapi().subscribe({
+      next: (response) => {
+        if (response.success) {
+          this.employeeList = response.data;  // Ensure you access the `data` property
+          console.log("employee", this.employeeList); // Log to verify structure
+        } else {
+          console.error('Failed to load employees');
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching employees:', err);
+        alert('Failed to load employee list. Please try again later.');
+      }
+    });
+  }
   get currentMonthName(): string {
     return new Date(this.currentYear, this.currentMonth, 1).toLocaleString('default', { month: 'long' });
   }

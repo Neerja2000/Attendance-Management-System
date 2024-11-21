@@ -1,3 +1,4 @@
+<!-- calendar.component.html -->
 <div class="calendar-container">
   <div class="calendar-header">
     <button (click)="prevMonth()" class="calendar-nav-btn">Prev</button>
@@ -31,8 +32,8 @@
     <input type="time" [(ngModel)]="newEndTime" placeholder="End time" class="event-input" />
     <select [(ngModel)]="selectedEmployee" class="event-input">
       <option value="" disabled>Select employee</option>
-      <option *ngFor="let employee of employeeList" [value]="employee">
-        {{ employee }}
+      <option *ngFor="let employee of employeeList" [value]="employee._id">
+        {{ employee.name }}
       </option>
     </select>
 
