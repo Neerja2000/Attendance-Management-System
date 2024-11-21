@@ -48,6 +48,8 @@ import { SaveImpWorkComponent } from './admin/save-imp-work/save-imp-work.compon
 import { ViewImpWorkComponent } from './employee/view-imp-work/view-imp-work.component';
 import { AnnouncementComponent } from './admin/announcement/announcement.component';
 import { ViewAnnouncementComponent } from './employee/view-announcement/view-announcement.component';
+import { CalenderComponent } from './admin/calender/calender.component';
+import { AdminCalendarComponent } from './admin-calendar/admin-calendar.component';
 
 
 
@@ -93,7 +95,9 @@ import { ViewAnnouncementComponent } from './employee/view-announcement/view-ann
     SaveImpWorkComponent,
     ViewImpWorkComponent,
     AnnouncementComponent,
-    ViewAnnouncementComponent
+    ViewAnnouncementComponent,
+    CalenderComponent,
+    AdminCalendarComponent
    
    
   ],

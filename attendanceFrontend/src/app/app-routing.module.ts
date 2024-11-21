@@ -35,6 +35,7 @@ import { SaveImpWorkComponent } from './admin/save-imp-work/save-imp-work.compon
 import { ViewImpWorkComponent } from './employee/view-imp-work/view-imp-work.component';
 import { AnnouncementComponent } from './admin/announcement/announcement.component';
 import { ViewAnnouncementComponent } from './employee/view-announcement/view-announcement.component';
+import { CalenderComponent } from './admin/calender/calender.component';
 
 const routes: Routes = [
 {
@@ -98,6 +99,9 @@ const routes: Routes = [
     },
     {
       path:'view-announcement',component:ViewAnnouncementComponent,canActivate:[AuthGuard]
+    },
+    {
+      path:'admin-calender',component:CalenderComponent
     }
   ]
   },

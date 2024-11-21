@@ -1,0 +1,49 @@
+<div class="calendar-container">
+  <div class="calendar-header">
+    <button (click)="prevMonth()" class="calendar-nav-btn">Prev</button>
+    <div class="calendar-month-year">
+      <span>{{ currentMonthName }} {{ currentYear }}</span>
+    </div>
+    <button (click)="nextMonth()" class="calendar-nav-btn">Next</button>
+  </div>
+
+  <div class="calendar-weekdays">
+    <div *ngFor="let weekday of weekdays" class="weekday">
+      {{ weekday }}
+    </div>
+  </div>
+
+  <div class="calendar-days">
+    <div
+      *ngFor="let day of daysInMonth; let i = index"
+      [class.selected]="day === getSelectedDay()"
+      class="calendar-day"
+      (click)="selectDate(i)"
+    >
+      {{ day || '' }}
+    </div>
+  </div>
+
+  <div *ngIf="selectedDate" class="event-section">
+    <h3>Events on {{ selectedDate }}</h3>
+
+    <input [(ngModel)]="newEvent" placeholder="Event name" class="event-input" />
+    <input type="time" [(ngModel)]="newStartTime" placeholder="Start time" class="event-input" />
+    <input type="time" [(ngModel)]="newEndTime" placeholder="End time" class="event-input" />
+    <select [(ngModel)]="selectedEmployee" class="event-input">
+      <option value="" disabled>Select employee</option>
+      <option *ngFor="let employee of employeeList" [value]="employee">
+        {{ employee }}
+      </option>
+    </select>
+
+    <button (click)="addEvent()" class="add-event-btn">Add Event</button>
+
+    <div *ngFor="let event of events[selectedDate]" class="event-item">
+      <p><strong>Event:</strong> {{ event.event }}</p>
+      <p><strong>Start Time:</strong> {{ event.startTime }}</p>
+      <p><strong>End Time:</strong> {{ event.endTime }}</p>
+      <p><strong>Employee:</strong> {{ event.employee }}</p>
+    </div>
+  </div>
+</div>
