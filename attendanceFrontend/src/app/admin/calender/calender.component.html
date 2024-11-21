@@ -30,12 +30,17 @@
     <input [(ngModel)]="newEvent" placeholder="Event name" class="event-input" />
     <input type="time" [(ngModel)]="newStartTime" placeholder="Start time" class="event-input" />
     <input type="time" [(ngModel)]="newEndTime" placeholder="End time" class="event-input" />
-    <select [(ngModel)]="selectedEmployee" class="event-input">
-      <option value="" disabled>Select employee</option>
-      <option *ngFor="let employee of employeeList" [value]="employee._id">
-        {{ employee.name }}
-      </option>
-    </select>
+   
+    <div>
+      <h3>Select Employees</h3>
+      <div *ngFor="let employee of employeeList">
+        <label>
+          <input type="checkbox" [(ngModel)]="selectedEmployees[employee._id]" [value]="employee._id">
+          {{ employee.name }}
+        </label><br>
+      </div>
+    </div>
+    
 
     <button (click)="addEvent()" class="add-event-btn">Add Event</button>
 
