@@ -11,6 +11,7 @@ const taskController=require("../apis/task/taskController")
 const assignController=require("../apis/AssignTask/AssignTaskController")
 const contentController=require("../apis/saveImportant/saveimpController")
 const announcementController=require("../apis/announcement/announcementController")
+const calenderController=require("../apis/calender/calenderController")
 const upload = require('../config/multerconfig');
 
 
@@ -88,4 +89,10 @@ router.get('/announcements/get',announcementController.getAnnouncements)
 
 router.post('/announcements/likes/:announcementId',announcementController.addLike)
 router.post('/announcements/comments/:announcementId',announcementController.addComment)
+
+
+
+//calender
+
+router.post("/calender/add",calenderController.addCalender)
 module.exports=router
