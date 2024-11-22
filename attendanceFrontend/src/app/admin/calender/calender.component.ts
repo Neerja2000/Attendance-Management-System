@@ -15,25 +15,26 @@ export class CalenderComponent implements OnInit {
 
   weekdays = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
   daysInMonth: number[] = [];
-  events: {
-    [key: string]: { event: string; startTime: string; endTime: string; employee: string }[];
-  } = {};
+
   newEvent = '';
   newStartTime = '';
   newEndTime = '';
   selectedEmployee = '';
-  employeeList: { _id: string, name: string, employeeId: number }[] = []; 
+  employeeList: { _id: string, name: string, employeeId: number }[] = [];
+  selectedEmployees: { [key: string]: boolean } = {}; 
 
-  constructor(private calenderService: CalenderService ,private employeeService:EmployeeService) {
+  events: { [key: string]: any[] } = {};
+
+  constructor(private calenderService: CalenderService ,private employeeService: EmployeeService) {
     this.generateCalendar();
   }
+
   ngOnInit(): void {
-    // Fetch employees dynamically on component load
     this.employeeService.viewEmployeeapi().subscribe({
       next: (response) => {
         if (response.success) {
-          this.employeeList = response.data;  // Ensure you access the `data` property
-          console.log("employee", this.employeeList); // Log to verify structure
+          this.employeeList = response.data; 
+          console.log("employee", this.employeeList); 
         } else {
           console.error('Failed to load employees');
         }
@@ -43,8 +44,8 @@ export class CalenderComponent implements OnInit {
         alert('Failed to load employee list. Please try again later.');
       }
     });
-    
   }
+
   get currentMonthName(): string {
     return new Date(this.currentYear, this.currentMonth, 1).toLocaleString('default', { month: 'long' });
   }
@@ -57,7 +58,6 @@ export class CalenderComponent implements OnInit {
       .fill(0)
       .concat(Array.from({ length: daysInMonth }, (_, i) => i + 1));
 
-    // Sync currentDate with currentMonth and currentYear
     this.currentDate = new Date(this.currentYear, this.currentMonth, 1);
   }
 
@@ -85,59 +85,72 @@ export class CalenderComponent implements OnInit {
     const day = this.daysInMonth[dayIndex];
     if (day !== 0) {
       const date = new Date(this.currentYear, this.currentMonth, day);
-
-      // Prevent selection of past dates
       const today = new Date();
       if (date >= new Date(today.getFullYear(), today.getMonth(), today.getDate())) {
-        this.selectedDate = date.toLocaleDateString('en-CA'); // Format: YYYY-MM-DD
+        this.selectedDate = date.toLocaleDateString('en-CA');
       }
     }
   }
 
   isPastDate(day: number): boolean {
     if (day === 0) return true;
-
     const date = new Date(this.currentYear, this.currentMonth, day);
     const today = new Date();
-
     return date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
   }
 
   addEvent() {
     
-
+  
+    // Construct event data for the API call
     const eventData = {
       date: this.selectedDate,
       eventTitle: this.newEvent.trim(),
       startTime: this.newStartTime,
       endTime: this.newEndTime,
-      employeeIds: [this.selectedEmployee], // Assuming you pass IDs; adapt as needed
+      employeeIds: Object.keys(this.selectedEmployees).filter(
+        (key) => this.selectedEmployees[key] // Collect selected employee IDs
+      ),
+      status: 'pending', // Assuming the initial status is 'pending'
     };
-
+  
+    // Make the API call to add the event
     this.calenderService.addCalenderApi(eventData).subscribe({
       next: (response) => {
-       
+        // No need to check for 'success' if it's not part of the response
+        // Ensure that the events object is ready for the selected date
         if (!this.events[this.selectedDate!]) {
           this.events[this.selectedDate!] = [];
         }
+  
+        // Add the new event to the events array for the selected date
         this.events[this.selectedDate!].push({
           event: this.newEvent.trim(),
           startTime: this.newStartTime,
           endTime: this.newEndTime,
-          employee: this.selectedEmployee,
+          employees: Object.keys(this.selectedEmployees).filter(
+            (key) => this.selectedEmployees[key] // Collect selected employee names
+          ),
+          status: 'pending', // Assuming initial status is 'pending'
         });
-
+  
+        // Reset the input fields
         this.newEvent = '';
         this.newStartTime = '';
         this.newEndTime = '';
         this.selectedEmployee = '';
+        this.selectedEmployees = {}; // Clear selected employees
+  
+        console.log('Event added:', eventData);
       },
       error: (err) => {
         console.error('Error adding event:', err);
-        alert('Failed to add event. Please try again.');
+        alert('An error occurred while adding the event. Please try again later.');
       }
     });
   }
+  
+  
 
   getSelectedDay(): number | null {
     return this.selectedDate ? parseInt(this.selectedDate.split('-')[2]) : null;

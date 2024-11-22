@@ -77,3 +77,13 @@
 .add-event-btn:hover {
   background-color: #0056b3;
 }
+
+
+.employee-checkboxes {
+  margin-top: 20px;
+}
+
+.employee-checkboxes label {
+  display: block;
+  margin-bottom: 10px;
+}
