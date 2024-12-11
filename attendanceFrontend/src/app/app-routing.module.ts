@@ -36,6 +36,7 @@ import { ViewImpWorkComponent } from './employee/view-imp-work/view-imp-work.com
 import { AnnouncementComponent } from './admin/announcement/announcement.component';
 import { ViewAnnouncementComponent } from './employee/view-announcement/view-announcement.component';
 import { CalenderComponent } from './admin/calender/calender.component';
+import { EmployeeCalenderComponent } from './employee/employee-calender/employee-calender.component';
 
 const routes: Routes = [
 {
@@ -148,6 +149,9 @@ const routes: Routes = [
     },
     {
       path:'view-announcement',component:ViewAnnouncementComponent,canActivate:[AuthGuard]
+    },
+    {
+      path:'employee-calender',component:EmployeeCalenderComponent
     }
   ]
   }
