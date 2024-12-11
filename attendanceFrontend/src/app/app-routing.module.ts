@@ -101,7 +101,7 @@ const routes: Routes = [
       path:'view-announcement',component:ViewAnnouncementComponent,canActivate:[AuthGuard]
     },
     {
-      path:'admin-calender',component:CalenderComponent
+      path:'calender',component:CalenderComponent
     }
   ]
   },
