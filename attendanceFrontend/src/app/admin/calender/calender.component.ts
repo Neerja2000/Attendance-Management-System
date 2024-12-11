@@ -53,13 +53,14 @@ export class CalenderComponent implements OnInit {
   generateCalendar() {
     const firstDay = new Date(this.currentYear, this.currentMonth, 1).getDay();
     const daysInMonth = new Date(this.currentYear, this.currentMonth + 1, 0).getDate();
-
-    this.daysInMonth = Array(firstDay - 1)
+  
+    this.daysInMonth = Array(Math.max(0, firstDay - 1))
       .fill(0)
       .concat(Array.from({ length: daysInMonth }, (_, i) => i + 1));
-
+  
     this.currentDate = new Date(this.currentYear, this.currentMonth, 1);
   }
+  
 
   prevMonth() {
     if (this.currentMonth === 0) {
