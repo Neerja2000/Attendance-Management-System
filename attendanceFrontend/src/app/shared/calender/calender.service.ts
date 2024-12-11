@@ -17,4 +17,9 @@ export class CalenderService {
    addCalenderApi(form: any) {
     return this.http.post(`${this.globalbaseurl}/calender/add`, form);
   }
+  getCalenderApi(date: string) {
+    return this.http.get(`${this.globalbaseurl}/viewCalendarByDate`, {
+      params: { date },
+    });
+  }
 }

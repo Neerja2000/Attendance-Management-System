@@ -7,7 +7,7 @@ const dailyRatingController=require("../apis/dailyRating/dailyRatingController")
 const projectController=require("../apis/project/projectController")
 const assignController=require("../apis/AssignTask/AssignTaskController")
 const announcementController=require("../apis/announcement/announcementController")
-
+const calenderController=require("../apis/calender/calenderController")
 
 // login
 router.post("/login",employeeController.employeeLogin)
@@ -48,4 +48,7 @@ router.get('/announcements/get',announcementController.getAnnouncements)
 router.post('/announcements/likes/:announcementId',announcementController.addLike)
 router.post('/announcements/comments/:announcementId',announcementController.addComment)
 router.get('/attendence/late-arrivals/:employeeId',attendanceController.getLateArrivalsByMonth);
+
+
+router.get('/viewCalendarByDate', calenderController.viewCalendarByDate);
 module.exports=router

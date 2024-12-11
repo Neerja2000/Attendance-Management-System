@@ -1,1 +1,42 @@
-<p>employee-calender works!</p>
+<div class="calendar-container">
+    <div class="calendar-header">
+        <button (click)="prevMonth()" class="calendar-nav-btn">Prev</button>
+        <div class="calendar-month-year">
+            <span>{{ currentMonthName }} {{ currentYear }}</span>
+        </div>
+        <button (click)="nextMonth()" class="calendar-nav-btn">Next</button>
+    </div>
+
+    <div class="calendar-weekdays">
+        <div *ngFor="let weekday of weekdays" class="weekday">{{ weekday }}</div>
+    </div>
+
+    <div class="calendar-days">
+        <div
+            *ngFor="let dayObj of daysInMonth; let i = index"
+            [class.selected]="dayObj.day === getSelectedDay()"
+            class="calendar-day"
+            (click)="selectDate(i)"
+        >
+            {{ dayObj.day }}
+        </div>
+    </div>
+</div>
+
+<!-- Event details section -->
+<div *ngIf="selectedDate && filteredEvents.length > 0" class="event-details">
+    <h3>Events for {{ selectedDate }}</h3>
+    <ul>
+        <li *ngFor="let event of filteredEvents">
+            <strong>{{ event.eventTitle }}</strong><br />
+            Time: {{ event.startTime }} - {{ event.endTime }}<br />
+            Status: {{ event.status }}<br />
+            Employees: {{ event.employeeIds.join(', ') }}
+        </li>
+    </ul>
+</div>
+
+<!-- If no events found for the selected date, just show the date -->
+<div *ngIf="selectedDate && filteredEvents.length === 0" class="no-events-message">
+    <h3>No events for {{ selectedDate }}</h3>
+</div>

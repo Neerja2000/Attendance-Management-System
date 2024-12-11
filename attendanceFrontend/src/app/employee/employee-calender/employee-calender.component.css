@@ -1,0 +1,90 @@
+.calendar-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .calendar-nav-btn {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .calendar-month-year {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .calendar-weekdays,
+  .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+  
+  .weekday,
+  .calendar-day {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .calendar-day {
+    cursor: pointer;
+  }
+  
+  .calendar-day.disabled {
+    background-color: #f0f0f0;
+    color: #999;
+    pointer-events: none;
+  }
+  
+  .calendar-day.selected {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .event-section {
+    margin-top: 20px;
+  }
+  
+  .event-input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-event-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-event-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  .employee-checkboxes {
+    margin-top: 20px;
+  }
+  
+  .employee-checkboxes label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
