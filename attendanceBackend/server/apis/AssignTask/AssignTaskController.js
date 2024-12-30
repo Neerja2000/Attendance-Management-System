@@ -387,18 +387,30 @@ const requestChanges = async (req, res) => {
     }
 };
 
+
 const parseExpectedTime = (expectedTime) => {
-    const daysMatch = expectedTime.match(/(\d+)\s*days?/);
-    const hoursMatch = expectedTime.match(/(\d+)\s*hours?/);
-    const minutesMatch = expectedTime.match(/(\d+)\s*min/);
+    // Log the input to debug
+    console.log("Expected Time:", expectedTime);
 
-    const days = daysMatch ? parseInt(daysMatch[1], 10) : 0;
-    const hours = hoursMatch ? parseInt(hoursMatch[1], 10) : 0;
-    const minutes = minutesMatch ? parseInt(minutesMatch[1], 10) : 0;
+    const timePattern = /(?:(\d+)\s*days?)?\s*(?:(\d+)\s*hours?)?\s*(?:(\d+)\s*min)?/i;
+    const match = expectedTime.match(timePattern);
 
-    const totalHours = (days * 24) + hours + (minutes / 60);
-    return totalHours;
+    if (!match) {
+        throw new Error("Invalid expected time format");
+    }
+
+    const days = parseInt(match[1] || 0, 10); // Default to 0 if not found
+    const hours = parseInt(match[2] || 0, 10);
+    const minutes = parseInt(match[3] || 0, 10);
+
+    // Each day has 9 working hours
+    const workingHours = days * 9 + hours + minutes / 60;
+
+    console.log("Parsed -> Days:", days, "Hours:", hours, "Minutes:", minutes, "Total Hours:", workingHours);
+
+    return workingHours;
 };
+
 
 const calculateBudgetAndEmployeeCost = async (req, res) => {
     try {
@@ -426,14 +438,6 @@ const calculateBudgetAndEmployeeCost = async (req, res) => {
             });
         }
 
-        // Validate project budget is a valid number
-        if (isNaN(project.projectBudget) || project.projectBudget == null) {
-            return res.status(400).json({
-                success: false,
-                message: 'Project budget is invalid or not a number',
-            });
-        }
-
         // Fetch employee details for hourly rate
         const employee = await Employee.findById(employeeId);
         if (!employee) {
@@ -452,20 +456,8 @@ const calculateBudgetAndEmployeeCost = async (req, res) => {
             });
         }
 
-        // Find task assignment
-        const taskAssignment = await TaskAssignment.findOne({
-            taskId: new mongoose.Types.ObjectId(taskId),
-            projectId: new mongoose.Types.ObjectId(projectId),
-            EmployeeId: new mongoose.Types.ObjectId(employeeId),
-        });
-        if (!taskAssignment) {
-            return res.status(404).json({
-                success: false,
-                message: 'Task assignment not found',
-            });
-        }
-
-        // Parse the expected time (use your existing parse function)
+        // Calculate assigned hours based on expected time
+        console.log("time",parseExpectedTime(task.expectedTime))
         const assignedHours = parseExpectedTime(task.expectedTime);
         if (isNaN(assignedHours) || assignedHours <= 0) {
             return res.status(400).json({
@@ -476,11 +468,10 @@ const calculateBudgetAndEmployeeCost = async (req, res) => {
 
         // Calculate the employee cost based on hourly rate
         const employeeCost = assignedHours * employee.perHourSalary;
-        const pendingBudget=project.RemainingBudget;
-        // Calculate remaining budget after the new employee cost
+
+        // Calculate remaining budget
         const remainingBudget = project.RemainingBudget - employeeCost;
-        console.log(remainingBudget)
-        // Update the project model with the new remaining budget
+
         if (remainingBudget < 0) {
             return res.status(400).json({
                 success: false,
@@ -491,19 +482,14 @@ const calculateBudgetAndEmployeeCost = async (req, res) => {
         project.RemainingBudget = remainingBudget; // Update remaining budget
         await project.save(); // Save the updated project
 
-        // Update the task assignment with calculated employee cost
-        taskAssignment.employeeCost = employeeCost;
-        await taskAssignment.save();
-
         res.json({
             success: true,
             project: projectId,
-            projectBudget:project.projectBudget,
+            projectBudget: project.projectBudget,
             employee: employeeId,
             task: taskId,
             assignedHours,
             hourlyRate: employee.perHourSalary,
-            pendingBudget,
             employeeCost,
             remainingBudget,
             message: 'Remaining budget and employee cost calculated successfully',
@@ -517,6 +503,7 @@ const calculateBudgetAndEmployeeCost = async (req, res) => {
         });
     }
 };
+
 
 const getPendingTasksCount = async (req, res) => {
     try {
