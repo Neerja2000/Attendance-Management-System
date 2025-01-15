@@ -1,3 +1,4 @@
+const { Error } = require("mongoose");
 const calender=require("./calenderModel")
 const addCalender = async (req, res) => {
     try {
@@ -5,6 +6,7 @@ const addCalender = async (req, res) => {
   
       // Log employeeIds to check what is being sent
       console.log('employeeIds:', employeeIds);
+      
   
       // Validate required fields
       if (!date || !eventTitle || !employeeIds) {
@@ -73,8 +75,28 @@ const addCalender = async (req, res) => {
     }
   };
   
+  const getAllCalendarEvents = (req, res) => {
+    // Fetch all events from the database
+    calender.find()
+      .then(result => {
+        res.status(200).json({
+          success: true,
+          message: "Show all calendar events",
+          data: result
+        });
+      })
+      .catch(err => {
+        console.error(err); // Log the error for debugging purposes
+        res.status(400).json({
+          success: false,
+          message: "Failed to retrieve calendar events", // Provide a meaningful error message
+          error: err.message || "An error occurred" // Return the actual error message
+        });
+      });
+  };
+  
   module.exports = {
     addCalender,
-    viewCalendarByDate,
+    viewCalendarByDate, getAllCalendarEvents
   };
   

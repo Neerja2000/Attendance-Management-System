@@ -24,6 +24,8 @@ export class CalenderComponent implements OnInit {
   selectedEmployees: { [key: string]: boolean } = {}; 
 
   events: { [key: string]: any[] } = {};
+  calendarEvents: any[] = [];
+  eventDates: string[] = [];
 
   constructor(private calenderService: CalenderService ,private employeeService: EmployeeService) {
     this.generateCalendar();
@@ -44,7 +46,32 @@ export class CalenderComponent implements OnInit {
         alert('Failed to load employee list. Please try again later.');
       }
     });
+   
+    this.getAllEvents()
   }
+  getAllEvents(): void {
+    this.calenderService.getAllCalender().subscribe(
+      (res: any) => {
+        if (res.success) {
+          this.calendarEvents = res.data;  // Store the events in the array
+          this.eventDates = this.calendarEvents.map(event => event.date); // Extract event dates
+          console.log('Calendar events:', this.calendarEvents);
+        } else {
+          console.error('Failed to load calendar events');
+        }
+      },
+      (err) => {
+        console.error('Error fetching events:', err);
+        alert('Failed to load calendar events. Please try again later.');
+      }
+    );
+  }
+
+  getFormattedDate(day: number): string {
+    const date = new Date(this.currentYear, this.currentMonth, day);
+    return date.toLocaleDateString('en-CA'); // This returns the date in the format 'yyyy-mm-dd'
+  }
+
 
   get currentMonthName(): string {
     return new Date(this.currentYear, this.currentMonth, 1).toLocaleString('default', { month: 'long' });

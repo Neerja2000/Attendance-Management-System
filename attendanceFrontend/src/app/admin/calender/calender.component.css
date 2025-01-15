@@ -87,3 +87,7 @@
   display: block;
   margin-bottom: 10px;
 }
+.calendar-day.highlighted {
+  background-color: blue;
+  color: white;
+}

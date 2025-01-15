@@ -15,17 +15,20 @@
     <div *ngFor="let weekday of weekdays" class="weekday">{{ weekday }}</div>
   </div>
 
+ 
   <div class="calendar-days">
     <div
       *ngFor="let day of daysInMonth; let i = index"
       [class.disabled]="isPastDate(day)"
       [class.selected]="day === getSelectedDay()"
+      [class.highlighted]="eventDates.includes(getFormattedDate(day))" 
       class="calendar-day"
       (click)="!isPastDate(day) && selectDate(i)"
     >
       {{ day || '' }}
     </div>
   </div>
+  
   
 
   <div *ngIf="selectedDate" class="event-section">

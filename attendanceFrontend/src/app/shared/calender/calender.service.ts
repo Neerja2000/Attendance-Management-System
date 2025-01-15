@@ -22,4 +22,9 @@ export class CalenderService {
       params: { date },
     });
   }
+
+  
+  getAllCalender() {
+    return this.http.get(`${this.globalbaseurl}/viewAllCalender`);
+  }
 }

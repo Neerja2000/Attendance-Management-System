@@ -96,4 +96,5 @@ router.post('/announcements/comments/:announcementId',announcementController.add
 
 router.post("/calender/add",calenderController.addCalender)
 router.get('/viewCalendarByDate', calenderController.viewCalendarByDate);
+router.get('/viewAllCalender',calenderController.getAllCalendarEvents)
 module.exports=router
