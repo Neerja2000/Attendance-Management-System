@@ -168,7 +168,7 @@ export class CalenderComponent implements OnInit {
         this.newEndTime = '';
         this.selectedEmployee = '';
         this.selectedEmployees = {}; // Clear selected employees
-  
+        this.getAllEvents()
         console.log('Event added:', eventData);
       },
       error: (err) => {
