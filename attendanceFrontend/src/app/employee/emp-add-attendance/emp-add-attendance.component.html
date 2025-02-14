@@ -6,41 +6,46 @@
           <div class="col-md-8">
             <h5 class="card-title">Add Attendance</h5>
           </div>
-        
-          <div class="col-md-4">
+          <div class="col-md-4 text-end">
             <button class="btn btn-primary" [routerLink]="['/employee/layout/add-daily-rating']">+ Add Today's Rating</button>
           </div>
         </div>
       </div>
       <div class="card-body">
         <form [formGroup]="attendanceForm" (ngSubmit)="submitAttendance()">
-          <!-- Date Picker Input -->
+          <!-- Date Selector -->
           <div class="form-group mb-3">
-            <label for="attendanceDate">Select</label>
+            <label for="attendanceDate">Select Date</label>
             <select id="attendanceDate" formControlName="date" (change)="onDateChange()" class="form-control-sm ms-2" required>
               <option [value]="today">Today ({{ today }})</option>
               <option [value]="previousDay">Previous Day ({{ previousDay }})</option>
             </select>
           </div>
-          
-          
-          
-          <table class="table table-striped" id="table1">
+
+          <!-- Attendance Table -->
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th>Check-In</th>
                 <th>Break Start</th>
                 <th>Break Finish</th>
                 <th>Check-Out</th>
-                <th>Work-Done</th>
+                <th>Work Done</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><input type="time" formControlName="check_in" class="form-control" required></td>
-                <td><input type="time" formControlName="break_time_start" class="form-control" required></td>
-                <td><input type="time" formControlName="break_time_finish" class="form-control" required></td>
-                <td><input type="time" formControlName="check_out" class="form-control" required></td>
+                <td>
+                  <input
+                    type="time"
+                    formControlName="check_in"
+                    class="form-control"
+                    readonly
+                  />
+                </td>
+                <td><input type="time" formControlName="break_time_start" class="form-control" required /></td>
+                <td><input type="time" formControlName="break_time_finish" class="form-control" required /></td>
+                <td><input type="time" formControlName="check_out" class="form-control" required /></td>
                 <td>
                   <button type="button" class="btn btn-primary" (click)="openWorkDoneModal()">
                     {{ isWorkDoneAdded ? 'Change Work' : 'Add Work' }}
@@ -49,14 +54,33 @@
               </tr>
             </tbody>
           </table>
-      
+
           <button type="submit" class="btn btn-primary mt-2">Save Changes</button>
         </form>
       </div>
-      
     </div>
   </section>
+
+  <!-- Work Done Modal -->
+  <div id="workDoneModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Work Done</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ckeditor [editor]="Editor" [(ngModel)]="workDoneContent"></ckeditor>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="saveWorkDone()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 
 <!-- Work Done Modal -->

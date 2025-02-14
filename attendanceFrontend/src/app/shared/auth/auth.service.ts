@@ -8,22 +8,38 @@ export class AuthService {
 
 
   constructor() { }
+ 
+
+
   storedata(res: any) {
-    // Check if response is for employee or admin login
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0'); // Get local hours
+    const minutes = now.getMinutes().toString().padStart(2, '0'); // Get local minutes
+    const loginTime = `${hours}:${minutes}`; // Format time as HH:mm
+  
     if (res.data && res.data._id) {
-      // Handling employee login response
       sessionStorage.setItem('_id', res.data._id || '');
-      sessionStorage.setItem('token', res.token || ''); // Store token if available
-    } else if (res.token) {
-     
-      // Handling admin login response
-      sessionStorage.setItem('_id',res.id ||''); // Admin login response doesn't include `_id`
       sessionStorage.setItem('token', res.token || '');
-      
+      sessionStorage.setItem('loginTime', loginTime); // Save login time for employee
+    } else if (res.token) {
+      sessionStorage.setItem('_id', res.id || '');
+      sessionStorage.setItem('token', res.token || '');
+      sessionStorage.setItem('loginTime', loginTime); // Save login time for admin
     } else {
       console.error('Invalid response format:', res);
     }
+  
+    console.log('Login Time Stored:', loginTime); // Log the stored login time
   }
+  
+  
+  
+  getLoginTime() {
+    const loginTime = sessionStorage.getItem('loginTime');
+    console.log('Retrieved Login Time:', loginTime); // Log the retrieved login time
+    return loginTime;
+  }
+
 
   getId() {
     return sessionStorage.getItem('_id');

@@ -26,10 +26,9 @@ export class EmpAddAttendanceComponent implements OnInit {
     private authService: AuthService,
     private snackbar: MatSnackBar
   ) {
-    // Initialize form with today’s date as default
     this.attendanceForm = this.formBuilder.group({
-      date: [new Date().toISOString().substring(0, 10)], // Default to today’s date in 'YYYY-MM-DD' format
-      check_in: [''],
+      date: [new Date().toISOString().substring(0, 10)],
+      check_in: [{ value: '', disabled: true }], // Disabled by default
       break_time_start: [''],
       break_time_finish: [''],
       check_out: [''],
@@ -44,6 +43,18 @@ export class EmpAddAttendanceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
+  
+    // Get login time and patch to check_in field
+    const loginTime = this.authService.getLoginTime();
+    console.log(loginTime)
+    if (loginTime) {
+      console.log('Login Time Retrievedd in Component:', loginTime); // Log login time for debugging
+      this.attendanceForm.patchValue({ check_in: loginTime });
+  
+      // Disable the 'check_in' field to prevent changes
+      this.attendanceForm.get('check_in')?.disable();
+    }
     this.fetchEmployeeId().then(() => {
       this.loadAttendance(this.today); // Load attendance for today by default
     });
@@ -66,22 +77,28 @@ export class EmpAddAttendanceComponent implements OnInit {
     }
   }
 
+  loadLoginTime() {
+    const loginTime = this.authService.getLoginTime();
+    if (loginTime) {
+      console.log('Login Time Retrieved in Component:', loginTime);
+      this.attendanceForm.patchValue({ check_in: loginTime });
+    }
+  }
+
   onDateChange() {
-    
     const selectedDate = this.attendanceForm.get('date')?.value;
-    
     console.log('Selected date:', selectedDate);
-    this.loadAttendance(selectedDate); // Load attendance data for the selected date
+    this.loadAttendance(selectedDate);
   }
 
   loadAttendance(date: string) {
     if (this.employeeId && date) {
       console.log('Loading attendance for date:', date);
-      
+  
       // Clear form values initially to avoid previous data persisting
       this.attendanceForm.patchValue({
         date: date,
-        check_in: '',
+        check_in:  this.authService.getLoginTime(), // Reset check_in initially
         break_time_start: '',
         break_time_finish: '',
         check_out: '',
@@ -101,7 +118,7 @@ export class EmpAddAttendanceComponent implements OnInit {
             // Populate the form fields with data for the selected date
             this.attendanceForm.patchValue({
               date: this.formatDate(new Date(attendance.date)),
-              check_in: attendance.check_in || '',  // Empty if no check-in time
+              check_in: attendance.check_in || this.authService.getLoginTime(), // Use login time if no check-in time is provided
               break_time_start: attendance.break_time_start || '',
               break_time_finish: attendance.break_time_finish || '',
               check_out: attendance.check_out || '',
@@ -109,6 +126,12 @@ export class EmpAddAttendanceComponent implements OnInit {
             });
             this.isWorkDoneAdded = !!attendance.work_done;
             this.workDoneContent = attendance.work_done || '';
+          } else {
+            // If no attendance data exists for the selected date, set check_in to the login time
+            const loginTime = this.authService.getLoginTime();
+            if (loginTime) {
+              this.attendanceForm.patchValue({ check_in: loginTime });
+            }
           }
         },
         (error: any) => {
@@ -122,8 +145,6 @@ export class EmpAddAttendanceComponent implements OnInit {
       );
     }
   }
-  
-  
 
   openWorkDoneModal() {
     this.workDoneContent = this.attendanceForm.get('work_done')?.value || '';
@@ -135,7 +156,7 @@ export class EmpAddAttendanceComponent implements OnInit {
     this.attendanceForm.patchValue({ work_done: this.workDoneContent });
     const modal = bootstrap.Modal.getInstance(document.getElementById('workDoneModal'));
     modal.hide();
-    this.submitAttendance(); 
+    this.submitAttendance();
   }
 
   submitAttendance() {
