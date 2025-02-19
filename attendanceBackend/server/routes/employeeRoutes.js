@@ -8,6 +8,7 @@ const projectController=require("../apis/project/projectController")
 const assignController=require("../apis/AssignTask/AssignTaskController")
 const announcementController=require("../apis/announcement/announcementController")
 const calenderController=require("../apis/calender/calenderController")
+const workStatusController=require("../apis/workdone/workController")
 
 // login
 router.post("/login",employeeController.employeeLogin)
@@ -51,4 +52,9 @@ router.get('/attendence/late-arrivals/:employeeId',attendanceController.getLateA
 
 
 router.get('/viewCalendarByDate', calenderController.viewCalendarByDate);
+// workdone
+
+router.post('/workstatus/add/:employeeId', workStatusController.addWorkStatus);
+router.get('/workstatus/getSingle/:employeeId', workStatusController.getWorkStatusByEmployee);
+router.get('/workstatus/gettAll', workStatusController.getAllWorkStatus);
 module.exports=router

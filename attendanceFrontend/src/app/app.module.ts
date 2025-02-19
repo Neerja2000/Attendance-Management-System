@@ -51,6 +51,7 @@ import { ViewAnnouncementComponent } from './employee/view-announcement/view-ann
 import { CalenderComponent } from './admin/calender/calender.component';
 import { AdminCalendarComponent } from './admin-calendar/admin-calendar.component';
 import { EmployeeCalenderComponent } from './employee/employee-calender/employee-calender.component';
+import { AddEmpWorkComponent } from './employee/add-emp-work/add-emp-work.component';
 
 
 
@@ -99,7 +100,8 @@ import { EmployeeCalenderComponent } from './employee/employee-calender/employee
     ViewAnnouncementComponent,
     CalenderComponent,
     AdminCalendarComponent,
-    EmployeeCalenderComponent
+    EmployeeCalenderComponent,
+    AddEmpWorkComponent
    
    
   ],

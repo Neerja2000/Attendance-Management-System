@@ -37,6 +37,7 @@ import { AnnouncementComponent } from './admin/announcement/announcement.compone
 import { ViewAnnouncementComponent } from './employee/view-announcement/view-announcement.component';
 import { CalenderComponent } from './admin/calender/calender.component';
 import { EmployeeCalenderComponent } from './employee/employee-calender/employee-calender.component';
+import { AddEmpWorkComponent } from './employee/add-emp-work/add-emp-work.component';
 
 const routes: Routes = [
 {
@@ -152,7 +153,10 @@ const routes: Routes = [
     },
     {
       path:'employee-calender',component:EmployeeCalenderComponent
-    }
+    },
+    {
+      path:'add-emp-work/:employeeId',component:AddEmpWorkComponent
+    },
   ]
   }
  

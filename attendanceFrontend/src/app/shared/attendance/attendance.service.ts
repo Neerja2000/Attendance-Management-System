@@ -53,8 +53,14 @@ export class AttendanceService {
       return this.http.get<any>(`${this.embaseurl}/attendence/late-arrivals/${employeeId}?month=${month}`);
     }
   
-
-  
+    addWorkStatus(workData: any, employeeId: string): Observable<any> {
+      return this.http.post(`${this.embaseurl}/workstatus/add/${employeeId}`, workData, { headers: this.getHeaders() });
+    }
+    
+    // Function to fetch work status for a specific employee
+    getWorkStatusByEmployee(employeeId: string): Observable<any> {
+      return this.http.get(`${this.embaseurl}/workstatus/getSingle/${employeeId}`);
+    }
   }
    
 

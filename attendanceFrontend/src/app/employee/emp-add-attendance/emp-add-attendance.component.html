@@ -31,6 +31,8 @@
                 <th>Break Finish</th>
                 <th>Check-Out</th>
                 <th>Work Done</th>
+
+                <th>work status</th>
               </tr>
             </thead>
             <tbody>
@@ -51,6 +53,11 @@
                     {{ isWorkDoneAdded ? 'Change Work' : 'Add Work' }}
                   </button>
                 </td>
+                <td>
+                  <button class="btn btn-primary" [routerLink]="['/employee/layout/add-emp-work', employeeId]">Add Daily Work</button>
+                </td>
+                
+                
               </tr>
             </tbody>
           </table>

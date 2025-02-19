@@ -1,0 +1,74 @@
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Employee Work Status</h2>
+
+    <!-- Work Entry Form -->
+    <div class="card p-3">
+        <form [formGroup]="workStatusForm" (ngSubmit)="addWorkStatus()">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label">Work Status</label>
+                    <select class="form-select" formControlName="workStatus" required>
+                        <option value="" selected disabled>Select Status</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Start Time</label>
+                    <input type="time" class="form-control" formControlName="startTime" required>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">End Time</label>
+                    <input type="time" class="form-control" formControlName="endTime" required>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Work Title</label>
+                    <input type="text" class="form-control" formControlName="workTitle" required>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Work Description</label>
+                    <textarea class="form-control" formControlName="workDescription" required></textarea>
+
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Level of Work</label>
+                    <select class="form-select" formControlName="difficultyLevel" required>
+                        <option value="" selected disabled>Select</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-3 text-center">
+                <button type="submit" class="btn btn-primary">Add Work</button>
+            </div>
+        </form>
+    </div>
+
+  <!-- In your add-emp-work.component.html -->
+<h4 class="mt-5">Work Entries</h4>
+<table class="table table-bordered table-striped mt-3">
+  <thead class="table-dark">
+    <tr>
+      <th>Work Status</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Work Title</th>
+      <th>Work Description</th>
+      <th>Diffculty Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Dynamically populated work entries -->
+    <tr *ngFor="let work of workStatusList">
+      <td>{{ work.workStatus }}</td>
+      <td>{{ work.startTime }}</td>
+      <td>{{ work.endTime }}</td>
+      <td>{{ work.workTitle }}</td>
+      <td>{{work.workDescription}}</td>
+      <td>{{work.difficultyLevel}}</td>
+    </tr>
+  </tbody>
+</table>
