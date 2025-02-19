@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+    
+    <link rel="stylesheet" href="./css/navbar.css">
+
+    <style>
+        .back{
+            background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(./img/fluter.png) center center no-repeat;
+            background-size: cover;
+            height: 400px;
+        }
+
+        .commitment-container {
+            padding: 60px 0;
+        }
+        .commitment-card {
+            border: none;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 30px;
+        }
+
+
+
+        .contact-section {
+            margin: 2rem 0;
+            background-color: #100621;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0px 10px rgb(0, 0, 0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+        .contact-section h1 {
+        
+            margin-bottom: 20px;
+        }
+        .contact-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-section ul li {
+            margin-bottom: 10px;
+        }
+        .contact-text1 {
+            text-align: justify;
+            padding: 0 20px;
+        }
+    
+        .contact-image {
+            max-width: 100%;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        @media (min-width: 768px) {
+            .contact-section {
+                flex-direction: row;
+                text-align: left;
+                padding: 20px;
+            }
+            .contact-text1 {
+                text-align: left;
+                padding: 0 20px;
+            }
+            .contact-image {
+                width: 50%;
+                margin: 0;
+            }
+        }
+
+        .common-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #34c759, #5ac8fa);
+        }
+
+
+.languages-logos {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 80px; 
+}
+
+.languages-logo {
+    display: flex;
+    align-items: center;
+    margin: 0 15px; 
+}
+
+.languages-logo img {
+    height: 80px; 
+    width: auto;
+    animation: moveLogo 10s linear infinite; 
+}
+@keyframes moveLogo {
+    0% {
+        transform: translateX(1000px);
+    }
+     100% {
+        transform: translateX(-1500px);
+    }
+}
+
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+
+.flutter-features-single {
+    margin-bottom: 30px;
+}
+
+.flutter-features-single h4 {
+    /* font-size: 20px; */
+    margin-bottom: 10px;
+}
+
+.flutter-features-single i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.flutter-features-single span {
+    /* font-size: 16px; */
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+
+.flutter-features-single-line1,
+.flutter-features-single-line2 {
+    height: 2px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 40px;
+}
+
+
+.flutter-features-image img {
+    max-width: 100%;
+    height: 300px;
+   
+}
+
+
+
+
+.process-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+    height: 200px;
+    color: #fff;
+}
+
+
+.process-card:hover {
+    transform: scale(1.05);
+    background-color:lightsteelblue;
+    color:#170b29;
+}
+
+
+.process-icon {
+    font-size: 40px;
+    color:#00aff0; 
+}
+
+.process-title {
+    /* font-size: 24px; */
+    margin-top: 10px;
+    /* color: #ffffff; */
+}
+
+
+
+
+
+
+
+
+
+
+.choose-us-section {    
+    background-color: #100621;
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow:  0 0 10px rgb(0, 0, 0);
+}
+
+.choose-us-content {
+    text-align: left;
+}
+
+.choose-us-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.choose-us-image img {
+    max-width: 100%;
+    height:auto;
+    border-radius: 10px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+
+
+
+    </style>
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+
+  <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+<!-- nav start -->
+<nav>
+    <div class="wrapper">
+      <div class="logo">
+        <a href="index.html">
+            <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+        </a>
+    </div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links mb-0">
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+        <li class="nav-items"><a href="index.html">Home</a></li>
+        <li class="nav-items"><a href="about.html">About</a></li>
+        <li>
+          <a href="#" class="desktop-item nav-items active">Services</a>
+          <input type="checkbox" id="showDrop">
+          <label for="showDrop" class="mobile-item nav-items">Services</label>
+          <ul class="drop-menu">
+            <li><a href="./flutter-development.html">Flutter App Development</a></li>
+            <li><a href="./iphone-development.html">IPhone App Development</a></li>
+            <li><a href="./ipad-development.html">IPad App Development</a></li>
+            <li><a href="./mobile-development.html">Mobile App Development</a></li>
+            <li><a href="./website-development.html">Website Development</a></li>
+            <li><a href="./software-development.html">Software Development</a></li>
+            <li><a href="./ios-development.html">IOS Development</a></li>
+            <li><a href="./android-development.html">Android Development</a></li>
+            <li><a href="./php-development.html">PHP Development</a></li>
+            <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+            <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+            <li><a href="./react-development.html">Reactjs Development</a></li>
+            <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="desktop-item nav-items">Products</a>
+          <input type="checkbox" id="showMega">
+          <label for="showMega" class="mobile-item nav-items">Products</label>
+          <div class="mega-box container-fluid">
+            <div class="content row">
+              <!-- <div class="row">
+                <img src="img.jpg" alt="">
+              </div> -->
+              <!-- food delivery app -->
+              <div class="row col-lg-3 ">
+                <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+              </div>
+
+              <!-- entertainment app -->
+              <div class="row col-lg-3 ">
+                <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+              </div>
+              
+              <!-- e-learning app -->
+              <div class="row col-lg-3 ">
+                <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+              </div>
+              
+              <!-- salon app -->
+              <div class="row col-lg-3 ">
+                <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                
+              </div>
+              
+              <!-- dating app -->
+              <div class="row col-lg-3 ">
+                <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+              
+              </div>
+              
+              <!-- news app -->
+              <div class="row col-lg-3 ">
+                <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                
+              </div>
+              
+              <!-- Health Care App -->
+              <div class="row col-lg-3 ">
+                <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+              
+              </div>
+              
+              <!-- Online Meeting App -->
+              <div class="row col-lg-3 ">
+                <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+               
+              </div>
+              
+              <!-- Taxi Booking App -->
+              <div class="row col-lg-3 ">
+                <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                
+              </div>
+              
+              <!-- HandyMan Home Services App -->
+              <div class="row col-lg-3 ">
+                <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                
+              </div>
+              
+              <!-- Online Shopping App -->
+              <div class="row col-lg-3 ">
+                <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                
+              </div>
+              
+              <!-- Social Media App -->
+              <div class="row col-lg-3 ">
+                <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+              
+              </div>
+              
+              <!-- Online Grocery App -->
+              <div class="row col-lg-3 ">
+                <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+               
+              </div>
+              
+              <!-- Music Streaming App -->
+              <div class="row col-lg-3 ">
+                <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+              
+              </div>
+              
+              <!-- Online Payment App -->
+              <div class="row col-lg-3 ">
+                <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+               
+              </div>
+              
+              <!-- Educational app -->
+              <div class="row col-lg-3">
+                <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                
+              </div>
+              
+              <!-- Fantasy App -->
+              <div class="row col-lg-3 ">
+                <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+               
+              </div>
+              
+              <!-- Vehicles On Rent App -->
+              <div class="row col-lg-3 ">
+                <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                
+              </div>
+              
+              <!-- Find Your Home App -->
+              <div class="row col-lg-3">
+                <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+               
+              </div>
+              
+              <!-- Hotel Booking  App -->
+              <div class="row col-lg-3">
+                <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                
+              </div>
+              
+              <!-- Short Video Community App -->
+              <div class="row col-lg-3 ">
+                <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                
+              </div>
+              
+            </div>
+          </div>
+        </li>
+
+  
+        <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div>
+  </nav>
+<!-- nav ends -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 back">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Flutter App Development</h1>
+           
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Feature Start -->
+    <div class="container-xxl py-5 mb-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-sm-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex align-items-center justify-content-around mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light rounded-circle " style="width: 60px; height: 60px;">
+                            <i class="fa fa-user-check  text-mycolor" style="font-size: 25px;"></i>
+                        </div>
+                        <h2 class="display-1 text-light mb-0">01</h2>
+                    </div>
+                    <h5 class="text-center">Creative Designers</h5>
+                </div>
+                <div class="col-sm-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="d-flex align-items-center justify-content-around mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light rounded-circle" style="width: 60px; height: 60px;">
+                            <i class="fa fa-check  text-mycolor" style="font-size: 25px;"></i>
+                        </div>
+                        <h2 class="display-1 text-light mb-0">02</h2>
+                    </div>
+                    <h5 class="text-center">Quality Products</h5>
+                </div>
+                <div class="col-sm-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="d-flex align-items-center justify-content-around mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light rounded-circle" style="width: 60px; height: 60px;">
+                            <i class="fa fa-drafting-compass  text-mycolor" style="font-size: 25px;"></i>
+                        </div>
+                        <h2 class="display-1 text-light mb-0">03</h2>
+                    </div>
+                    <h5 class="text-center">Free Consultation</h5>
+                </div>
+                <div class="col-sm-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <div class="d-flex align-items-center justify-content-around mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light rounded-circle" style="width: 60px; height: 60px;">
+                            <i class="fa fa-headphones  text-mycolor" style="font-size: 25px;"></i>
+                        </div>
+                        <h2 class="display-1 text-light mb-0">04</h2>
+                    </div>
+                    <h5 class="text-center">Customer Support</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+    <div class="container">
+        <div class="row intro-stats-container">
+            <div class="col-md-6">
+            
+                    
+                        <h2 class="mb-4 display-5">Flutter App Development</h2>
+                
+                  
+                    <p style="text-align: justify;">Create stunning and responsive mobile apps using Flutter, Google's UI toolkit that empowers developers to craft natively compiled applications for various platforms, including mobile, web, and desktop, all from a single unified codebase. With its expressive and customizable widgets, Flutter accelerates the app development process, enabling seamless design and fluid user experiences. By harnessing Flutter's Hot Reload feature, developers can swiftly iterate and refine their creations, reducing development time. This versatile toolkit fosters cross-platform consistency and delivers visually captivating, high-performance apps that captivate users across a spectrum of devices and operating systems.</p>
+               
+                <div class="row g-4 mb-4 pb-2">
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="d-flex align-items-center">
+                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                <i class="fa fa-users fa-2x text-mycolor"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h2 class="text-light mb-1" data-toggle="counter-up">1234</h2>
+                                <p class="fw-medium mb-0">Happy Clients</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="d-flex align-items-center">
+                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                <i class="fa fa-check fa-2x text-mycolor"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h2 class="text-light mb-1" data-toggle="counter-up">1300</h2>
+                                <p class="fw-medium mb-0">Projects Done</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="stats-image text-center">
+                    <img src="./img/flutter-gif.gif" style="margin-top:40px;" alt="Flutter App Development" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="common-section mt-5">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                    
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+
+    <div class="container mt-5">
+        <div class="section-title text-center">
+            <h2 class="display-5 mb-4">Our Services</h2>
+        </div>
+        <div class="row services-container">
+            <div class="col-md-4 px-md-3">
+                <div class="service-item">
+                    <div class="service-image px-md-3">
+                        <img src="./img/flutter-app.png"  alt="flutter" />
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p class="text-center">Create visually appealing and feature-rich mobile apps for Android and iOS platforms using Flutter.</p>
+                </div>
+            </div>
+            <div class="col-md-4 px-md-3">
+                <div class="service-item">
+                    <div class="service-image px-md-3">
+                        <img src="./img/flutter2.png" alt="flutter" />
+                    </div>
+                    <h3>Web App Development</h3>
+                    <p class="text-center">Build responsive web applications with stunning UI using Flutter's web support capabilities.</p>
+                </div>
+            </div>
+            <div class="col-md-4 px-md-3">
+                <div class="service-item">
+                    <div class="service-image px-md-3">
+                        <img src="./img/flutter3.jpg" alt="flutter" />
+                    </div>
+                    <h3>Desktop App Development</h3>
+                    <p class="text-center">Extend your reach to desktop users by creating cross-platform desktop applications with Flutter.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container mt-5">
+        
+        <h2 class="mb-4 display-5 text-center">Features of Flutter App Development</h2>
+      
+        <div class="flutter-features-data">
+            <div class="row flex-wrap-reverse">
+                <div class="col-md-7">
+                    <div class="flutter-features-content">
+                        <div class="flutter-features-single">
+                            <h4 style="color: #f2476a;"><i class="animated-icon fas fa-mobile-alt"></i> Cross-Platform Development</h4>
+                            <span>Build apps for iOS and Android platforms using a single codebase, saving time and effort.</span>
+                            <div class="flutter-features-single-line1 text"></div>
+                            <div class="flutter-features-single-line2"></div>
+                        </div>
+                        <div class="flutter-features-single">
+                            <h4 style="color: #5ad65f;"><i class="animated-icon fas fa-sync"></i> Hot Reload</h4>
+                            <span>Instantly see code changes reflected in your app, speeding up the development process.</span>
+                            <div class="flutter-features-single-line1"></div>
+                            <div class="flutter-features-single-line2"></div>
+                        </div>
+                        <div class="flutter-features-single">
+                            <h4 style="color: #2ca9f6;"><i class="animated-icon fas fa-paint-brush"></i> Beautiful UIs</h4>
+                            <span>Create visually stunning user interfaces with Flutter's rich widget library.</span>
+                            <div class="flutter-features-single-line1"></div>
+                            <div class="flutter-features-single-line2"></div>
+                        </div>
+                    </div>
+                </div>
+              
+
+                <div class="col-md-5 mt-3 mb-3">
+                    <div class="flutter-features-image">
+                        <img class="moving-image" src="./img/flutter4.webp" alt="Flutter Image">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+        <div class="flutter-features-data">
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    <div class="flutter-features-image">
+                        <img class="moving-image" src="./img/flutter5.jpg" alt="Flutter Image">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="flutter-features-content">
+                        <div class="flutter-features-single">
+                            <h4 style="color: #b74ecc;"><i class="animated-icon fas fa-tools"></i> Custom Widgets</h4>
+                            <span>Build custom and highly interactive widgets tailored to your app's needs.</span>
+                            <div class="flutter-features-single-line1"></div>
+                            <div class="flutter-features-single-line2"></div>
+                        </div>
+                        <div class="flutter-features-single">
+                            <h4 style="color: #fb654e;"><i class="animated-icon fas fa-shield-alt"></i> Strong Security</h4>
+                            <span>Ensure the security of your app and user data with Flutter's robust security features.</span>
+                            <div class="flutter-features-single-line1"></div>
+                            <div class="flutter-features-single-line2"></div>
+                        </div>
+                        <div class="flutter-features-single">
+                            <h4 style="color: #a2654f;"><i class="animated-icon fas fa-globe"></i> Global Reach</h4>
+                            <span>Reach a global audience with Flutter's localization and internationalization support.</span>
+                            <div class="flutter-features-single-line1"></div>
+                            <div class="flutter-features-single-line2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <div class="container mt-5">
+    
+        <h2 class="mb-4 display-5 text-center ">Our Development Process</h2>
+     
+        <div class="row">
+            <div class="col-md-4">
+                <div class="process-card">
+                    <div class="process-icon">
+                        <i class="fas fa-lightbulb"></i> 
+                    </div>
+                    <div class="process-title">Idea Generation</div>
+                    <div class="process-description">Brainstorm and generate innovative ideas.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-card">
+                    <div class="process-icon">
+                        <i class="fas fa-pencil-alt"></i> 
+                    </div>
+                    <div class="process-title">Planning</div>
+                    <div class="process-description">Create a detailed project plan and roadmap.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-card">
+                    <div class="process-icon">
+                        <i class="fas fa-code"></i> 
+                    </div>
+                    <div class="process-title">Development</div>
+                    <div class="process-description">Write clean and efficient code.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-card">
+                    <div class="process-icon">
+                        <i class="fas fa-cogs"></i> 
+                    </div>
+                    <div class="process-title">Testing</div>
+                    <div class="process-description">Thoroughly test and debug our applications.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-card">
+                    <div class="process-icon">
+                        <i class="fas fa-cloud-upload-alt"></i> 
+                    </div>
+                    <div class="process-title">Deployment</div>
+                    <div class="process-description">Deploying the final product to the market.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-card">
+                    <div class="process-icon">
+                        <i class="fas fa-chart-line"></i> 
+                    </div>
+                    <div class="process-title">Monitoring</div>
+                    <div class="process-description">Continuously monitor and optimize performance.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container choose-us-section mt-5 p-4">
+        <div class="row">
+            <div class="col-md-6 choose-us-image mt-5">
+                <img src="./img/flutter6.webp" alt="flutter" class="img-fluid">
+            </div>
+            <div class="col-md-6 choose-us-content mt-3">
+                <h2 class="mb-4 display-5">Why Choose Us</h2>
+                <p>We are a leading tech company with a strong commitment to excellence. Here's why you should choose us:</p>
+                <ul>
+                    <li><strong>Experienced Team:</strong> Our team consists of highly skilled professionals with years of experience.</li>
+                    <li><strong>Quality Services:</strong> We are dedicated to delivering high-quality solutions that meet your needs.</li>
+                    <li><strong>Customer Satisfaction:</strong> Your satisfaction is our top priority, and we go the extra mile to achieve it.</li>
+                    <li><strong>On-Time Delivery:</strong> We pride ourselves on delivering projects on schedule.</li>
+                    <li><strong>Affordable Pricing:</strong> We offer competitive pricing without compromising on quality.</li>
+                </ul>
+                <p>Join us on our journey to create innovative and effective solutions for your business needs.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <h2 class="mb-4 display-5 text-center">Our Commitment & Guarantee</h2>
+     
+        <div class="row commitment-container">
+            <div class="col-md-6">
+                <div class="commitment-card">
+                    <h3>Our Commitment</h3>
+                    <p>We are committed to delivering high-quality Flutter apps that exceed your expectations. Our dedicated team of experts ensures that your project is completed on time and within budget.</p>
+                </div>
+            </div>
+            <div class="col-md-6 text-light" style="background-color: #0a66c2;">
+                <div class="commitment-card ">
+                    <h3 style="color: #ffffff;">Our Guarantee</h3>
+                    <p>We guarantee complete satisfaction with our Flutter app development services. If you are not satisfied with the results, we will work closely with you to address any concerns and make necessary adjustments to meet your requirements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="contact-section">
+            <div class="contact-image">
+                <img src="./img/joinus.jpeg" alt="Contact Image" class="img-fluid rounded shadow">
+            </div>
+            <div class="contact-text1 ms-3">
+                <h2 class="mb-4 display-5">Contact Us</h2>
+                <p>If you have any questions or inquiries, feel free to reach out to us using the following contact details:</p>
+                <ul class="list-unstyled">
+                    <li><strong>Email:</strong> info@sharmasoftware.com</li>
+                    <li><strong>Phone:</strong> +91 78883-59070</li>
+                    <li><strong>Address:</strong> 123 Software Street, Cityville, Country</li>
+                </ul>
+                <p>We are always looking for passionate individuals to join our team. If you're interested in working with us, please send your resume to careers@sharmasoftware.com.</p>
+            </div>
+        </div>
+    </div>
+  <div class="floating-icons-social">
+        <ul>
+            <li class="whatsapp"><a href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a></li>
+
+            <li class="linkedin"><a href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin"></i></a></li>
+            <li class="skype"><a href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a></li>
+
+        </ul>
+    </div>
+
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+   
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

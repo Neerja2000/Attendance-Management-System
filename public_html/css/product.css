@@ -1,0 +1,34 @@
+
+
+.languages-logos {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 80px; 
+}
+
+.languages-logo {
+    display: flex;
+    align-items: center;
+    margin: 0 15px; 
+}
+
+.languages-logo img {
+    height: 80px; 
+    width: auto;
+    animation: moveLogo 10s linear infinite; 
+}
+@keyframes moveLogo {
+    0% {
+        transform: translateX(1000px);
+    }
+     100% {
+        transform: translateX(-1500px);
+    }
+}
+
+ul{
+    color: #fff;
+}
+

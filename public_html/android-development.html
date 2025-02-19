@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>ROBOLAXY | Software development company</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+  <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/services.css">
+
+
+    <style>
+       
+       .back{
+        background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(https://img.freepik.com/free-vector/realistic-3d-smartphone-mockup-futuristic-podium-isolated-black-background-with-neon-light-effect-vector-illustration-mobile-phone-with-blank-touchscreen-modern-communication-technology-app_107791-22070.jpg?w=1060&t=st=1700053070~exp=1700053670~hmac=6126a4e25513bf0ff5dac015f2abdca8362dea5b3d2ad58a3b66045708e55f23) center center no-repeat;
+        background-size: cover;
+         height: 400px;
+        }
+
+
+.intro-content {
+    padding-right: 2rem;
+}
+
+.section-title {
+    /* font-size: 28px; */
+    margin-bottom: 1rem;
+}
+
+.android-features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.android-feature {
+    background-color: #100621;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.android-feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.android-feature i {
+    font-size: 36px;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.feature-title {
+    /* font-size: 20px; */
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+.reason-card {
+    background-color: #100621;
+    color: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow:inset 0 0px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+    margin-bottom: 3rem;
+  }
+  .reason-card:hover {
+    transform: translateY(-5px);
+  }
+
+
+  .reason-card h2 {
+ 
+    margin-bottom: 1rem;
+  }
+
+  .reason-icon {
+    font-size: 40px;
+    margin-bottom: 1rem;
+  }
+
+  .schedule {
+    background-color: #100621;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .schedule h2 {
+    /* font-size: 24px; */
+    margin-bottom: 1rem;
+  }
+
+  .schedule p {
+    /* font-size: 16px; */
+    margin-bottom: 2rem;
+  }
+
+  .schedule button {
+    
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+
+
+
+
+
+  .process-card {
+    border: none;
+    background-color: #100621;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    height: 100%;
+  }
+
+  .process-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .process-card h2 {
+  
+    margin-bottom: 1rem;
+  }
+
+
+
+  .process-icon {
+    font-size: 40px;
+    margin-bottom: 1rem;
+    color: #3498db;
+  }
+  .modal-body p{
+  color: black;
+}
+.modal-header h5{
+  color: black;
+}
+
+
+    </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+
+  <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+<!-- nav start -->
+<nav>
+  <div class="wrapper">
+    <div class="logo">
+      <a href="index.html">
+          <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+      </a>
+  </div>
+    <input type="radio" name="slider" id="menu-btn">
+    <input type="radio" name="slider" id="close-btn">
+    <ul class="nav-links mb-0">
+      <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+      <li class="nav-items"><a href="index.html">Home</a></li>
+      <li class="nav-items"><a href="about.html">About</a></li>
+      <li>
+        <a href="#" class="desktop-item nav-items active">Services</a>
+        <input type="checkbox" id="showDrop">
+        <label for="showDrop" class="mobile-item nav-items">Services</label>
+        <ul class="drop-menu">
+          <li><a href="./flutter-development.html">Flutter App Development</a></li>
+          <li><a href="./iphone-development.html">IPhone App Development</a></li>
+          <li><a href="./ipad-development.html">IPad App Development</a></li>
+          <li><a href="./mobile-development.html">Mobile App Development</a></li>
+          <li><a href="./website-development.html">Website Development</a></li>
+          <li><a href="./software-development.html">Software Development</a></li>
+          <li><a href="./ios-development.html">IOS Development</a></li>
+          <li><a href="./android-development.html">Android Development</a></li>
+          <li><a href="./php-development.html">PHP Development</a></li>
+          <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+          <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+          <li><a href="./react-development.html">Reactjs Development</a></li>
+          <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="desktop-item nav-items">Products</a>
+        <input type="checkbox" id="showMega">
+        <label for="showMega" class="mobile-item nav-items">Products</label>
+        <div class="mega-box container-fluid">
+          <div class="content row">
+            <!-- <div class="row">
+              <img src="img.jpg" alt="">
+            </div> -->
+            <!-- food delivery app -->
+            <div class="row col-lg-3 ">
+              <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+            </div>
+
+            <!-- entertainment app -->
+            <div class="row col-lg-3 ">
+              <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+            </div>
+            
+            <!-- e-learning app -->
+            <div class="row col-lg-3 ">
+              <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+            </div>
+            
+            <!-- salon app -->
+            <div class="row col-lg-3 ">
+              <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+              
+            </div>
+            
+            <!-- dating app -->
+            <div class="row col-lg-3 ">
+              <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+            
+            </div>
+            
+            <!-- news app -->
+            <div class="row col-lg-3 ">
+              <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+              
+            </div>
+            
+            <!-- Health Care App -->
+            <div class="row col-lg-3 ">
+              <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+            
+            </div>
+            
+            <!-- Online Meeting App -->
+            <div class="row col-lg-3 ">
+              <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+             
+            </div>
+            
+            <!-- Taxi Booking App -->
+            <div class="row col-lg-3 ">
+              <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+              
+            </div>
+            
+            <!-- HandyMan Home Services App -->
+            <div class="row col-lg-3 ">
+              <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+              
+            </div>
+            
+            <!-- Online Shopping App -->
+            <div class="row col-lg-3 ">
+              <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+              
+            </div>
+            
+            <!-- Social Media App -->
+            <div class="row col-lg-3 ">
+              <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+            
+            </div>
+            
+            <!-- Online Grocery App -->
+            <div class="row col-lg-3 ">
+              <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+             
+            </div>
+            
+            <!-- Music Streaming App -->
+            <div class="row col-lg-3 ">
+              <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+            
+            </div>
+            
+            <!-- Online Payment App -->
+            <div class="row col-lg-3 ">
+              <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+             
+            </div>
+            
+            <!-- Educational app -->
+            <div class="row col-lg-3">
+              <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+              
+            </div>
+            
+            <!-- Fantasy App -->
+            <div class="row col-lg-3 ">
+              <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+             
+            </div>
+            
+            <!-- Vehicles On Rent App -->
+            <div class="row col-lg-3 ">
+              <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+              
+            </div>
+            
+            <!-- Find Your Home App -->
+            <div class="row col-lg-3">
+              <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+             
+            </div>
+            
+            <!-- Hotel Booking  App -->
+            <div class="row col-lg-3">
+              <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+              
+            </div>
+            
+            <!-- Short Video Community App -->
+            <div class="row col-lg-3 ">
+              <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+              
+            </div>
+            
+          </div>
+        </div>
+      </li>
+
+
+      <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+    </ul>
+    <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+  </div>
+</nav>
+<!-- nav ends -->
+
+<div class="container-fluid page-header py-5 mb-5 back">
+  <div class="container py-5">
+      <h1 class="display-3 text-white mb-3 animated slideInDown">Android <br> Development</h1>
+     
+  </div>
+</div>
+
+
+
+    <!-- Feature Start -->
+    <div class="container-xxl py-5 mb-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-sm-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex align-items-center justify-content-around mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light rounded-circle " style="width: 60px; height: 60px;">
+                            <i class="fa fa-user-check  text-mycolor" style="font-size: 25px;"></i>
+                        </div>
+                        <h2 class="display-1 text-light mb-0">01</h2>
+                    </div>
+                    <h5 class="text-center">Creative Designers</h5>
+                </div>
+                <div class="col-sm-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="d-flex align-items-center justify-content-around mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light rounded-circle" style="width: 60px; height: 60px;">
+                            <i class="fa fa-check  text-mycolor" style="font-size: 25px;"></i>
+                        </div>
+                        <h2 class="display-1 text-light mb-0">02</h2>
+                    </div>
+                    <h5 class="text-center">Quality Products</h5>
+                </div>
+                <div class="col-sm-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="d-flex align-items-center justify-content-around mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light rounded-circle" style="width: 60px; height: 60px;">
+                            <i class="fa fa-drafting-compass  text-mycolor" style="font-size: 25px;"></i>
+                        </div>
+                        <h2 class="display-1 text-light mb-0">03</h2>
+                    </div>
+                    <h5 class="text-center">Free Consultation</h5>
+                </div>
+                <div class="col-sm-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <div class="d-flex align-items-center justify-content-around mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light rounded-circle" style="width: 60px; height: 60px;">
+                            <i class="fa fa-headphones  text-mycolor" style="font-size: 25px;"></i>
+                        </div>
+                        <h2 class="display-1 text-light mb-0">04</h2>
+                    </div>
+                    <h5 class="text-center">Customer Support</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+    <div class="android-development-section" >
+        <div class="container" >
+            <div class="row">
+                
+              <h2 class="display-5 mb-4">Android Development</h2>
+               
+                <div class="col-md-6 intro-content">
+                 
+                    <p style="text-align: justify; ">We specialize in creating high-quality Android applications that cater to your business needs. Our team of experienced developers and designers collaborate to deliver seamless and user-friendly apps that engage your audience.</p>
+                    <p style="text-align: justify;">From conceptualization to deployment, we ensure that your Android app is built to perfection, incorporating the latest trends and technologies in mobile development.</p>
+
+                    <img src="./img/android1.webp" class="img-fluid" alt="img">
+                </div>
+                <div class="col-md-6 android-features">
+                    <div class="android-feature">
+                        <i class="fas fa-mobile fa-2x"></i>
+                        <h3 class="feature-title">User-Centric Design</h3>
+                        <p class="feature-description">Our apps are designed with a focus on delivering a great user experience and intuitive interface.</p>
+                    </div>
+                    <div class="android-feature">
+                        <i class="fas fa-code fa-2x"></i>
+                        <h3 class="feature-title">Clean Codebase</h3>
+                        <p class="feature-description">We follow best coding practices to ensure a maintainable and efficient codebase for your app.</p>
+                    </div>
+                    <div class="android-feature">
+                        <i class="fas fa-chart-line fa-2x"></i>
+                        <h3 class="feature-title">Scalable Solutions</h3>
+                        <p class="feature-description">Your app is built to scale, accommodating growing user bases and evolving business needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+  
+
+
+
+
+   
+    <div class="container">
+       
+      <h2 class="display-5 mb-4 text-center">Our Development Process</h2>
+
+        <div class="row justify-content-center">
+          <div class="col-md-4 mt-3">
+            <div class="process-card" data-bs-toggle="modal" data-bs-target="#step1Modal">
+              <i class="bi bi-lightbulb process-icon"></i>
+              <h2>Step 1</h2>
+              <p>Conceptualization and Idea Generation</p>
+              <button class="btn btn-link mt-3" data-bs-toggle="modal" data-bs-target="#step1Modal">Read More</button>
+            </div>
+          </div>
+          <div class="col-md-4 mt-3">
+            <div class="process-card" data-bs-toggle="modal" data-bs-target="#step2Modal">
+              <i class="bi bi-puzzle process-icon"></i>
+              <h2>Step 2</h2>
+              <p>Requirement Analysis and Planning</p>
+              <button class="btn btn-link mt-3" data-bs-toggle="modal" data-bs-target="#step2Modal">Read More</button>
+            </div>
+          </div>
+          <div class="col-md-4 mt-3">
+            <div class="process-card" data-bs-toggle="modal" data-bs-target="#step3Modal">
+              <i class="bi bi-code process-icon"></i>
+              <h2>Step 3</h2>
+              <p>Development and Implementation</p>
+              <button class="btn btn-link mt-3" data-bs-toggle="modal" data-bs-target="#step3Modal">Read More</button>
+            </div>
+          </div>
+          <div class="col-md-4 mt-3">
+            <div class="process-card" data-bs-toggle="modal" data-bs-target="#step4Modal">
+              <i class="bi bi-graph-up process-icon"></i>
+              <h2>Step 4</h2>
+              <p>Testing and Quality Assurance</p>
+              <button class="btn btn-link mt-3" data-bs-toggle="modal" data-bs-target="#step4Modal">Read More</button>
+            </div>
+          </div>
+          <div class="col-md-4 mt-3">
+            <div class="process-card" data-bs-toggle="modal" data-bs-target="#step5Modal">
+              <i class="bi bi-server process-icon"></i>
+              <h2>Step 5</h2>
+              <p>Deployment and Server Setup</p>
+              <button class="btn btn-link mt-3" data-bs-toggle="modal" data-bs-target="#step5Modal">Read More</button>
+            </div>
+          </div>
+          <div class="col-md-4 mt-3">
+            <div class="process-card" data-bs-toggle="modal" data-bs-target="#step6Modal">
+              <i class="bi bi-check-circle process-icon"></i>
+              <h2>Step 6</h2>
+              <p>Final Testing and Launch</p>
+              <button class="btn btn-link mt-3" data-bs-toggle="modal" data-bs-target="#step6Modal">Read More</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+ 
+ <div class="modal fade" id="step1Modal" tabindex="-1" aria-labelledby="step1ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="step1ModalLabel">Step 1: Conceptualization and Idea Generation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>During this step, we brainstorm and generate innovative ideas to conceptualize your Android app.</p>
+          <p>We'll discuss your requirements, target audience, and goals to create a strong foundation for the project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="step2Modal" tabindex="-1" aria-labelledby="step2ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="step2ModalLabel">Step 2: Requirement Analysis and Planning</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>We analyze your project requirements in detail and create a comprehensive plan for development.</p>
+          <p>During this phase, we define the scope, features, and functionalities of the app, ensuring alignment with your goals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="step3Modal" tabindex="-1" aria-labelledby="step3ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="step3ModalLabel">Step 3: Development and Implementation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>This step involves turning your concepts into reality by writing code and implementing the app's features.</p>
+          <p>Our experienced developers use industry best practices to ensure a robust and efficient development process.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="step4Modal" tabindex="-1" aria-labelledby="step4ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="step4ModalLabel">Step 4: Testing and Quality Assurance</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>During this phase, we rigorously test your Android app to ensure its functionality, performance, and reliability.</p>
+          <p>Our quality assurance team identifies and resolves any bugs or issues, ensuring a seamless user experience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="modal fade" id="step5Modal" tabindex="-1" aria-labelledby="step5ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="step5ModalLabel">Step 5: Deployment and Server Setup</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>In this step, we deploy your Android app to the chosen platform and set up the necessary servers and infrastructure.</p>
+          <p>We ensure that the app is ready for public use and can handle user interactions and data securely.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="modal fade" id="step6Modal" tabindex="-1" aria-labelledby="step6ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="step6ModalLabel">Step 6: Final Testing and Launch</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Before the launch, we conduct a final round of testing to ensure that all features are working as expected.</p>
+          <p>Once we're confident in the app's quality, we launch it to the public, making it available for download and use.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+  <div class="common-section mt-5">
+    <div class="container ">
+        <div class="row">
+           
+            <div class="col-md-12  languages-logos">
+                <!-- Language logos here -->
+                <div class="languages-logo">
+                    <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                </div>
+                <div class="languages-logo">
+                    <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                </div>
+           
+            
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container">
+        <div class="section-title text-center">
+            <h2 class="display-5 mb-4 mt-5">Why Choose Us</h2>
+        </div>
+        <div class="row justify-content-between">
+          <div class="col-md-7">
+            <div class="reason-card">
+              <i class="bi bi-tools reason-icon"></i>
+              <h2>Experienced Team</h2>
+              <p>Our experienced team of Android developers is dedicated to delivering top-notch apps.</p>
+            </div>
+            <div class="reason-card mt-3">
+                <i class="fas fa-check-circle reason-icon"></i>
+                <h2>Quality Assurance</h2>
+                <p>We have rigorous quality checks in place to deliver reliable and high-quality Android applications.</p>
+              </div>
+        
+            <div class="reason-card mt-3">
+              <i class="bi bi-cpu reason-icon"></i>
+              <h2>Custom Solutions</h2>
+              <p>We tailor our services to match your unique business needs, ensuring the best possible results.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="schedule">
+              <h2>Schedule a Call</h2>
+              <p>Want to learn more? Schedule a call with us to discuss your project needs.</p>
+             <a href="./contact.html"> <button class="btn btn-primary ">Contact Us</button></a> 
+            </div>
+
+            <img src="./img/android-choose.png" alt="img" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="container">
+        <div class="contact-section">
+            <div class="contact-image">
+                <img src="./img/joinus.jpeg" alt="Contact Image" class="img-fluid rounded shadow">
+            </div>
+            <div class="contact-text1 ms-3">
+              <h2 class="display-5 mb-4">Contact Us</h2>
+                <p>If you have any questions or inquiries, feel free to reach out to us using the following contact details:</p>
+                <ul class="list-unstyled">
+                    <li><strong>Email:</strong> info@sharmasoftware.com</li>
+                    <li><strong>Phone:</strong> +91 78883-59070</li>
+                    <li><strong>Address:</strong> 123 Software Street, Cityville, Country</li>
+                </ul>
+                <p>We are always looking for passionate individuals to join our team. If you're interested in working with us, please send your resume to careers@sharmasoftware.com.</p>
+            </div>
+        </div>
+    </div>
+   
+
+      
+      
+     
+      
+    <div class="floating-icons-social">
+      <ul>
+          <li class="whatsapp"><a href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a></li>
+
+          <li class="linkedin"><a href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin"></i></a></li>
+          <li class="skype"><a href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a></li>
+
+      </ul>
+  </div>
+ 
+  
+
+
+   
+    
+    
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

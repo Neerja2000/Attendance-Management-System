@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+
+
+    <style>
+        .languages-logos {
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            height: 80px;
+        }
+
+        .languages-logo {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+
+        .languages-logo img {
+            height: 80px;
+            width: auto;
+            animation: moveLogo 10s linear infinite;
+        }
+
+        @keyframes moveLogo {
+            0% {
+                transform: translateX(1000px);
+            }
+
+            100% {
+                transform: translateX(-1500px);
+            }
+        }
+
+
+        .page-header {
+            background: url(./img/paper-style-building-with-trees_23-2149377676.webp)no-repeat;
+            height: 100vh;
+            position: relative;
+            background-size: cover;
+        }
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+   
+    .page-header {
+        height: 500px;
+    }
+}
+        .page-caption {
+            padding-top: 200px;
+            padding-bottom: 174px;
+        }
+
+        .page-title {
+          
+            color: #fff;
+            font-weight: 600;
+            text-align: center;
+        }
+
+
+        .card-section {
+            position: relative;
+            bottom: 60px;
+        }
+
+        .card-block {
+            padding: 30px;
+            transition: transform 0.3s ease-in-out;
+            text-align: justify;
+        }
+
+        
+
+        .card-block:hover {
+            transform: scale(1.05);
+            
+        }
+
+        
+
+
+        .navbar-nav .dropdown:last-child .nav-link {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .dropdown-menu {
+            max-height: 450px;
+            overflow-Y: auto;
+            overflow-x: hidden;
+            padding: 10px;
+
+        }
+
+        .product {
+            width: 700px;
+        }
+
+        .dropdown-menu .dropdown-heading {
+            color: blue;
+            font-weight: bold;
+           
+        }
+
+        .dropdown-menu .dropdown-item:hover {
+            background-color: #0166ff;
+            color: white;
+        }
+
+
+
+        .dropdown-menu.fade-up {
+            left: 60px;
+            right: auto;
+
+            transform: none;
+        }
+
+        @media screen and (min-width: 1025px) {
+
+            .nav-item.dropdown .dropdown-menu.fade-up {
+                left: 60px;
+                right: auto;
+                transform: translateX(-100%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .product {
+                width: auto;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .section-title-underline {
+            width: 50%;
+            height: 2px;
+            background-color: #fff;
+            margin: 0 auto;
+        }
+
+      
+/* Button Color Styles */
+.btn-magicbricks-gradient {
+    background: linear-gradient(to left, #bc2507,#383737); 
+    border: none;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 18px;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-magicbricks-gradient:hover {
+    background: linear-gradient(360deg ,#383737, #bc2507); 
+    color: #fff;
+}
+
+/* Add your custom styles here */
+.magicbricks-features-section {
+    background-color: #f4f4f4; /* Background color for the section */
+    padding: 40px 0;
+}
+
+.magicbricks-features-content {
+    background-color: #fff; /* Background color for the content area */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for the content */
+}
+
+.magicbricks-features-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.magicbricks-features-content ul li {
+    margin-bottom: 10px;
+}
+
+.magicbricks-features-content ul li i {
+    margin-right: 10px;
+    color: black; /* Icon color */
+}
+
+.magicbricks-features-content p {
+    margin-top: 20px;
+}
+
+/* Style the image as needed */
+.magicbricks-features-content img {
+    border-radius: 5px;
+}
+
+
+
+
+
+.work-process-section {
+        background-color: #f4f4f4; /* Background color for the section */
+        padding: 40px 0;
+    }
+
+    .card {
+        border: none;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for the cards */
+    }
+
+  .card:hover{
+    background-color: lightblue;
+  }
+
+    .fa-check-circle {
+        color: #007BFF; /* Icon color */
+        margin-right: 10px;
+    }
+
+    /* Style the container */
+    .container {
+        max-width: 1140px; /* Adjust as needed */
+    }
+
+
+
+
+
+    .our-commitment-section {
+       /* Background color for the section */
+        padding: 60px 0;
+    }
+
+    .section-title h2 {
+       
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .commitment-text,
+    .guarantee-text {
+        background-color: #fff; /* Background color for the content */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Box shadow for the content */
+        margin-bottom: 30px;
+    }
+
+    .commitment-text h3,
+    .guarantee-text h3 {
+        color: #007BFF; /* Heading color */
+     
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .commitment-text p,
+    .guarantee-text p {
+       
+        color: #555; /* Text color */
+    }
+
+    /* Add animation to the content */
+    [data-aos="fade-up"] {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    [data-aos="fade-up"]:hover {
+        transform: translateY(-5px);
+    }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+   
+      <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    
+    <nav>
+        <div class="wrapper">
+          <div class="logo">
+            <a href="index.html">
+                <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+            </a>
+        </div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links mb-0">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li class="nav-items"><a href="index.html">Home</a></li>
+            <li class="nav-items"><a href="about.html">About</a></li>
+            <li>
+              <a href="#" class="desktop-item nav-items">Services</a>
+              <input type="checkbox" id="showDrop">
+              <label for="showDrop" class="mobile-item nav-items">Services</label>
+              <ul class="drop-menu">
+                <li><a href="./flutter-development.html">Flutter App Development</a></li>
+                <li><a href="./iphone-development.html">IPhone App Development</a></li>
+                <li><a href="./ipad-development.html">IPad App Development</a></li>
+                <li><a href="./mobile-development.html">Mobile App Development</a></li>
+                <li><a href="./website-development.html">Website Development</a></li>
+                <li><a href="./software-development.html">Software Development</a></li>
+                <li><a href="./ios-development.html">IOS Development</a></li>
+                <li><a href="./android-development.html">Android Development</a></li>
+                <li><a href="./php-development.html">PHP Development</a></li>
+                <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+                <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+                <li><a href="./react-development.html">Reactjs Development</a></li>
+                <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="desktop-item nav-items active">Products</a>
+              <input type="checkbox" id="showMega">
+              <label for="showMega" class="mobile-item nav-items">Products</label>
+              <div class="mega-box container-fluid">
+                <div class="content row">
+                  <!-- <div class="row">
+                    <img src="img.jpg" alt="">
+                  </div> -->
+                  <!-- food delivery app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+                  </div>
+
+                  <!-- entertainment app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+                  </div>
+                  
+                  <!-- e-learning app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+                  </div>
+                  
+                  <!-- salon app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                    
+                  </div>
+                  
+                  <!-- dating app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+                  
+                  </div>
+                  
+                  <!-- news app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                    
+                  </div>
+                  
+                  <!-- Health Care App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Meeting App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+                   
+                  </div>
+                  
+                  <!-- Taxi Booking App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                    
+                  </div>
+                  
+                  <!-- HandyMan Home Services App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                    
+                  </div>
+                  
+                  <!-- Online Shopping App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                    
+                  </div>
+                  
+                  <!-- Social Media App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Grocery App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+                   
+                  </div>
+                  
+                  <!-- Music Streaming App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Payment App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+                   
+                  </div>
+                  
+                  <!-- Educational app -->
+                  <div class="row col-lg-3">
+                    <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                    
+                  </div>
+                  
+                  <!-- Fantasy App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+                   
+                  </div>
+                  
+                  <!-- Vehicles On Rent App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                    
+                  </div>
+                  
+                  <!-- Find Your Home App -->
+                  <div class="row col-lg-3">
+                    <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+                   
+                  </div>
+                  
+                  <!-- Hotel Booking  App -->
+                  <div class="row col-lg-3">
+                    <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                    
+                  </div>
+                  
+                  <!-- Short Video Community App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </li>
+
+      
+            <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+      </nav>
+        <!-- Navbar End -->
+
+    <!-- page header start -->
+
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.page-header-->
+    <!-- news -->
+    <div class="card-section ">
+        <div class="container">
+            <div class="card-block bg-dark mb30">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <!-- section-title -->
+                        <div class="section-title mb-0">
+                            <h2 style="color: white; text-align: center;">MagicBricks App Clone</h2>
+                            <p style="color: white;">Introducing the MagicBricks App Clone - your gateway to the world of real estate! Imagine having an app that simplifies property search, provides exclusive listings, and ensures a seamless experience whenever you're looking for your dream home or property investment. We understand that finding the perfect property is a significant part of your real estate journey, whether it's for buying, renting, or selling. That's why we're here to serve as your ultimate destination for all your real estate needs.</p>
+                        </div>
+                        <!-- /.section-title -->
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Feature Start -->
+
+    <div class="common-section ">
+        <div class="container ">
+            <div class="row">
+
+                <div class="col-md-12  languages-logos">
+
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+
+    <section class="magicbricks-real-estate-section mb-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md">
+                    <div class="section-title text-center mb-5">
+                        <h1 class="display-5 text-primary">Welcome to Magic <span style="color: red;">Bricks</span> Clone App</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up">
+                    <img src="https://bobcatrentals.net/new_wp/wp-content/uploads/2020/08/Places-To-Rent-Pic.png" class="w-100 zoom" alt="MagicBricks Clone App Screenshot">
+                </div>
+                <div class="col-md-6 d-flex align-items-start">
+                    <div class="magicbricks-clone-app-content" data-aos="fade-up">
+                        
+                        <p class="magicbricks-clone-app-description" style="text-align: justify;">Experience the future of real estate with the MagicBricks Clone App. Simplify your property search, access exclusive listings, and enjoy a seamless experience in your quest for the perfect home or property investment.</p>
+                        <p style="text-align: justify;">Our user-friendly app is designed to make your real estate journey more exciting and productive. Discover your dream property, connect with sellers and buyers, and elevate your real estate experience like never before.</p>
+                        <p style="text-align: justify;">At MagicBricks Clone App, we're committed to delivering an unmatched real estate journey. Whether you're buying, renting, or selling, our platform offers you the convenience of finding your ideal property.</p>
+                        <a href="./contact.html" class="btn btn-magicbricks-gradient py-3 px-5 mb-2">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <section class="magicbricks-features-section mt-5">
+        <div class="container">
+            <h2 class="display-5 text-center mb-4 text-dark">Key Features</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="magicbricks-features-content" data-aos="fade-up">
+                       
+                        <ul>
+                            <li><i class="fa fa-check-circle"></i> Simplified Property Search</li>
+                            <li><i class="fa fa-check-circle"></i> Exclusive Listings</li>
+                            <li><i class="fa fa-check-circle"></i> Interactive Property Tours</li>
+                            <li><i class="fa fa-check-circle"></i> Connect with Buyers and Sellers</li>
+                            <li><i class="fa fa-check-circle"></i> Property Alerts</li>
+                            <li><i class="fa fa-check-circle"></i> User-friendly Interface</li>
+                        </ul>
+                        <p>Experience all these features and more with the MagicBricks Clone App. Get ready for the ultimate real estate journey!</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-4" data-aos="fade-up">
+                    <img src="https://www.imoney.my/articles/wp-content/uploads/home-for-rent.png" class="img-fluid" alt="MagicBricks Features">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+   
+
+    <section class="company-definition p-5"
+        style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-title text-light">Why Robolaxy?</h2>
+                    <div class="section-title-underline text-light"></div>
+                </div>
+
+
+
+            </div>
+            <div class="row justify-content-center mt-5 ">
+                <div class="row justify-content-center ">
+                    <div class="col-md-4 text-center text-light ">
+                        <div class="company-feature">
+                            <i class="fa fa-cogs fa-5x text-light"></i>
+                            <h3 class="text-light">Innovative Solutions</h3>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 text-center text-light">
+                        <div class="company-feature">
+                            <i class="fa-solid fa-chart-line fa-5x text-light"></i>
+                            <h3 class="text-light">Driving Growth</h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center ">
+                    <div class="col-md-4 text-center text-light">
+                        <div class="company-feature">
+                            <i class="fa fa-heart fa-5x  text-light"></i>
+                            <h3 class="text-light">Passion for Technology</h3>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center text-light">
+                        <div class="company-feature">
+                            <i class="fa fa-lock fa-5x  text-light"></i>
+                            <h3 class="text-light">Secure Solutions</h3>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center text-light">
+                        <div class="company-feature">
+                            <i class="fa fa-users fa-5x  text-light "></i>
+                            <h3 class="text-light">Client-Centric Focus</h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+
+   
+ 
+    
+   
+    <section class="work-process-section">
+        <div class="container">
+            <h2 class="text-center mb-4 text-dark">Our Work Process</h2>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Step 1: Describe Your Needs</h5>
+                            <p class="card-text text-dark"><i class="fas fa-check-circle"></i> Tell us about your property preferences and requirements.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Step 2: Search Properties</h5>
+                            <p class="card-text text-dark"><i class="fas fa-check-circle"></i> Browse through a wide range of properties that match your criteria.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Step 3: Connect with Sellers</h5>
+                            <p class="card-text text-dark"><i class="fas fa-check-circle"></i> Contact property sellers directly and schedule viewings.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Card 4 -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Step 4: Negotiate Terms</h5>
+                            <p class="card-text text-dark"><i class="fas fa-check-circle"></i> Negotiate the terms and conditions of the property deal.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Card 5 -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Step 5: Complete Documentation</h5>
+                            <p class="card-text text-dark"><i class="fas fa-check-circle"></i> Ensure all necessary paperwork is completed for the property transaction.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Card 6 -->
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Step 6: Finalize Property Deal</h5>
+                            <p class="card-text text-dark"><i class="fas fa-check-circle"></i> Finalize the property deal and take ownership of your new property.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="our-commitment-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center">
+                        <h2 class="text-light">Our Commitment and Guarantee</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="commitment-text" data-aos="fade-up">
+                        <h3>Commitment to Excellence</h3>
+                        <p>We are dedicated to delivering the highest quality products and services. Our team works tirelessly to ensure your satisfaction.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="guarantee-text" data-aos="fade-up">
+                        <h3>Our Guarantee</h3>
+                        <p>We stand behind our products and services with a 100% satisfaction guarantee. If you're not happy, we're not happy, and we'll make it right.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+   
+    
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   ">
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="">Flutter Development</a>
+                    <a class="btn btn-link" href="">Android Development</a>
+                    <a class="btn btn-link" href="">IOS Development</a>
+                    <a class="btn btn-link" href="">Website Development</a>
+                    <a class="btn btn-link" href="">Software Development</a>
+
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="">Home Page</a>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+
+    <script src="js/main.js"></script>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cursor = document.querySelector(".custom-cursor");
+
+            document.addEventListener("mousemove", (e) => {
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+            });
+        });
+
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+
+
+    <style>
+ 
+.languages-logos {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 80px;
+}
+
+.languages-logo {
+    display: flex;
+    align-items: center;
+    margin: 0 15px; 
+}
+
+.languages-logo img {
+    height: 80px;
+    width: auto;
+    animation: moveLogo 10s linear infinite; 
+}
+@keyframes moveLogo {
+    0% {
+        transform: translateX(1000px);
+    }
+     100% {
+        transform: translateX(-1500px);
+    }
+}
+
+
+
+.page-header { background: url(https://images2.alphacoders.com/720/720843.jpg)no-repeat; position: relative; height: 500px; background-size: cover; }
+.page-caption { padding-top: 170px; padding-bottom: 174px; }
+.page-title {  color: #fff; font-weight: 600; text-align: center; }
+
+.card-section { position: relative; bottom: 60px; }
+.card-block { padding: 30px;
+    transition: transform 0.3s ease-in-out;  }
+.section-title { margin-bottom: 60px;
+    }
+.card-block:hover {
+            transform: scale(1.05); /* Zoom in effect on hover */
+        }
+.contact-button {
+    background: linear-gradient(to right, #FF5733, #FFAC33);
+
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .contact-button:hover {
+    background: linear-gradient(to right, #FFAC33,#FF5733);
+
+  }
+
+
+
+
+
+
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out; 
+}
+
+.section-title-underline {
+    width: 50%; 
+    height: 2px; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+
+
+
+
+
+
+
+.intro-section {
+            background-color: #f5f5f5;
+          
+        }
+        .intro-image {
+            text-align: center;
+        }
+      
+        .intro-content {
+            padding: 20px;
+        }
+        .intro-content h2 {
+            color:#FF5733;
+        }
+
+        .features-section {
+        padding: 50px 0;
+    }
+
+   
+
+    .feature {
+        text-align: center;
+        padding: 20px;
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .feature:hover {
+        transform: scale(1.05);
+    }
+
+    .feature-icon {
+        font-size: 56px;
+        color:#FFAC33;
+        margin-bottom: 20px;
+    }
+
+    .feature-title {
+        /* font-size: 24px; */
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .feature-description {
+        /* font-size: 18px; */
+        color: #777;
+    }
+
+    .feature-line-top,
+    .feature-line-bottom {
+        height: 2px;
+        background-color:#ad731b;
+        margin: 10px 0;
+    }
+
+        
+    .choose-us-section {
+        background: linear-gradient(to right,  #c0daf0,#0077b6);
+        color: #fff;
+        padding: 60px 0;
+    }
+
+    .choose-us-title {
+      
+        margin-bottom: 30px;
+    }
+
+    .choose-us-image {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .choose-us-description {
+        /* font-size: 18px; */
+        margin-bottom: 20px;
+    }
+
+    .choose-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .choose-list li {
+        /* font-size: 18px; */
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 30px;
+    }
+
+    .choose-list li i {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        color: #f0c419;
+    }
+
+
+    .commitment-section {
+        background: #f8f8f8;
+        padding: 30px 0;
+    }
+
+    .commitment-title {
+        /* font-size: 36px; */
+        
+        margin-bottom: 20px;
+    }
+
+    .commitment-icon {
+        font-size: 88px;
+        color:#FF5733;
+        margin-bottom: 20px;
+    }
+
+    .commitment-description {
+        /* font-size: 18px; */
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    .guarantee-title {
+        /* font-size: 36px; */
+        color: #0077b6;
+        margin-bottom: 20px;
+    }
+
+    .guarantee-icon {
+        font-size: 88px;
+        color: #f0c419;
+        margin-bottom: 20px;
+    }
+
+    .guarantee-description {
+        /* font-size: 18px; */
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    .commitment-box,
+    .guarantee-box {
+        background: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        height: 460px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    @media screen and (max-width: 768px){
+        .commitment-box,
+    .guarantee-box {
+        height: auto;
+    }
+}
+    .commitment-box:hover,
+    .guarantee-box:hover {
+        transform: translateY(-10px);
+    }
+
+
+
+
+
+
+
+
+
+    .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4vw; 
+    margin-bottom: var(--card-margin);
+}
+
+.card1 {
+    flex: 1 1 calc(25% - var(--card-margin)); 
+    position: sticky;
+    top: 0;
+    
+}
+
+
+
+
+    .card1 {
+        --index0: calc(var(--index) - 1);
+        --reverse-index: calc(var(--numcards) - var(--index0));
+        --reverse-index0: calc(var(--reverse-index) - 1);
+    }
+
+    .card__content {
+        transform-origin: 50% 0%;
+        will-change: transform;
+        --duration: calc(var(--reverse-index0) * 1s);
+        --delay: calc(var(--index0) * 1s);
+        animation: var(--duration) linear scale var(--delay) forwards;
+        animation-timeline: cards-element-scrolls-in-body;
+    }
+
+    @keyframes scale {
+        to {
+            transform:
+                scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+        }
+    }
+
+#debug {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+}
+
+#debug::after {
+    content: " Show Debug";
+    margin-left: 1.5em;
+    color: white;
+    white-space: nowrap;
+}
+
+#debug:checked~main {
+    --outline-width: 1px;
+}
+
+main {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+
+
+
+
+.card-container {
+    list-style: none;
+    outline: calc(var(--outline-width) * 10) solid blue;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--numcards), var(--card-height));
+    gap: var(--card-margin);
+}
+
+.card1 {
+    outline: var(--outline-width) solid hotpink;
+  
+}
+
+.card__content {
+    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    color: rgb(10, 5, 7);
+    border-radius: 1em;
+    overflow: hidden;
+    display: grid;
+   
+    grid-template-areas: "text img";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: stretch;
+    outline: var(--outline-width) solid lime;
+}
+
+.card__content>div {
+    grid-area: text;
+    width: 80%;
+    place-self: center;
+    text-align: left;
+    display: grid;
+    gap: 1em;
+    place-items: start;
+}
+
+.card__content>figure {
+    grid-area: img;
+    overflow: hidden;
+}
+
+.card__content>figure>img {
+    width: 40%;
+    height: 500px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        padding-left: 0px;
+    }
+
+    main {
+        width: 100vw;
+    }
+    .card__content>figure>img{
+        height: 100%;
+        width: 100%;
+        padding-right: 10px;
+        object-fit: cover;
+    }
+}
+
+
+
+
+@media (max-width: 767px) {
+            .remove-mt-5 {
+                margin-top: 0 !important; 
+            }
+        }
+
+    </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+      <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    
+    <nav>
+        <div class="wrapper">
+          <div class="logo">
+            <a href="index.html">
+                <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+            </a>
+        </div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links mb-0">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li class="nav-items"><a href="index.html">Home</a></li>
+            <li class="nav-items"><a href="about.html">About</a></li>
+            <li>
+              <a href="#" class="desktop-item nav-items">Services</a>
+              <input type="checkbox" id="showDrop">
+              <label for="showDrop" class="mobile-item nav-items">Services</label>
+              <ul class="drop-menu">
+                <li><a href="./flutter-development.html">Flutter App Development</a></li>
+                <li><a href="./iphone-development.html">IPhone App Development</a></li>
+                <li><a href="./ipad-development.html">IPad App Development</a></li>
+                <li><a href="./mobile-development.html">Mobile App Development</a></li>
+                <li><a href="./website-development.html">Website Development</a></li>
+                <li><a href="./software-development.html">Software Development</a></li>
+                <li><a href="./ios-development.html">IOS Development</a></li>
+                <li><a href="./android-development.html">Android Development</a></li>
+                <li><a href="./php-development.html">PHP Development</a></li>
+                <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+                <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+                <li><a href="./react-development.html">Reactjs Development</a></li>
+                <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="desktop-item nav-items active">Products</a>
+              <input type="checkbox" id="showMega">
+              <label for="showMega" class="mobile-item nav-items">Products</label>
+              <div class="mega-box container-fluid">
+                <div class="content row">
+                  <!-- <div class="row">
+                    <img src="img.jpg" alt="">
+                  </div> -->
+                  <!-- food delivery app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+                  </div>
+
+                  <!-- entertainment app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+                  </div>
+                  
+                  <!-- e-learning app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+                  </div>
+                  
+                  <!-- salon app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                    
+                  </div>
+                  
+                  <!-- dating app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+                  
+                  </div>
+                  
+                  <!-- news app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                    
+                  </div>
+                  
+                  <!-- Health Care App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Meeting App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+                   
+                  </div>
+                  
+                  <!-- Taxi Booking App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                    
+                  </div>
+                  
+                  <!-- HandyMan Home Services App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                    
+                  </div>
+                  
+                  <!-- Online Shopping App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                    
+                  </div>
+                  
+                  <!-- Social Media App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Grocery App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+                   
+                  </div>
+                  
+                  <!-- Music Streaming App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Payment App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+                   
+                  </div>
+                  
+                  <!-- Educational app -->
+                  <div class="row col-lg-3">
+                    <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                    
+                  </div>
+                  
+                  <!-- Fantasy App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+                   
+                  </div>
+                  
+                  <!-- Vehicles On Rent App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                    
+                  </div>
+                  
+                  <!-- Find Your Home App -->
+                  <div class="row col-lg-3">
+                    <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+                   
+                  </div>
+                  
+                  <!-- Hotel Booking  App -->
+                  <div class="row col-lg-3">
+                    <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                    
+                  </div>
+                  
+                  <!-- Short Video Community App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </li>
+
+      
+            <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+      </nav>
+        <!-- Navbar End -->
+
+<!-- page header start -->
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-caption">
+                    <!-- <h1 class="page-title">Hike Pageheader</h1> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.page-header-->
+<!-- news -->
+<div class="card-section">
+    <div class="container">
+        <div class="card-block bg-dark mb30">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <!-- section-title -->
+                    <div class="section-title mb-0 text-center">
+                        <h1 style="color: white;">Welcome to Canvas Student Clone</h1>
+                        <p style="color: white;">At Canvas Student Clone, we're dedicated to providing you with an exceptional online learning experience. We recognize the importance of education for students of all ages. Whether you're pursuing your studies, enhancing your skills, or embarking on a lifelong learning journey, we're here to empower you with a comprehensive platform for all your online educational needs.</p>
+                    </div>
+                    <!-- /.section-title -->
+                </div>
+            </div2
+        </div>
+        
+        
+      
+        </div>
+        </div>
+        </div>
+    <!-- Page Header End -->
+
+
+    <!-- Feature Start -->
+  
+    <div class="common-section ">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                    
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+  
+    
+    <div class="container-fluid intro-section mt-4 ">
+        <div class="row">
+            <div class="col-md-6 intro-image">
+                <img src="https://pngimg.com/uploads/student/student_PNG74.png" class="img-fluid" alt="Google Classroom Clone Image">
+            </div>
+            <div class="col-md-6 intro-content mt-5">
+                <h2>Empower Your Learning Journey</h2>
+                <p style="text-align: justify; color: black;">
+                    Welcome to Canvas Clone, your ultimate destination for a transformative online learning experience. Whether you're a student, educator, or lifelong learner, we're here to support your educational endeavors.
+                </p>
+                <p style="text-align: justify; color: black;">
+                    Our mission is to provide you with an immersive virtual learning environment, a wealth of educational resources, and the tools to foster collaborative education. Explore our platform and embark on a journey to enhance your knowledge and skills.
+                </p>
+                <a href="./contact.html"><button type="button"  class="btn contact-button">Contact Us</button></a>
+            </div>
+            
+        </div>
+    </div>
+    
+ 
+    <div class="container features-section mt-5">
+        <h2 style="text-align: center; ">Discover Canvas Student Clone Features</h2>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="feature">
+                
+                    <i class="fas fa-users feature-icon"></i>
+                    <div class="feature-line-top"></div>
+                    <div class="feature-title">Collaborative Learning</div>
+                    <div class="feature-line-bottom"></div>
+                    <div class="feature-description">Engage with teachers and peers in an interactive virtual classroom environment.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                   
+                    <i class="fas fa-chalkboard-teacher feature-icon"></i>
+                    <div class="feature-line-top"></div>
+                    <div class="feature-title">Online Education</div>
+                    <div class="feature-line-bottom"></div>
+                    <div class="feature-description">Empower educators with effective online teaching tools and content delivery options.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                  
+                    <i class="fas fa-book-open feature-icon"></i>
+                    <div class="feature-line-top"></div>
+                    <div class="feature-title">Rich Resource Library</div>
+                    <div class="feature-line-bottom"></div>
+                    <div class="feature-description">Access a vast library of educational resources to enhance your learning journey.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                   
+                    <i class="fas fa-comments feature-icon"></i>
+                  
+                    <div class="feature-line-top"></div>
+                    <div class="feature-title">Effective Communication</div>
+                    <div class="feature-line-bottom"></div>
+                    <div class="feature-description">Stay connected through discussion forums and messaging for seamless communication.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                   
+                    <i class="fas fa-trophy feature-icon"></i>
+                    <div class="feature-line-top"></div>
+                    <div class="feature-title">Achievement Recognition</div>
+                    <div class="feature-line-bottom"></div>
+                    <div class="feature-description">Earn recognition and achievements for your academic accomplishments and contributions.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                   
+                    <i class="fas fa-cog feature-icon"></i>
+                    <div class="feature-line-top"></div>
+                    <div class="feature-title">Customization Options</div>
+                    <div class="feature-line-bottom"></div>
+                    <div class="feature-description">Tailor your learning experience with a range of customizable settings and preferences.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+  
+
+
+  
+    <section class="company-definition p-5" style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-title text-light">Why Robolaxy?</h2>
+                    <div class="section-title-underline text-light"></div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row justify-content-center mt-5 ">
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light ">
+                    <div class="company-feature">
+                        <i class="fa fa-cogs fa-5x text-light"></i>
+                        <h3 class="text-light">Innovative Solutions</h3>
+                        
+                    </div>
+                </div>
+               
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa-solid fa-chart-line fa-5x text-light"></i>
+                        <h3 class="text-light">Driving Growth</h3>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-heart fa-5x  text-light"></i>
+                        <h3 class="text-light">Passion for Technology</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-lock fa-5x  text-light"></i>
+                        <h3 class="text-light">Secure Solutions</h3>
+                    
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-users fa-5x  text-light "></i>
+                        <h3 class="text-light">Client-Centric Focus</h3>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+
+    <section class="choose-us-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="choose-us-title">Why Choose Canvas Student Clone App?</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up">
+                    <img src="https://pngimg.com/uploads/student/student_PNG62545.png" class="choose-us-image" alt="App Features">
+                </div>
+                <div class="col-md-6 d-flex align-items-center" data-aos="fade-up">
+                    <div class="feature-content">
+                        <p class="choose-us-description">
+                            At Canvas Student Clone App, we redefine the way you learn and study with our exceptional features and services:
+                        </p>
+                        <ul class="choose-list">
+                            <li><i class="fas fa-check-circle"></i> Intuitive User Interface for Seamless Learning</li>
+                            <li><i class="fas fa-check-circle"></i> Diverse Range of Educational Tools</li>
+                            <li><i class="fas fa-check-circle"></i> Effortless and Secure Learning Environment</li>
+                            <li><i class="fas fa-check-circle"></i> Personalized Learning Resources</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 Support for Educators and Learners</li>
+                            <li><i class="fas fa-check-circle"></i> Your Trusted Education Companion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section class="commitment-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" data-aos="fade-up">
+                    <div class="section-title text-center">
+                        <h2 class="display-5 mb-4 commitment-title text-dark">Our Commitment to You</h2>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="commitment-box">
+                        <div class="commitment-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="commitment-title">Dedication to Excellence</h3>
+                        <p class="commitment-description">
+                            We are wholeheartedly committed to providing excellence in every aspect of our products and services. Your satisfaction is our utmost priority.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="guarantee-box">
+                        <div class="guarantee-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="guarantee-title">Our Unshakable Guarantee</h3>
+                        <p class="guarantee-description">
+                            We offer an unshakable guarantee of your complete satisfaction. If you ever encounter any issues or are not entirely thrilled with your experience, we'll go above and beyond to make it right for you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+
+    
+    <main class="mt-5">
+        <h1  class="section-title text-center text-light" >Student Application Flow</h1>
+         <ul id="cards" class="card-container">
+             <li class="card1" id="card_1">
+                 <div class="card__content" style="background-color: #FFc06e;">
+                     <div>
+                         <h2 >Splash Screen</h2>
+                         <p >Welcome! Our splash screens enhance app appeal and create lasting first impressions. Easy and beautiful.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Student/Splash Screen.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+            
+             
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #bdd99e;">
+                     <div>
+                         <h2>Onboarding Screen</h2>
+                         <p>Welcome to Education Hub . Effortless access, organization, and enriched learning awaits. Let's begin!</p>
+ 
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Student/Onboarding1.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #FFc06e;">
+                     <div>
+                         <h2>Onboarding Screen</h2>
+                         <p>Set your schedule, learn anytime, your education tailored to your life. Let's start!</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Student/onboarding2.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#bdd99e">
+                     <div>
+                         <h2>Onboarding Screen</h2>
+                         <p>Customize timetables, study anytime, and embark on your journey</p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Student/onboarding3.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #FFc06e;">
+                     <div>
+                         <h2>Select Your Role</h2>
+                         <p>Begin your journey in your selected profession. Let's get started!
+
+                         </p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Student/Home.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#bdd99e" >
+                     <div>
+                         <h2>Login</h2>
+                         <p>Sign in to your account. Username, password, and you're in. New here? Sign up .
+
+
+                         </p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Student/Login.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #FFc06e;">
+                     <div>
+                         <h2>Sign Up</h2>
+                         <p>Register now. Add your name, email, password, phone and choose profession to create your account. Get started today</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Student/Sign Up.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#bdd99e;">
+                     <div>
+                         <h2>Phone Verification</h2>
+                         <p>Enter your number, receive a code, and ensure account security. </p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Student/Phone Verify.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+
+             
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FFc06e;">
+                    <div>
+                        <h2>Home</h2>
+                        <p> Welcome to your home screen.Explore your options: assignments, notes, timetable,notication or whatever piques your interest.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Student/Home-1.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color: #bdd99e;">
+                    <div>
+                        <h2>Choose Assignment</h2>
+                        <p>Choose Assignments, then select the specific assignment you'd like to view, such as Physics Assignment.</p>
+                        
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Student/All Assignment.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FFc06e;">
+                    <div>
+                        <h2>Physics Assignment</h2>
+                        <p> Complete your work, and you can upload your assignment when you're done.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Student/Assignment.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#bdd99e;">
+                    <div>
+                        <h2>Choose Subject</h2>
+                        <p> Select Notes, then choose the subject you'd like to read: Mathematics, Computer Science, Physics, and more.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Student/All Notes.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FFc06e;">
+                    <div>
+                        <h2>Choose Chapter</h2>
+                        <p>Select Mathematics, and now choose the specific chapter you'd like to explore and learn .</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Student/Note.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#bdd99e;">
+                    <div>
+                        <h2>Choose Topic</h2>
+                        <p>Choose Trigonometry, and then select the specific topic within it that you want to learn.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Student/Download Note.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FFc06e;">
+                    <div>
+                        <h2>Explore options </h2>
+                        <p> Explore all your options: Home, Profile, Chat, Settings, and Switch Account for a complete experience.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Student/Sidebar.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#bdd99e;">
+                    <div>
+                        <h2>Chat</h2>
+                        <p>Connect and chat with others within the app to engage in meaningful conversations and interactions.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Student/Chat (1).png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FFc06e;">
+                    <div>
+                        <h2>Video</h2>
+                        <p>Enjoy video calls within the app for face-to-face communication with friends, colleagues, and more.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Student/Video Call.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#bdd99e;">
+                    <div>
+                        <h2>User Details</h2>
+                        <p>Complete your profile with your essential details for a more personalized and engaging experience.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Student/User Detail.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+          
+           
+
+           
+             
+         </ul>
+     </main>
+  
+    
+     <main class="mt-5 py-5">
+      
+            <h1  class="section-title text-center  " style="color:#050552;">Teacher Application Flow</h1>
+      
+       
+         <ul id="cards" class="card-container">
+             <li class="card1" id="card_1">
+                 <div class="card__content" style="background-color: #FFc06e;">
+                     <div>
+                         <h2 >Login</h2>
+                         <p >Teachers, log in with your email and password to access your account and educational resources.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Teacher/Login.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+            
+             
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #bdd99e;">
+                     <div>
+                         <h2>Sign Up</h2>
+                         <p>Teachers, sign up with your name, email, password, and profession to get started with our app.</p>
+ 
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Teacher/Sign up.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #FFc06e;">
+                     <div>
+                         <h2>Home</h2>
+                         <p>Choose any options like class, timetable, notifications, grades, and salary details.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Teacher/Home.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#bdd99e">
+                     <div>
+                         <h2>Choose Class</h2>
+                         <p>Select your class, pick a specific class, and then choose from options like assignments, attendance, tests, or messages.</p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Teacher/All class.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #FFc06e;">
+                     <div>
+                         <h2>Assignment</h2>
+                         <p>Teacher can easily add a new assignment for your students to complete and submit.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Teacher/Assignment.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#bdd99e" >
+                     <div>
+                         <h2>Set Time and Date</h2>
+                         <p>Teachers can specify the due date and time for assignment submissions, ensuring an organized learning schedule.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Teacher/Set Time & Date.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #FFc06e;">
+                     <div>
+                         <h2>Notification</h2>
+                         <p> Teachers can access and view all notifications to stay updated and informed about important updates.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Teacher/Notification.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#bdd99e;">
+                     <div>
+                         <h2>Check performance</h2>
+                         <p>Teachers can check when assignments were submitted and download them for review and assessment</p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/Google Classroom/Teacher/check performance.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+
+             
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FFc06e;">
+                    <div>
+                        <h2>Explore Options</h2>
+                        <p>Teachers can explore various options, including Home, Profile, Chat, Settings, and Switch Account for added functionality.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Teacher/Details.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color: #bdd99e;">
+                    <div>
+                        <h2>Chat</h2>
+                        <p>Teachers can initiate and participate in chats with students for effective communication and support</p>
+                        
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Teacher/Chat2.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FFc06e;">
+                    <div>
+                        <h2>My Profile</h2>
+                        <p>Enhance your profile with personal details: add an image, name, password, and email for a complete profile.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Google Classroom/Teacher/Profile.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+          
+           
+
+           
+             
+         </ul>
+     </main>
+
+   
+
+  
+    
+
+
+   
+    
+    
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    
+    <script src="js/main.js"></script>
+
+
+
+
+
+</body>
+
+</html>

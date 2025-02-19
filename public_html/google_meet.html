@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/product.css">
+
+
+    <style>
+       
+ 
+header {
+    background: url("./img/google\ meet\ banner.jpg");
+    text-align: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 20%;
+}
+
+header .overlay {
+    padding: 5%;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #333;
+    height: 600px;
+}
+
+
+
+h3, p {
+    margin-bottom: 2vw;
+   
+}
+@media (max-width: 768px) {
+
+header .overlay{
+    height: 650px;
+}
+
+}
+
+
+
+.animated-button {
+    background: linear-gradient(to bottom, #34b7f1, #0186e3); 
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.animated-button:hover {
+    background: linear-gradient(to bottom, #0186e3, #34b7f1 ); 
+    animation: pulse 1s infinite; 
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .col-md {
+        order: 0;
+    }
+    .animated-button {
+        font-size: 24px; 
+    }
+ 
+}
+
+
+
+
+
+
+.intro-content {
+            padding: 20px;
+        }
+        .intro-img img {
+            width: 100%;
+            height: auto;
+     
+        }
+
+
+
+
+
+
+        .feature-card {
+            background: #100621; 
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0);
+            transition: transform 0.3s ease; 
+        }
+
+        .feature-card p{
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateX(10px); 
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: #0166ff;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease; 
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2); 
+        }
+
+
+
+
+
+       
+
+        .process-step {
+            position: relative;
+            width: 150px;
+            text-align: center;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -50px;
+            width: 50px;
+            height: 2px;
+            background-color: #007bff;
+            animation: grow 1s infinite alternate;
+        }
+
+        .process-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin: 0 auto;
+            animation: bounce 1s infinite alternate;
+        }
+
+        .process-description {
+            padding: 1rem;
+            background-color:#100621;
+            border-radius: 1rem;
+            box-shadow:inset 0 0 10px #000;
+            border-radius: 10px;
+        }
+
+        .process-description h3, .process-description p{
+            margin-bottom: 0.8rem;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes grow {
+            0%, 100% {
+                width: 50px;
+            }
+            50% {
+                width: 100px;
+            }
+        }
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out; 
+}
+
+.section-title-underline {
+    width: 50%; 
+    height: 2px; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+
+.services-section {
+    padding: 30px 0;
+  
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    height: 290px;
+}
+
+.service-card:hover {
+    transform: translateY(-15px);
+}
+
+.service-title {
+
+    margin-top: 10px;
+    color: #333;
+}
+
+.service-description {
+  
+    line-height: 1.6;
+    color: #777;
+    margin-top: 15px;
+}
+
+.emoji {
+ font-size: 36px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+    </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+  <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+<!-- nav start -->
+<nav>
+    <div class="wrapper">
+      <div class="logo">
+        <a href="index.html">
+            <img src="./img/ROBOLAXY logo.png" alt="img"  height="110px" class="mt-3">
+        </a>
+    </div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links mb-0">
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+        <li class="nav-items"><a href="index.html">Home</a></li>
+        <li class="nav-items"><a href="about.html"  >About</a></li>
+        <li>
+          <a href="#" class="desktop-item nav-items ">Services</a>
+          <input type="checkbox" id="showDrop">
+          <label for="showDrop" class="mobile-item nav-items">Services</label>
+          <ul class="drop-menu">
+            <li><a href="./flutter-development.html">Flutter App Development</a></li>
+            <li><a href="./iphone-development.html">IPhone App Development</a></li>
+            <li><a href="./ipad-development.html">IPad App Development</a></li>
+            <li><a href="./mobile-development.html">Mobile App Development</a></li>
+            <li><a href="./website-development.html">Website Development</a></li>
+            <li><a href="./software-development.html">Software Development</a></li>
+            <li><a href="./ios-development.html">IOS Development</a></li>
+            <li><a href="./android-development.html">Android Development</a></li>
+            <li><a href="./php-development.html">PHP Development</a></li>
+            <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+            <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+            <li><a href="./react-development.html">Reactjs Development</a></li>
+            <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="desktop-item nav-items active">Products</a>
+          <input type="checkbox" id="showMega">
+          <label for="showMega" class="mobile-item nav-items">Products</label>
+          <div class="mega-box container-fluid">
+            <div class="content row">
+              <!-- <div class="row">
+                <img src="img.jpg" alt="">
+              </div> -->
+              <!-- food delivery app -->
+              <div class="row col-lg-3 ">
+                <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+              </div>
+
+              <!-- entertainment app -->
+              <div class="row col-lg-3 ">
+                <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+              </div>
+              
+              <!-- e-learning app -->
+              <div class="row col-lg-3 ">
+                <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+              </div>
+              
+              <!-- salon app -->
+              <div class="row col-lg-3 ">
+                <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                
+              </div>
+              
+              <!-- dating app -->
+              <div class="row col-lg-3 ">
+                <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+              
+              </div>
+              
+              <!-- news app -->
+              <div class="row col-lg-3 ">
+                <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                
+              </div>
+              
+              <!-- Health Care App -->
+              <div class="row col-lg-3 ">
+                <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+              
+              </div>
+              
+              <!-- Online Meeting App -->
+              <div class="row col-lg-3 ">
+                <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+               
+              </div>
+              
+              <!-- Taxi Booking App -->
+              <div class="row col-lg-3 ">
+                <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                
+              </div>
+              
+              <!-- HandyMan Home Services App -->
+              <div class="row col-lg-3 ">
+                <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                
+              </div>
+              
+              <!-- Online Shopping App -->
+              <div class="row col-lg-3 ">
+                <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                
+              </div>
+              
+              <!-- Social Media App -->
+              <div class="row col-lg-3 ">
+                <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+              
+              </div>
+              
+              <!-- Online Grocery App -->
+              <div class="row col-lg-3 ">
+                <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+               
+              </div>
+              
+              <!-- Music Streaming App -->
+              <div class="row col-lg-3 ">
+                <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+              
+              </div>
+              
+              <!-- Online Payment App -->
+              <div class="row col-lg-3 ">
+                <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+               
+              </div>
+              
+              <!-- Educational app -->
+              <div class="row col-lg-3">
+                <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                
+              </div>
+              
+              <!-- Fantasy App -->
+              <div class="row col-lg-3 ">
+                <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+               
+              </div>
+              
+              <!-- Vehicles On Rent App -->
+              <div class="row col-lg-3 ">
+                <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                
+              </div>
+              
+              <!-- Find Your Home App -->
+              <div class="row col-lg-3">
+                <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+               
+              </div>
+              
+              <!-- Hotel Booking  App -->
+              <div class="row col-lg-3">
+                <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                
+              </div>
+              
+              <!-- Short Video Community App -->
+              <div class="row col-lg-3 ">
+                <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                
+              </div>
+              
+            </div>
+          </div>
+        </li>
+
+
+        <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div>
+</nav>
+<!-- nav ends -->
+
+
+<!-- pahe header start -->
+    
+    <header>
+        <div class="overlay">
+            <div class="row">
+                <div class="col-md order-2">
+                    <img src="./img/images/patient-video-call-with-therapist_23-2148525804-removebg-preview.png" alt="About Us Image" class="img-fluid" style="max-width: 100%; height:auto;">
+                </div>
+                <div class="col-md order-1 mt-2">
+                    <h1 style="color: white;">Google Meet Clone App</h1>
+                    <p style="text-align: justify;   color: #fff;">In today's fast-paced world, staying connected with colleagues, friends, and family has never been more critical. Whether it's for business meetings, educational sessions, or catching up with loved ones, video conferencing has become an integral part of our lives. Introducing "MeetHub," your comprehensive and innovative Google Meet clone app, designed to redefine the way you connect, communicate, and collaborate.</p> 
+                   <a href="./contact.html">  <button class="animated-button">Contact Us</button> </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+  
+    <!-- Page Header End -->
+
+
+    <!-- Feature Start -->
+   
+    <div class="common-section my-5">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                    
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+ 
+
+    <div class="container">
+        <div class="row">
+           
+            <div class="col-md-6 intro-content">
+                <h2 class="display-5 mb-4">Welcome to Google Meet</h2>
+                
+                <p style="text-align: justify;">In today's fast-paced world, staying connected with colleagues, friends, and family has never been more critical. Whether it's for business meetings, educational sessions, or catching up with loved ones, video conferencing has become an integral part of our lives.</p>
+                <p style="text-align: justify;">Introducing "Google Meet," your comprehensive and innovative video conferencing solution, designed to redefine the way you connect, communicate, and collaborate.</p>
+                <p style="text-align: justify;">Google Meet is more than just a video conferencing tool; it's an evolution of the meeting experience. With a sleek and user-friendly interface, it offers an array of features and functionalities that cater to the diverse needs of individuals, professionals, and organizations alike.</p>
+            </div>
+            <div class="col-md-6 intro-img">
+                <div class="intro-img-frame" >
+
+                <img src="./img/images/Remote meeting.gif" alt="Google Meet App Image">
+            </div></div>
+        </div>
+    </div>
+
+
+
+    <div class="container mt-5">
+        <h2 class="display-5 mb-4 text-center">Features</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-video"></i> 
+                    <h4>High-Quality Video</h4>
+                    <p>Experience crystal-clear video quality in your meetings.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-users"></i> 
+                    <h4>Group Meetings</h4>
+                    <p>Connect with multiple participants in group meetings.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-comments"></i> 
+                    <h4>Real-Time Chat</h4>
+                    <p>Stay in touch through real-time chat during meetings.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-desktop"></i> 
+                    <h4>Screen Sharing</h4>
+                    <p>Share your screen for presentations and collaboration.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-calendar-alt"></i> 
+                    <h4>Meeting Scheduling</h4>
+                    <p>Schedule meetings in advance and never miss an appointment.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <i class="feature-icon fas fa-lock"></i> 
+                    <h4>Security & Privacy</h4>
+                    <p>Your meetings are secure and private with encryption.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="services-section">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up">
+                <h2 class="display-5 mb-4">Our Services</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4" >
+                    <div class="service-card mt-3">
+                        <span class="emoji">🌐</span>
+                        <h3 class="service-title">Web App Development</h3>
+                        <p class="service-description">
+                            We specialize in creating custom web applications tailored to your business needs. Our team ensures responsive and user-friendly solutions.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <div class="service-card mt-3">
+                        <span class="emoji">📱</span>
+                        <h3 class="service-title">Mobile App Development</h3>
+                        <p class="service-description">
+                            We design and develop mobile apps for iOS and Android platforms, focusing on a seamless user experience and cutting-edge functionality.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <div class="service-card mt-3">
+                        <span class="emoji">🛒</span>
+                        <h3 class="service-title">E-Commerce Solutions</h3>
+                        <p class="service-description">
+                            Unlock the potential of online selling with our e-commerce solutions. We build secure and feature-rich online stores that drive sales.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card mt-3">
+                        <span class="emoji">📹</span>
+                        <h3 class="service-title">Video Conferencing Solutions</h3>
+                        <p class="service-description">
+                            We specialize in creating robust video conferencing solutions, making virtual meetings and collaboration seamless and secure.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <div class="service-card mt-3">
+                        <span class="emoji">🤝</span>
+                        <h3 class="service-title">Collaboration Tools</h3>
+                        <p class="service-description">
+                            Enhance team collaboration with our custom-built tools that facilitate real-time communication and project management.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card mt-3">
+                        <span class="emoji">🔒</span>
+                        <h3 class="service-title">Security and Encryption</h3>
+                        <p class="service-description">
+                            We prioritize data security and encryption in our Zoom app clone to ensure your meetings and data are protected.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="company-definition p-5 mt-5" style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="display-5 mb-4">Why Robolaxy?</h2>
+                    <div class="section-title-underline text-light"></div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row justify-content-center mt-5 ">
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light ">
+                    <div class="company-feature">
+                        <i class="fa fa-cogs fa-5x text-light"></i>
+                        <h3 class="text-light">Innovative Solutions</h3>
+                        
+                    </div>
+                </div>
+               
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-line-chart fa-5x text-light"></i>
+                        <h3 class="text-light">Driving Growth</h3>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-heart fa-5x  text-light"></i>
+                        <h3 class="text-light">Passion for Technology</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-lock fa-5x  text-light"></i>
+                        <h3 class="text-light">Secure Solutions</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-users fa-5x  text-light "></i>
+                        <h3 class="text-light">Client-Centric Focus</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container mt-5">
+        <h2 class="display-5 mb-4 text-center">Our Work Process</h2>
+        <div class="process-container">
+            <div class="row">
+                <div class="col-md-6 process mt-5">
+                    <div class="process-step">
+                        <div class="process-circle">1</div>
+                    </div>
+                    <div class="process-description">
+                        <h3>Define</h3>
+                        <p>Clarify project goals and requirements.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 process mt-5">
+                    <div class="process-step">
+                        <div class="process-circle">2</div>
+                    </div>
+                    <div class="process-description">
+                        <h3>Design</h3>
+                        <p>Create UI/UX design.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 process mt-5">
+                    <div class="process-step">
+                        <div class="process-circle">3</div>
+                    </div>
+                    <div class="process-description">
+                        <h3>Develop</h3>
+                        <p>Build core functionality and features.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 process mt-5">
+                    <div class="process-step">
+                        <div class="process-circle">4</div>
+                    </div>
+                    <div class="process-description">
+                        <h3>Test</h3>
+                        <p>Perform testing and QA.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 process mt-5">
+                    <div class="process-step">
+                        <div class="process-circle">5</div>
+                    </div>
+                    <div class="process-description">
+                        <h3>Deploy</h3>
+                        <p>Prepare for deployment and launch.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 process mt-5">
+                    <div class="process-step">
+                        <div class="process-circle">6</div>
+                    </div>
+                    <div class="process-description">
+                        <h3>Maintain</h3>
+                        <p>Monitor and maintain post-launch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section >
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-6 commitment-image">
+                <img src="./img/images/Group video.gif" class="img-fluid"  alt="Our Commitment and Guarantee">
+            </div>
+            <div class="col-md-6 commitment-content mt-5">
+                <h2 class="display-5 mb-4">Our Commitment</h2>
+                <p>We are dedicated to providing you with the best services and products that meet your needs and expectations. Your satisfaction is our top priority, and we strive for excellence in everything we do.</p>
+
+                <h2 class="display-5 mb-4">Our Guarantee</h2>
+                <p>We stand by the quality of our work and products. If you are not completely satisfied with our services or products, please don't hesitate to contact us. We will do everything in our power to make it right and ensure your satisfaction.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+ 
+
+
+ 
+
+<section class="our-workflow-section mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h2 class="display-5 mb-4">Our Workflow 🚀</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4" data-aos="fade-up">
+                <div class="workflow-step">
+                    <span class="workflow-emoji fs-3">📋</span>
+                    <h3 class="workflow-title">Project Planning</h3>
+                    <p class="workflow-description">
+                        We start by meticulously planning every aspect of your project, setting clear goals and objectives.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="workflow-step">
+                    <span class="workflow-emoji fs-3">🛠️</span>
+                    <h3 class="workflow-title">Development</h3>
+                    <p class="workflow-description">
+                        Our skilled developers bring your project to life, using cutting-edge technologies and best practices.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="workflow-step">
+                    <span class="workflow-emoji fs-3">🚀</span>
+                    <h3 class="workflow-title">Launch</h3>
+                    <p class="workflow-description">
+                        We launch your product with a bang, ensuring a smooth transition from development to the real world.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="workflow-step">
+                    <span class="workflow-emoji fs-3">📊</span>
+                    <h3 class="workflow-title">Analysis</h3>
+                    <p class="workflow-description">
+                        We perform in-depth analysis to gather insights and refine the project for optimal results.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="800">
+                <div class="workflow-step">
+                    <span class="workflow-emoji fs-3">🎨</span>
+                    <h3 class="workflow-title">Design</h3>
+                    <p class="workflow-description">
+                        Our creative designers craft visually appealing and user-friendly designs that align with your brand.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="1000">
+                <div class="workflow-step">
+                    <span class="workflow-emoji fs-3">🧪</span>
+                    <h3 class="workflow-title">Testing</h3>
+                    <p class="workflow-description">
+                        Rigorous testing ensures the reliability and quality of your project, identifying and addressing any issues.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+ 
+    
+    
+  
+    
+
+
+   
+
+
+   
+    
+    
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

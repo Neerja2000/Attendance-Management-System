@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+
+
+    <style>
+ 
+    
+     
+
+
+
+
+.languages-logos {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 80px; 
+}
+
+.languages-logo {
+    display: flex;
+    align-items: center;
+    margin: 0 15px; 
+}
+
+.languages-logo img {
+    height: 80px; 
+    width: auto;
+    animation: moveLogo 10s linear infinite; 
+}
+@keyframes moveLogo {
+    0% {
+        transform: translateX(1000px);
+    }
+     100% {
+        transform: translateX(-1500px);
+    }
+}
+
+
+
+
+
+header {
+    background: url("./img/indrive.jpg");
+    text-align: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+}
+
+header .overlay {
+    padding: 5%;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #333;
+    height: 600px;
+}
+
+
+
+h3, p {
+    margin-bottom: 2vw;
+}
+
+
+
+
+.contact-button {
+    background: linear-gradient(90deg, #12A9E0, #2ED06B);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background: linear-gradient(90deg, #2ED06B, #12A9E0);
+    transition: background-color 0.3s ease;
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .col-md {
+        order: 0;
+    }
+  
+ 
+    header .overlay{
+        height: 700px;
+    }
+    h3, p {
+    margin-bottom: 6vw;
+}
+
+}
+
+
+
+
+.feature-card {
+            border: 1px solid #f0f0f0;
+            padding: 20px;
+            height: 200px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .feature-icon.car {
+            color: #12A9E0; 
+        }
+        .card1:hover{
+            background-color: #b7e6f7;
+        }
+
+        .feature-icon.shield {
+            color:darkviolet; 
+        }
+        .card2:hover{
+            background-color: rgb(206, 144, 233);
+        }
+
+        .feature-icon.wallet {
+            color: #2ED06B; 
+        }
+        .card3:hover{
+            background-color: #a3e4bc;
+        }
+        .feature-icon.clock {
+            color: #FF6B6B; 
+        }
+        .card4:hover{
+            background-color: #f5c5c5;
+        }
+        .feature-icon.map {
+            color:mediumvioletred; 
+        }
+        .card5:hover{
+            background-color: rgb(235, 114, 190) ;
+        }
+        .feature-icon.user {
+            color: #FFB732; 
+        }
+
+       .card6:hover{
+        background-color:#fee7bb ;
+       }
+
+        .feature-title {
+       
+            margin-bottom: 10px;
+            color: #333; 
+        }
+
+        .feature-description {
+            color: #555; 
+        }
+
+
+
+
+
+
+        /* .img-fluid {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        } */
+/* .int-img{
+   transform: scale(1.3);
+} */
+        h2 {
+            
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+    
+
+        ul {
+           
+            margin-left: 20px;
+            
+            list-style-type: none;
+          
+        }
+
+       
+         .lists{
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .lists::before {
+            content: "\2713"; 
+            color: #2ED06B; 
+         
+            margin-right: 10px;
+            position: absolute;
+            font-weight: bolder;
+            left: -25px;
+        }
+
+
+
+
+
+.commitment-container:hover .commitment-card {
+    background-color:#12A9E0; 
+    color: #000;
+}
+
+
+.commitment-container:hover .guarantee-card {
+    background-color: whitesmoke; 
+    color: #000;
+}
+
+
+.commitment-card {
+    background-color: whitesmoke; 
+    color: #000;
+    border-radius: 10px;
+    padding: 20px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+
+.guarantee-card {
+    background-color:#2ED06B; 
+    color: #000;
+}
+
+
+
+
+
+
+
+/* common section */
+.fade-in {
+    animation: fadeIn 1s ease-in-out; 
+}
+
+.section-title-underline {
+    width: 50%; 
+    height: 2px; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4vw; /* Adjust the gap between cards as needed */
+    margin-bottom: var(--card-margin);
+}
+
+.card1 {
+    flex: 1 1 calc(25% - var(--card-margin)); /* Adjust the card size as needed */
+    position: sticky;
+    top: 0;
+    /* padding-top: calc(var(--index) * var(--card-top-offset)); */
+}
+
+
+@supports (animation-timeline: works) {
+    /* @scroll-timeline cards-element-scrolls-in-body {
+    source: selector(body);
+    scroll-offsets:
+        selector(.card-container) start 1,
+        selector(.card-container) start 0;
+    start: selector(.card-container) start 1;
+    end: selector(.card-container) start 0;
+    time-range: 4s;
+} */
+
+
+    .card1 {
+        --index0: calc(var(--index) - 1);
+        --reverse-index: calc(var(--numcards) - var(--index0));
+        --reverse-index0: calc(var(--reverse-index) - 1);
+    }
+
+    .card__content {
+        transform-origin: 50% 0%;
+        will-change: transform;
+        --duration: calc(var(--reverse-index0) * 1s);
+        --delay: calc(var(--index0) * 1s);
+        animation: var(--duration) linear scale var(--delay) forwards;
+        animation-timeline: cards-element-scrolls-in-body;
+    }
+
+    @keyframes scale {
+        to {
+            transform:
+                scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+        }
+    }
+}
+
+#debug {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+}
+
+#debug::after {
+    content: " Show Debug";
+    margin-left: 1.5em;
+    color: white;
+    white-space: nowrap;
+}
+
+#debug:checked~main {
+    --outline-width: 1px;
+}
+
+main {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.card-container {
+    list-style: none;
+    outline: calc(var(--outline-width) * 10) solid blue;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--numcards), var(--card-height));
+    gap: var(--card-margin);
+}
+
+.card1 {
+    outline: var(--outline-width) solid hotpink;
+  
+}
+
+.card__content {
+    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    color: rgb(10, 5, 7);
+    border-radius: 1em;
+    overflow: hidden;
+    display: grid;
+   
+    grid-template-areas: "text img";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: stretch;
+    outline: var(--outline-width) solid lime;
+}
+
+.card__content>div {
+    grid-area: text;
+    width: 80%;
+    place-self: center;
+    text-align: left;
+    display: grid;
+    gap: 1em;
+    place-items: start;
+}
+
+.card__content>figure {
+    grid-area: img;
+    overflow: hidden;
+}
+
+.card__content>figure>img {
+    width: 40%;
+    height: 450px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        padding-left: 0px;
+    }
+
+    main {
+        width: 100vw;
+    }
+    .card__content>figure>img{
+        height: 100%;
+        width: 100%;
+        padding-right: 10px;
+        object-fit: cover;
+    }
+}
+    </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+      <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    
+    <nav>
+        <div class="wrapper">
+          <div class="logo">
+            <a href="index.html">
+                <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+            </a>
+        </div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links mb-0">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li class="nav-items"><a href="index.html">Home</a></li>
+            <li class="nav-items"><a href="about.html">About</a></li>
+            <li>
+              <a href="#" class="desktop-item nav-items">Services</a>
+              <input type="checkbox" id="showDrop">
+              <label for="showDrop" class="mobile-item nav-items">Services</label>
+              <ul class="drop-menu">
+                <li><a href="./flutter-development.html">Flutter App Development</a></li>
+                <li><a href="./iphone-development.html">IPhone App Development</a></li>
+                <li><a href="./ipad-development.html">IPad App Development</a></li>
+                <li><a href="./mobile-development.html">Mobile App Development</a></li>
+                <li><a href="./website-development.html">Website Development</a></li>
+                <li><a href="./software-development.html">Software Development</a></li>
+                <li><a href="./ios-development.html">IOS Development</a></li>
+                <li><a href="./android-development.html">Android Development</a></li>
+                <li><a href="./php-development.html">PHP Development</a></li>
+                <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+                <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+                <li><a href="./react-development.html">Reactjs Development</a></li>
+                <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="desktop-item nav-items active">Products</a>
+              <input type="checkbox" id="showMega">
+              <label for="showMega" class="mobile-item nav-items">Products</label>
+              <div class="mega-box container-fluid">
+                <div class="content row">
+                  <!-- <div class="row">
+                    <img src="img.jpg" alt="">
+                  </div> -->
+                  <!-- food delivery app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+                  </div>
+
+                  <!-- entertainment app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+                  </div>
+                  
+                  <!-- e-learning app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+                  </div>
+                  
+                  <!-- salon app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                    
+                  </div>
+                  
+                  <!-- dating app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+                  
+                  </div>
+                  
+                  <!-- news app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                    
+                  </div>
+                  
+                  <!-- Health Care App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Meeting App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+                   
+                  </div>
+                  
+                  <!-- Taxi Booking App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                    
+                  </div>
+                  
+                  <!-- HandyMan Home Services App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                    
+                  </div>
+                  
+                  <!-- Online Shopping App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                    
+                  </div>
+                  
+                  <!-- Social Media App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Grocery App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+                   
+                  </div>
+                  
+                  <!-- Music Streaming App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Payment App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+                   
+                  </div>
+                  
+                  <!-- Educational app -->
+                  <div class="row col-lg-3">
+                    <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                    
+                  </div>
+                  
+                  <!-- Fantasy App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+                   
+                  </div>
+                  
+                  <!-- Vehicles On Rent App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                    
+                  </div>
+                  
+                  <!-- Find Your Home App -->
+                  <div class="row col-lg-3">
+                    <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+                   
+                  </div>
+                  
+                  <!-- Hotel Booking  App -->
+                  <div class="row col-lg-3">
+                    <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                    
+                  </div>
+                  
+                  <!-- Short Video Community App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </li>
+
+      
+            <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+      </nav>
+        <!-- Navbar End -->
+
+<!-- pahe header start -->
+    
+    <header>
+        <div class="overlay">
+            <div class="row">
+                <div class="col-md order-2">
+                    <img src="./img/indriver1.png" alt="About Us Image" class="img-fluid" style="max-width: 100%;">
+                </div>
+                <div class="col-md order-1 mt-2">
+                    <h1>inDriver Clone  App</h1>
+                    <p style="text-align: justify; color: black; ">Introducing our state-of-the-art InDriver Clone App, the ultimate solution for modern transportation needs! With our innovative platform, you can now enjoy convenient and reliable rides whenever you need them. Whether you're commuting to work, exploring a new city, or heading out for a night on the town, our app connects you with a network of skilled and courteous drivers, ready to get you to your destination safely and efficiently. Say goodbye to the hassle of hailing a cab or waiting for public transportation.</p> 
+                   <a href="./contact.html" class="contact-button ">Contact Us</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Page Header End -->
+
+
+    <!-- Feature Start -->
+   
+    <div class="common-section mt-5">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                    
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 order-2 mt-2">
+                <img src="./img/indrive/collage.png" alt="Uber Clone App" class="img-fluid"   style="width: 100%; " >
+            </div>
+            <div class="col-md-6 order-1">
+                <h2 style="color: white;">Welcome to  <span style="color:goldenrod;"> Our inDriver App</span> </h2 style="color: white;">
+                <p style="text-align: justify;">Experience the future of transportation with our state-of-the-art InDriver Clone App. Whether you need a ride to work, a night out, or exploring a new city, we've got you covered. Our reliable and convenient service connects you with skilled drivers at your fingertips.</p>
+<p style="text-align: justify;">Say goodbye to the hassles of traditional transportation and enjoy a seamless ride-sharing experience. Join our community today and get ready for a smoother, more efficient way to travel.</p>
+                <a href="./contact.html" button class="contact-button">Book Now</button></a>
+            </div>
+        </div>
+    </div>
+      
+    <div class="container ">
+        <h2 class="text-center text-light">Key Features</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-card card1">
+                    <i class="fas fa-car feature-icon car"></i>
+                    <h3 class="feature-title text-light">Efficient Rides</h3>
+                    <p class="feature-description text-light">Quick and efficient transportation at your fingertips.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card card2">
+                    <i class="fas fa-shield-alt feature-icon shield"></i>
+                    <h3 class="feature-title text-light">Safety First</h3>
+                    <p class="feature-description text-light">Your safety is our top priority. Stringent safety measures in place.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card card3">
+                    <i class="fas fa-wallet feature-icon wallet"></i>
+                    <h3 class="feature-title text-light">Affordable Rates</h3>
+                    <p class="feature-description text-light">Enjoy budget-friendly fares for your rides.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card card4">
+                    <i class="fas fa-clock feature-icon clock"></i>
+                    <h3 class="feature-title text-light">24/7 Availability</h3>
+                    <p class="feature-description text-light">We're here round the clock to serve your transportation needs.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card card5">
+                    <i class="fas fa-map-marker feature-icon map"></i>
+                    <h3 class="feature-title text-light">Easy Navigation</h3>
+                    <p class="feature-description text-light">Seamless GPS navigation to your destination.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card card6">
+                    <i class="fas fa-user feature-icon user"></i>
+                    <h3 class="feature-title text-light">User-Friendly</h3>
+                    <p class="feature-description text-light">An easy-to-use app with a friendly interface.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    <section class="company-definition mt-5 p-5" style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-title text-light">Why Robolaxy?</h2>
+                    <div class="section-title-underline text-light"></div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row justify-content-center mt-5 ">
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light ">
+                    <div class="company-feature">
+                        <i class="fa fa-cogs fa-5x text-light"></i>
+                        <h3 class="text-light">Innovative Solutions</h3>
+                        
+                    </div>
+                </div>
+               
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-line-chart fa-5x text-light"></i>
+                        <h3 class="text-light">Driving Growth</h3>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-heart fa-5x  text-light"></i>
+                        <h3 class="text-light">Passion for Technology</h3>
+                       
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-lock fa-5x  text-light"></i>
+                        <h3 class="text-light">Secure Solutions</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-users fa-5x  text-light "></i>
+                        <h3 class="text-light">Client-Centric Focus</h3>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container mt-5">
+        <div class="row">
+           
+          
+    
+           
+            <div class="col-md-6">
+                <h2 class="text-light">Why Choose Us</h2>
+                <p>We are committed to providing you with the best transportation service in the industry. Here's why you should choose us:</p>
+                <ul >
+                    <li class="lists text-light"><strong>Reliability:</strong> Count on us for on-time and dependable rides, no matter where you are.</li>
+                    <li class="lists text-light"><strong>Safety First:</strong> Your safety is our top priority. We have stringent safety measures in place to ensure your well-being.</li>
+                    <li class="lists text-light"><strong>Competitive Pricing:</strong> Enjoy affordable rates and transparent pricing for all your journeys.</li>
+                    <li class="lists text-light"><strong>24/7 Availability:</strong> We're available round the clock to meet your transportation needs, day or night.</li>
+                    <li class="lists text-light"><strong>Easy Navigation:</strong> Our app offers seamless GPS navigation, making it easy to reach your destination.</li>
+                    <li class="lists text-light"><strong>User-Friendly Experience:</strong> Our user-friendly interface ensures a hassle-free experience for all our customers.</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 mt-5">
+                <img src="./img/indrive/collage1.png" alt="Left Image" class="img-fluid">
+            </div>
+        </div>
+    </div>  
+
+
+
+    <div class="container mt-5 mb-5">
+        <div class="section-title text-center">
+            <h2 class="display-5 mb-4 text-light">Our Company Values</h2>
+        </div>
+        
+    
+        <div class="row commitment-container mt-5">
+            <div class="col-md-6 commitment-card">
+                <div class="commitment-content ">
+                    <h3 class="text-dark">Our Commitment</h3>
+                    <p class="text-dark">We are committed to delivering excellence in everything we do. Our dedicated team of professionals ensures that our projects are executed with precision and meet the highest standards of quality.</p>
+                </div>
+            </div>
+            <div class="col-md-6 commitment-card guarantee-card">
+                <div class="commitment-content">
+                    <h3 class="text-dark">Our Guarantee</h3>
+                    <p class="text-dark">We guarantee your satisfaction with our services. If you are ever dissatisfied with any aspect of our work, we will work closely with you to address any concerns and make necessary adjustments to meet your expectations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    
+    <main >
+        <h1  class="section-title text-center">User Application Flow</h1>
+         <ul id="cards" class="card-container">
+             <li class="card1" id="card_1">
+                 <div class="card__content" style="background-color:brown;">
+                     <div>
+                         <h2 style="color: white;" >  Splash Screen</h2>
+                         <p style="color: white;">Our startup screens look awesome and are meant to make your app fun to use. We're here to ensure you make a great first impression.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/indrive/Splash Screens.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_2">
+                 <div class="card__content" style="background-color:gold;">
+                     <div>
+                         <h2  style="color: white;">Onboarding Screen</h2>
+                         <p  style="color: white;">Welcome to Uber! Let's get you moving. Request your ride here and we'll take you where you need to go.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/indrive/Onboarding 1.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_3">
+                 <div class="card__content" style="background-color:skyblue;">
+                     <div>
+                         <h2  style="color: black;">Onboarding Screen</h2>
+                         <p  style="color: black;">Confirm your driver! Verify the details to ensure your safe and comfortable Uber journey.</p>
+                 
+                     </div>
+                     <figure>
+                         <img src="./img/indrive/Onboarding 2.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:brown;">
+                     <div>
+                         <h2 style="color: white;">Onboarding Screen</h2>
+                         <p style="color: white;"> Track your ride! Keep an eye on your driver's progress and know exactly when they'll arrive. </p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/indrive/Onboarding 3.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:gold;">
+                     <div>
+                         <h2  style="color: white;">Choose Location </h2>
+                         <p  style="color: white;">Choose your location! Let us know where you'd like to be picked up, and we'll make sure your ride is on its way.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/indrive/Setup GPS locations.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:skyblue;">
+                     <div>
+                         <h2 style="color: black;">Sign Up</h2>
+                         <p style="color: black;">Join the ride! Sign up to get started with Uber and enjoy convenient transportation whenever you need it.</p>
+ 
+                     </div>
+                     <figure>
+                         <img src="./img/indrive/Sign Up.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:brown;">
+                     <div>
+                         <h2  style="color: white;">Sign In</h2>
+                         <p  style="color: white;">Ready to ride? Log in to your account to get started and enjoy your journey with us.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/indrive/Sign In.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content"  style="background-color:gold;">
+                     <div>
+                         <h2 style="color: white;">OTP verification</h2>
+                         <p style="color: white;">Let's secure your account. Verify your phone number to ensure a safe and reliable Uber experience.</p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/indrive/Phone Verify.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:skyblue;">
+                     <div>
+                         <h2  style="color: black;">Select Location</h2>
+                         <p  style="color: black">Select your location: Where would you like to be picked up from? Your journey begins here.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/indrive/Home.png"
+                             alt="Image description">
+                             <img src="./img/indrive/Choose Drop-off.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+            
+          
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:brown;">
+                     <div>
+                         <h2 style="color: white;">Choose Your Driver</h2>
+                         <p style="color: white;">Ready to roll? Request your ride and choose your preferred option. Your journey, your choice.</p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/indrive/Choose Vehicle type.png"
+                             alt="Image description">
+                             <img src="./img/indrive/Choose Vehicle type_Full view.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+         
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:gold;">
+                    <div>
+                        <h2 style="color: white;">Confirm Ride</h2>
+                        <p style="color: white;">Got a promo code? Add it here and click 'Confirm' to apply it to your ride.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Input Promo Code.png"
+                            alt="Image description">
+                            <img src="./img/indrive/Select Driver.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+          
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:skyblue;">
+                    <div>
+                        <h2 style="color: black;">Booking Done</h2>
+                        <p style="color: black;">Booking Successful! Your ride is confirmed and on its way. Sit back and relax – we've got you covered.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img//indrive/Booking Successfully.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:brown;">
+                    <div>
+                        <h2  style="color: white;">Sidebar</h2>
+                        <p  style="color: white;">Open the sidebar: Access more options and features by tapping the sidebar icon. Explore everything at your fingertips.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Menu.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:gold;">
+                    <div>
+                        <h2 style="color: white;" >History View</h2>
+                        <p style="color: white;">View your history: Check out your past rides and keep track of your Uber journey history.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/My History.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:skyblue;">
+                    <div>
+                        <h2  style="color: black;">Details</h2>
+                        <p  style="color: black;">Choose your ride and be patient. You can cancel it, send a message to the driver, or give them a call if needed.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Booking Details.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:brown;">
+                    <div>
+                        <h2 style="color: white;">Message Send</h2>
+                        <p style="color: white;">You can send a message to  your driver.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Message.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+         
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:gold;">
+                    <div>
+                        <h2 style="color: white;">Notification </h2>
+                        <p style="color: white;">Stay informed with updates and alerts in the notification section.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Notifications.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:skyblue;">
+                    <div>
+                        <h2  style="color: black;">Rate your ride</h2>
+                        <p  style="color: black"> Let us know how your trip went by giving it a rating.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Rate your trip.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:brown;">
+                    <div>
+                        <h2 style="color: white;">Leave a tip</h2>
+                        <p style="color: white;">If you had an exceptional ride, you can show your appreciation by leaving a tip for your driver.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Tips.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:gold;">
+                    <div>
+                        <h2  style="color: white;">Invite Friends</h2>
+                        <p  style="color: white;">Spread the word and invite your friends to join the Uber experience.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Invite Friends.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:skyblue;">
+                    <div>
+                        <h2 style="color: black">Find and invite friends</h2>
+                        <p style="color: black">Search for your friends and send them an invitation to join you on Uber.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Invite Friends-1.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:brown;">
+                    <div>
+                        <h2  style="color: white;">Settings</h2>
+                        <p  style="color: white;">Customize your Uber experience by adjusting your preferences and account settings.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Settings.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:gold;">
+                    <div>
+                        <h2 style="color: white;">My Account</h2>
+                        <p style="color: white;">Manage your personal information, including your name, email, phone number, and gender.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/My Account.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:skyblue;">
+                    <div>
+                        <h2  style="color: black;">Change Personal Details</h2>
+                        <p  style="color: black">Update your personal information, including your birthday, to keep your profile current.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/My Account/Select Birthday.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:brown;">
+                    <div>
+                        <h2 style="color: white;">My Wallet</h2>
+                        <p style="color: white;"> Access and manage your payment methods and transaction history in the wallet section.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/My Wallet.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li> 
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:gold;">
+                    <div>
+                        <h2  style="color: white;">Payment Method</h2>
+                        <p  style="color: white;">Add, edit, or select your preferred payment method for a seamless Uber experience.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/indrive/Payment Method.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+         </ul>
+     </main>
+    
+    
+  
+
+
+   
+
+
+   
+
+
+   
+    
+    
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+  
+    <script src="js/main.js"></script>
+
+
+
+
+</body>
+
+</html>

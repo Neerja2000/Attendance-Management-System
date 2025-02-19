@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <link href="css/screenshot.css" rel="stylesheet">
+
+
+    <style>
+       
+header {
+    background: url("./img/background.png");
+    text-align: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+}
+
+header .overlay {
+    padding: 5%;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #333;
+    height: 600px;
+}
+
+
+
+h3, p {
+    margin-bottom: 2vw;
+}
+
+
+
+
+
+.animated-button {
+    background: linear-gradient(to right, #d35400, #c0392b);
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.animated-button:hover {
+    background: linear-gradient(to right, #c0392b, #d35400);
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .col-md {
+        order: 0;
+    }
+    .animated-button {
+        font-size: 24px; 
+    }
+   
+}
+
+
+/* common section-start of products */
+
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out; 
+}
+
+.section-title-underline {
+    width: 50%; 
+    height: 2px; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+/* common section-end */
+
+
+
+
+
+
+.moj-features {
+
+    padding: 50px 0;
+}
+
+.moj-feature-card {
+    background: #060c1b;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+}
+
+.moj-feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-wrapper {
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+    color: #fff;
+    
+    aspect-ratio: 1/1;
+    margin-bottom: 20px;
+}
+
+.icon-wrapper i {
+    font-size: 1.5rem;
+}
+
+
+
+.moj-feature-card p {
+    text-align: center;
+}
+
+
+
+
+
+
+.commitment-and-guarantee {
+    padding: 50px 0;
+    /* background: linear-gradient(to right, #ffafbd, #ffc3a0); */
+}
+
+.commitment-content {
+    background: #060c1b;
+    height: 100%;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: justify;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.commitment-content:hover {
+    transform: translateY(-5px);
+    background-color: #ffc3a0; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
+}
+
+
+.commitment-content .btn {
+    margin-top: 20px;
+}
+
+
+  
+
+
+.workflow-step {
+    border-radius: 1rem;
+    background: #060c1b;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.workflow-step p{
+    text-align: center;
+}
+
+.workflow-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
+}
+
+
+.step-icon {
+    background: #ff9966; 
+    display: inline-block;
+    padding: 20px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.our-services {
+    /* background: #f5f5f5; */
+    padding: 50px 0;
+}
+
+.service-card {
+ 
+    /* background: #fff; */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.icon-wrapper {
+    display: inline-block;
+    padding: 20px;
+   
+    color: #fff;
+   font-size: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4vw; /* Adjust the gap between cards as needed */
+    margin-bottom: var(--card-margin);
+}
+
+.card1 {
+    flex: 1 1 calc(25% - var(--card-margin)); /* Adjust the card size as needed */
+    position: sticky;
+    top: 10%;
+    /* padding-top: calc(var(--index) * var(--card-top-offset)); */
+}
+
+
+@supports (animation-timeline: works) {
+    /* @scroll-timeline cards-element-scrolls-in-body {
+    source: selector(body);
+    scroll-offsets:
+        selector(.card-container) start 1,
+        selector(.card-container) start 0;
+    start: selector(.card-container) start 1;
+    end: selector(.card-container) start 0;
+    time-range: 4s;
+} */
+
+
+    .card1 {
+        --index0: calc(var(--index) - 1);
+        --reverse-index: calc(var(--numcards) - var(--index0));
+        --reverse-index0: calc(var(--reverse-index) - 1);
+    }
+
+    .card__content {
+        transform-origin: 50% 0%;
+        will-change: transform;
+        --duration: calc(var(--reverse-index0) * 1s);
+        --delay: calc(var(--index0) * 1s);
+        animation: var(--duration) linear scale var(--delay) forwards;
+        animation-timeline: cards-element-scrolls-in-body;
+    }
+
+
+
+    @keyframes scale {
+        to {
+            transform:
+                scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+        }
+    }
+}
+
+#debug {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+}
+
+#debug::after {
+    content: " Show Debug";
+    margin-left: 1.5em;
+    color: white;
+    white-space: nowrap;
+}
+
+#debug:checked~main {
+    --outline-width: 1px;
+}
+
+main {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.card-container {
+    list-style: none;
+    outline: calc(var(--outline-width) * 10) solid blue;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--numcards), var(--card-height));
+    gap: var(--card-margin);
+}
+
+.card1 {
+    outline: var(--outline-width) solid hotpink;
+  
+}
+
+.card__content {
+    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    color: rgb(10, 5, 7);
+    border-radius: 1em;
+    overflow: hidden;
+    display: grid;
+   
+    grid-template-areas: "text img";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: stretch;
+    outline: var(--outline-width) solid lime;
+}
+
+.card__content>div {
+    grid-area: text;
+    width: 80%;
+    place-self: center;
+    text-align: left;
+    display: grid;
+    gap: 1em;
+    place-items: start;
+}
+
+.card__content>figure {
+    grid-area: img;
+    overflow: hidden;
+}
+
+.card__content>figure>img {
+    width: 45%;
+    height: 500px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        padding-left: 0px;
+    }
+
+    main {
+        width: 100vw;
+    }
+    .card__content>figure>img{
+        height: 100%;
+        width: 100%;
+        padding-right: 10px;
+        object-fit: cover;
+    }
+}
+
+.card__content{
+    margin-top: 1.5rem;
+}
+
+.card1:nth-child(n) .card__content{
+    background: #dbac3e;
+}
+
+.card1:nth-child(2n+1) .card__content{
+    
+    background: #FF8042;
+}
+
+
+.card1:last-child .card__content{
+    margin-bottom: 0;
+}
+
+
+  </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+
+      <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+<!-- nav start -->
+<nav>
+    <div class="wrapper">
+      <div class="logo">
+        <a href="index.html">
+            <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+        </a>
+    </div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links mb-0">
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+        <li class="nav-items"><a href="index.html">Home</a></li>
+        <li class="nav-items"><a href="about.html">About</a></li>
+        <li>
+          <a href="#" class="desktop-item nav-items">Services</a>
+          <input type="checkbox" id="showDrop">
+          <label for="showDrop" class="mobile-item nav-items">Services</label>
+          <ul class="drop-menu">
+            <li><a href="./flutter-development.html">Flutter App Development</a></li>
+            <li><a href="./iphone-development.html">IPhone App Development</a></li>
+            <li><a href="./ipad-development.html">IPad App Development</a></li>
+            <li><a href="./mobile-development.html">Mobile App Development</a></li>
+            <li><a href="./website-development.html">Website Development</a></li>
+            <li><a href="./software-development.html">Software Development</a></li>
+            <li><a href="./ios-development.html">IOS Development</a></li>
+            <li><a href="./android-development.html">Android Development</a></li>
+            <li><a href="./php-development.html">PHP Development</a></li>
+            <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+            <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+            <li><a href="./react-development.html">Reactjs Development</a></li>
+            <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="desktop-item nav-items active">Products</a>
+          <input type="checkbox" id="showMega">
+          <label for="showMega" class="mobile-item nav-items">Products</label>
+          <div class="mega-box container-fluid">
+            <div class="content row">
+              <!-- <div class="row">
+                <img src="img.jpg" alt="">
+              </div> -->
+              <!-- food delivery app -->
+              <div class="row col-lg-3 ">
+                <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+              </div>
+
+              <!-- entertainment app -->
+              <div class="row col-lg-3 ">
+                <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+              </div>
+              
+              <!-- e-learning app -->
+              <div class="row col-lg-3 ">
+                <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+              </div>
+              
+              <!-- salon app -->
+              <div class="row col-lg-3 ">
+                <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                
+              </div>
+              
+              <!-- dating app -->
+              <div class="row col-lg-3 ">
+                <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+              
+              </div>
+              
+              <!-- news app -->
+              <div class="row col-lg-3 ">
+                <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                
+              </div>
+              
+              <!-- Health Care App -->
+              <div class="row col-lg-3 ">
+                <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+              
+              </div>
+              
+              <!-- Online Meeting App -->
+              <div class="row col-lg-3 ">
+                <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+               
+              </div>
+              
+              <!-- Taxi Booking App -->
+              <div class="row col-lg-3 ">
+                <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                
+              </div>
+              
+              <!-- HandyMan Home Services App -->
+              <div class="row col-lg-3 ">
+                <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                
+              </div>
+              
+              <!-- Online Shopping App -->
+              <div class="row col-lg-3 ">
+                <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                
+              </div>
+              
+              <!-- Social Media App -->
+              <div class="row col-lg-3 ">
+                <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+              
+              </div>
+              
+              <!-- Online Grocery App -->
+              <div class="row col-lg-3 ">
+                <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+               
+              </div>
+              
+              <!-- Music Streaming App -->
+              <div class="row col-lg-3 ">
+                <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+              
+              </div>
+              
+              <!-- Online Payment App -->
+              <div class="row col-lg-3 ">
+                <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+               
+              </div>
+              
+              <!-- Educational app -->
+              <div class="row col-lg-3">
+                <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                
+              </div>
+              
+              <!-- Fantasy App -->
+              <div class="row col-lg-3 ">
+                <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+               
+              </div>
+              
+              <!-- Vehicles On Rent App -->
+              <div class="row col-lg-3 ">
+                <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                
+              </div>
+              
+              <!-- Find Your Home App -->
+              <div class="row col-lg-3">
+                <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+               
+              </div>
+              
+              <!-- Hotel Booking  App -->
+              <div class="row col-lg-3">
+                <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                
+              </div>
+              
+              <!-- Short Video Community App -->
+              <div class="row col-lg-3 ">
+                <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                
+              </div>
+              
+            </div>
+          </div>
+        </li>
+
+  
+        <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div>
+  </nav>
+<!-- nav ends -->
+
+<!-- pahe header start -->
+    
+    <header>
+        <div class="overlay">
+            <div class="row">
+                <div class="col-md order-2">
+                    <img src="./img/images/wepik-export-20231116073517xNZd.png" alt="About Us Image" class="img-fluid" style="max-width: 100%;">
+                </div>
+                <div class="col-md order-1 mt-2">
+                    <h1>Moj App Clone</h1>
+                    <p style="text-align: justify; color: black; ">"Moj App Clone is your music haven. Enjoy a variety of songs, explore different music styles, and connect with fellow music enthusiasts. It's your place to groove and celebrate music!</p> 
+                   <a href="./contact.html">  <button class="animated-button">Contact Us</button> </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Page Header End -->
+
+
+    <!-- Feature Start -->
+   
+    <div class="common-section my-5">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                  
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+
+    <section class="moj-section  " >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-start">
+                    <div class="moj-content" data-aos="fade-up">
+                        <div class="section-title text-start">
+                            <h2 class="display-5 ">Moj App Clone</h2>
+                        </div>
+                        <p class="moj-description" style="text-align: justify;">
+                            We believe in the transformative power of the internet for businesses. Our websites connect ideas with visitors, striving for ease of use and enjoyable navigation. We leave a lasting impression on every visitor.
+                        </p>
+                        <p style="text-align: justify;">
+                            Our commitment to excellence encompasses all aspects of web development, from intuitive navigation to elegant aesthetics. A well-designed website is more than just an online presence; it's a platform for businesses to showcase offerings, engage with customers, and establish a memorable online identity.
+                        </p>
+                        <a href="./contact.html">  <button class="animated-button">Contact Us</button> </a>
+                    </div>
+                </div>
+                <div class="col-md-6" >
+                    <img src="./img/images/Instagram Video Streaming.gif" class="w-100 zoom" alt="Moj App Screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="moj-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12  " data-aos="fade-up">
+                 
+                    <div class="section-title text-center">
+                        <h2 class="display-5 mb-4">Explore Moj App Features</h2>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="moj-feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Create and Share Videos</h3>
+                        <p>Express your creativity by making and sharing short videos with ease.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="moj-feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Connect with Creators</h3>
+                        <p>Join a vibrant community of content creators and build meaningful connections.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="moj-feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Explore Trends</h3>
+                        <p>Discover trending challenges, music, and content that keeps you entertained.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="moj-feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Engage with Likes</h3>
+                        <p>Show your appreciation for your favorite content with likes and build your social presence.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="moj-feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Connect Through Comments</h3>
+                        <p>Interact with other users by leaving comments and joining conversations on your favorite videos.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="moj-feature-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-share"></i>
+                        </div>
+                        <h3>Share Your Creations</h3>
+                        <p>Share your videos on social media and reach a wider audience with your creative content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        
+    
+
+    <section class="our-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center">
+                        <h2 class="display-5 mb-4">Our Services</h2>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="icon-wrapper" style="background: linear-gradient(to right, #ffafbd, #ffc3a0);">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile App Development</h3>
+                        <p>We create stunning mobile apps for iOS and Android platforms, tailored to your unique needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="icon-wrapper" style="background: linear-gradient(to right, #a0c3ff, #b0ff9c);">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Web App Development</h3>
+                        <p>Our web apps are designed to provide seamless user experiences across all devices and browsers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="icon-wrapper" style="background: linear-gradient(to right, #ff9966, #99ffcc);">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>We craft engaging and intuitive user interfaces, ensuring your app's success in the market.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="icon-wrapper" style="background: linear-gradient(to right, #ffe400, #ff9e00);">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Digital Marketing</h3>
+                        <p>Boost your app's online presence with our digital marketing strategies, reaching a wider audience.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="icon-wrapper" style="background: linear-gradient(to right, #ff66b3, #ff66a3);">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Custom Development</h3>
+                        <p>We specialize in custom solutions, addressing your specific app development needs with precision.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class= "service-card" data-aos="fade-up">
+                        <div class="icon-wrapper" style="background: linear-gradient(to right, #3399ff, #99ccff);">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3>Cloud Integration</h3>
+                        <p>Seamlessly integrate your app with cloud services for enhanced scalability and performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    
+    
+    <section class="company-definition p-5" style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="section-title">
+                        <h2 class="display-5 mb-4">Why Robolaxy?</h2>
+                    </div>
+                   
+                    <div class="section-title-underline text-light"></div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row justify-content-center mt-5 ">
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light ">
+                    <div class="company-feature">
+                        <i class="fa fa-cogs fa-5x text-light"></i>
+                        <h3 class="text-light">Innovative Solutions</h3>
+                      
+                    </div>
+                </div>
+               
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-line-chart fa-5x text-light"></i>
+                        <h3 class="text-light">Driving Growth</h3>
+                 
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-heart fa-5x  text-light"></i>
+                        <h3 class="text-light">Passion for Technology</h3>
+             
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-lock fa-5x  text-light"></i>
+                        <h3 class="text-light">Secure Solutions</h3>
+
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-users fa-5x  text-light "></i>
+                        <h3 class="text-light">Client-Centric Focus</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <div class="container mt-5">
+        <div class="section-title text-center">
+            <h2 class="display-5 mb-4">Our Workflow Process</h2>
+        </div>
+      
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="workflow-step step-1">
+                    <i class="fas fa-file-alt step-icon"></i>
+                    <h4>Planning</h4>
+                    <p>Begin with a comprehensive planning phase to outline project goals and requirements.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="workflow-step step-2">
+                    <i class="fas fa-cogs step-icon"></i>
+                    <h4>Development</h4>
+                    <p>Execute development tasks, ensuring the project aligns with the established plan.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="workflow-step step-3">
+                    <i class="fas fa-check-circle step-icon"></i>
+                    <h4>Quality Assurance</h4>
+                    <p>Rigorous testing and quality assurance to maintain product excellence.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="workflow-step step-4">
+                    <i class="fas fa-chart-line step-icon"></i>
+                    <h4>Optimization</h4>
+                    <p>Continuously optimize, improve the product based on user feedback and data analysis.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="workflow-step step-5">
+                    <i class="fas fa-database step-icon"></i>
+                    <h4>Data Security</h4>
+                    <p>Implement strong data security measures to protect user information and privacy.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="workflow-step step-6">
+                    <i class="fas fa-comments step-icon"></i>
+                    <h4>Customer Support</h4>
+                    <p>Provide responsive and helpful customer support to address user  issues.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <section class="commitment-and-guarantee mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md">
+                    <div class="section-title text-center">
+                        <h2 class="display-5 mb-4">Our Commitment and Guarantee</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-md-6 mb-3" data-aos="fade-up">
+                    <div class="commitment-content">
+                       
+                        <p>
+                            Our company values are the guiding principles that shape our every endeavor. We are committed to user-centric design, transparency, data security, and social responsibility. We foster innovation and inclusivity, all while building trust within our community.
+                        </p>
+                        <a href="./contact.html">  <button class="animated-button">Contact Us</button> </a>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3" data-aos="fade-up">
+                    <div class="commitment-content">
+                       
+                        <p>
+                            At Moj App Clone, we are dedicated to providing the best experience for our users. We guarantee:
+                        </p>
+                        <ul>
+                            <li>High-quality content and user-friendly interface</li>
+                            <li>Timely customer support and assistance</li>
+                            <li>Privacy and data security for our users</li>
+                            <li>Continuous improvement and innovation</li>
+                        </ul>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+
+
+     <div class="app-flow-container">
+        <h2 class="display-5 mb-4 text-light text-center">User <span class="highlight">Application Flow</span></h2>
+        <div class="step-card mt-5 "  style="background-color:  #1E2428;" >
+            <div class="step-details" >
+                <h2>Splash Screen</h2>
+                <p style="color: white;">Our splash screens are crafted to be visually appealing and enhance your app's usability. We're here to ensure you leave a lasting first impression.</p>
+                
+            </div>
+            <img src="./img/Boom/Splash Screen.png" alt="Splash Screen">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/Boom/Login.png" alt="Login Screen">
+            <div class="step-details">
+                <h2>Login</h2>
+                <p style="color: white;">Access your account with ease using Google, Facebook, or your phone number for a hassle-free experience.</p>
+            </div>
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;"  >
+            <div class="step-details">
+                <h2>Login with phone</h2>
+                <p style="color: white;">Quickly and securely access your account using your phone number.</p>
+            </div>
+            <img src="./img/Boom/Login with phone.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/Boom/OTP.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Terms and Conditions</h2>
+                         <p style="color: white;">Access and review all the terms and conditions of our app for a comprehensive understanding of our policies and guidelines.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Phone Verify</h2>
+                <p style="color: white;">We use OTP (One-Time Password) verification to ensure your account's security and protect your data.</p>
+            </div>
+            <img src="./img/Boom/Proceed.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/Boom/Registration.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Profile Details</h2>
+                         <p style="color: white;">Fill in your details including your name, email, and password to set up your account.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Pre-recorded Page</h2>
+                <p style="color: white;">Dive into our library of pre-recorded content for an amazing audio experience like never before!</p>
+            </div>
+            <img src="./img/Boom/Home (Following)-2.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/Boom/Home (Following)-3.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Suggested live</h2>
+                         <p style="color: white;">Discover recommended live events for an exciting, real-time experience in the Boom App.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Live Screen</h2>
+                        <p style="color: white;"> Experience live sessions, events, and performances as they happen on the Live Screen.</p>
+            </div>
+            <img src="./img/Boom/Home (Following).png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/Boom/Home comment on.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Live Screen with Chat</h2>
+                        <p style="color: white;">Enjoy the live event and engage with fellow participants by sending and receiving live messages in the chat while the event unfolds on the Live Screen.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Ready to Go Live</h2>
+                <p style="color: white;">When you have an active following, simply tap the 'Go Live' button to start broadcasting to your audience.</p>
+            </div>
+            <img src="./img/Boom/Go live Innitial screen.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/Boom/Go live private.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Customize Your Live</h2>
+                        <p style="color: white;"> Adjust your settings to control who can view your live broadcasts, share your content, and categorize your streams to match your preferences.</p>
+            </div>
+        </div>
+
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Public Live Setting</h2>
+                <p style="color: white;">Choose to make your live broadcasts public, allowing anyone to join and experience your content in real time.</p>
+            </div>
+            <img src="./img/boom/Go live public.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/Boom/Go live Innitial screen (1).png" alt="Book Service">
+            <div class="step-details">
+                <h2> Finish Live</h2>
+                        <p style="color: white;"> When you're ready to conclude your live broadcast, simply click the 'End' or 'Finish' button to gracefully wrap up your session.</p>
+            </div>
+        </div>
+
+
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Share Your Live</h2>
+                        <p style="color: white;">Spread the word about your live session! Easily share it with friends and followers on WhatsApp, Gmail, Instagram, and Messenger.</p>
+            </div>
+            <img src="./img/boom/Go live Screen locked.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/boom/Empty Direct Message.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Direct Messaging</h2>
+                        <p style="color: white;"> Connect one-on-one with other users through our built-in messaging feature. Start a private conversation and stay in touch.</p>
+            </div>
+        </div>
+
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Send Request</h2>
+                        <p style="color: white;">Easily find and connect with your friends in our app. Use the search function to locate them and send a friend request.</p>
+            </div>
+            <img src="./img/boom/Add new DM.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/boom/DM view.png" alt="Book Service">
+            <div class="step-details">
+                <h2> Messaging</h2>
+                        <p style="color: white;">Enjoy real-time conversations with your friends in the chat screen. Stay connected and share messages seamlessly.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Update Your Profile</h2>
+                        <p style="color: white;">Personalize your details by editing your name, email, and even add your Instagram and YouTube profiles directly within the app.</p>
+            </div>
+            <img src="./img/Boom/User Profile.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/boom/Frame 6.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Switch Accounts</h2>
+                        <p style="color: white;">Easily toggle between different accounts if you have more than one for your convenience.</p>
+            </div>
+        </div>
+
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Earnings Page</h2>
+                        <p style="color: white;">Check out your earnings in a visual graph format to track your income and performance over time.</p>
+            </div>
+            <img src="./img/boom/Earnings.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/boom/Earnings (1).png" alt="Book Service">
+            <div class="step-details">
+                <h2>Withdrawal Page</h2>
+                        <p style="color: white;"> Access your earnings and initiate withdrawal transactions. Manage your financial resources directly from this page."</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Earnings Details</h2>
+                        <p style="color: white;">Get a breakdown of your income, including sources, dates, and amounts, to keep you informed about your financial progress.</p>
+            </div>
+            <img src="./img/boom/Side menu bar.png" alt="Choose Category">
+        </div>
+
+
+
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/boom/Add Friends.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Connect with Friends</h2>
+                        <p style="color: white;"> Expand your social network by inviting friends from your contact list or connecting with them via Facebook and other platforms..</p>
+            </div>
+        </div>
+
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Privacy and Settings</h2>
+                        <p style="color: white;">Take control of your app experience by adjusting your privacy settings, account preferences, and more.</p>
+            </div>
+            <img src="./img/boom/Side menu bar (1).png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/boom/QR Code Scanner.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Code Scanner</h2>
+                <p style="color: white;">Use your camera to scan QR codes or documents, making it easy to access information and share content.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Profile Interaction</h2>
+                        <p style="color: white;">On another user's profile, you can choose to follow them or send a direct message, fostering connections and communication.</p>
+            </div>
+            <img src="./img/boom/View others profile.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  #1E2428;" >
+            <img src="./img/boom/Notification (1).png" alt="Book Service">
+            <div class="step-details">
+                <h2>All Activity</h2>
+                        <p style="color: white;">This page displays a list of the things you've done in the app, like liking, commenting, and following others. However, for new notifications, please check the dedicated Notification section.</p>
+            </div>
+        </div>
+
+        <div class="step-card"  style="background-color:  #1E2428;">
+            <div class="step-details">
+                <h2>Search Live</h2>
+                        <p style="color: white;"> Use the search feature to find and discover live broadcasts that match your interests or search criteria.</p>
+            </div>
+            <img src="./img/boom/Search.png" alt="Choose Category">
+        </div>
+      
+    </div>
+
+
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

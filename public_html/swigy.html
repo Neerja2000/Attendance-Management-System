@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+
+
+    <style>
+       
+ .back{
+        /* background: linear-gradient(rgba(53, 53, 53, .7), rgba(53, 53, 53, .7)), url(./img/about-back.webp) center center no-repeat; */
+        background-size: cover;
+         /* height: 400px; */
+         background: linear-gradient(19deg, #00a8c5, #ffff7e);
+        } 
+         
+     
+
+
+.custom-services-section {
+    padding: 4rem 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.custom-heading-main {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.custom-heading {
+   
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+.custom-services-single {
+   
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.custom-services-single h4 {
+   
+   
+    color: #fdb750;
+    margin-bottom: 10px;
+}
+
+.custom-services-single h5 {
+   
+   
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.custom-services-single p {
+   
+   
+    color: #666;
+}
+  .custom-services-single {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: 250px;
+        padding: 20px; 
+    }
+
+    .custom-services-single:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+       
+    }
+
+    .custom-services-single::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #fdb750;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.custom-services-single:hover::before {
+    transform: scaleX(1);
+}
+.feature-section {
+        background-color: #f7f7f7;
+        padding: 50px 0;
+    }
+
+    .feature-content {
+        padding-right: 30px;
+        border-right: 1px solid #ddd;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .feature-icon {
+        background-color: white;
+        color: black;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .feature-icon {
+     
+
+        transition: transform 0.3s ease;
+    }
+
+    .feature-icon:hover {
+        transform: scale(1.1);
+    }
+    .custom-feature-card {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .custom-feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-text {
+        margin-left: 20px;
+    }
+
+    .feature-image img {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .feature-content {
+            padding-right: 0;
+            border-right: none;
+            padding-bottom: 30px;
+        }
+
+        .feature-image {
+            margin-top: 30px;
+        }
+    }
+
+.why-choose-us-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-choose-us-card:hover {
+    transform: translateY(25px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ddd;
+}
+
+.why-choose-us-icon {
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 1rem;
+}
+.why-choose-us-card:hover .why-choose-us-icon{
+color: #fdb750;
+}
+
+.why-choose-us-card h4 {
+   
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.why-choose-us-card p {
+ 
+    color: #666;
+}
+
+.animated-image {
+    animation: scaleAnimation 1s ease-in-out infinite alternate;
+}
+
+@keyframes scaleAnimation {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+
+
+
+
+
+
+
+.languages-logos {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 80px; 
+}
+
+.languages-logo {
+    display: flex;
+    align-items: center;
+    margin: 0 15px; 
+}
+
+.languages-logo img {
+    height: 80px; 
+    width: auto;
+    animation: moveLogo 10s linear infinite; 
+}
+@keyframes moveLogo {
+    0% {
+        transform: translateX(1000px);
+    }
+     100% {
+        transform: translateX(-1500px);
+    }
+}
+
+
+
+
+
+header {
+    background: url("./img/background.png");
+    text-align: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+}
+
+header .overlay {
+    padding: 5%;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #333;
+    height: 600px;
+}
+
+
+
+h3, p {
+    margin-bottom: 2vw;
+}
+
+@media (max-width: 768px) {
+header .overlay{
+    height: auto
+}
+
+
+}
+
+
+.animated-button {
+    background-color: #e74c3c; 
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.animated-button:hover {
+    background-color: #ff0000; 
+    animation: pulse 1s infinite; 
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .col-md {
+        order: 0;
+    }
+    .animated-button {
+        font-size: 24px;
+    }
+ 
+}
+
+
+
+/* common section-start of products */
+
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out; 
+}
+
+.section-title-underline {
+    width: 50%; 
+    height: 2px; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+/* common section-end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4vw; /* Adjust the gap between cards as needed */
+    margin-bottom: var(--card-margin);
+}
+
+.card1 {
+    flex: 1 1 calc(25% - var(--card-margin)); /* Adjust the card size as needed */
+    position: sticky;
+    top: 0;
+    /* padding-top: calc(var(--index) * var(--card-top-offset)); */
+}
+
+
+@supports (animation-timeline: works) {
+    /* @scroll-timeline cards-element-scrolls-in-body {
+    source: selector(body);
+    scroll-offsets:
+        selector(.card-container) start 1,
+        selector(.card-container) start 0;
+    start: selector(.card-container) start 1;
+    end: selector(.card-container) start 0;
+    time-range: 4s;
+} */
+
+
+    .card1 {
+        --index0: calc(var(--index) - 1);
+        --reverse-index: calc(var(--numcards) - var(--index0));
+        --reverse-index0: calc(var(--reverse-index) - 1);
+    }
+
+    .card__content {
+        transform-origin: 50% 0%;
+        will-change: transform;
+        --duration: calc(var(--reverse-index0) * 1s);
+        --delay: calc(var(--index0) * 1s);
+        animation: var(--duration) linear scale var(--delay) forwards;
+        animation-timeline: cards-element-scrolls-in-body;
+    }
+
+    @keyframes scale {
+        to {
+            transform:
+                scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+        }
+    }
+}
+
+#debug {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+}
+
+#debug::after {
+    content: " Show Debug";
+    margin-left: 1.5em;
+    color: white;
+    white-space: nowrap;
+}
+
+#debug:checked~main {
+    --outline-width: 1px;
+}
+
+main {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.card-container {
+    list-style: none;
+    outline: calc(var(--outline-width) * 10) solid blue;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--numcards), var(--card-height));
+    gap: var(--card-margin);
+}
+
+.card1 {
+    outline: var(--outline-width) solid hotpink;
+  
+}
+
+.card__content {
+    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    color: rgb(10, 5, 7);
+    border-radius: 1em;
+    overflow: hidden;
+    display: grid;
+   
+    grid-template-areas: "text img";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: stretch;
+    outline: var(--outline-width) solid lime;
+}
+
+.card__content>div {
+    grid-area: text;
+    width: 80%;
+    place-self: center;
+    text-align: left;
+    display: grid;
+    gap: 1em;
+    place-items: start;
+}
+
+.card__content>figure {
+    grid-area: img;
+    overflow: hidden;
+}
+
+.card__content>figure>img {
+    width: 40%;
+    height: 450px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        padding-left: 0px;
+    }
+
+    main {
+        width: 100vw;
+    }
+    .card__content>figure>img{
+        height: 100%;
+        width: 100%;
+        padding-right: 10px;
+        object-fit: cover;
+    }
+}
+    </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+
+      <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    
+    <nav>
+        <div class="wrapper">
+          <div class="logo">
+            <a href="index.html">
+                <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+            </a>
+        </div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links mb-0">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li class="nav-items"><a href="index.html">Home</a></li>
+            <li class="nav-items"><a href="about.html">About</a></li>
+            <li>
+              <a href="#" class="desktop-item nav-items">Services</a>
+              <input type="checkbox" id="showDrop">
+              <label for="showDrop" class="mobile-item nav-items">Services</label>
+              <ul class="drop-menu">
+                <li><a href="./flutter-development.html">Flutter App Development</a></li>
+                <li><a href="./iphone-development.html">IPhone App Development</a></li>
+                <li><a href="./ipad-development.html">IPad App Development</a></li>
+                <li><a href="./mobile-development.html">Mobile App Development</a></li>
+                <li><a href="./website-development.html">Website Development</a></li>
+                <li><a href="./software-development.html">Software Development</a></li>
+                <li><a href="./ios-development.html">IOS Development</a></li>
+                <li><a href="./android-development.html">Android Development</a></li>
+                <li><a href="./php-development.html">PHP Development</a></li>
+                <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+                <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+                <li><a href="./react-development.html">Reactjs Development</a></li>
+                <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="desktop-item nav-items active">Products</a>
+              <input type="checkbox" id="showMega">
+              <label for="showMega" class="mobile-item nav-items">Products</label>
+              <div class="mega-box container-fluid">
+                <div class="content row">
+                  <!-- <div class="row">
+                    <img src="img.jpg" alt="">
+                  </div> -->
+                  <!-- food delivery app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+                  </div>
+
+                  <!-- entertainment app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+                  </div>
+                  
+                  <!-- e-learning app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+                  </div>
+                  
+                  <!-- salon app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                    
+                  </div>
+                  
+                  <!-- dating app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+                  
+                  </div>
+                  
+                  <!-- news app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                    
+                  </div>
+                  
+                  <!-- Health Care App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Meeting App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+                   
+                  </div>
+                  
+                  <!-- Taxi Booking App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                    
+                  </div>
+                  
+                  <!-- HandyMan Home Services App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                    
+                  </div>
+                  
+                  <!-- Online Shopping App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                    
+                  </div>
+                  
+                  <!-- Social Media App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Grocery App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+                   
+                  </div>
+                  
+                  <!-- Music Streaming App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Payment App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+                   
+                  </div>
+                  
+                  <!-- Educational app -->
+                  <div class="row col-lg-3">
+                    <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                    
+                  </div>
+                  
+                  <!-- Fantasy App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+                   
+                  </div>
+                  
+                  <!-- Vehicles On Rent App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                    
+                  </div>
+                  
+                  <!-- Find Your Home App -->
+                  <div class="row col-lg-3">
+                    <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+                   
+                  </div>
+                  
+                  <!-- Hotel Booking  App -->
+                  <div class="row col-lg-3">
+                    <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                    
+                  </div>
+                  
+                  <!-- Short Video Community App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </li>
+
+      
+            <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+      </nav>
+        <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+   
+
+    <header>
+        <div class="overlay">
+            <div class="row">
+                <div class="col-md order-2">
+                    <img src="./img/Swiggy.png" alt="About Us Image" class="img-fluid" style="max-width: 100%;">
+                </div>
+                <div class="col-md order-1 mt-2">
+                    <h1>Swiggy Clone App</h1>
+                    <p style="text-align: justify; color: black; ">With our app, you can dive into a diverse selection of restaurants, peruse their enticing menus, and effortlessly place your orders. Whether you're yearning for a soul-soothing bowl of pasta, a sizzling steak, or a revitalizing salad, our app is your ultimate culinary companion.
+
+                        Join the vibrant foodie community and set forth on an extraordinary gastronomic journey. Unearth novel flavors, rediscover cherished classics, and embark on a culinary expedition that pays homage to the art of food. Your Swiggy clone app awaits, ready to tantalize your taste buds and fulfill your cravings.</p> 
+                   <a href="./contact.html">  <button class="animated-button">Contact Us</button> </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+  
+    <div class="common-section mt-5">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                  
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div class="custom-services-section" style="background-image: url(assets/food-images/dotes.png)">
+    <div class="container">
+        <div class="custom-heading-main">
+            <div class="section-title text-center">
+                <h2 class="display-5 mb-4 text-light">Our Range of Services</h2>
+            </div>
+
+        </div>
+        <div class="inner-custom-services">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="custom-services-single card" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                        <h4><i class="fas fa-user"></i></h4>
+                        <h5><span>User Profiles</span></h5>
+                        <p>Both users and drivers can effortlessly create, view, edit, and manage their profiles and information directly from the mobile app or web dashboard.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="custom-services-single card" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                        <h4><i class="fas fa-bell"></i></h4>
+                        <h5><span>Notifications</span></h5>
+                        <p>Customers stay updated with the latest discounts, special offers, and app updates through timely notifications.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="custom-services-single card" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                        <h4><i class="fas fa-utensils"></i></h4>
+                        <h5><span>Easy Ordering</span></h5>
+                        <p>Customers can effortlessly place orders from the app's menu options, choosing between takeout or doorstep delivery.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="custom-services-single card" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                        <h4><i class="fas fa-search"></i></h4>
+                        <h5><span>Instant Search</span></h5>
+                        <p>Users can swiftly search for restaurants based on location, delivery area, nearby pickup, timings, reviews, keywords, and categories.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="custom-services-single card" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                        <h4><i class="fas fa-heart"></i></h4>
+                        <h5><span>Favorites</span></h5>
+                        <p>Users can save their preferred restaurants and explore diverse cuisines offered by different establishments.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="custom-services-single card" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+                        <h4><i class="fas fa-box-open"></i></h4>
+                        <h5><span>Product Management</span></h5>
+                        <p>Restaurants can easily create, manage, and remove specific products from their listing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
+<div class="container mt-5 mb-5">
+    <div class="row feature-section">
+        <div class="col-lg-6 feature-content">
+            <h3 class="text-dark">Discover the Features of Swiggy</h3>
+            <div class="feature-item custom-feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="feature-text">
+                    Explore a wide range of restaurants and cuisines.
+                </div>
+            </div>
+            <div class="feature-item custom-feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="feature-text">
+                    Receive real-time notifications about your orders.
+                </div>
+            </div>
+            <div class="feature-item custom-feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="feature-text">
+                    Enjoy quick and reliable delivery to your doorstep.
+                </div>
+            </div>
+            <div class="feature-item custom-feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="feature-text">
+                    Rate and review your dining experiences for others to see.
+                </div>
+            </div>
+           
+        </div>
+        <div class="col-lg-6 feature-image">
+            <img src="./img/swiggy1.png" alt="Swiggy Image" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<section class="company-definition p-5" style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="section-title text-light">Why Robolaxy?</h2>
+                <div class="section-title-underline text-light"></div>
+            </div>
+            
+            
+            
+        </div>
+        <div class="row justify-content-center mt-5 ">
+        <div class="row justify-content-center ">
+            <div class="col-md-4 text-center text-light ">
+                <div class="company-feature">
+                    <i class="fa fa-cogs fa-5x text-light"></i>
+                    <h3 class="text-light">Innovative Solutions</h3>
+                    
+                </div>
+            </div>
+           
+            <div class="col-md-4 text-center text-light">
+                <div class="company-feature">
+                    <i class="fa fa-line-chart fa-5x text-light"></i>
+                    <h3 class="text-light">Driving Growth</h3>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center ">
+            <div class="col-md-4 text-center text-light">
+                <div class="company-feature">
+                    <i class="fa fa-heart fa-5x  text-light"></i>
+                    <h3 class="text-light">Passion for Technology</h3>
+                  
+                </div>
+            </div>
+            <div class="col-md-4 text-center text-light">
+                <div class="company-feature">
+                    <i class="fa fa-lock fa-5x  text-light"></i>
+                    <h3 class="text-light">Secure Solutions</h3>
+                   
+                </div>
+            </div>
+            <div class="col-md-4 text-center text-light">
+                <div class="company-feature">
+                    <i class="fa fa-users fa-5x  text-light "></i>
+                    <h3 class="text-light">Client-Centric Focus</h3>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+  
+   
+
+
+
+    <div class="container mt-5">
+        <div class="section-title text-center">
+            <h2 class="display-5 mb-4">Why Choose Us for Food Delivery</h2>
+        </div>
+      
+        <div class="row ">
+
+<div class="col-md-4">
+    <div class="why-choose-us-card">
+        <div class="why-choose-us-icon">
+            <i class="fas fa-shipping-fast"></i>
+        </div>
+        <h4>Rapid Delivery</h4>
+        <p>Experience lightning-fast delivery times, ensuring your cravings are satisfied promptly.</p>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="why-choose-us-card">
+        <div class="why-choose-us-icon">
+            <i class="fas fa-smile"></i>
+        </div>
+        <h4>Customer Delight</h4>
+        <p>We prioritize your satisfaction and go the extra mile to make your food delivery experience exceptional.</p>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="why-choose-us-card">
+        <div class="why-choose-us-icon">
+            <i class="fas fa-clock"></i>
+        </div>
+        <h4>24/7 Availability</h4>
+        <p>Craving a midnight snack? We're here for you day and night with our round-the-clock service.</p>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 offset-md-3">
+    <div class="why-choose-us-image">
+        <img src="./img/swiggy2.jpg" alt="Why Choose Us Image" class="img-fluid animated-image mt-5 mb-5">
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="why-choose-us-card">
+            <div class="why-choose-us-icon">
+                <i class="fas fa-route"></i>
+            </div>
+            <h4>Efficient Routes</h4>
+            <p>Our advanced routing technology ensures the quickest and most efficient routes for timely deliveries.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+ 
+        <div class="why-choose-us-card">
+            <div class="why-choose-us-icon">
+                <i class="fas fa-award"></i>
+            </div>
+            <h4>Premium Quality</h4>
+            <p>We partner with top-rated restaurants to bring you the finest quality cuisines every time you order.</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="why-choose-us-card">
+            <div class="why-choose-us-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h4>Love for Variety</h4>
+            <p>With an extensive range of restaurants and menus, there's always something new to try.</p>
+        </div>
+    </div>
+</div>
+    </div>
+
+   
+    <main class="mt-5 ">
+        <h2 class="section-title text-center ">User Application Flow</h2>
+         <ul id="cards" class="card-container">
+             <li class="card1" id="card_1">
+                 <div class="card__content" style="background-color:#ffc642">
+                     <div>
+                         <h2 >Splash Screen</h2>
+                         <p >Our splash screens are crafted to be visually appealing and enhance your app's usability. We're here to ensure you leave a lasting first impression.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/splash.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+            
+             
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #FF8042;">
+                     <div>
+                         <h2>Onboarding Screen-1</h2>
+                         <p>Welcome to FoodEats! Discover local flavors and swift delivery. Your cravings, our priority. Let's start your culinary journey now.</p>
+ 
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/onboarding screen 1.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #ffc642;">
+                     <div>
+                         <h2>Onboarding Screen-2</h2>
+                         <p>Explore wide range of restaurants in your area.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/onboarding screen 2.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#FF8042">
+                     <div>
+                         <h2>Onboarding Screen-3</h2>
+                         <p>Tailor your perfect meal with ease. Choose, modify, and enjoy. It's your taste, your way!</p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/onboarding screen 3.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+        
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#ffc642" >
+                     <div>
+                         <h2>Login</h2>
+                         <p> Log in to explore delicious options, track orders, and enjoy a seamless food journey. Your taste adventure awaits.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/login.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #FF8042">
+                     <div>
+                         <h2>Sign Up</h2>
+                         <p> Sign up now to discover a world of flavors and enjoy hassle-free food delivery.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/sign up.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#ffc642;">
+                     <div>
+                         <h2>Home Screen</h2>
+                         <p> Your home screen awaits, brimming with delicious choices and easy ordering. </p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/home1.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+
+             
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FF8042">
+                    <div>
+                        <h2>Choose Category</h2>
+                        <p> Explore by category. Find your favorite flavors, from pizza to sushi. Discover new tastes or stick to your cravings.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/category.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color: #ffc642;">
+                    <div>
+                        <h2>Choose Food Items</h2>
+                        <p>Choose your favorite food items, add them to your cart, and savor every bite of your delicious meal.</p>
+                        
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/Items.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FF8042">
+                    <div>
+                        <h2> Add to Cart</h2>
+                        <p>View details, select quantity, and easily add to your cart. Your culinary journey is one step closer.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/add to cart.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#ffc642;">
+                    <div>
+                        <h2>Add to Cart</h2>
+                        <p> Repeat the process for another item. Explore, select quantity, and add to your cart for a delightful dining experience.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/add to cart-1.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FF8042">
+                    <div>
+                        <h2> Cart</h2>
+                        <p>Review your selections, quantities, and proceed to checkout for a delicious delivery experience. </p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/cart.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#ffc642;">
+                    <div>
+                        <h2>Edit Cart</h2>
+                        <p>Making changes? Edit your cart effortlessly.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/cart-1.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FF8042">
+                    <div>
+                        <h2>Add Address</h2>
+                        <p> Add your delivery address to finalize your order. We'll ensure your meal arrives hot and fresh!</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/Payment.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#ffc642;">
+                    <div>
+                        <h2>Choose Payment Method</h2>
+                        <p>Choose your preferred payment method to complete your order seamlessly and savor your meal.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/Payment-1.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FF8042">
+                    <div>
+                        <h2>Add Card Details</h2>
+                        <p>Add your card details for a hassle-free payment process and enjoy your delicious meal.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/Payment-2.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#ffc642;">
+                    <div>
+                        <h2>Payment Done</h2>
+                        <p>Your payment is complete. Get ready to enjoy your meal as it makes its way to your doorstep.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/Payment Successfully.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FF8042">
+                    <div>
+                        <h2>Track Order</h2>
+                        <p>Track your order's journey in real-time as it makes its way to your location.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/Track Order.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#ffc642;">
+                    <div>
+                        <h2>Call</h2>
+                        <p>  Dial our support line for immediate assistance with your order or any inquiries.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/call.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FF8042">
+                    <div>
+                        <h2>Chat</h2>
+                        <p>Use the chat feature to communicate with our team for any questions or special requests. </p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/Chat.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#ffc642;">
+                    <div>
+                        <h2>View Orders</h2>
+                        <p>View past orders to track your culinary journey and revisit your favorite meals</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/My orders.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#FF8042">
+                    <div>
+                        <h2>View History</h2>
+                        <p>Explore your order history to relive your past culinary adventures and reorder your favorites.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/History.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:#ffc642;">
+                    <div>
+                        <h2>View Menu</h2>
+                        <p> Customize your account settings, manage orders, and make your food delivery experience truly yours.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/zomato/Menu.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+         
+         </ul>
+     </main>
+     <main class="mt-5 py-4" >
+        <h2  class="section-title text-center mt-5">Vendor Application Flow</h2>
+         <ul id="cards" class="card-container">
+             <li class="card1" id="card_1">
+                 <div class="card__content" style="background-color: #FF8042">
+                     <div>
+                         <h2 >Dashboard</h2>
+                         <p > Access your dashboard for a quick overview of your account, orders, and personalized recommendations.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/Dashboard.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+            
+             
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #ffc642;">
+                     <div>
+                         <h2>Running Orders</h2>
+                         <p> Track your active orders on the dashboard from a seller's viewpoint for efficient management and timely deliveries</p>
+ 
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/Dashboard-1.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: #FF8042">
+                     <div>
+                         <h2>Add Food Category</h2>
+                         <p>Add a new food category  to keep your menu fresh and appealing to customers.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/Add Category.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#ffc642;">
+                     <div>
+                         <h2>Add Food Items</h2>
+                         <p> Add new food items seamlessly to your menu for a richer and more delightful culinary experience.</p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/Add Category-1.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+        
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:#FF8042" >
+                     <div>
+                         <h2>View Feedback</h2>
+                         <p> Access and view customer feedback to understand their experiences and continuously improve our services.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/zomato/View Feedback.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+            
+     </main> 
+    
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+
+
+    <style>
+       
+ 
+        .dropdown-header{
+    color: #0166ff;
+   }
+   .dropdown-menu::-webkit-scrollbar {
+    width: 10px; 
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 5px; 
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background-color: #f1f1f1; 
+}
+    
+     
+
+
+
+
+
+.languages-logos {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 80px; 
+}
+
+.languages-logo {
+    display: flex;
+    align-items: center;
+    margin: 0 15px; 
+}
+
+.languages-logo img {
+    height: 80px; 
+    width: auto;
+    animation: moveLogo 10s linear infinite; 
+}
+@keyframes moveLogo {
+    0% {
+        transform: translateX(1000px);
+    }
+     100% {
+        transform: translateX(-1500px);
+    }
+}
+
+
+
+.banner {
+    width: 100%;
+    background: url(./img/gif/entertainment.gif);
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0; 
+    overflow: hidden; 
+}
+
+.big-text {
+    font-size: 80px;
+    font-weight: 800;
+    animation: tada 2s infinite;
+}
+
+.banner img {
+    max-width: 100%; 
+    height: auto; 
+  
+}
+
+.banner a {
+    display: inline-block;
+    background: #fff;
+    color: #36465d;
+    text-transform: uppercase;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 40px;
+    transition: .3s;
+}
+
+.banner a:hover {
+    background: #333;
+    color: #fff;
+    padding: 15px 20px;
+}
+
+
+@media (max-width: 768px) {
+    .big-text {
+        font-size: 60px;
+    }
+
+    .banner {
+        padding: 20px 0; 
+    }
+
+    .banner a {
+        font-size: 30px;
+        padding: 10px 15px;
+    }
+}
+
+
+
+        .feature-item {
+            margin-bottom: 40px;
+            transition: transform 0.3s; 
+        }
+
+        .feature-item:hover {
+            transform: scale(1.1); 
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            color: #FF4500; 
+       
+        }
+
+        
+
+        .feature-title {
+            /* font-size: 24px; */
+            margin-top: 15px;
+            color: #333;
+        }
+
+        .feature-description {
+            /* font-size: 16px; */
+            color: #666;
+        }
+
+
+
+
+        .service-section {
+            /* padding: 30px 0; */
+            text-align: center;
+        }
+
+        .service-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 30px;
+        }
+
+        .service-list li {
+            margin-bottom: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            /* font-size: 18px; */
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+      
+
+        h2 {
+            /* font-size: 28px; */
+            margin-bottom: 20px;
+        }
+
+
+
+   
+
+
+
+.why-choose-card:hover::before, .why-choose-card:hover::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #B22222;
+    position: absolute;
+    top: 0;
+    bottom: 0; 
+}
+
+
+.why-choose-card {
+    transition: background-color 0.3s ease; 
+}
+
+
+.why-choose-card .card-title {
+    /* font-size: 18px; */
+    color: #333;
+}
+
+
+.why-choose-card .card-text {
+    /* font-size: 16px; */
+    color: #666;
+}
+
+
+.why-choose-card:hover {
+    background-color: #f0f0f0; 
+    cursor: pointer;
+    transform: translateY(-5px); 
+}
+
+/* common section-start of products */
+
+
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out; 
+}
+
+.section-title-underline {
+    width: 50%; 
+    height: 2px; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+
+
+
+
+
+
+
+
+/* common section-end */
+    </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+
+      <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    
+    <nav>
+        <div class="wrapper">
+          <div class="logo">
+            <a href="index.html">
+                <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+            </a>
+        </div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links mb-0">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li class="nav-items"><a href="index.html">Home</a></li>
+            <li class="nav-items"><a href="about.html">About</a></li>
+            <li>
+              <a href="#" class="desktop-item nav-items">Services</a>
+              <input type="checkbox" id="showDrop">
+              <label for="showDrop" class="mobile-item nav-items">Services</label>
+              <ul class="drop-menu">
+                <li><a href="./flutter-development.html">Flutter App Development</a></li>
+                <li><a href="./iphone-development.html">IPhone App Development</a></li>
+                <li><a href="./ipad-development.html">IPad App Development</a></li>
+                <li><a href="./mobile-development.html">Mobile App Development</a></li>
+                <li><a href="./website-development.html">Website Development</a></li>
+                <li><a href="./software-development.html">Software Development</a></li>
+                <li><a href="./ios-development.html">IOS Development</a></li>
+                <li><a href="./android-development.html">Android Development</a></li>
+                <li><a href="./php-development.html">PHP Development</a></li>
+                <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+                <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+                <li><a href="./react-development.html">Reactjs Development</a></li>
+                <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="desktop-item nav-items active">Products</a>
+              <input type="checkbox" id="showMega">
+              <label for="showMega" class="mobile-item nav-items">Products</label>
+              <div class="mega-box container-fluid">
+                <div class="content row">
+                  <!-- <div class="row">
+                    <img src="img.jpg" alt="">
+                  </div> -->
+                  <!-- food delivery app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+                  </div>
+
+                  <!-- entertainment app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+                  </div>
+                  
+                  <!-- e-learning app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+                  </div>
+                  
+                  <!-- salon app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                    
+                  </div>
+                  
+                  <!-- dating app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+                  
+                  </div>
+                  
+                  <!-- news app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                    
+                  </div>
+                  
+                  <!-- Health Care App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Meeting App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+                   
+                  </div>
+                  
+                  <!-- Taxi Booking App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                    
+                  </div>
+                  
+                  <!-- HandyMan Home Services App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                    
+                  </div>
+                  
+                  <!-- Online Shopping App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                    
+                  </div>
+                  
+                  <!-- Social Media App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Grocery App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+                   
+                  </div>
+                  
+                  <!-- Music Streaming App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Payment App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+                   
+                  </div>
+                  
+                  <!-- Educational app -->
+                  <div class="row col-lg-3">
+                    <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                    
+                  </div>
+                  
+                  <!-- Fantasy App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+                   
+                  </div>
+                  
+                  <!-- Vehicles On Rent App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                    
+                  </div>
+                  
+                  <!-- Find Your Home App -->
+                  <div class="row col-lg-3">
+                    <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+                   
+                  </div>
+                  
+                  <!-- Hotel Booking  App -->
+                  <div class="row col-lg-3">
+                    <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                    
+                  </div>
+                  
+                  <!-- Short Video Community App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </li>
+
+      
+            <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+      </nav>
+        <!-- Navbar End -->
+
+<!-- pahe header start -->
+    
+<div class="banner">
+    <div class="big-text">
+        <img src="./img/hotstar.png"  style="height: 200px;" alt="Jiotv Image">
+    </div>
+    <a href="#">Hotstar clone</a>
+</div>
+    <!-- Page Header End -->
+
+
+    <!-- Feature Start -->
+ 
+    <div class="common-section mt-5">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                   
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 order-2">
+                <img src="./img/hotstar2.jpg" alt="App Screenshot" class="img-fluid
+                ">
+            </div>
+            <div class="col-md-6 order-1">
+                <div class="text-center ">
+                    
+                    <h1 class="mb-3">Welcome to Your Hotstar Clone App</h1>
+                    <p style="text-align: justify;">
+                        Experience the world of limitless entertainment with our app. Stream your favorite movies, TV shows, sports, and more with ease. Download today and redefine your entertainment experience.
+                    
+                        Our extensive library of content ensures there's something for everyone, from classic movies to the latest releases. Plus, our user-friendly interface makes it simple to discover new favorites, create playlists, and enjoy hours of entertainment without interruption.
+                    </p>
+
+
+                    
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    <div class="container features-section mt-5">
+        <h2 style="text-align: center;">Key Features of Our Hotstar Clone App</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <span class="feature-icon">📺</span>
+                    <h3 class="feature-title text-light">Unlimited Streaming</h3>
+                    <p class="feature-description text-light">Watch your favorite movies, shows, and sports events without any limits.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <span class="feature-icon">📱</span>
+                    <h3 class="feature-title text-light">Multi-Platform Access</h3>
+                    <p class="feature-description text-light">Enjoy content on your smartphone, tablet, or computer.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <span class="feature-icon">📦</span>
+                    <h3 class="feature-title text-light">Offline Downloads</h3>
+                    <p class="feature-description text-light">Download shows and movies to watch them offline, anytime, anywhere.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <h3 class="feature-title text-light">Personalized Recommendations</h3>
+                    <p class="feature-description text-light">Receive tailored content suggestions based on your preferences.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <span class="feature-icon">🎬</span>
+                    <h3 class="feature-title text-light">Premium Content Library</h3>
+                    <p class="feature-description text-light">Access a vast library of premium movies, TV series, and originals.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <span class="feature-icon">⏯️</span>
+                    <h3 class="feature-title text-light">Pause and Resume</h3>
+                    <p class="feature-description text-light">Pause content on one device and resume on another seamlessly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="company-definition p-5" style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-title text-light">Why Robolaxy?</h2>
+                    <div class="section-title-underline text-light"></div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row justify-content-center mt-5 ">
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light ">
+                    <div class="company-feature">
+                        <i class="fa fa-cogs fa-5x text-light"></i>
+                        <h3 class="text-light">Innovative Solutions</h3>
+                       
+                    </div>
+                </div>
+               
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-line-chart fa-5x text-light"></i>
+                        <h3 class="text-light">Driving Growth</h3>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-heart fa-5x  text-light"></i>
+                        <h3 class="text-light">Passion for Technology</h3>
+                       
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-lock fa-5x  text-light"></i>
+                        <h3 class="text-light">Secure Solutions</h3>
+                     
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-users fa-5x  text-light "></i>
+                        <h3 class="text-light">Client-Centric Focus</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-4">
+        <div class="section-title text-center">
+            <h2 class="display-5 mb-4">Our Services</h2>
+        </div>
+        
+        <div class="row"><div class="col-md-6">
+      
+            <ul class="service-list text-light">
+                <li>🔥 Exclusive Movie Premieres</li>
+                <li>🎶 Live Concert Streaming</li>
+                <li>📜 Personalized Watchlists</li>
+                <li>🤖 AI-Powered Recommendations</li>
+                <li>🚫 Ad-Free Viewing</li>
+            
+            </ul>
+    
+    </div>
+    <div class="col-md-6 mt-5">
+        <img src="./img/hotstar3.jpeg" class="img-fluid" alt="img">
+    </div>
+    </div>
+    </div>
+    
+
+    <section class="why-choose-us-section py-4">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="display-5 mb-4">Why Choose Our Company?</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card why-choose-card mt-3" data-aos="fade-right">
+                        <div class="card-body">
+                            <h3 class="card-title">Expertise in OTT Development</h3>
+                            <p class="card-text">We have years of experience in creating advanced OTT platforms to meet diverse needs.</p>
+                        </div>
+                    </div>
+                    <div class="card why-choose-card mt-3" data-aos="fade-right">
+                        <div class="card-body">
+                            <h3 class="card-title">Customized Solutions</h3>
+                            <p class="card-text">Our Jio TV app clone is tailored to match your specific requirements, setting it apart from the competition.</p>
+                        </div>
+                    </div>
+                    <div class="card why-choose-card mt-3" data-aos="fade-right">
+                        <div class="card-body">
+                            <h3 class="card-title">Quality Assurance</h3>
+                            <p class="card-text">We ensure top-notch quality in every aspect of our development process.</p>
+                        </div>
+                    </div>
+                    <div class="card why-choose-card mt-3" data-aos="fade-right">
+                        <div class="card-body">
+                            <h3 class="card-title">Dedicated Support</h3>
+                            <p class="card-text">Our team is available 24/7 to provide support and assistance whenever you need it.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card why-choose-card mt-3" data-aos="fade-left">
+                        <div class="card-body">
+                            <h3 class="card-title">User-Centric Approach</h3>
+                            <p class="card-text">We prioritize a seamless user experience, keeping your audience engaged and satisfied.</p>
+                        </div>
+                    </div>
+                    <div class="card why-choose-card mt-3" data-aos="fade-left">
+                        <div class="card-body">
+                            <h3 class="card-title">Timely Delivery</h3>
+                            <p class="card-text">We understand the importance of deadlines and ensure your project is delivered on time.</p>
+                        </div>
+                    </div>
+                    <div class="card why-choose-card mt-3" data-aos="fade-left">
+                        <div class="card-body">
+                            <h3 class="card-title">Innovative Solutions</h3>
+                            <p class="card-text">We are dedicated to providing innovative solutions that lead to success.</p>
+                        </div>
+                    </div>
+                    <div class="card why-choose-card mt-3" data-aos="fade-left">
+                        <div class="card-body">
+                            <h3 class="card-title">Cost-Effective Pricing</h3>
+                            <p class="card-text">Our pricing is competitive, ensuring excellent value for your investment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   
+
+
+   
+    
+    
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

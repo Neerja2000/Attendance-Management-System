@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+
+
+    <style>
+       
+ 
+.languages-logos {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 80px; 
+}
+
+.languages-logo {
+    display: flex;
+    align-items: center;
+    margin: 0 15px; 
+}
+
+.languages-logo img {
+    height: 80px; 
+    width: auto;
+    animation: moveLogo 10s linear infinite; 
+}
+@keyframes moveLogo {
+    0% {
+        transform: translateX(1000px);
+    }
+     100% {
+        transform: translateX(-1500px);
+    }
+}
+    
+     
+
+
+
+
+/* :root {
+    --color-1: #21D4FD;
+    --color-2: #B721FF;
+    --color-3: #08AEEA;
+    --color-4: #2AF598;
+} */
+
+
+
+.Header {
+    position: relative;
+    height: 450px;
+    display: flex;
+    align-items: center;
+}
+
+.Header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   background: url(./img/jobs.png);
+   background-size: cover;
+    transform-origin: 0px 0px;
+    transform: skewY(0deg);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.Header-background::before,
+.Header-background::after {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 33.333%;
+    opacity: 0.3;
+    filter: blur(15px);
+}
+
+.Header-background::before {
+    background: var(--color-1);
+    right: 0;
+}
+
+.Header-background::after {
+    background: var(--color-2);
+    bottom: 0;
+}
+
+.Header-content {
+    text-align: center;
+    padding: 4rem 4rem;
+    margin: 0 auto;
+}
+
+
+.Header-hero p {
+    color: white;
+    text-shadow: 0 0.5rem 1rem rgba(50, 0, 100, 0.1);
+}
+
+
+.Header-hero p {
+  
+    margin-bottom: 2rem;
+}
+
+.Button {
+    padding: 8px;
+    border: 0;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.2s;
+    cursor: pointer;
+    box-shadow: 0 1.75rem 2rem -0.4rem rgba(50, 0, 100, 0.15);
+}
+
+.Button:hover {
+    color: gray;
+    box-shadow: 0 1.75rem 3rem 0rem rgba(50, 0, 100, 0.1);
+    transform: scale(1.05);
+}
+
+.Button:active {
+    box-shadow: 0 1.75rem 2.5rem -0.2rem rgba(50, 0, 100, 0.125);
+    transform: scale(1.025);
+}
+
+.Header-visuals img {
+    max-width: 100%;
+    height: 400px; 
+    
+}
+
+
+@media screen and (max-width: 768px) {
+    .Header {
+        height: auto; 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .Header-content {
+        padding: 2rem; 
+    }
+
+
+
+    .Button {
+        padding: 12px; 
+    }
+
+    .Header-visuals {
+        margin-top: 2rem; 
+    }
+
+    .Header-visuals img {
+        max-width: 100%; 
+        height: 300px; 
+        margin-right: 0; 
+    }
+}
+
+
+
+
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out; 
+}
+
+.section-title-underline {
+    width: 50%; 
+    height: 2px; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+
+
+
+.indeed-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.indeed-card h3 {
+   
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.indeed-card p {
+ 
+    color: #666666;
+    line-height: 1.6;
+}
+
+
+
+.features-section {
+    background-color: #f9f9f9;
+    padding: 30px 0;
+}
+
+.feature-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-card i {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #3498db; 
+}
+
+.feature-card h3 {
+ 
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    
+    color: #666666;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .feature-card {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+.why-choose-us-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.why-choose-us-section .container {
+    position: relative;
+}
+
+.why-choose-us-section img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.why-choose-us-section .section-title {
+    margin-top: 30px;
+}
+
+.why-choose-us-section h2 {
+  
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.why-choose-us-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.why-choose-us-section li {
+    margin-bottom: 10px;
+}
+
+.why-choose-us-section i {
+    color: #3498db; 
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+
+.commitment-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.commitment-section .container {
+    position: relative;
+}
+
+.commitment-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 170px;
+}
+
+.commitment-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.commitment-card i {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #3498db;
+}
+
+.commitment-card h3 {
+ 
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.commitment-card p {
+
+    color: #666666;
+   
+}
+
+
+@media (max-width: 768px) {
+    .commitment-card {
+        margin-bottom: 30px;
+        height: auto;
+    }
+}
+
+
+
+.animated-button {
+    background-color: #004182; 
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.animated-button:hover {
+    background-color: #0e60b3; 
+    animation: pulse 1s infinite; 
+}
+
+
+
+
+ </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+      <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav>
+        <div class="wrapper">
+          <div class="logo">
+            <a href="index.html">
+                <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+            </a>
+        </div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links mb-0">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li class="nav-items"><a href="index.html">Home</a></li>
+            <li class="nav-items"><a href="about.html">About</a></li>
+            <li>
+              <a href="#" class="desktop-item nav-items">Services</a>
+              <input type="checkbox" id="showDrop">
+              <label for="showDrop" class="mobile-item nav-items">Services</label>
+              <ul class="drop-menu">
+                <li><a href="./flutter-development.html">Flutter App Development</a></li>
+                <li><a href="./iphone-development.html">IPhone App Development</a></li>
+                <li><a href="./ipad-development.html">IPad App Development</a></li>
+                <li><a href="./mobile-development.html">Mobile App Development</a></li>
+                <li><a href="./website-development.html">Website Development</a></li>
+                <li><a href="./software-development.html">Software Development</a></li>
+                <li><a href="./ios-development.html">IOS Development</a></li>
+                <li><a href="./android-development.html">Android Development</a></li>
+                <li><a href="./php-development.html">PHP Development</a></li>
+                <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+                <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+                <li><a href="./react-development.html">Reactjs Development</a></li>
+                <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="desktop-item nav-items active">Products</a>
+              <input type="checkbox" id="showMega">
+              <label for="showMega" class="mobile-item nav-items">Products</label>
+              <div class="mega-box container-fluid">
+                <div class="content row">
+                  <!-- <div class="row">
+                    <img src="img.jpg" alt="">
+                  </div> -->
+                  <!-- food delivery app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+                  </div>
+
+                  <!-- entertainment app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+                  </div>
+                  
+                  <!-- e-learning app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+                  </div>
+                  
+                  <!-- salon app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                    
+                  </div>
+                  
+                  <!-- dating app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+                  
+                  </div>
+                  
+                  <!-- news app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                    
+                  </div>
+                  
+                  <!-- Health Care App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Meeting App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+                   
+                  </div>
+                  
+                  <!-- Taxi Booking App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                    
+                  </div>
+                  
+                  <!-- HandyMan Home Services App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                    
+                  </div>
+                  
+                  <!-- Online Shopping App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                    
+                  </div>
+                  
+                  <!-- Social Media App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Grocery App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+                   
+                  </div>
+                  
+                  <!-- Music Streaming App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Payment App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+                   
+                  </div>
+                  
+                  <!-- Educational app -->
+                  <div class="row col-lg-3">
+                    <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                    
+                  </div>
+                  
+                  <!-- Fantasy App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+                   
+                  </div>
+                  
+                  <!-- Vehicles On Rent App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                    
+                  </div>
+                  
+                  <!-- Find Your Home App -->
+                  <div class="row col-lg-3">
+                    <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+                   
+                  </div>
+                  
+                  <!-- Hotel Booking  App -->
+                  <div class="row col-lg-3">
+                    <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                    
+                  </div>
+                  
+                  <!-- Short Video Community App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </li>
+
+      
+            <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+      </nav>
+        <!-- Navbar End -->
+
+<!-- page header start -->
+    
+<header class="Header">
+    <div class="Header-background"></div>
+    <div class="Header-content" >
+        <div class="Header-hero  ">
+            <h1 style="color: #000;">Indeed App Clone</h1>
+            <p style="color: #000;">Find jobs, apply easily, and build your career with our app.</p>
+            <a href="./contact.html"><button class="Button ">Contact Us</button></a>
+        </div>
+    </div>
+    <!-- <div class="Header-visuals">
+        <img src="./img/myntra header.png" alt="App Screenshot">
+    </div> -->
+</header>
+
+
+    <!-- Page Header End -->
+
+
+    <!-- Feature Start -->
+    <div class="common-section mt-5">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                   
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <section class="indeed-section mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-start mb-5">
+                    <div class="indeed-content" >
+                        <div class="section-title text-start">
+                            <h2 class="display-5 mb-4">Indeed App Clone</h2>
+                        </div>
+                        <p class="indeed-description" style="text-align: justify;">
+                            Discover your dream job with our intuitive app. Your future starts here.
+                        </p>
+                        <p style="text-align: justify;">
+                            We're committed to simplifying your job search journey. Our platform connects you with opportunities, making job hunting efficient and effective.
+                        </p>
+                        <p style="text-align: justify;">
+                            With Indeed App Clone, you'll gain access to a vast network of employers and job seekers, ensuring you find the perfect match. Let us help you take the next step in your career.
+                        </p>
+                        <a href="./contact.html">  <button class="animated-button">Contact Us</button> </a>
+                    </div>
+                </div>
+                <div class="col-md-6" >
+                    <img src="./img/indeed1.png" class="w-100 zoom" alt="Indeed App Screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center" data-aos="fade-up">
+                        <h2 class="display-5 mb-4 text-dark">Key Features</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" >
+                    <div class="feature-card">
+                        
+                        <h3>🔍 Smart Job Search</h3>
+                        <p>Effortlessly find the perfect job opportunity that matches your skills and preferences.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <div class="feature-card">
+                        
+                        <h3>📄 Easy Application</h3>
+                        <p>Streamline your job application process with our user-friendly application system.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <div class="feature-card">
+                        
+                        <h3>👥 Connect with Employers</h3>
+                        <p>Build connections with potential employers and network your way to success.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" >
+                    <div class="feature-card">
+                        
+                        <h3>⏱️ Real-Time Updates</h3>
+                        <p>Stay up-to-date with real-time job postings and notifications tailored to your preferences.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <div class="feature-card">
+                        
+                        <h3>✅ Application Tracking</h3>
+                        <p>Keep track of your job applications, interviews, and follow-ups in one place.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <div class="feature-card">
+                       
+                        <h3>🔒 Secure and Private</h3>
+                        <p>Your data is safe with us. We prioritize your privacy and data security.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" >
+                    <div class="feature-card">
+                        
+                        <h3>📈 Career Growth</h3>
+                        <p>Access resources and guidance to advance your career and achieve your goals.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <div class="feature-card">
+                        
+                        <h3>💬 Community Support</h3>
+                        <p>Join a thriving community of job seekers and professionals for mutual support and insights.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <div class="feature-card">
+                        
+                        <h3>💼 Personalized Recommendations</h3>
+                        <p>Receive job recommendations tailored to your skills and career aspirations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    <section class="development-process-section mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center" data-aos="fade-up">
+                        <h2 class="display-5 mb-4">Our Development Process 🚀</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right">
+                    <h3 class="mb-3">1. Concept & Planning 📝</h3>
+                    <p>
+                        We begin by understanding your vision and project goals. Our team collaborates with you to plan the app's features and functionality.
+                    </p>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <h3 class="mb-3">2. Design & Prototyping 🎨</h3>
+                    <p>
+                        Our designers create a user-friendly interface and prototype. You'll see a visual representation of the app's look and feel before development.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right">
+                    <h3 class="mb-3">3. Development & Testing ⚙️</h3>
+                    <p>
+                        Our skilled developers bring your app to life, ensuring it works flawlessly. Rigorous testing guarantees a bug-free and reliable product.
+                    </p>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <h3 class="mb-3">4. Deployment & Support 🚀</h3>
+                    <p>
+                        We deploy your Indeed App Clone, monitor its performance, and provide ongoing support. Your success is our priority.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+   
+    <section class="company-definition p-5 mt-5" style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-title text-light">Why Robolaxy?</h2>
+                    <div class="section-title-underline text-light"></div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row justify-content-center mt-5 ">
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light ">
+                    <div class="company-feature">
+                        <i class="fa fa-cogs fa-5x text-light"></i>
+                        <h3 class="text-light">Innovative Solutions</h3>
+                        
+                    </div>
+                </div>
+               
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-line-chart fa-5x text-light"></i>
+                        <h3 class="text-light">Driving Growth</h3>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-heart fa-5x  text-light"></i>
+                        <h3 class="text-light">Passion for Technology</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-lock fa-5x  text-light"></i>
+                        <h3 class="text-light">Secure Solutions</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-users fa-5x  text-light "></i>
+                        <h3 class="text-light">Client-Centric Focus</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    <section class="why-choose-us-section">
+        <div class="container">
+            <div class="row">
+            
+                <div class="col-md-6" >
+                    <div class="section-title">
+                        <h2 class="display-5 mb-4">Why Choose Us for Indeed App Development?</h2>
+                    </div>
+                    <ul class="list-unstyled ">
+                        <li>
+                           
+                            <p class="text-dark"> <i class="fa fa-check-circle"></i> We have a proven track record of successful app development projects.</p>
+                        </li>
+                        <li>
+                           
+                            <p class="text-dark"> <i class="fa fa-check-circle"></i>Our team of experienced developers is dedicated to delivering high-quality results.</p>
+                        </li>
+                        <li>
+                           
+                            <p class="text-dark">  <i class="fa fa-check-circle"></i>We prioritize open communication and collaboration with our clients.</p>
+                        </li>
+                        <li>
+                           
+                            <p class="text-dark">  <i class="fa fa-check-circle"></i>Our approach is user-centric, ensuring a seamless and intuitive user experience.</p>
+                        </li>
+                        <li>
+                           
+                            <p class="text-dark">  <i class="fa fa-check-circle"></i>We stay up-to-date with the latest industry trends and technologies.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6" >
+                    <img src="./img/indeed2.png" alt="Why Choose Us Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="commitment-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center" data-aos="fade-up">
+                        <h2 class="display-5 mb-4 text-dark">Our Commitment and Guarantee</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-right">
+                    <div class="commitment-card">
+                        
+                        <h3>✅ Quality Assurance</h3>
+                        <p>We are committed to delivering top-notch quality in every aspect of app development.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="commitment-card">
+                        
+                        <h3>⏱️ On-Time Delivery</h3>
+                        <p>Your project's timeline is important to us. We guarantee on-time delivery.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <div class="commitment-card">
+                       
+                        <h3>🔒 Data Security</h3>
+                        <p>Your data's security is our priority. We ensure it remains protected at all times.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+    
+    
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

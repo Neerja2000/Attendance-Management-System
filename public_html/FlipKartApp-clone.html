@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+
+
+    <style>
+       
+ 
+    
+     
+
+
+
+
+/* :root {
+    --color-1: #21D4FD;
+    --color-2: #B721FF;
+    --color-3: #08AEEA;
+    --color-4: #2AF598;
+} */
+
+
+
+.Header {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.Header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(19deg, #488affb8, #2483ffe0);
+    transform-origin: 0px 0px;
+    transform: skewY(-10deg);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.Header-background::before,
+.Header-background::after {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 33.333%;
+    opacity: 0.3;
+    filter: blur(15px);
+}
+
+.Header-background::before {
+    background: var(--color-1);
+    right: 0;
+}
+
+.Header-background::after {
+    background: var(--color-2);
+    bottom: 0;
+}
+
+.Header-content {
+    text-align: center;
+    padding: 4rem 4rem;
+    margin: 0 auto;
+}
+
+
+.Header-hero p {
+    color: white;
+    text-shadow: 0 0.5rem 1rem rgba(50, 0, 100, 0.1);
+}
+
+
+
+.Header-hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+
+.Button {
+    padding: 8px;
+    border: 0;
+    color: var(--color-3);
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.2s;
+    cursor: pointer;
+    box-shadow: 0 1.75rem 2rem -0.4rem rgba(50, 0, 100, 0.15);
+}
+
+.Button:hover {
+    color: var(--color-1);
+    box-shadow: 0 1.75rem 3rem 0rem rgba(50, 0, 100, 0.1);
+    transform: scale(1.05);
+}
+.Button:active {
+    box-shadow: 0 1.75rem 2.5rem -0.2rem rgba(50, 0, 100, 0.125);
+    transform: scale(1.025);
+}
+
+.Header-visuals img {
+    max-width: 100%;
+    height: 400px; 
+   
+   
+}
+
+
+@media screen and (max-width: 768px) {
+    .Header {
+        height: auto; 
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .Header-content {
+        padding: 2rem; 
+    }
+
+ 
+
+   
+
+    .Button {
+        padding:12px;
+    }
+
+    .Header-visuals {
+        margin-top: 2rem;
+    }
+
+    .Header-visuals img {
+        max-width: 100%; 
+        height: 300px; 
+        margin-right: 0; 
+    }
+}
+
+
+
+.languages-logos {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 80px; 
+}
+
+.languages-logo {
+    display: flex;
+    align-items: center;
+    margin: 0 15px; 
+}
+
+.languages-logo img {
+    height: 80px; 
+    width: auto;
+    animation: moveLogo 10s linear infinite; 
+}
+@keyframes moveLogo {
+    0% {
+        transform: translateX(1000px);
+    }
+     100% {
+        transform: translateX(-1500px);
+    }
+}
+
+
+.animated-button {
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+
+
+
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.animated-button:hover {
+    background: linear-gradient(to bottom, #2980b9,  #3498db ); 
+    animation: pulse 1s infinite; 
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+.services-section {
+    background-color: #f8f8f8;
+    padding: 60px 0;
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s, transform 0.3s;
+    height: 250px;
+}
+
+.service-card:hover {
+    border-top: 5px solid #2874f0; 
+    border-bottom: 5px solid #2874f0; 
+    transform: translateY(-5px); 
+}
+
+.service-card i {
+    font-size: 48px;
+    color: #2874f0; 
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .service-card {
+        margin-top: 20px;
+        height: auto;
+    }
+}
+
+
+
+
+.why-choose-us-section {
+    background-color: #f8f8f8;
+    padding: 60px 0;
+}
+
+.reason-card {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.reason-card:hover {
+    transform: translateY(-5px);
+}
+
+.emoji {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .reason-card {
+        margin-top: 20px;
+    }
+}
+
+
+
+
+/* common section-start of products */
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out; 
+}
+
+.section-title-underline {
+    width: 50%; 
+    height: 2px; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+/* common section-end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4vw; /* Adjust the gap between cards as needed */
+    margin-bottom: var(--card-margin);
+}
+
+.card1 {
+    flex: 1 1 calc(25% - var(--card-margin)); /* Adjust the card size as needed */
+    position: sticky;
+    top: 0;
+    /* padding-top: calc(var(--index) * var(--card-top-offset)); */
+}
+
+
+@supports (animation-timeline: works) {
+    /* @scroll-timeline cards-element-scrolls-in-body {
+    source: selector(body);
+    scroll-offsets:
+        selector(.card-container) start 1,
+        selector(.card-container) start 0;
+    start: selector(.card-container) start 1;
+    end: selector(.card-container) start 0;
+    time-range: 4s;
+} */
+
+
+    .card1 {
+        --index0: calc(var(--index) - 1);
+        --reverse-index: calc(var(--numcards) - var(--index0));
+        --reverse-index0: calc(var(--reverse-index) - 1);
+    }
+
+    .card__content {
+        transform-origin: 50% 0%;
+        will-change: transform;
+        --duration: calc(var(--reverse-index0) * 1s);
+        --delay: calc(var(--index0) * 1s);
+        animation: var(--duration) linear scale var(--delay) forwards;
+        animation-timeline: cards-element-scrolls-in-body;
+    }
+
+    @keyframes scale {
+        to {
+            transform:
+                scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+        }
+    }
+}
+
+#debug {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+}
+
+#debug::after {
+    content: " Show Debug";
+    margin-left: 1.5em;
+    color: white;
+    white-space: nowrap;
+}
+
+#debug:checked~main {
+    --outline-width: 1px;
+}
+
+main {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.card-container {
+    list-style: none;
+    outline: calc(var(--outline-width) * 10) solid blue;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--numcards), var(--card-height));
+    gap: var(--card-margin);
+}
+
+.card1 {
+    outline: var(--outline-width) solid hotpink;
+  
+}
+
+.card__content {
+    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    color: rgb(10, 5, 7);
+    border-radius: 1em;
+    overflow: hidden;
+    display: grid;
+   
+    grid-template-areas: "text img";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: stretch;
+    outline: var(--outline-width) solid lime;
+}
+
+.card__content>div {
+    grid-area: text;
+    width: 80%;
+    place-self: center;
+    text-align: left;
+    display: grid;
+    gap: 1em;
+    place-items: start;
+}
+
+.card__content>figure {
+    grid-area: img;
+    overflow: hidden;
+}
+
+.card__content>figure>img {
+    width: 45%;
+    height: 500px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        padding-left: 0px;
+    }
+
+    main {
+        width: 100vw;
+    }
+    .card__content>figure>img{
+        height: 100%;
+        width: 100%;
+        padding-right: 10px;
+        object-fit: cover;
+    }
+}
+
+
+    </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+
+      <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    
+    <nav>
+        <div class="wrapper">
+          <div class="logo">
+            <a href="index.html">
+                <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+            </a>
+        </div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links mb-0">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li class="nav-items"><a href="index.html">Home</a></li>
+            <li class="nav-items"><a href="about.html">About</a></li>
+            <li>
+              <a href="#" class="desktop-item nav-items">Services</a>
+              <input type="checkbox" id="showDrop">
+              <label for="showDrop" class="mobile-item nav-items">Services</label>
+              <ul class="drop-menu">
+                <li><a href="./flutter-development.html">Flutter App Development</a></li>
+                <li><a href="./iphone-development.html">IPhone App Development</a></li>
+                <li><a href="./ipad-development.html">IPad App Development</a></li>
+                <li><a href="./mobile-development.html">Mobile App Development</a></li>
+                <li><a href="./website-development.html">Website Development</a></li>
+                <li><a href="./software-development.html">Software Development</a></li>
+                <li><a href="./ios-development.html">IOS Development</a></li>
+                <li><a href="./android-development.html">Android Development</a></li>
+                <li><a href="./php-development.html">PHP Development</a></li>
+                <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+                <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+                <li><a href="./react-development.html">Reactjs Development</a></li>
+                <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="desktop-item nav-items active">Products</a>
+              <input type="checkbox" id="showMega">
+              <label for="showMega" class="mobile-item nav-items">Products</label>
+              <div class="mega-box container-fluid">
+                <div class="content row">
+                  <!-- <div class="row">
+                    <img src="img.jpg" alt="">
+                  </div> -->
+                  <!-- food delivery app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+                  </div>
+
+                  <!-- entertainment app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+                  </div>
+                  
+                  <!-- e-learning app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+                  </div>
+                  
+                  <!-- salon app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                    
+                  </div>
+                  
+                  <!-- dating app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+                  
+                  </div>
+                  
+                  <!-- news app -->
+                  <div class="row col-lg-3 ">
+                    <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                    
+                  </div>
+                  
+                  <!-- Health Care App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Meeting App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+                   
+                  </div>
+                  
+                  <!-- Taxi Booking App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                    
+                  </div>
+                  
+                  <!-- HandyMan Home Services App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                    
+                  </div>
+                  
+                  <!-- Online Shopping App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                    
+                  </div>
+                  
+                  <!-- Social Media App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Grocery App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+                   
+                  </div>
+                  
+                  <!-- Music Streaming App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+                  
+                  </div>
+                  
+                  <!-- Online Payment App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+                   
+                  </div>
+                  
+                  <!-- Educational app -->
+                  <div class="row col-lg-3">
+                    <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                    
+                  </div>
+                  
+                  <!-- Fantasy App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+                   
+                  </div>
+                  
+                  <!-- Vehicles On Rent App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                    
+                  </div>
+                  
+                  <!-- Find Your Home App -->
+                  <div class="row col-lg-3">
+                    <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+                   
+                  </div>
+                  
+                  <!-- Hotel Booking  App -->
+                  <div class="row col-lg-3">
+                    <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                    
+                  </div>
+                  
+                  <!-- Short Video Community App -->
+                  <div class="row col-lg-3 ">
+                    <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </li>
+
+      
+            <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+      </nav>
+        <!-- Navbar End -->
+
+<!-- page header start -->
+    
+<header class="Header">
+    <div class="Header-background"></div>
+    <div class="Header-content">
+        <div class="Header-hero">
+            <h1>FlipKart App Clone</h1>
+            <p>Experience the ultimate shopping convenience with our Flipkart app clone. Discover deals, shop, and save today!</p>
+            <a href="./contact.html"><button class="Button">Contact Us</button></a>  
+        </div>
+    </div>
+    <div class="Header-visuals">
+        <img src="./img/flipkart1.png" alt="App Screenshot">
+    </div>
+</header>
+
+
+    <!-- Page Header End -->
+
+     <!-- Feature Start -->
+   
+     <div class="common-section mt-5">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                    <!-- Language logos here -->
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="flipkart-clone-section p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-start mb-3">
+                    <div class="flipkart-clone-content" data-aos="fade-up">
+                        <div class="section-title text-start">
+                            <h2 class="display-5 mb-4">Flipkart App Clone</h2>
+                        </div>
+                        <p class="flipkart-clone-description" style="text-align: justify;">
+                            Experience the world of online shopping like never before with our Flipkart App Clone. Shop, save, and explore endless possibilities.
+                        </p>
+                        <p style="text-align: justify;">
+                            Our goal is to provide you with a seamless shopping experience. With a user-friendly interface, a vast catalog of products, and exclusive deals, our app is your gateway to a shopper's paradise.
+                        </p>
+                        <p style="text-align: justify;">
+                            Whether you're searching for the latest gadgets, fashion trends, or home essentials, our app has it all. Join our community of savvy shoppers and unlock a world of convenience, variety, and savings today.
+                        </p>
+                        <a href="./contact.html">  <button class="animated-button">Contact Us</button> </a>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="zoom-in-up">
+                    <img src="./img/flipkartgif.gif" class="w-100 zoom" alt="Flipkart App Clone Screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="display-5 mb-3 text-dark">Our Services</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="service-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3 style="color: black;">Web App Development</h3>
+                        <p style="color: black;">We create stunning web applications tailored to your business needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="service-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3 style="color: black;">Mobile App Development</h3>
+                        <p style="color: black;">Build powerful and engaging mobile apps for iOS and Android platforms.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3 style="color: black;">Security Solutions</h3>
+                        <p style="color: black;">Ensure the safety and integrity of your digital assets with our security expertise.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="service-card">
+                        <i class="fas fa-cloud"></i>
+                        <h3 style="color: black;">Cloud Services</h3>
+                        <p style="color: black;">Embrace the scalability and flexibility of cloud computing with our solutions.</p>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="service-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3 style="color: black;">Data Analytics</h3>
+                        <p style="color: black;">Unlock insights from your data to make informed business decisions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="service-card">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3 style="color: black;">UI/UX Design</h3>
+                        <p style="color: black;">Create visually appealing and user-friendly interfaces for your applications.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="service-card">
+                        <i class="fas fa-cogs"></i>
+                        <h3 style="color: black;">IT Consulting</h3>
+                        <p style="color: black;">Get expert advice and guidance on optimizing your IT infrastructure.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="service-card">
+                        <i class="fas fa-server"></i>
+                        <h3 style="color: black;">Server Management</h3>
+                        <p style="color: black;">Ensure the reliability and performance of your servers with our management services.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3" data-aos="fade-up">
+                    <div class="service-card">
+                        <i class="fas fa-headphones"></i>
+                        <h3 style="color: black;">Customer Support</h3>
+                        <p style="color: black;">24/7 dedicated customer support to assist you with any queries or issues.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    <section class="company-definition p-5" style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-title text-light">Why Robolaxy?</h2>
+                    <div class="section-title-underline text-light"></div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row justify-content-center mt-5 ">
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light ">
+                    <div class="company-feature">
+                        <i class="fa fa-cogs fa-5x text-light"></i>
+                        <h3 class="text-light">Innovative Solutions</h3>
+                        
+                    </div>
+                </div>
+               
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-line-chart fa-5x text-light"></i>
+                        <h3 class="text-light">Driving Growth</h3>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-heart fa-5x  text-light"></i>
+                        <h3 class="text-light">Passion for Technology</h3>
+                    
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-lock fa-5x  text-light"></i>
+                        <h3 class="text-light">Secure Solutions</h3>
+                      
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-users fa-5x  text-light "></i>
+                        <h3 class="text-light">Client-Centric Focus</h3>
+                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="features-section mt-5">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-6 d-flex align-items-start" data-aos="fade-up">
+                    <div class="features-content">
+                        <div class="section-title text-start">
+                            <h2 class="display-5 mb-4">Key Features</h2>
+                        </div>
+                        <ul class="features-list">
+                            <li>Shop the latest trends in fashion, electronics, and more.</li>
+                            <li>Discover exclusive deals and discounts every day.</li>
+                            <li>Easy and secure checkout for a hassle-free shopping experience.</li>
+                            <li>Personalized product recommendations just for you.</li>
+                            <li>Track your orders and stay updated on delivery status.</li>
+                        </ul>
+                        <p>
+                            At Flipkart App Clone, we believe in making your shopping experience effortless and enjoyable. Explore these key features and unlock a world of convenience today.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up">
+                    <img src="./img/flipkart2.png" class="w-100" alt="Flipkart App Clone Features">
+                </div>
+            </div>
+        </div>
+    </section> -->
+    
+
+    <section class="why-choose-us-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="display-5 mb-4 text-dark">Why Choose Us? 🤔</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="reason-card">
+                        <span class="emoji">🚀</span>
+                        <h3 style="color: black;">Innovative Solutions</h3>
+                        <p style="color: black;">We provide cutting-edge technology solutions to keep you ahead in the market.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="reason-card">
+                        <span class="emoji">👨‍💼</span>
+                        <h3 style="color: black;">Experienced Team</h3>
+                        <p style="color: black;">Our team of experts has years of experience in app development and design.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="reason-card">
+                        <span class="emoji">🛡️</span>
+                        <h3 style="color: black;">Top-notch Security</h3>
+                        <p style="color: black;">We prioritize your data security with robust measures and encryption.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="commitment-section mt-5">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-6 d-flex align-items-start" data-aos="fade-up">
+                    <div class="commitment-content">
+                        <div class="section-title text-start">
+                            <h2 class="display-5 mb-4">Our Commitment & Guarantee</h2>
+                        </div>
+                        <p>
+                            At our company, we are committed to delivering excellence in every aspect of our services. We guarantee top-notch quality, timely delivery, and unwavering support to ensure your satisfaction.
+                        </p>
+                        <p>
+                            Our commitment extends to providing you with innovative solutions, exceptional customer service, and a partnership built on trust. We stand by our promise to help you achieve your goals.
+                        </p>
+                        <p>
+                            Your success is our success, and we are dedicated to going the extra mile to make it happen. Join hands with us and experience the difference.
+                        </p>
+                        <a href="./contact.html">  <button class="animated-button">Contact Us</button> </a>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up">
+                    <img src="./img/flipkartgif2.gif" class="w-100" alt="Our Company Commitment">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <main class="mt-5">
+        <h2  class="section-title text-center">Application Flow</h2>
+         <ul id="cards" class="card-container">
+             <li class="card1" id="card_1">
+                 <div class="card__content" style="background-color: rgb(136, 121, 77);">
+                     <div>
+                         <h2 >Splash Screen</h2>
+                         <p >Our splash screens are designed to look great and make your app enjoyable to use. We're here to help you make a strong first impression.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Sign up page.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_2">
+                 <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                     <div>
+                         <h2>Sign up </h2>
+                         <p>Join the ShopEase community! Sign up and unlock a world of exclusive deals and personalized shopping experiences.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Sign up page (1).png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_3">
+                 <div class="card__content" style="background-color: rgb(136, 121, 77);">
+                     <div>
+                         <h2>Login</h2>
+                         <p>Ready to shop? Log in to your  account and explore a world of endless choices and incredible deals.</p>
+                 
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Login page.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                     <div>
+                         <h2>Forgot Password</h2>
+                         <p>Trouble accessing your account? No worries, we've got you covered! Click 'Forgot Password' to reset it and regain access to your account.</p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Forgot password.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: rgb(136, 121, 77);">
+                     <div>
+                         <h2>Upload Image </h2>
+                         <p>Snap a photo or upload an image to discover similar products effortlessly.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Visual Search.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                     <div>
+                         <h2>Search by Photo</h2>
+                         <p>Take a photo of your outfit and let our app find the perfect matches and accessories for you.</p>
+ 
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Visual Search/Taking a photo.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: rgb(136, 121, 77);">
+                     <div>
+                         <h2>Crop Photo</h2>
+                         <p>You're in control! Crop your outfit photo to focus on the details you love and get the best style recommendations.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Visual Search/Crop the item.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                     <div>
+                         <h2>View Similar item</h2>
+                         <p>Discover Similar Styles! Our app is hard at work finding fashion items and accessories that match your outfit photo.</p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Visual Search/Finding.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: rgb(136, 121, 77);">
+                     <div>
+                         <h2>Home Screen</h2>
+                         <p>Get ready to save big – check out all the ongoing sales right here on our app.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Main page.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:rgb(220, 193, 40)" >
+                     <div>
+                         <h2>Latest Item</h2>
+                         <p>Find all the latest sales on urban and street-style clothing, all in one place.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Main 2.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color: rgb(136, 121, 77);">
+                     <div>
+                         <h2>Select Category</h2>
+                         <p>Everything You Need! Explore our app for the latest arrivals, summer sale, and cozy hoodies - all in one convenient spot.</p>
+                         
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Main 3.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+             <li class="card1" id="card_4">
+                 <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                     <div>
+                         <h2>Choose Category</h2>
+                         <p>All for Everyone! Find a wide range of options for men, women, and kids right at your fingertips.</p>
+                        
+                     </div>
+                     <figure>
+                         <img src="./img/Amazon/Categories.png"
+                             alt="Image description">
+                     </figure>
+                 </div>
+             </li>
+
+             <li class="card1" id="card_4">
+                <div class="card__content" style="background-color: rgb(136, 121, 77);">
+                    <div>
+                        <h2>View all items</h2>
+                        <p> Explore our top selections, including shirts, blazers, pants, jeans, shorts, and more.</p>
+                        
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Categories 2.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Women's Section</h2>
+                        <p>Dive into our top category 'Tops' and discover an array of options, including shorts, blouses, pullovers, and more.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Catalog 1.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color: rgb(136, 121, 77);">
+                    <div>
+                        <h2>Explore Products</h2>
+                        <p>Check out the full range of products with prices, customer reviews, and valuable feedback.</p>
+                        
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Catalog 2.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Apply Filters</h2>
+                        <p>Arrange your list by price, customer reviews, newest arrivals, and the latest trends to find exactly what you're looking for.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Sort by.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Apply Filters</h2>
+                        <p>Apply filters such as color, size, and gender (men, women, or all) to narrow down your options and pinpoint the perfect item.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Filters.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Add brands</h2>
+                        <p>"Brand It Your Way! Use filters to find specific brands like Adidas and more to cater to your personal style preferences.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Filters/List.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Add Size</h2>
+                        <p>Pick your ideal size to ensure the perfect fit for your fashion choices.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Select size.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Select Item</h2>
+                        <p> Select from all available options – size, color, and brand – to make your shopping experience truly tailored to your preferences.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Product Card.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Add to Cart</h2>
+                        <p>Ready to make it yours? Simply click 'Add to Cart' and your selected item will be waiting for you at checkout.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Product Card/Select Size.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Check Ratings and Reviews</h2>
+                        <p>Get insights from others by browsing through product ratings and reviews.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Rating and Reviews.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Ratings and Reviews with photo</h2>
+                        <p>See what others have to say along with photos in the ratings and reviews section.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Rating and Reviews/with photo.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Send Review</h2>
+                        <p>Tell us how you'd rate your shopping experience. Your feedback helps us improve.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Client's review.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Add Rating and Review</h2>
+                        <p>Give your star rating, share your thoughts in the review, upload a photo if you like, and hit 'Send' to let us know your experience!</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Client's review/Write a review.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Add to Favourites</h2>
+                        <p>Choose Your Size and Add to Favorites: Pick your size, and with a click, add the item to your favorites for easy access and tracking.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Adding to favorites.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>My Favorites</h2>
+                        <p>All Your Favorites in One Place! Access your complete list of favorite items with a single tap.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Favorites/Lists.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Organized Favorites</h2>
+                        <p>Your favorite items are displayed in a neat row and column style, ready for you to sort and manage with ease.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Favorites/Modules.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Shopping Bag</h2>
+                        <p>View and manage your selected items in 'My Bag' – your one-stop shop for everything you've chosen.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/My Bag.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Promo Code</h2>
+                        <p>Apply a promo code during checkout to enjoy special discounts and offers.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/My Bag/Promo Code.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Enter Promo Code</h2>
+                        <p>Enter your promo code here to enjoy exclusive discounts and deals.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/My Bag-1.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Checkout</h2>
+                        <p> Enter your shipping address, choose your payment method, and finalize your order with confidence.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/My Bag/Checkout.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Payment Method</h2>
+                        <p>Select your preferred way to pay for your order securely and effortlessly.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Payment cards.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Add New Card</h2>
+                        <p>Create a New Card: Fill in the cardholder's name and card number to add a new payment method.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Payment cards-1.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Shipping Address</h2>
+                        <p> Add or Edit your shipping address to ensure your order is delivered to the right place.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Shipping Addresses.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>New Shipping Address</h2>
+                        <p>Add New Shipping Address: Enter the full name, address, city, and country to create a new shipping destination for your orders.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/Add shipping address.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Success</h2>
+                        <p>Your Order Is On Its Way. Thank you for shopping with us. Your order is now confirmed and will be delivered to your designated address.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/success.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Success</h2>
+                        <p>Your Order Is Successfully Placed. To keep shopping, click 'Continue Shopping' and explore more exciting deals and items.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/success-1.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>My Profile</h2>
+                        <p> Manage your personal information, preferences, and settings in one convenient location.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/My Profile.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>My Orders</h2>
+                        <p>Easily track and review all your past and current orders in one place.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/My Profile/My Orders.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li><li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Order Details</h2>
+                        <p>Access all the specifics of your orders, including item descriptions, quantities, pricing, and delivery information.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/My Profile/My Orders/Order Details.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(220, 193, 40)">
+                    <div>
+                        <h2>Settings</h2>
+                        <p> Personalize your profile with your name, date of birth, and password adjustments for a tailored experience.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/My Profile/Settings.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+            <li class="card1" id="card_4">
+                <div class="card__content" style="background-color:rgb(136, 121, 77);">
+                    <div>
+                        <h2>Change Password</h2>
+                        <p> Enhance your security by updating your password. Simply enter your old password, set the new one, and confirm the change.</p>
+                       
+                    </div>
+                    <figure>
+                        <img src="./img/Amazon/My Profile/Settings/Password Change.png"
+                            alt="Image description">
+                    </figure>
+                </div>
+            </li>
+             
+         </ul>
+     </main>
+     
+    
+    
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

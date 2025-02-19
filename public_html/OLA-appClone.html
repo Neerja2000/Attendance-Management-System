@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+<link rel="stylesheet" href="css/product.css">
+    <link href="css/screenshot.css" rel="stylesheet">
+
+
+    <style>
+  
+
+header {
+    background: url("./img/indrive.jpg");
+    text-align: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+}
+
+header .overlay {
+    padding: 5%;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #333;
+    height: 600px;
+}
+
+
+
+h3, p {
+    margin-bottom: 2vw;
+}
+
+
+
+.contact-button {
+    background: linear-gradient(90deg, #fc6f20, #fba95d);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background: linear-gradient(90deg, #fba95d, #fc6f20);
+    transition: background-color 0.3s ease;
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .col-md {
+        order: 0;
+    }
+  
+   
+    header .overlay{
+        height: 700px;
+    }
+    h3, p {
+    margin-bottom: 6vw;
+}
+
+}
+
+.ola-solutions-combined-section {
+    /* background-color: #ffffff; */
+    padding: 80px 0;
+}
+
+
+
+.solution-content h2 {
+   
+    margin-bottom: 20px;
+}
+
+.solution-item {
+    margin-bottom: 1.5rem;
+}
+
+.solution-title {
+  
+    margin-bottom: 10px;
+}
+
+
+
+.solution-icon {
+    font-size: 36px;
+    color: #ff8000; 
+    margin-bottom: 1rem;
+}
+
+.ola-solutions-combined-section img {
+
+   
+    display: block;
+    
+ 
+}
+
+.ola-why-work-with-us-section {
+    /* background-color: #ffffff; */
+    padding: 80px 0;
+}
+
+
+
+.work-with-us-card {
+    background-color: #100621;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+}
+
+.work-with-us-card:hover {
+    transform: translateY(-15px);
+}
+
+.emoji {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.card-title {
+  
+    margin-bottom: 10px;
+}
+
+.card-description {
+   
+    margin-bottom: 0;
+    text-align: center;
+}
+
+
+
+
+
+
+/* common section-start of products */
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out; 
+}
+
+.section-title-underline {
+    width: 50%; 
+    height: 2px; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+/* common section-end */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4vw; 
+    margin-bottom: var(--card-margin);
+}
+
+.card1 {
+    flex: 1 1 calc(25% - var(--card-margin)); 
+    position: sticky;
+    top: 10%;
+    
+}
+
+    .card1 {
+        --index0: calc(var(--index) - 1);
+        --reverse-index: calc(var(--numcards) - var(--index0));
+        --reverse-index0: calc(var(--reverse-index) - 1);
+    }
+
+    .card__content {
+        transform-origin: 50% 0%;
+        will-change: transform;
+        --duration: calc(var(--reverse-index0) * 1s);
+        --delay: calc(var(--index0) * 1s);
+        animation: var(--duration) linear scale var(--delay) forwards;
+        animation-timeline: cards-element-scrolls-in-body;
+    }
+
+    .card__content{
+        margin-top: 1.5rem;
+    }
+
+    .card1:nth-child(n) .card__content{
+        background: #FFc06e;
+    }
+
+    .card1:nth-child(2n+1) .card__content{
+        
+        background: #bdd99e;
+    }
+
+
+    .card1:last-child .card__content{
+        margin-bottom: 0;
+    }
+
+
+    @keyframes scale {
+        to {
+            transform:
+                scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+        }
+    }
+
+#debug {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+}
+
+#debug::after {
+    content: " Show Debug";
+    margin-left: 1.5em;
+    color: white;
+    white-space: nowrap;
+}
+
+#debug:checked~main {
+    --outline-width: 1px;
+}
+
+main {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+
+
+
+
+.card-container {
+    list-style: none;
+    outline: calc(var(--outline-width) * 10) solid blue;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--numcards), var(--card-height));
+    gap: var(--card-margin);
+}
+
+.card1 {
+    outline: var(--outline-width) solid hotpink;
+  
+}
+
+.card__content {
+    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    color: rgb(10, 5, 7);
+    border-radius: 1em;
+    overflow: hidden;
+    display: grid;
+   
+    grid-template-areas: "text img";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: stretch;
+    outline: var(--outline-width) solid lime;
+}
+
+.card__content>div {
+    grid-area: text;
+    width: 80%;
+    place-self: center;
+    text-align: left;
+    display: grid;
+    gap: 1em;
+    place-items: start;
+}
+
+.card__content>figure {
+    grid-area: img;
+    overflow: hidden;
+}
+
+.card__content>figure>img {
+    width: 45%;
+    height: 500px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        padding-left: 0px;
+    }
+
+    main {
+        width: 100vw;
+    }
+    .card__content>figure>img{
+        height: 100%;
+        width: 100%;
+        padding-right: 10px;
+        object-fit: cover;
+    }
+}
+
+
+
+
+@media (max-width: 767px) {
+            .remove-mt-5 {
+                margin-top: 0 !important; 
+            }
+        }
+
+
+        
+.process-step {
+  
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out; 
+}
+@media screen and (max-width: 768px){
+    .process-step{
+        height: auto;
+    }
+}
+
+.process-step:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    background: linear-gradient(90deg, #fba95d, #fc6f20);
+}
+
+
+
+.feature {
+            text-align: center;
+            padding: 20px;
+            height: 230px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .feature-title {
+            
+            margin-bottom: 10px;
+        }
+
+      
+
+        .feature.gradient1 {
+            background: linear-gradient(90deg, #fc6f20, #fba95d);
+            color: #fff;
+        }
+
+        .feature.gradient2 {
+            background: linear-gradient(90deg, #3498db, #85c1e9);
+            color: #fff;
+        }
+
+        .feature.gradient3 {
+            background: linear-gradient(90deg, #27ae60, #82e0aa);
+            color: #fff;
+        }
+    </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+      <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+<!-- nav start -->
+<nav>
+    <div class="wrapper">
+      <div class="logo">
+        <a href="index.html">
+            <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+        </a>
+    </div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links mb-0">
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+        <li class="nav-items"><a href="index.html">Home</a></li>
+        <li class="nav-items"><a href="about.html">About</a></li>
+        <li>
+          <a href="#" class="desktop-item nav-items">Services</a>
+          <input type="checkbox" id="showDrop">
+          <label for="showDrop" class="mobile-item nav-items">Services</label>
+          <ul class="drop-menu">
+            <li><a href="./flutter-development.html">Flutter App Development</a></li>
+            <li><a href="./iphone-development.html">IPhone App Development</a></li>
+            <li><a href="./ipad-development.html">IPad App Development</a></li>
+            <li><a href="./mobile-development.html">Mobile App Development</a></li>
+            <li><a href="./website-development.html">Website Development</a></li>
+            <li><a href="./software-development.html">Software Development</a></li>
+            <li><a href="./ios-development.html">IOS Development</a></li>
+            <li><a href="./android-development.html">Android Development</a></li>
+            <li><a href="./php-development.html">PHP Development</a></li>
+            <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+            <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+            <li><a href="./react-development.html">Reactjs Development</a></li>
+            <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="desktop-item nav-items active">Products</a>
+          <input type="checkbox" id="showMega">
+          <label for="showMega" class="mobile-item nav-items">Products</label>
+          <div class="mega-box container-fluid">
+            <div class="content row">
+              <!-- <div class="row">
+                <img src="img.jpg" alt="">
+              </div> -->
+              <!-- food delivery app -->
+              <div class="row col-lg-3 ">
+                <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+              </div>
+
+              <!-- entertainment app -->
+              <div class="row col-lg-3 ">
+                <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+              </div>
+              
+              <!-- e-learning app -->
+              <div class="row col-lg-3 ">
+                <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+              </div>
+              
+              <!-- salon app -->
+              <div class="row col-lg-3 ">
+                <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                
+              </div>
+              
+              <!-- dating app -->
+              <div class="row col-lg-3 ">
+                <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+              
+              </div>
+              
+              <!-- news app -->
+              <div class="row col-lg-3 ">
+                <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                
+              </div>
+              
+              <!-- Health Care App -->
+              <div class="row col-lg-3 ">
+                <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+              
+              </div>
+              
+              <!-- Online Meeting App -->
+              <div class="row col-lg-3 ">
+                <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+               
+              </div>
+              
+              <!-- Taxi Booking App -->
+              <div class="row col-lg-3 ">
+                <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                
+              </div>
+              
+              <!-- HandyMan Home Services App -->
+              <div class="row col-lg-3 ">
+                <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                
+              </div>
+              
+              <!-- Online Shopping App -->
+              <div class="row col-lg-3 ">
+                <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                
+              </div>
+              
+              <!-- Social Media App -->
+              <div class="row col-lg-3 ">
+                <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+              
+              </div>
+              
+              <!-- Online Grocery App -->
+              <div class="row col-lg-3 ">
+                <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+               
+              </div>
+              
+              <!-- Music Streaming App -->
+              <div class="row col-lg-3 ">
+                <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+              
+              </div>
+              
+              <!-- Online Payment App -->
+              <div class="row col-lg-3 ">
+                <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+               
+              </div>
+              
+              <!-- Educational app -->
+              <div class="row col-lg-3">
+                <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                
+              </div>
+              
+              <!-- Fantasy App -->
+              <div class="row col-lg-3 ">
+                <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+               
+              </div>
+              
+              <!-- Vehicles On Rent App -->
+              <div class="row col-lg-3 ">
+                <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                
+              </div>
+              
+              <!-- Find Your Home App -->
+              <div class="row col-lg-3">
+                <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+               
+              </div>
+              
+              <!-- Hotel Booking  App -->
+              <div class="row col-lg-3">
+                <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                
+              </div>
+              
+              <!-- Short Video Community App -->
+              <div class="row col-lg-3 ">
+                <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                
+              </div>
+              
+            </div>
+          </div>
+        </li>
+
+  
+        <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div>
+  </nav>
+<!-- nav ends -->
+
+<!-- page header start -->
+    
+    <header>
+        <div class="overlay">
+            <div class="row">
+                <div class="col-md order-2">
+                    <img src="./img/OLA1.png" alt="About Us Image" class="img-fluid" style="max-width: 100%;">
+                </div>
+                <div class="col-md order-1 mt-2">
+                    <h1>OLA App Clone</h1>
+                    <p style="text-align: justify; color: black; ">Step into the future of transportation services with our OLA taxi booking software. Our solutions are designed to empower taxi businesses worldwide, enabling them to save time, streamline operations, and efficiently manage all aspects of their business with our advanced taxi dispatch software. </p> 
+                    <a href="./contact.html"> <button class="contact-button">Contact Us</button></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+ <!-- Page Header End -->
+
+
+    <!-- Feature Start -->
+   
+    <div class="common-section my-5">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                  
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+    <section class="ola-app-section mt-3">
+        <div class="container">
+            <div class="row">
+               
+                <div class="col-md-6 d-flex align-items-center" data-aos="fade-up">
+                    <div class="app-content">
+                        <div class="section-title text-start">
+                            <h2 class="display-5 mb-4">OLA App Clone</h2>
+                        </div>
+                        <p style="text-align: justify;">
+                            We believe in harnessing the power of technology to transform the way people commute. Our Ola App Clone is designed to revolutionize your transportation business. It offers a seamless platform to connect riders with drivers, making travel more convenient and efficient.
+                        </p>
+                        <p style="text-align: justify;">
+                            From easy ride booking to secure payments, our Ola Clone App ensures a user-friendly experience. Join the ranks of successful transportation businesses by digitizing your services and staying ahead in the competitive market.
+                        </p>
+                        <a href="./contact.html"> <button class="contact-button">Contact Us</button></a>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up">
+                    <img src="./img/OLA/collage (1).png" class="w-100 " alt="Ola App Clone Screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="ola-solutions-combined-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md">
+                    <div class="section-title text-center">
+                        <h2 class="display-5 mb-4 ">Our OLA App Clone Solutions</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-md-6 remove-mt-5 mt-5" data-aos="fade-up">
+                    <img src="./img/OLA/collageimg1.png" class="img-fluid  mt-5"  alt="Ola App Clone Screenshot">
+                </div>
+               
+                <div class="col-md-6 d-flex align-items-center" data-aos="fade-up">
+                    <div class="solution-content">
+                        <h3 class=" mb-4">Customer Convenience</h3>
+                        <div class="solution-item">
+                            <i class="fas fa-clock solution-icon"></i>
+                            <h5 class="solution-title">24/7 Availability</h5>
+                            <p class="solution-description">
+                                Ensure round-the-clock availability of rides, allowing customers to book a ride whenever they need it.
+                            </p>
+                        </div>
+                        <div class="solution-item">
+                            <i class="fas fa-star solution-icon"></i>
+                            <h5 class="solution-title">Rating System</h5>
+                            <p class="solution-description">
+                                Implement a rating system that allows customers to provide feedback and rate their ride experience.
+                            </p>
+                        </div>
+                        <div class="solution-item">
+                            <i class="fas fa-comments solution-icon"></i>
+                            <h5 class="solution-title">Customer Support</h5>
+                            <p class="solution-description">
+                                Offer excellent customer support with a dedicated team to address inquiries and resolve issues promptly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+               
+                <div class="col-md-6 d-flex align-items-center" data-aos="fade-up">
+                    <div class="solution-content">
+                        <h3 class=" mb-4">Driver Convenience</h3>
+                        <div class="solution-item">
+                            <i class="fas fa-users solution-icon"></i>
+                            <h5 class="solution-title">Driver Network</h5>
+                            <p class="solution-description">
+                                Build a strong network of reliable and professional drivers to ensure timely and efficient service for passengers.
+                            </p>
+                        </div>
+                        <div class="solution-item">
+                            <i class="fas fa-calendar-check solution-icon"></i>
+                            <h5 class="solution-title">Flexible Scheduling</h5>
+                            <p class="solution-description">
+                                Empower drivers with flexible scheduling options, allowing them to manage their work hours and maximize earnings.
+                            </p>
+                        </div>
+                        <div class="solution-item">
+                            <i class="fas fa-trophy solution-icon"></i>
+                            <h5 class="solution-title">Driver Rewards</h5>
+                            <p class="solution-description">
+                                Implement a rewards program to motivate and incentivize drivers for exceptional service and customer satisfaction.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6 mt-5 remove-mt-5" data-aos="fade-up">
+                    <img src="./img/OLA/collageimg2.png" class="img-fluid mt-5 remove-mt-5"  alt="Driver Convenience">
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-6 mt-5 remove-mt-5" data-aos="fade-up">
+                    <img src="./img/OLA/collageimg3.png" alt="Advanced Technology" class="img-fluid mt-5 remove-mt-5">
+                </div>
+             
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="solution-content">
+                        <h3 class=" mb-4">Advanced Technology</h3>
+                        <div class="solution-item">
+                            <i class="fas fa-cogs solution-icon"></i>
+                            <h5 class="solution-title">Scalability</h5>
+                            <p class="solution-description">
+                                Build a scalable platform that can accommodate the growth of your Ola App Clone and handle increased demand seamlessly.
+                            </p>
+                        </div>
+                        <div class="solution-item">
+                            <i class="fas fa-code solution-icon"></i>
+                            <h5 class="solution-title">Cutting-Edge Development</h5>
+                            <p class="solution-description">
+                                Utilize cutting-edge technologies and development practices to stay ahead of industry trends and deliver an exceptional app.
+                            </p>
+                        </div>
+                        <div class="solution-item">
+                            <i class="fas fa-lock solution-icon"></i>
+                            <h5 class="solution-title">Data Security</h5>
+                            <p class="solution-description">
+                                Implement robust data security measures to safeguard user information and maintain trust in your app.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+               
+                
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="development-process-section py-5">
+        <div class="container">
+            <div class="row">
+               
+               
+
+                <div class="col-md">
+                    <div class="section-title text-center">
+                        <h2 class="display-5 mb-4">Our Development Process 🛠️</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="process-step">
+                        <h3>Step 1: Idea Generation</h3>
+                        <p>We start by brainstorming and generating innovative app ideas that meet your goals.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="process-step">
+                        <h3>Step 2: Design & Prototyping</h3>
+                        <p>Our designers create stunning prototypes to visualize the app's look and feel.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="process-step">
+                        <h3>Step 3: Development & Testing</h3>
+                        <p>We develop the app with state-of-the-art technologies and rigorously test it for quality.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="process-step">
+                        <h3>Step 4: Deployment</h3>
+                        <p>Once satisfied, we deploy the app to your chosen platforms and app stores.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="process-step">
+                        <h3>Step 5: Maintenance & Support</h3>
+                        <p>We provide ongoing maintenance and support to ensure your app runs smoothly.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="process-step">
+                        <h3>Step 6: Optimization</h3>
+                        <p>We continually optimize and enhance your app based on user feedback and analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="company-definition p-5" style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="section-title text-center">
+                        <h2 class="display-5 mb-4">Why Robolaxy?</h2>
+                    </div>
+                    
+                    <div class="section-title-underline text-light"></div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row justify-content-center mt-5 ">
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light ">
+                    <div class="company-feature">
+                        <i class="fa fa-cogs fa-5x text-light"></i>
+                        <h3 class="text-light">Innovative Solutions</h3>
+                        
+                    </div>
+                </div>
+               
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-line-chart fa-5x text-light"></i>
+                        <h3 class="text-light">Driving Growth</h3>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-heart fa-5x  text-light"></i>
+                        <h3 class="text-light">Passion for Technology</h3>
+                       
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-lock fa-5x  text-light"></i>
+                        <h3 class="text-light">Secure Solutions</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-users fa-5x  text-light "></i>
+                        <h3 class="text-light">Client-Centric Focus</h3>
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md">
+                <div class="section-title text-center">
+                    <h2 class="display-5 mb-4">Features of Uber Clone App</h2>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row mt-4">
+            <div class="col-md-4 mt-2">
+                <div class="feature gradient1">
+                    <i class="fas fa-car feature-icon"></i>
+                    <h3 class="feature-title">Easy Booking</h3>
+                    <p class="feature-description">Quickly book a ride with just a few taps on your smartphone.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mt-2">
+                <div class="feature gradient2">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3 class="feature-title">Safe and Reliable</h3>
+                    <p class="feature-description">Your safety is our top priority. Enjoy rides with trusted and screened drivers.</p>
+                </div>
+            </div>
+            <div class="col-md-4  mt-2">
+                <div class="feature gradient3">
+                    <i class="fas fa-map-marker-alt feature-icon"></i>
+                    <h3 class="feature-title">Real-time Tracking</h3>
+                    <p class="feature-description">Track your driver's location in real-time and know exactly when they'll arrive.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 ">
+            <div class="col-md-4 mt-2">
+                <div class="feature gradient1">
+                    <i class="fas fa-clock feature-icon"></i>
+                    <h3 class="feature-title">On-time Service</h3>
+                    <p class="feature-description">We value your time. Expect prompt and on-time service every time.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mt-2">
+                <div class="feature gradient2">
+                    <i class="fas fa-money-bill feature-icon"></i>
+                    <h3 class="feature-title">Transparent Pricing</h3>
+                    <p class="feature-description">Know your fare upfront and avoid surprises. Transparent pricing for all rides.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mt-2">
+                <div class="feature gradient3">
+                    <i class="fas fa-comments feature-icon"></i>
+                    <h3 class="feature-title">24/7 Support</h3>
+                    <p class="feature-description">Have questions or need assistance? Our support team is available around the clock.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="ola-why-work-with-us-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md">
+                    <div class="section-title text-center">
+                        <h2 class="display-5 mb-4">Why Work With Us?</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="work-with-us-card">
+                        <div class="emoji">&#x1F600;</div>
+                        <h3 class="card-title">Experienced Team</h3>
+                        <p class="card-description">
+                            Our team comprises seasoned professionals with a deep understanding of the ride-hailing industry.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="work-with-us-card">
+                        <div class="emoji">&#x1F4BB;</div>
+                        <h3 class="card-title">Custom Solutions</h3>
+                        <p class="card-description">
+                            We offer tailor-made solutions to meet the unique needs of your business.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="work-with-us-card">
+                        <div class="emoji">&#x1F680;</div>
+                        <h3 class="card-title">Cutting-Edge Technology</h3>
+                        <p class="card-description">
+                            We leverage the latest technology trends to deliver top-notch products.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="work-with-us-card">
+                        <div class="emoji">&#x1F44D;</div>
+                        <h3 class="card-title">Excellent Support</h3>
+                        <p class="card-description">
+                            Our dedicated support team ensures that your app runs smoothly.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="work-with-us-card">
+                        <div class="emoji">&#x1F4A1;</div>
+                        <h3 class="card-title">Scalable Solutions</h3>
+                        <p class="card-description">
+                            We provide solutions that can grow with your business.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="work-with-us-card">
+                        <div class="emoji">&#x1F4E2;</div>
+                        <h3 class="card-title">Innovative Solutions</h3>
+                        <p class="card-description">
+                            We're constantly innovating to stay ahead of industry trends and deliver exceptional apps.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+  
+
+
+
+     <div class="app-flow-container">
+        <h2 class="display-5 mb-4 text-center" >User <span class="highlight">Application Flow</span></h2>
+        <div class="step-card mt-5 "  style="background-color: black" >
+            <div class="step-details" >
+                <h2 style="color: white;" >Splash Screen</h2>
+                <p style="color: white;">Our splash screens are crafted to be visually appealing and enhance your app's usability. We're here to ensure you leave a lasting first impression.</p>
+                
+            </div>
+            <img src="./img/OLA/Screenshot 2024-02-17 142732.png" alt="Splash Screen">
+        </div>
+        <div class="step-card" style="background-color:  black" >
+            <img src="./img/OLA/signup.png" alt="Login Screen">
+            <div class="step-details">
+                <h2 style="color: white;">Sign Up</h2>
+                <p style="color: white;">Ready to start your journey? Sign up for Uber and unlock a world of convenient rides at your fingertips.</p>
+            </div>
+        </div>
+        <div class="step-card" style="background-color:  black;"  >
+            <div class="step-details">
+                <h2 style="color: white;">Sign in</h2>
+                <p style="color: white;">Sign in to your Uber account and get back on the road to easy transportation.</p>
+            </div>
+            <img src="./img/OLA/signin.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color: black;" >
+            <img src="./img/OLA/phone-verification.png" alt="Book Service">
+            <div class="step-details">
+                <h2 style="color: white;">Phone Verify</h2>
+                <p style="color: white;">Verify your phone number for a safe and reliable Uber experience.</p>
+               
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  black;">
+            <div class="step-details">
+                <h2 style="color: white;">Find Location</h2>
+                <p style="color: white;">Let's find your destination! Open the map to input your address details for a smooth Uber ride.</p>
+            </div>
+            <img src="./img/OLA/location.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:black" >
+            <img src="./img/OLA/add-address.png" alt="Book Service">
+            <div class="step-details">
+                <h2 style="color: white;">Add Address</h2>
+                <p style="color: white;"> Provide your destination address to start your Uber journey</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  black">
+            <div class="step-details">
+                <h2 style="color: white;">Select and Confirm</h2>
+                <p style="color: white;"> Choose your address from the list, and apply it to set your pickup or drop-off location.</p>
+            </div>
+            <img src="./img/OLA/choose-dropoff  with map.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  black" >
+            <img src="./img/OLA/choose vehicle type.png" alt="Book Service">
+            <div class="step-details">
+                <h2 style="color: white;">Choose Driver</h2>
+                <p style="color: white;">Choose your preferred driver for your Uber ride.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  black">
+            <div class="step-details">
+                <h2 style="color: white;">Enter Promo code</h2>
+                <p style="color: white;"> Enter your promo code to enjoy discounts and special offers on your ride.</p>
+               
+            </div>
+            <img src="./img/OLA/enter-promo-code.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  black" >
+            <img src="./img/OLA/confirm-ride.png" alt="Book Service">
+            <div class="step-details">
+                <h2 style="color: white;">Confirm  Ride</h2>
+                <p style="color: white;">Confirm your ride, and you're all set to hit the road with Uber.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  black">
+            <div class="step-details">
+                <h2 style="color: white;">Booking Successfully</h2>
+                <p style="color: white;">Your Uber ride is confirmed and on its way. Sit back and relax; we've got you covered.</p>
+               
+            </div>
+            <img src="./img/OLA/booking-succesfully.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color: black" >
+            <img src="./img/OLA/explore-menu.png" alt="Book Service">
+            <div class="step-details">
+                <h2 style="color: white;">Explore Your Options</h2>
+                <p style="color: white;"> Access the sidebar to navigate to Home, History, Wallet, and more for a customized Uber experience.</p>
+            </div>
+        </div>
+    
+
+
+        <div class="step-card" style="background-color:  black" >
+            <div class="step-details">
+                <h2 style="color: white;">Review Your History</h2>
+                <p style="color: white;">Check out your past rides and stay on top of your Uber journey history.</p>
+            </div>
+            <img src="./img/OLA/history.png" alt="Book Service">
+
+        </div>
+        <div class="step-card"  style="background-color:  black">
+
+            <img src="./img/OLA/cancel-ride.png" alt="Choose Category">
+            <div class="step-details">
+                <h2 style="color: white;">Cancel Ride</h2>
+                <p style="color: white;">You have the option to cancel the ride if you'd prefer to make other arrangements.</p>
+                       
+               
+            </div>
+        </div>
+        <div class="step-card" style="background-color: black" >
+            <div class="step-details">
+                <h2 style="color: white;">Send Message</h2>
+                <p style="color: white;">You can send a message to your driver directly within the app.</p>
+            </div>
+            <img src="./img/OLA/send message.png" alt="Book Service">
+
+        </div>
+        
+        <div class="step-card" style="background-color:  black" >
+           
+            <img src="./img/OLA/notifications.png" alt="Book Service">
+            <div class="step-details">
+                <h2 style="color: white;">Notifications</h2>
+                <p style="color: white;">Receive notifications to keep you updated on your ride status and important alerts.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  black">
+            <div class="step-details">
+                <h2 style="color: white;">Rating</h2>
+                <p  style="color: white;">Share your experience by leaving a rating for your driver and journey.</p>
+               
+            </div>
+            <img src="./img/OLA/rating.png" alt="Choose Category">
+
+        </div>
+        <div class="step-card" style="background-color: black" >
+
+            <img src="./img/OLA/extratip.png" alt="Book Service">
+            <div class="step-details">
+                <h2 style="color: white;">Extra Tip</h2>
+                <p style="color: white;">If your experience was exceptional, consider leaving an extra tip for your driver.</p>
+            </div>
+        </div>
+
+
+
+        <div class="step-card" style="background-color:  black" >
+            <div class="step-details">
+                <h2 style="color: white;">Get Invite Code</h2>
+                <p style="color: white;">Use your unique invite code to share Uber with friends and both of you can enjoy exclusive rewards.</p>
+            </div>
+            <img src="./img/OLA/invitation code.png" alt="Book Service">
+
+        </div>
+        <div class="step-card"  style="background-color:  black">
+
+            <img src="./img/OLA/invite friends.png" alt="Choose Category">
+            <div class="step-details">
+                <h2 style="color: white;">Invite Friends</h2>
+                <p style="color: white;">Invite your friends to join the Uber community and both of you can enjoy great benefits.</p>
+               
+            </div>
+        </div>
+        <div class="step-card" style="background-color: black" >
+            <div class="step-details">
+                <h2 style="color: white;">Settings</h2>
+                <p style="color: white;">Personalize your Uber experience by adjusting your settings to suit your preferences.</p>
+            </div>
+            <img src="./img/OLA/setting.png" alt="Book Service">
+
+        </div>
+        <div class="step-card" style="background-color: black" >
+           
+            <img src="./img/OLA/My Account/my account.png" alt="Book Service">
+            <div class="step-details">
+                <h2 style="color: white;">My Account</h2>
+                <p style="color: white;">Manage and update your personal information and preferences, all in one place.</p>
+            </div>
+        </div>
+
+        <div class="step-card"  style="background-color:  black">
+            <div class="step-details">
+                <h2 style="color: white;">Edit Profile</h2>
+                <p style="color: white;">Edit your profile details, including your birthday, to ensure your account is up to date and personalized.</p>
+               
+            </div>
+            <img src="./img/OLA/birthday.png" alt="Choose Category">
+
+        </div>
+        <div class="step-card" style="background-color: black" >
+           
+            <img src="./img/OLA/my wallet.png" alt="Book Service">
+            <div class="step-details">
+                <h2 style="color: white;">My Wallet</h2>
+                <p style="color: white;"> Access and manage your payment methods and transaction history in the wallet section.</p>
+            </div>
+        </div>
+        <div class="step-card" style="background-color: black" >
+            <div class="step-details">
+                <h2 style="color: white;">Payment Method</h2>
+                <p style="color: white;">Add, edit, or select your preferred payment method for a seamless Uber experience.</p>
+               
+            </div>
+            <img src="./img/OLA/payment method.png" alt="Book Service">
+
+        </div>
+       
+       
+    </div>
+
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

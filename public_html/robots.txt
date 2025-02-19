@@ -1,0 +1,7 @@
+# robots.txt for https://www.robolaxysoftwaresolutions.com/
+
+User-agent: *
+Disallow:
+
+# Sitemap location
+Sitemap: https://www.robolaxysoftwaresolutions.com/sitemap.xml

@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ROBOLAXY | Software development company</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="Application development, flutter development, web app development, php development, website design">
+    <meta name="description" content="Robolaxy is a software development company providing innovative IT solutions. We specialize in application , flutter, web app , PHP development and creative website design.">
+
+        <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <link href="css/screenshot.css" rel="stylesheet">
+
+
+    <style>
+       
+   
+header {
+    background: url("./img/background.png");
+    text-align: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+}
+
+header .overlay {
+    padding: 5%;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #333;
+    height: 600px;
+}
+
+
+
+h3, p {
+    margin-bottom: 2vw;
+}
+@media (max-width: 768px) {
+
+.animated-button {
+    margin-bottom: 5%;
+}
+
+}
+
+
+
+.animated-button {
+    background-color: #e74c3c; 
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.animated-button:hover {
+    background-color: #ff0000; 
+    animation: pulse 1s infinite; 
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .col-md {
+        order: 0;
+    }
+    .animated-button {
+        font-size: 24px; 
+    }
+   
+}
+
+.udemy-features {
+    padding: 50px 0;
+}
+
+
+
+.udemy-features p {
+   
+    margin-bottom: 20px;
+}
+
+.udemy-features ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.udemy-features li {
+   
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.udemy-features img {
+    max-width: 100%;
+    height: auto;
+}
+
+.what-we-offer-section {
+    padding: 50px 0;
+}
+
+
+
+.offer-image {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.offer-content {
+    padding: 20px;
+}
+
+.offer {
+   
+    align-items: flex-start;
+    margin-bottom: 1.8rem;
+}
+
+.offer-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #0074D9;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.offer-icon i {
+    font-size: 24px;
+    color: #fff;
+}
+
+.offer:hover .offer-icon {
+    transform: scale(1.1);
+}
+
+.offer-title {
+    
+    margin-bottom: 10px;
+}
+
+.offer p {
+   
+    color: white;
+}
+
+
+.features-section {
+    padding: 50px 0;
+}
+
+
+
+.features-section p {
+  
+    text-align: center;
+    margin-bottom: 0;
+    color: white;
+}
+
+.feature-card {
+    background-color: #100621;
+
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow:inset 0px 0px 10px rgba(0, 0, 0);
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+.feature-icon {
+    background-color: #0074D9;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.feature-icon i {
+    font-size: 30px;
+    color: #fff;
+}
+
+
+/* common section-start of products */
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.section-title-underline {
+    width: 50%; 
+    height: 2px; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+
+
+
+
+
+
+
+.elearning-features-data {
+            margin-bottom: 40px;
+        }
+
+        .elearning-features-content {
+            margin-left: 20px;
+        }
+
+        .elearning-features-single {
+            margin-bottom: 20px;
+        }
+
+        .elearning-features-single h4 {
+           
+            margin-bottom: 10px;
+        }
+
+        .elearning-features-single span {
+           
+            color: #555;
+        }
+
+        .elearning-features-single-line1,
+        .elearning-features-single-line2 {
+            height: 2px;
+            background-color: #ccc;
+            margin-top: 10px;
+        }
+
+        .elearning-features-image img {
+            max-width: 100%;
+            height: auto;
+        
+            animation: floatImage 4s infinite ease-in-out; 
+        }
+
+        .elearning-features-single i {
+            font-size: 48px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); 
+            }
+        }
+
+        @keyframes colorfulIcons {
+            0% {
+                color: #f2476a;
+            }
+            25% {
+                color: #5ad65f;
+            }
+            50% {
+                color: #2ca9f6;
+            }
+            75% {
+                color: #b74ecc;
+            }
+            100% {
+                color: #fb654e;
+            }
+        }
+
+        .elearning-features-single i.animated-icon {
+            animation: colorfulIcons 4s infinite;
+        }
+
+        .elearning-features-single span{
+            color: white;
+        }
+        
+.unacademy-solutions {
+   
+    padding: 80px 0;
+}
+
+
+.unacademy-solutions .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+
+.solution-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.solution-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    width: calc(33.33% - 30px);
+}
+
+.solution-item:hover {
+    transform: translateY(-20px);
+}
+
+.solution-icon {
+    font-size: 36px;
+    color: #0e9bf3;
+    margin-bottom: 20px;
+}
+
+.solution-title {
+    
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.solution-description {
+    
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .solution-item {
+        width: 100%;
+    }
+}
+
+/* common section-end */
+
+
+
+    </style>
+    
+
+</head>
+
+<body>
+        <!-- Spinner Start -->
+    <div id="spinner" class="show bg-mydark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+      <!-- Topbar Start -->
+  <div class="container-fluid bg-mydark p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Mohali</small>
+            </div>
+             <div class="h-100 d-inline-flex align-items-center py-3">
+                <small class="far fa-clock text-primary me-2"></small>
+                <small>Mon - Fri : 10:00 AM - 07:00 PM</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+91 78883-59070</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp whatsapp-logo"></i>
+                </a>
+           
+                <a class="btn btn-sm-square bg-white rounded-circle me-1" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in linkedIn-logo" ></i></a>
+                <a class="btn btn-sm-square bg-white rounded-circle me-0" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram insta-logo" ></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+<!-- nav start -->
+<nav>
+    <div class="wrapper">
+      <div class="logo">
+        <a href="index.html">
+            <img src="./img/ROBOLAXY logo.png" alt="robolaxy logo" height="110px" class="mt-3">
+        </a>
+    </div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links mb-0">
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+        <li class="nav-items"><a href="index.html">Home</a></li>
+        <li class="nav-items"><a href="about.html">About</a></li>
+        <li>
+          <a href="#" class="desktop-item nav-items">Services</a>
+          <input type="checkbox" id="showDrop">
+          <label for="showDrop" class="mobile-item nav-items">Services</label>
+          <ul class="drop-menu">
+            <li><a href="./flutter-development.html">Flutter App Development</a></li>
+            <li><a href="./iphone-development.html">IPhone App Development</a></li>
+            <li><a href="./ipad-development.html">IPad App Development</a></li>
+            <li><a href="./mobile-development.html">Mobile App Development</a></li>
+            <li><a href="./website-development.html">Website Development</a></li>
+            <li><a href="./software-development.html">Software Development</a></li>
+            <li><a href="./ios-development.html">IOS Development</a></li>
+            <li><a href="./android-development.html">Android Development</a></li>
+            <li><a href="./php-development.html">PHP Development</a></li>
+            <li><a href="./wordpress-development.html">Wordpress Development</a></li>
+            <li><a href="./nodejs-development.html">Nodejs Development</a></li>
+            <li><a href="./react-development.html">Reactjs Development</a></li>
+            <li><a href="./it-consultant.html">IT Consultant Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="desktop-item nav-items active">Products</a>
+          <input type="checkbox" id="showMega">
+          <label for="showMega" class="mobile-item nav-items">Products</label>
+          <div class="mega-box container-fluid">
+            <div class="content row">
+              <!-- <div class="row">
+                <img src="img.jpg" alt="">
+              </div> -->
+              <!-- food delivery app -->
+              <div class="row col-lg-3 ">
+                <a href="./ZomatoApp-clone.html" class="mega-links"><img  src="./img/products/food-delivery-app.png" alt="food delivery app" style="width: 25px; aspect-ratio: 1/1;" /> Food Delivery App</a>
+              </div>
+
+              <!-- entertainment app -->
+              <div class="row col-lg-3 ">
+                <a href="./JioTv-appClone.html" class="mega-links"><img  src="./img/products/entertainment-app.png" alt="entertainment app" style="width: 25px; aspect-ratio: 1/1;" /> Entertainment App</a>
+              </div>
+              
+              <!-- e-learning app -->
+              <div class="row col-lg-3 ">
+                <a href="./Udemyclone.html" class="mega-links"><img  src="./img/products/elearning-app.png" alt="e-learning app" style="width: 25px; aspect-ratio: 1/1;" /> E-Learning App</a>
+              </div>
+              
+              <!-- salon app -->
+              <div class="row col-lg-3 ">
+                <a href="./five-senses-salon.html" class="mega-links"><img  src="./img/products/salon-app.png" alt="salon app" style="width: 30px; aspect-ratio: 1/1;" /> Salon App</a>
+                
+              </div>
+              
+              <!-- dating app -->
+              <div class="row col-lg-3 ">
+                <a href="./MingleDatingApp-Clone.html" class='mega-links'><img  src="./img/products/dating-app.png" alt="dating app" style="width: 30px; aspect-ratio: 1/1;" /> Dating App</a>
+              
+              </div>
+              
+              <!-- news app -->
+              <div class="row col-lg-3 ">
+                <a href="./AajTak-AppClone.html" class="mega-links"><img  src="./img/products/news-app.png" alt="news app" style="width: 30px; aspect-ratio: 1/1;" /> News App</a>
+                
+              </div>
+              
+              <!-- Health Care App -->
+              <div class="row col-lg-3 ">
+                <a href="./hospital-app-clone.html" class="mega-links"><img  src="./img/products/health-care-app.png" alt="health care app" style="width: 30px; aspect-ratio: 1/1;" /> Health Care App</a>
+              
+              </div>
+              
+              <!-- Online Meeting App -->
+              <div class="row col-lg-3 ">
+                <a href="./google_meet.html" class="mega-links"><img  src="./img/products/online-meeting-app.png" alt="online meeting app" style="width: 30px; aspect-ratio: 1/1;" /> Online Meeting App</a>
+               
+              </div>
+              
+              <!-- Taxi Booking App -->
+              <div class="row col-lg-3 ">
+                <a href="./OLA-appClone.html" class="mega-links"><img  src="./img/products/taxi-booking-app.png" alt="taxi booking app" style="width: 30px; aspect-ratio: 1/1;" /> Taxi Booking App</a>
+                
+              </div>
+              
+              <!-- HandyMan Home Services App -->
+              <div class="row col-lg-3 ">
+                <a href="./PlumberApp-Clone.html" class="mega-links"><img  src="./img/products/handyman-home-service-app.png" alt="handyman home services app" style="width: 30px; aspect-ratio: 1/1;" /> HandyMan Home Services App</a>
+                
+              </div>
+              
+              <!-- Online Shopping App -->
+              <div class="row col-lg-3 ">
+                <a href="./myntra-app-clone.html" class="mega-links"><img  src="./img/products/online-shopping-app.png" alt="online shopping app" style="width: 30px; aspect-ratio: 1/1;" /> Online Shopping App</a>
+                
+              </div>
+              
+              <!-- Social Media App -->
+              <div class="row col-lg-3 ">
+                <a href="./instagram-clone-app.html" class="mega-links"><img  src="./img/products/social-media-app.png" alt="social media app" style="width: 30px; aspect-ratio: 1/1;" /> Social Media App</a>
+              
+              </div>
+              
+              <!-- Online Grocery App -->
+              <div class="row col-lg-3 ">
+                <a href="./big-bazar.html" class="mega-links"><img  src="./img/products/online-grocery-app.png" alt="online grocery app" style="width: 30px; aspect-ratio: 1/1;" /> Online Grocery App</a>
+               
+              </div>
+              
+              <!-- Music Streaming App -->
+              <div class="row col-lg-3 ">
+                <a href="./amazon-prime-music.html" class="mega-links"><img  src="./img/products/music-streaming-app.png" alt="music streaming app" style="width: 30px; aspect-ratio: 1/1;" /> Music Streaming App</a>
+              
+              </div>
+              
+              <!-- Online Payment App -->
+              <div class="row col-lg-3 ">
+                <a href="./PaytmApp-clone.html" class="mega-links"><img  src="./img/products/online-payment-app.png" alt="online payment app" style="width: 30px; aspect-ratio: 1/1;" /> Online Payment App</a>
+               
+              </div>
+              
+              <!-- Educational app -->
+              <div class="row col-lg-3">
+                <a href="./google-classroom.html"  class="mega-links"><img  src="./img/products/educational-app.png" alt="educational app" style="width: 30px; aspect-ratio: 1/1;" /> Educational App</a>
+                
+              </div>
+              
+              <!-- Fantasy App -->
+              <div class="row col-lg-3 ">
+                <a href="./Dream11-AppClone.html" class="mega-links"><img  src="./img/products/fantasy-app.png" alt="fantasy app" style="width: 30px; aspect-ratio: 1/1;" /> Fantasy App</a>
+               
+              </div>
+              
+              <!-- Vehicles On Rent App -->
+              <div class="row col-lg-3 ">
+                <a href="./Free2Move-AppClone.html" class="mega-links"><img  src="./img/products/vehicles-on-rent-app.png" alt="vehicles on rent app" style="width: 30px; aspect-ratio: 1/1;" /> Vehicles On Rent App</a>
+                
+              </div>
+              
+              <!-- Find Your Home App -->
+              <div class="row col-lg-3">
+                <a href="./NoBroker-AppClone.html" class="mega-links"><img  src="./img/products/find-your-home-app.png" alt="find your home app" style="width: 30px; aspect-ratio: 1/1;" /> Find Your Home App</a>
+               
+              </div>
+              
+              <!-- Hotel Booking  App -->
+              <div class="row col-lg-3">
+                <a href="./YatraHotels-AppClone.html" class="mega-links"><img  src="./img/products/hotel-booking-app.png" alt="hotel booking app" style="width: 30px; aspect-ratio: 1/1;" /> Hotel Booking  App</a>
+                
+              </div>
+              
+              <!-- Short Video Community App -->
+              <div class="row col-lg-3 ">
+                <a href="./Moj-appdevelopment.html" class="mega-links"><img  src="./img/products/short-video-community-app.png" alt="short video community" style="width: 30px; aspect-ratio: 1/1;" /> Short Video Community App</a>
+                
+              </div>
+              
+            </div>
+          </div>
+        </li>
+
+  
+        <li class="nav-items"><a href="contact.html" class="contact-btn">Contact</a></li>
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div>
+  </nav>
+<!-- nav ends -->
+
+
+<!-- page header start -->
+    
+    <header>
+        <div class="overlay">
+            <div class="row">
+                <div class="col-md order-2">
+                    <img src="./img/education/collage edu.png" alt="About Us Image" class="img-fluid" style="max-width: 100%;">
+                </div>
+                <div class="col-md order-1 mt-2">
+                    <h1>Udemy Learning App Clone</h1>
+                    <p style="text-align: justify; color: black; "> A place where you can learn lots of different things online. It's simple to use, and you can find courses on many topics. You can watch videos, take quizzes, and talk to other people in the app. If you want to teach something, you can also make your own courses and share them with others.</p> 
+                   <a href="./contact.html">  <button class="animated-button">Contact Us</button> </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Page Header End -->
+
+
+    <!-- Feature Start -->
+    <div class="common-section mt-5">
+        <div class="container ">
+            <div class="row">
+               
+                <div class="col-md-12  languages-logos">
+                    
+                    <div class="languages-logo">
+                        <img src="./img/angular-logo.webp" alt="Angular Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/react-logo.png" alt="React Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/html-logo.png" alt="Vue.js Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/java-logo.png" alt="Java Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/python-icon.webp" alt="Python Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/ruby-logo.png" alt="Ruby Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/swift-logo.png" alt="Swift Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/c-sharp-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/flutter.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/js-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/android-logo.png" alt="C# Logo" class="moving-logo">
+                    </div>
+                    <div class="languages-logo">
+                        <img src="./img/logo-javascript-2.png" alt="C# Logo" class="moving-logo">
+                    </div>
+               
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+   
+
+    <section class="udemy-section mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 order-2" data-aos="zoom-in-up">
+                    <img src="./img/udemYClone.png" class="w-100 zoom" alt="Udemy Learning App Screenshot">
+                </div>
+                <div class="col-md-6 order-1 d-flex align-items-start">
+                    <div class="udemy-content" data-aos="fade-up">
+                        <div class="section-title text-start">
+                            <h2 class="display-5 mb-4">Interactive Learning Communities</h2>
+                        </div>
+                      
+                        <p class="udemy-description" style="text-align: justify; color: white;">The Udemy Learning App Clone is a powerful platform that brings education and skill development to your fingertips. With a vast library of courses spanning diverse subjects, users can explore, learn, and grow on their terms.</p>
+                        <p style="text-align: justify; color: white;">Key features include interactive video lectures, quizzes, assignments, and vibrant learning communities. Instructors from around the world can share their knowledge, and learners can enhance their skills conveniently, anytime and anywhere.</p>
+                        <a href="./contact.html" class="btn btn-primary py-3 px-5">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center">
+                        <h2 class="display-5 mb-4">Explore the Features of Our Udemy App Clone</h2>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="feature-card mt-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="feature-title">Wide Range of Courses</h3>
+                        <p class="feature-description">Access a diverse library of courses on various topics.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="feature-card mt-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="feature-title">Flexible Learning</h3>
+                        <p class="feature-description">Learn at your own place, anywhere, anytime in the early morning or late at night. </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="feature-card mt-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="feature-title">Certification</h3>
+                        <p class="feature-description">Earn certificates upon course completion to showcase your skills.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="feature-card mt-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="feature-title">Expert Instructors</h3>
+                        <p class="feature-description">Gain knowledge from experienced instructors who are leaders in their fields.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="feature-card mt-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Mobile Access</h3>
+                        <p class="feature-description">Access courses on your mobile device for on-the-go learning.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="feature-card mt-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="feature-title">Community Support</h3>
+                        <p class="feature-description">Connect with fellow learners and instructors in a supportive community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="unacademy-solutions">
+        <div class="container">
+            <div class="section-title text-center mb-5" data-aos="fade-up">
+                <h2 class="display-5 mb-4">Our Solutions</h2>
+            </div>
+            <div class="solution-grid">
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-icon">
+                        <i class="fas fa-mobile-alt"></i> <!-- Native App Icon -->
+                    </div>
+                    <h3 class="solution-title">Native App</h3>
+                    <p class="solution-description">Experience seamless learning with our native app designed for optimal performance on your mobile device.</p>
+                </div>
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-icon">
+                        <i class="fas fa-dollar-sign"></i> <!-- Cost-Effective Icon -->
+                    </div>
+                    <h3 class="solution-title">Cost-Effective</h3>
+                    <p class="solution-description">Access high-quality education without breaking the bank. Our cost-effective options make learning affordable.</p>
+                </div>
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-icon">
+                        <i class="fas fa-cogs"></i> <!-- White Label Icon -->
+                    </div>
+                    <h3 class="solution-title">White Label Solutions</h3>
+                    <p class="solution-description">Customize our platform to match your branding. Explore white label solutions for a personalized educational experience.</p>
+                </div>
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-icon">
+                        <i class="fas fa-graduation-cap"></i> <!-- Professional Courses Icon -->
+                    </div>
+                    <h3 class="solution-title">Professional Courses</h3>
+                    <p class="solution-description">Advance your career with our comprehensive professional courses and certifications.</p>
+                </div>
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-icon">
+                        <i class="fas fa-globe"></i> <!-- Global Learning Icon -->
+                    </div>
+                    <h3 class="solution-title">Global Learning</h3>
+                    <p class="solution-description">Access a world of knowledge and expand your horizons with our global learning opportunities.</p>
+                </div>
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-icon">
+                        <i class="fas fa-comments"></i> <!-- Interactive Forums Icon -->
+                    </div>
+                    <h3 class="solution-title">Interactive Forums</h3>
+                    <p class="solution-description">Engage with fellow learners through interactive forums and discussions to enhance your learning experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="company-definition p-5" style="background-image: url('./img/robolaxy.webp'); background-attachment: fixed; background-position: center; background-size: cover; ">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="display-5 mb-4">Why Robolaxy?</h2>
+                    <div class="section-title-underline text-light"></div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row justify-content-center mt-5 ">
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light ">
+                    <div class="company-feature">
+                        <i class="fa fa-cogs fa-5x text-light"></i>
+                        <h3 class="text-light">Innovative Solutions</h3>
+                      
+                    </div>
+                </div>
+               
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-line-chart fa-5x text-light"></i>
+                        <h3 class="text-light">Driving Growth</h3>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-heart fa-5x  text-light"></i>
+                        <h3 class="text-light">Passion for Technology</h3>
+                   
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-lock fa-5x  text-light"></i>
+                        <h3 class="text-light">Secure Solutions</h3>
+                       
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-light">
+                    <div class="company-feature">
+                        <i class="fa fa-users fa-5x  text-light "></i>
+                        <h3 class="text-light">Client-Centric Focus</h3>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="what-we-offer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center">
+                        <h2 class="display-5 mb-4">What We Offer</h2>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="./img/udemy2.webp" alt="Mobile App" class="offer-image ">
+                </div>
+                <div class="col-md-7">
+                    <div class="offer-content">
+                        <div class="offer">
+                            <div class="offer-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="offer-title">Mobile App</h3>
+                            <p>Access our user-friendly mobile app on the go. Explore a wide range of courses and engage with interactive content.</p>
+                        </div>
+                        <div class="offer">
+                            <div class="offer-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h3 class="offer-title">Web App</h3>
+                            <p>Explore our web app for a seamless online experience. Access courses, assignments, and quizzes from any device.</p>
+                        </div>
+                        <div class="offer">
+                            <div class="offer-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h3 class="offer-title">Admin Dashboard</h3>
+                            <p>Efficiently manage your account with our admin dashboard. Monitor progress, payments, and more.</p>
+                        </div>
+                        
+                        <div class="offer">
+                            <div class="offer-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <h3 class="offer-title">Swift Delivery</h3>
+                            <p>Experience quick and reliable delivery services for physical course materials.</p>
+                        </div>
+                        <div class="offer">
+                            <div class="offer-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3 class="offer-title">Customer Support</h3>
+                            <p>Get assistance from our friendly customer support team. We're here to help you succeed.</p>
+                        </div>
+                        <div class="offer">
+                            <div class="offer-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3 class="offer-title">Expert Instructors</h3>
+                            <p>Learn from industry experts who are passionate about teaching. Gain insights from the best.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <div class="container mt-5">
+        <div class="section-title text-center">
+            <h2 class="display-5 mt-5 mb-5">Features of our App</h2>
+        </div>
+        <div class="elearning-features-data">
+            <div class="row flex-wrap-reverse">
+                <div class="col-md-7">
+                    <div class="elearning-features-content">
+                        <div class="elearning-features-single">
+                            <h4 style="color: #f2476a;"><i class="animated-icon fas fa-user-tie"></i> Wallet App For Merchants</h4>
+                            <span>With our integrated Merchant Mobile Wallet Apps, you can provide a better checkout experience for your customers. You can be guaranteed to have a long-term relationship with your clients if you have complex talents like cost-splitting, ACH (Automated Clearing House), and invoice production.</span>
+                            <div class="elearning-features-single-line1"></div>
+                            <div class="elearning-features-single-line2"></div>
+                        </div>
+                        <div class="elearning-features-single">
+                            <h4 style="color: #5ad65f;"><i class="animated-icon fas fa-user-alt"></i> Wallet App For Users</h4>
+                            <span>For faster transactions, customers can create a profile with all of their personal information and bank account details. Payment methods such as your credit card or PayPal account can be saved here.</span>
+                            <div class="elearning-features-single-line1"></div>
+                            <div class="elearning-features-single-line2"></div>
+                        </div>
+                        <div class="elearning-features-single">
+                            <h4 style="color: #2ca9f6;"><i class="animated-icon fas fa-wallet"></i> Cryptocurrency Wallet</h4>
+                            <span>If you're seeking for a fun and secure Cryptocurrency wallet app, contact us right now. We provide bitcoin wallet application development services to make trading, purchasing, and selling bitcoins easier. Simply tell us what you're searching for, and we'll try our best to meet your needs.</span>
+                            <div class="elearning-features-single-line1"></div>
+                            <div class="elearning-features-single-line2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="elearning-features-image mt-5">
+                        <img src="./img/byjus2.png" alt="Feature Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elearning-features-data">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="elearning-features-image mt-5">
+                        <img src="./img/byjus3.png" alt="Feature Image">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="elearning-features-content">
+                        <div class="elearning-features-single">
+                            <h4 style="color: #b74ecc;"><i class="animated-icon fab fa-bluetooth-b"></i> Bluetooth and iBeacon</h4>
+                            <span>The iBeacon system is a bluetooth-based payment system that allows you to send money without having to use your credit card.</span>
+                            <div class="elearning-features-single-line1"></div>
+                            <div class="elearning-features-single-line2"></div>
+                        </div>
+                        <div class="elearning-features-single">
+                            <h4 style="color: #fb654e;"><i class="animated-icon fas fa-walkie-talkie"></i> NFC (Near Field Communication)</h4>
+                            <span>Apple Pay, Google Pay, and Samsung Pay are just a few of the mobile payment systems that employ it. Set up wifi connections and create access tokens and keycards.</span>
+                            <div class="elearning-features-single-line1"></div>
+                            <div class="elearning-features-single-line2"></div>
+                        </div>
+                        <div class="elearning-features-single">
+                            <h4 style="color: #a2654f;"><i class="animated-icon fab fa-amazon-pay"></i> E-learning Apps</h4>
+                            <span>We'll work together to create highly customized E-learning software that meets the needs of your clients.</span>
+                            <div class="elearning-features-single-line1"></div>
+                            <div class="elearning-features-single-line2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+    <section class="udemy-features">
+        <div class="container">
+
+            <h2 class="display-5 mb-4">Why Choose Udemy Learning App Clone?</h2>
+            <div class="row">
+                
+                <div class="col-md-6">
+                   
+                       
+                  
+                   
+                    <p>Discover the reasons why our Udemy Learning App Clone is the perfect choice for your educational needs:</p>
+                    <ul>
+                        <li><strong>Diverse Course Catalog:</strong> Gain access to a vast array of courses covering everything from technology and business to arts and personal development.</li>
+                        <li><strong>Interactive Learning:</strong> Engage with video lectures, quizzes, and assignments that make learning enjoyable and effective.</li>
+                        <li><strong>Expert Instructors:</strong> Learn from industry experts and top educators who are passionate about sharing their knowledge.</li>
+                        <li><strong>Flexible Learning:</strong> Study at your own pace, on any device, and from anywhere in the world.</li>
+                        <li><strong>Global Learning Community:</strong> Connect with fellow learners, collaborate on projects, and expand your professional network.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="./img/udemy3.jpeg" class="w-100 mt-5" alt="Udemy Learning App Features">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+   
+    <div class="app-flow-container">
+        <h2 class="display-5 mb-4 text-center">User <span class="highlight">Application Flow</span></h2>
+        <div class="step-card mt-5 "  style="background-color:  #fdee87;" >
+            <div class="step-details" >
+                <h2>Splash Screen</h2>
+                <p>Learn with ease! Our app makes education simple and fun. Explore interactive courses anytime, anywhere. Start your learning journey</p>
+                
+            </div>
+            <img src="./img/E-learing/screenshot1-removebg-preview (1).png" alt="Splash Screen">
+        </div>
+        <div class="step-card" style="background-color:  coral" >
+            <img src="./img/E-learing/Screenshot2-removebg-preview (1).png" alt="Login Screen">
+            <div class="step-details">
+                <h2>OnBoarding Screen-1</h2>
+                <p>Welcome to Study Drive! Your go-to platform for stress-free learning. Discover exciting lessons, quizzes, and new skills. Let's make learning a breeze together. Ready to dive in? Let's get started on your educational adventure!</p>
+            </div>
+        </div>
+        <div class="step-card" style="background-color:  #fdee87;"  >
+            <div class="step-details">
+                <h2>OnBoarding Screen-2</h2>
+                <p>Discover endless possibilities! Explore courses effortlessly with our user-friendly app. From exciting subjects to practical skills, we've got it all. Let's embark on a learning journey together.</p>
+            </div>
+            <img src="./img/E-learing/Screenshot3-.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color: coral" >
+            <img src="./img/E-learing/Screenshot4-removebg-preview (1).png" alt="Book Service">
+            <div class="step-details">
+                <h2>OnBoarding Screen-3</h2>
+                <p>With our app, education fits your schedule. Anytime, anywhere, unlock knowledge at your fingertips. Dive into lessons, quizzes, and more.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #fdee87;">
+            <div class="step-details">
+                <h2>Login</h2>
+                <p>Login easily with your email or phone number. Your learning adventure awaits. Enter your password to unlock a world of knowledge.</p>
+            </div>
+            <img src="./img/E-learing/Screenshot5-removebg-preview (1).png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:coral" >
+            <img src="./img/E-learing/Screenshot6-removebg-preview (1).png" alt="Book Service">
+            <div class="step-details">
+                <h2>Sign up</h2>
+                <p>Sign up effortlessly by entering your email or phone number. Create a password, and you're all set to explore a world of learning.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #fdee87;">
+            <div class="step-details">
+                <h2>Forget password</h2>
+                <p>No worries! We've got you covered. Enter your email or phone number, and we'll guide you through resetting your password. Get back on track with your learning journey!</p>
+            </div>
+            <img src="./img/E-learing/Screenshot7-removebg-preview (1).png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  coral" >
+            <img src="./img/E-learing/Screenshot8-removebg-preview (1).png" alt="Book Service">
+            <div class="step-details">
+                <h2>Verification</h2>
+                <p> Almost there! Check your email or phone for a verification code. Enter the code here to secure your account. Your learning adventure is just a step away. Let's make sure it's you!</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #fdee87;">
+            <div class="step-details">
+                <h2>New Password</h2>
+                <p> Enter your new password below to enhance your account security. Choose something strong yet memorable. Ready to continue your learning journey with a renewed password? Let's get started!</p>
+            </div>
+            <img src="./img/E-learing/Screenshot9-removebg-preview (1).png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  coral"; >
+            <img src="./img/E-learing/Screenshot10-removebg-preview.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Password Updated</h2>
+                <p> Your password has been updated securely. You're all set to explore and learn. Continue your educational journey with confidence. If you have any questions, we're here to help.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #fdee87;">
+            <div class="step-details">
+                <h2> Select interests</h2>
+                <p>Select your interests: design, photography, personal development, and more. Customize your learning path for a personalized journey.</p>
+            </div>
+            <img src="./img/E-learing/Screenshot11.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  coral" >
+            <img src="./img/E-learing/Screenshot12-preview.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Home</h2>
+                <p>Explore personalized courses based on your interests. Engaging lessons, quizzes, and a world of knowledge await you. Start your educational adventure right here on the home screen.</p>
+            </div>
+        </div>
+
+        
+        <div class="step-card"  style="background-color:  #fdee87;">
+            <div class="step-details">
+                <h2>Featured Courses</h2>
+                <p>Discover our featured courses! From design to photography and personal development, explore top-notch courses handpicked for an enriching learning experience. Elevate your skills with our standout featured courses.</p>
+            </div>
+            <img src="./img/E-learing/featured_courses-removebg-preview.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  coral" >
+            <img src="./img/E-learing/course_detail-removebg-preview.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Course Details</h2>
+                <p>Explore chapters like Uncover Potential, Goal Setting, Mindfulness, Resilience, Communication, and Time Management. Elevate your life with our Personal Development journey – where each chapter unlocks a better you.</p>
+            </div>
+        </div>
+
+        <div class="step-card"  style="background-color:  #fdee87;">
+            <div class="step-details">
+                <h2> Select Payment Method</h2>
+                <p>Choose your preferred payment method to access exclusive courses. We offer secure transactions through various options. Elevate your learning experience effortlessly.</p>
+            </div>
+            <img src="./img/E-learing/payment_method-removebg-preview.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  coral" >
+            <img src="./img/E-learing/card_details-removebg-preview.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Enter Payment Details</h2>
+                <p>Enter your card details below for seamless transactions. We prioritize your security, and all information is encrypted. Let's ensure a smooth journey as you invest in your education.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #fdee87;">
+            <div class="step-details">
+                <h2>Payment done successfully</h2>
+                <p>Your payment is successful. 🎉 Welcome to the world of premium content. Dive into exclusive courses and elevate your learning experience.</p>
+            </div>
+            <img src="./img/E-learing/payment-removebg-preview.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  coral" >
+            <img src="./img/E-learing/mentor_profile-removebg-preview.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Explore Mentor Profile</h2>
+                <p>Explore your mentor's profile to see their passion for subject , experience, and expertise in specializations. Check out reviews and details to ensure a personalized learning journey. Let's make education impactful together!</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #fdee87;">
+            <div class="step-details">
+                <h2>My Courses </h2>
+                <p>Dive into your personalized learning journey. Track progress, revisit completed lessons, and explore upcoming modules. Your educational adventure, tailored just for you, starts here.</p>
+            </div>
+            <img src="./img/E-learing/my_courses-removebg-preview.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:  coral" >
+            <img src="./img/E-learing/saved_courses-removebg-preview.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Saved Courses</h2>
+                <p>Check out your favorite courses in one place! Your Saved Courses page has all your chosen lessons. It's like a personal library for your learning adventure.</p>
+            </div>
+        </div>
+        <div class="step-card"  style="background-color:  #fdee87;">
+            <div class="step-details">
+                <h2>Chat</h2>
+                <p>Explore messaging features available for seamless communication. Stay in touch with mentors, ask questions, and engage with fellow learners. Enhance your learning experience with accessible and interactive messaging features.</p>
+            </div>
+            <img src="./img/E-learing/chat-removebg-preview.png" alt="Choose Category">
+        </div>
+        <div class="step-card" style="background-color:coral" >
+            <img src="./img/E-learing/video call.png" alt="Book Service">
+            <div class="step-details">
+                <h2>Video Call</h2>
+                <p>Experience face-to-face learning! Utilize our video call features for personalized sessions with mentors. Connect, ask questions, and receive guidance in real-time. Elevate your learning journey with interactive and engaging video calls. Ready to enhance your education?</p>
+            </div>
+        </div>
+       
+       
+    </div>
+  
+   
+    
+    
+ 
+    <!-- Footer Start -->
+    <div class="container-fluid  bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s   " >
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mohali</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 78883-59070</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 81461-13162</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>robolaxy@gmail.com</p>
+                                     <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social " href="https://api.whatsapp.com/send?phone=917888359070"><i class="fab fa-whatsapp"></i></a>
+                  
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/robolaxy/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://in.linkedin.com/company/robolaxy"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Services</h4>
+                    <a class="btn btn-link" href="./flutter-development.html">Flutter Development</a>
+                    <a class="btn btn-link" href="./android-development.html">Android  Development</a>
+                    <a class="btn btn-link" href="./ios-development.html">IOS Development</a>
+                    <a class="btn btn-link" href="./website-development.html">Website Development</a>
+                    <a class="btn btn-link" href="./software-development.html">Software Development</a>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home Page</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                   
+                </div>
+               
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 offset-md-4 text-center text-md-start mb-3 mb-md-0 ">
+                        &copy; <a class="border-bottom" href="./index.html">ROBOLAXY</a>, All Right Reserved.
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary bg-mycolor btn-lg-square rounded-circle back-to-top border-0"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

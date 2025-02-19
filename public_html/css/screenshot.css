@@ -1,0 +1,63 @@
+
+.app-flow-container {
+    /* background-color: #fff; */
+    padding: 20px;
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+
+
+.highlight {
+    color: #2896eb; 
+    
+}
+
+.step-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.2s ease-in-out;
+}
+
+.step-card:hover {
+    transform: scale(1.05);
+}
+
+.step-card img {
+    max-width: 300px;
+    height: auto;
+}
+
+.step-details {
+    flex: 1;
+    text-align: left;
+    margin: 0 20px;
+}
+
+
+
+.step-details p {
+    font-size: 16px;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .step-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .step-card img {
+        max-width: 100%;
+    }
+
+    .step-details {
+        margin-top: 10px;
+    }
+}
